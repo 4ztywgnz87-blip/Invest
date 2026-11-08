@@ -1,0 +1,2516 @@
+{
+ "meta": {
+  "ticker": "SOF.BR",
+  "naam": "Sofina",
+  "type": "aandeel",
+  "datum": "2026-11-08",
+  "beurs": "Euronext Brussel",
+  "isin": "BE0003717312",
+  "valuta": "EUR",
+  "sector": "Investeringsholding (durf- en groeikapitaal)",
+  "defensief": false
+ },
+ "advies": {
+  "oordeel": "Afwachten",
+  "score": 4,
+  "reden": "Regel **R1 is geraakt**: de familie Boël controleert via drie vennootschappen samen **54,6%**. De rest is degelijk maar niet uitzonderlijk: de korting op de intrinsieke waarde (−18%) is kleiner dan de voorbije jaren en de waarde is moeilijk te controleren (98% niet-beursgenoteerd).",
+  "koers_nu": 267.6,
+  "koers_datum": "06-11-2026",
+  "koopzone": {
+   "van": 220,
+   "tot": 240
+  },
+  "koersdoel": 290,
+  "koersdoel_uitleg": "normaal scenario, eind 2028: intrinsieke waarde ±€360 met 20% korting",
+  "stop_loss": {
+   "waarde": 214.1,
+   "uitleg": "−20% t.o.v. koers nu (€267,6); technische steun €238,8 → technische stop €234"
+  },
+  "intrinsieke_waarde": 326,
+  "scenarios": [
+   {
+    "naam": "Slecht",
+    "koers": 180,
+    "kans": "25%",
+    "uitleg": "Correctie bij AI- en techbedrijven, dollar −10%, afwaardering ByteDance of Cognita: intrinsieke waarde zakt naar ±€280 en de korting loopt op tot 35% (zoals in 2022–2023)."
+   },
+   {
+    "naam": "Normaal",
+    "koers": 290,
+    "kans": "50%",
+    "uitleg": "Intrinsieke waarde groeit ±6%/jaar naar ±€360 (onder het 10-jaarsgemiddelde van 8,4%), korting 20% (CEO: historisch 15–20%)."
+   },
+   {
+    "naam": "Goed",
+    "koers": 350,
+    "kans": "25%",
+    "uitleg": "Beursgangen (Anthropic, ByteDance) en verkopen boven de boekwaarde: intrinsieke waarde ±€400, korting krimpt naar 12%."
+   }
+  ]
+ },
+ "aandeelhouders": {
+  "verdeling": [
+   {
+    "naam": "Société de Participations Industrielles SA (consortium Boël)",
+    "pct": 24.78,
+    "stemrecht_pct": 25.77,
+    "structuur": "lid van het referentieconsortium (sinds 2007)"
+   },
+   {
+    "naam": "Union Financière Boël SA (consortium Boël)",
+    "pct": 22.41,
+    "stemrecht_pct": 23.31,
+    "structuur": "lid van het referentieconsortium; familieholding Boël; zit zelf in de raad van bestuur"
+   },
+   {
+    "naam": "Mobilière et Immobilière du Centre SA (consortium Boël)",
+    "pct": 7.4,
+    "stemrecht_pct": 7.7,
+    "structuur": "lid van het referentieconsortium (sinds 2013)"
+   },
+   {
+    "naam": "Eigen aandelen Sofina",
+    "pct": 3.85,
+    "stemrecht_pct": 0,
+    "eigen_aandelen": true
+   },
+   {
+    "naam": "Vrij verhandelbaar (geen andere partij boven 3%)",
+    "pct": 41.56,
+    "vrij_verhandelbaar": true
+   }
+  ],
+  "bronnen": [
+   9,
+   3,
+   10
+  ],
+  "uitleg": "De drie vennootschappen vormen samen de 'referentieaandeelhouder', een [[consortium|groep aandeelhouders die wettelijk als één blok handelt]] rond de familie Boël, met **54,6% van alle aandelen** en (berekend, zonder eigen aandelen) **±56,8% van de stemmen**. Eén aandeel = één stem, geen dubbel stemrecht. Op 5-10-2026 kocht Union Financière Boël 681.752 aandelen van de twee andere leden (à €250,51): het blok blijft even groot, maar UFB wordt de grootste (berekend ±24,3%). De tabel toont de toestand van de melding van 19-08-2026."
+ },
+ "rode_vlaggen": [
+  {
+   "ernst": "nogo",
+   "regel": "R1",
+   "titel": "Familie Boël controleert 54,6% via een consortium",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Union Financière Boël (22,41%), Société de Participations Industrielles (24,78%) en Mobilière et Immobilière du Centre (7,40%) vormen samen één blok met **20.034.661 aandelen = 54,60%**. Sofina zelf heeft nog 3,85% eigen aandelen; samen 58,45%.",
+     "bronnen": [
+      9,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Het consortium bestaat sinds 2007; de CEO (Harold Boël) en tot mei 2026 Nicolas Boël zitten in de raad van bestuur; Union Financière Boël werd in 2026 voorgedragen als bestuurder. De raad vond een [[relationship agreement|schriftelijke afspraak tussen bedrijf en hoofdaandeelhouder over hoe zij met elkaar omgaan]] 'niet nodig'.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Kleine aandeelhouders kunnen niets afdwingen: de familie beslist over bestuur, dividend, kapitaalverhogingen en een eventueel bod. Tot nu toe gedroeg het consortium zich correct (zelfde voorwaarden bij de claimemissie, geen opvallende transacties met verbonden partijen) — maar dat is een kwestie van vertrouwen, geen garantie.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "ernst": "middel",
+   "regel": "R6",
+   "titel": "Kapitaalverhoging onder de intrinsieke waarde (okt 2025)",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Op 7-10-2025 gaf Sofina 2.446.428 nieuwe aandelen uit à **€223** (totaal €545,6 mln) via een [[claimemissie|kapitaalverhoging waarbij bestaande aandeelhouders voorrang krijgen om bij te kopen]], onder zowel de beurskoers als de intrinsieke waarde. Sofina noemt zelf de 'mechanische verwatering' van de intrinsieke waarde per aandeel. Reden: extra slagkracht om 'doorheen cycli' te investeren.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Wie niet meedeed en zijn rechten niet verkocht, verloor ±2% intrinsieke waarde per aandeel: (33,05 mln × €305 + 2,45 mln × €223) / 35,5 mln ≈ €299 i.p.v. €305.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R5",
+   "titel": "Insiders: kleine aankopen bestuurders, CEO verkoopt optie-aandelen",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Bestuurders kochten in 2026 kleine posten bij lage koersen: voorzitter Charlotte Strömberg 450 aandelen à €210,60 (31-3), Leslie Teo 100 à €209 (31-3), Charles Peugeot (en zijn vennootschap) samen 479 aandelen tussen €222 en €252 (juni–sept). CEO Harold Boël tekende in op de claimemissie voor 15.923 aandelen (€3,55 mln). In 2026 oefende hij [[opties|recht om aandelen te kopen aan een vooraf vastgelegde prijs]] uit à €128,12 en verkocht hij telkens dezelfde aantallen (2.000 à €246,60 in jan, 6.500 à €238,77 in juli, 5.000 à €243,20 en 4.500 à €261,36 in okt).",
+     "bronnen": [
+      11
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "De verkopen van de CEO horen bij zijn verloning (opties verzilveren) en zijn klein t.o.v. zijn inschrijving in 2025. Geen alarmsignaal.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R4",
+   "titel": "Geen rechtszaken tegen Sofina gevonden",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "In de jaarverslagen 2021–2025, het halfjaarverslag 2026 en nieuws (NL/FR/EN) vond ik geen lopende of afgesloten rechtszaak tegen Sofina zelf. Wel lopen er groepsvorderingen tegen TikTok/ByteDance (privacy, verslaving bij jongeren) — dat raakt Sofina enkel onrechtstreeks via de waarde van ByteDance.",
+     "bronnen": []
+    }
+   ]
+  }
+ ],
+ "samenvatting": [
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "Sofina is een Brusselse investeringsholding van **€11,5 mld** [[NAV|intrinsieke waarde: wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf]]: €326,48 per aandeel op 30-6-2026. De beurskoers (€267,6) ligt **18% lager** — dat is de [[korting|hoeveel lager de beurskoers staat dan de intrinsieke waarde per aandeel]].",
+   "bronnen": [
+    1,
+    12
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "De familie Boël bezit via drie vennootschappen **54,6%** → **regel R1 geraakt (NO-GO)**.",
+   "bronnen": [
+    9
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "De portefeuille is voor **92% niet-beursgenoteerd**: half rechtstreekse belangen (ByteDance, Cognita, Nuxe, Drylock, Vinted …), half via ±90 durfkapitaalfondsen (Sequoia, Lightspeed …) met o.a. SpaceX, Stripe, Anthropic en OpenAI. 65% van de waarde zit in dollar.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "berekening",
+   "tekst": "Resultaten wisselvallig: +29% (2021), −16,5% (2022), +15% (2024), −1% (2025), +8% eerste helft 2026. Over 10 jaar gemiddeld **8,4%/jaar**, over de laatste 4 jaar −1,4%/jaar en 9,9% per jaar slechter dan de wereldindex.",
+   "bronnen": []
+  },
+  {
+   "type": "tekst",
+   "label": "mening",
+   "tekst": "Positief: bijna alle winst wordt **geherinvesteerd** (dividend slechts 1,4%), lage schuld (1,9% van de portefeuille), sterke fondsen en een langetermijnfamilie. Negatief: R1, de waarde is grotendeels een schatting, hoge blootstelling aan dure AI-bedrijven en de korting is al kleiner dan in 2022–2025.",
+   "bronnen": []
+  },
+  {
+   "type": "kader",
+   "stijl": "mening",
+   "tekst": "**Afwachten, score 4/10.** Door R1 normaal niet kopen. Wie toch wil: pas bij een korting van ±28% of meer (koers €220–240).",
+   "titel": "Oordeel"
+  }
+ ],
+ "verkoopsignalen": [
+  "Korting op de intrinsieke waarde zakt onder **10%** (of er ontstaat een premie zoals in 2021): winst nemen.",
+  "Twee halfjaren na elkaar **negatieve waardecreatie zonder valuta-effect** (Sofina publiceert dit in elk halfjaarverslag).",
+  "[[LTV|schuld gedeeld door de waarde van de portefeuille]] boven **10%** (doel van Sofina is 5–10%) of een nieuwe kapitaalverhoging onder de intrinsieke waarde.",
+  "ByteDance groeit boven **10%** van de portefeuille of wordt fors afgewaardeerd.",
+  "Koers sluit onder **€214** (stop-loss −20%)."
+ ],
+ "onvoldoende_info": [
+  {
+   "onderwerp": "Waarde per deelneming (ByteDance, Anthropic, OpenAI …)",
+   "wat_wel": "Sofina publiceert enkel rangordes en drempels (ByteDance >5% en <10%; top 10 fondsenbelangen samen ±10%), geen bedrag per bedrijf.",
+   "zoekrondes": [
+    "ronde 1: jaarverslag 2025 + halfjaarverslag 2026 (notes 2.2–2.4, lijst deelnemingen p.115–117)",
+    "ronde 2: transcript analistencall H1 2026 (CEO: ByteDance 'hoger dan 5%, niet hoger dan 10%')",
+    "ronde 3: nieuws NL/FR/EN (Bolero, Test-Aankoop, De Tijd) — enkel schattingen van derden, geen officieel cijfer"
+   ]
+  },
+  {
+   "onderwerp": "Wie controleert Société de Participations Industrielles en Mobilière et Immobilière du Centre",
+   "wat_wel": "Sofina noemt ze enkel als consortiumleden; Union Financière Boël is de familieholding Boël. Waarom UFB op 5-10-2026 aandelen kocht van de andere twee, wordt niet uitgelegd.",
+   "zoekrondes": [
+    "ronde 1: jaarverslagen 2022–2025 (corporate governance-verklaring)",
+    "ronde 2: website Sofina (aandeelhoudersstructuur) en FSMA-meldingen",
+    "ronde 3: nieuwszoektocht FR/NL ('Société de Participations Industrielles Sofina', 'Mobilière et Immobilière du Centre') — geen bruikbare bron"
+   ]
+  }
+ ],
+ "secties": [
+  {
+   "id": "bestuur",
+   "titel": "Bestuur & aandeelhouders",
+   "kort": "R1 geraakt (familie Boël 54,6%); verloning redelijk; geen vertrekpremies",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** degelijk bestuurd familiebedrijf met een meerderheid onafhankelijke bestuurders, maar de familie Boël heeft het laatste woord (54,6%). Geen tekenen van zelfverrijking.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Aandeelhouders (R1)"
+    },
+    {
+     "type": "tabel",
+     "titel": "Referentieaandeelhouder (consortium Boël)",
+     "kolommen": [
+      "Aandeelhouder",
+      "Aandelen",
+      "% (19-08-2026)",
+      "% na herschikking 05-10-2026*"
+     ],
+     "rijen": [
+      [
+       "Union Financière Boël SA",
+       "8.225.068",
+       "22,41%",
+       "±24,27%"
+      ],
+      [
+       "Société de Participations Industrielles SA",
+       "9.092.485",
+       "24,78%",
+       "±23,47%"
+      ],
+      [
+       "Mobilière et Immobilière du Centre SA",
+       "2.717.108",
+       "7,40%",
+       "±6,86%"
+      ],
+      [
+       "**Totaal consortium**",
+       "20.034.661",
+       "54,60%",
+       "54,60%"
+      ],
+      [
+       "Eigen aandelen Sofina",
+       "1.412.381",
+       "3,85%",
+       "—"
+      ]
+     ],
+     "bronnen": [
+      9,
+      10
+     ],
+     "noot": "*Berekend uit de FSMA-meldingen van 5-10-2026 (UFB kocht 480.653 aandelen van SPI en 201.099 van MIC à €250,51), in de veronderstelling dat er niets anders wijzigde. Totaal: 36.696.428 aandelen."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Historiek consortium: 54,60% (2022 en 2023), 54,93% (2024, Union Financière Boël kocht bij), 54,60% na de claimemissie van 2025 (het consortium schreef in voor 1.220.965 nieuwe aandelen, iets minder dan zijn deel).",
+     "bronnen": [
+      7,
+      6,
+      5,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Geen andere aandeelhouder meldde in 2025 een belang boven 3%. Vrij verhandelbaar eind 2025: 42,04%.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Raad van bestuur"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "13 bestuurders, waarvan 8 onafhankelijk; voorzitter en CEO zijn verschillende personen. Vanaf de AVA van 13-5-2026 is Charlotte Strömberg voorzitter (opvolger van Dominique Lancksweert na 29 jaar). Harold Boël is CEO sinds 2004 (mandaat tot 2028).",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Verloning (R2/R3)"
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "CEO-verloning 2025",
+       "waarde": "€2,03 mln",
+       "trend": "gelijk",
+       "label": "feit",
+       "toelichting": "2024: €1,98 mln; 70% variabel",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "naam": "5 andere leiders samen",
+       "waarde": "€8,1 mln",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "2024: €7,6 mln",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "naam": "Bestuurders",
+       "waarde": "3% van netto dividend",
+       "trend": "gelijk",
+       "label": "feit",
+       "toelichting": "vast sinds 2011; voorzitter +€150.000",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "naam": "Loonkloof",
+       "waarde": "1:20",
+       "trend": "gelijk",
+       "label": "feit",
+       "toelichting": "hoogste vs laagste loon",
+       "bronnen": [
+        3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Het langetermijnplan 2022–2025 betaalde **niets** uit omdat Sofina slechter deed dan de wereldindex (MSCI ACWI). Er zijn **geen vertrek- of ontslagvergoedingen** voorzien. Er is wel geen [[clawback|recht om uitbetaalde bonussen terug te vorderen]] — een afwijking van de Belgische code.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Bij de bonustest werd de intrinsieke waarde per aandeel **gecorrigeerd** voor de verwatering door de claimemissie, zodat de kapitaalverhoging de bonussen niet drukte.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Begrijpelijk, maar management-vriendelijk: de verwatering die de kleine aandeelhouder wel voelde, telt niet mee voor de bonus.",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Transacties met verbonden partijen: enkel leningen en deposito's met eigen dochters; 'belangrijke transacties buiten marktvoorwaarden: nihil'.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Rechtszaken (R4), insiders (R5), kapitaalacties (R6)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Zie de rode vlaggen bovenaan. Bijkomend: Sofina kocht eigen aandelen in voor de optieplannen (2025: 189.068 gekocht, 236.640 afgestaan; in 2026 twee programma's, het tweede tot €23 mln). Machtiging tot inkoop van max. 20% loopt tot mei 2028.",
+     "bronnen": [
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cijfers",
+   "titel": "Cijfers",
+   "kort": "Intrinsieke waarde €326/aandeel, in 5 jaar amper gestegen; schuld laag",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** bij een holding draait alles om de [[NAV|intrinsieke waarde: wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf]] per aandeel. Die stond eind 2021 op €337,86 en midden 2026 op €326,48 — na een diepe val in 2022 grotendeels hersteld, maar netto nog niet hoger.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Intrinsieke waarde & koers"
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Intrinsieke waarde per aandeel vs. koers (€)",
+     "eenheid": "€",
+     "x": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "H1 2026"
+     ],
+     "reeksen": [
+      {
+       "naam": "Intrinsieke waarde/aandeel",
+       "waarden": [
+        337.86,
+        279.41,
+        273.62,
+        311.77,
+        305.77,
+        326.48
+       ]
+      },
+      {
+       "naam": "Beurskoers (jaareinde)",
+       "waarden": [
+        432.0,
+        205.6,
+        225.4,
+        218.4,
+        247.0,
+        222.6
+       ]
+      }
+     ],
+     "bronnen": [
+      7,
+      6,
+      5,
+      3,
+      1,
+      12
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Korting/premie: 2021 **+28%** (premie), 2022 −26%, 2023 −18%, 2024 −30%, 2025 −19%, 30-6-2026 −32%, nu (koers €267,6) **−18%**.",
+     "bronnen": []
+    },
+    {
+     "type": "tabel",
+     "titel": "Kerncijfers (mln €, 'look-through')",
+     "kolommen": [
+      "",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "H1 2026"
+     ],
+     "rijen": [
+      [
+       "Intrinsieke waarde",
+       "11.354",
+       "9.313",
+       "9.083",
+       "10.305",
+       "10.843",
+       "11.534"
+      ],
+      [
+       "Nettoresultaat",
+       "2.593",
+       "−1.872",
+       "−104",
+       "1.360",
+       "113",
+       "857"
+      ],
+      [
+       "Rendement (incl. dividend)",
+       "29,0%",
+       "−16,5%",
+       "−0,9%",
+       "15,2%",
+       "−0,8%",
+       "—"
+      ],
+      [
+       "Investeringen",
+       "1.284",
+       "1.013",
+       "517",
+       "951",
+       "1.139",
+       "733"
+      ],
+      [
+       "Verkopen",
+       "1.161",
+       "1.174",
+       "590",
+       "1.211",
+       "845",
+       "237"
+      ],
+      [
+       "Bruto kas",
+       "1.049",
+       "929",
+       "893",
+       "1.031",
+       "1.723",
+       "1.080"
+      ],
+      [
+       "Financiële schulden",
+       "730",
+       "696",
+       "696",
+       "697",
+       "1.293",
+       "1.299"
+      ],
+      [
+       "Netto kas (+) / schuld (−)",
+       "+319",
+       "+233",
+       "+197",
+       "+334",
+       "+430",
+       "−219"
+      ]
+     ],
+     "bronnen": [
+      8,
+      7,
+      6,
+      5,
+      3,
+      1
+     ],
+     "noot": "'Look-through' = alle deelnemingen meegerekend, ook die via dochters. H1 2026 = eerste halfjaar (resultaat over 6 maanden; balans op 30-6)."
+    },
+    {
+     "type": "kop",
+     "tekst": "Waar komt het rendement vandaan?"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "2025: waardecreatie +1,9%, maar **+10,1% zonder valuta-effect**; de zwakkere dollar kostte €925 mln. Eerste helft 2026: +8,1% (zonder valuta +6,0%); de fondsen deden +16,1%, de rechtstreekse belangen maar +0,9%.",
+     "bronnen": [
+      4,
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Over 10 jaar gemiddeld 8,4% per jaar; over 4 jaar −1,4% per jaar, 9,9% per jaar slechter dan de wereldindex MSCI ACWI in euro.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Kosten"
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Bedrijfskosten 2025 €69,5 mln (2024: €63,5 mln) ≈ **0,66%** van de gemiddelde intrinsieke waarde. Daarbovenop betalen de fondsen beheerkosten en [[carried interest|winstdeel voor de fondsbeheerder, meestal 20% van de winst]]; die zitten al verrekend in de waarde en zijn niet apart zichtbaar.",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Kosten 2025 en 2024 uit de resultatenrekening ('other expenses').",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Schulden"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Twee obligaties: €700 mln aan 1,000% (vervalt 2028) en €600 mln aan 3,707% (vervalt 2033). Niet-gebruikte kredietlijnen €1.375 mln. Netto schuld €219 mln = **LTV 1,9%**. Nog niet opgevraagde verplichtingen aan fondsen: **€1.456 mln**.",
+     "bronnen": [
+      2,
+      1,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Sofina mikt op een netto schuld van 5–10% van de portefeuille; kredietrating A− (S&P).",
+     "bronnen": [
+      13
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Aandeelhoudersvergoeding"
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Dividend over 2025",
+       "waarde": "€3,66 bruto",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "+4,6%; stijgt elk jaar",
+       "bronnen": [
+        4
+       ]
+      },
+      {
+       "naam": "Dividendrendement",
+       "waarde": "1,4%",
+       "trend": "gelijk",
+       "label": "berekening",
+       "toelichting": "€3,66 / €267,6"
+      },
+      {
+       "naam": "Uitkering t.o.v. waarde",
+       "waarde": "±1,1%",
+       "trend": "gelijk",
+       "label": "berekening",
+       "toelichting": "±€130 mln dividend / €11,5 mld"
+      },
+      {
+       "naam": "Aandelen uitstaand",
+       "waarde": "35,3 mln",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "+7,1% nieuwe aandelen in 2025",
+       "bronnen": [
+        1,
+        3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Netto na 30% [[roerende voorheffing|Belgische belasting op dividenden, wordt automatisch ingehouden]]: €2,56 per aandeel.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "investeringen",
+   "titel": "Waarin investeren ze?",
+   "kort": "±99% van de waarde wordt geherinvesteerd: fondsen, groeibedrijven, familiebedrijven",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** Sofina keert weinig uit en herinvesteert vrijwel alles — precies wat je profiel positief vindt. De vraag is vooral of de nieuwe investeringen goed geprijsd zijn.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Drie investeringsstijlen"
+    },
+    {
+     "type": "tabel",
+     "titel": "Portefeuille op 30-6-2026 (mln €)",
+     "kolommen": [
+      "Stijl",
+      "Wat",
+      "Waarde",
+      "Aandeel"
+     ],
+     "rijen": [
+      [
+       "Langetermijn-minderheidsbelangen",
+       "€100–300 mln in familiebedrijven (Nuxe, Drylock, Cognita, Proeduca …)",
+       "2.901",
+       "25%"
+      ],
+      [
+       "Sofina Growth",
+       "€20–100 mln in groeibedrijven (ByteDance, Vinted, Cleo AI …)",
+       "2.961",
+       "25%"
+      ],
+      [
+       "Sofina Private Funds",
+       "€5–50 mln in >90 fondsen (Sequoia, Lightspeed, a16z …)",
+       "5.969",
+       "50%"
+      ],
+      [
+       "**Totaal**",
+       "",
+       "11.831",
+       "100%"
+      ]
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Regio: Noord-Amerika 42%, Europa 35%, Azië 23%. Beursgenoteerd 8%, niet-genoteerd 92%.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Investeringen 2025 en 2026"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "2025: €1.139 mln geïnvesteerd en €845 mln verkocht; nieuw o.a. Proeduca, Stream, Scalable Capital, PostHog, Qargo. Eerste helft 2026: €733 mln geïnvesteerd en €237 mln verkocht; nieuw o.a. Cerealis, XBOW, Eye Security, Supabase. Verkopen: SES, Honasa (Mamaearth), deel van Lenskart, Salto (na 30-6).",
+     "bronnen": [
+      4,
+      1,
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Nieuwe verbintenissen aan fondsen in de eerste helft van 2026: €475 mln.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Volgens de CEO wordt het geld uit de kapitaalverhoging en de obligatie 'ongeveer zoals gepland' over ±3 jaar ingezet.",
+     "bronnen": [
+      13
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Herinvestering"
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Dividend ±€130 mln per jaar tegenover €11,5 mld waarde: **±99% blijft in het bedrijf**. Over 5 jaar (2021–2025) investeerde Sofina €4,9 mld en verkocht ze €5,0 mld: het groeit dus vooral door waardestijging, en sinds 2025 door nieuw kapitaal en schuld.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "keten",
+   "titel": "De keten (2 niveaus)",
+   "kort": "ByteDance, Cognita, Nuxe, Drylock … en via fondsen SpaceX, Anthropic, OpenAI",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de 10 grootste rechtstreekse belangen zijn 27% van de waarde, de 10 grootste fondsbeheerders 24%. Geen enkele positie behalve ByteDance weegt meer dan 5%. Het grootste ketenrisico is de samenhang: veel posities hangen af van dezelfde AI- en techwaarderingen in de VS en China.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "1. ByteDance (grootste positie, >5%, <10%)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Chinees internetbedrijf achter TikTok, Douyin, CapCut en AI-chatbot Doubao. Omzet volgens publieke bronnen ±$155 mld (2024) en ±$186 mld (2025). Sofina waardeert het via vergelijkbare beursbedrijven met een [[illiquiditeitskorting|korting omdat je het aandeel niet zomaar kan verkopen]].",
+     "bronnen": [
+      3,
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "CEO: ByteDance is 'hoger dan 5%, maar niet hoger dan 10%'; Sofina heeft geen inspraak in de timing van een verkoop; een beursgang is de meest waarschijnlijke uitweg.",
+     "bronnen": [
+      13
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Niveau 2 — TikTok VS: op 22-1-2026 werd de TikTok USDS Joint Venture opgericht; ByteDance houdt minder dan 20%, Oracle, Silver Lake en MGX elk 15%. Het algoritme zou van ByteDance 'geleased' worden.",
+     "bronnen": [
+      14
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Het politieke risico in de VS is kleiner geworden, maar China (grootste markt) en de regelgeving rond jongeren blijven de grote onzekerheden.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "2. Fondsen: Sequoia, Lightspeed, HongShan, Thrive, a16z …"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De 10 grootste onderliggende bedrijven in de fondsen (±10% van Sofina): SpaceX, ByteDance, Stripe, Anthropic, OpenAI, Databricks, Anduril, DoorDash, Ramp, Prometheus. Waarden komen uit rapporten van de fondsbeheerders, vaak 3–6 maanden oud.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Niveau 2 — SpaceX ging op 12-6-2026 naar de Nasdaq aan $135 per aandeel ($1,77 biljoen); eind juli stond het aandeel ±50% onder de piek. Andere vroege beleggers zitten 180 dagen vast ([[lock-up|periode waarin bestaande aandeelhouders niet mogen verkopen]]).",
+     "bronnen": [
+      15
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Niveau 2 — Anthropic haalde in mei 2026 $65 mld op aan een waardering van $965 mld (Sequoia mee-leider) en diende op 26-10-2026 een beursprospectus in voor de Nasdaq; de datum ligt nog niet vast.",
+     "bronnen": [
+      16,
+      17
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Niveau 2 — OpenAI: $122 mld opgehaald aan $852 mld (maart 2026).",
+     "bronnen": [
+      18
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Sofina dekt een deel van de beursgenoteerde posities in fondsen af met [[afgeleide producten|contracten die een koers vastleggen: minder risico, maar ook minder winst als de koers verder stijgt]]. Beursgenoteerde activa in fondsen: €688 mln op 30-6-2026.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "3. Cognita (scholengroep, VK)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Belang 18,96% sinds 2019. Was eind 2025 de 2de grootste positie, zakte midden 2026 naar de 6de. CEO: Cognita 'had het moeilijker om te groeien' en drukte het resultaat.",
+     "bronnen": [
+      3,
+      1,
+      13
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "4. Nuxe, Drylock, Proeduca, Cambridge Associates"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Nuxe (natuurcosmetica, FR) 49%; Drylock (luiers/hygiëne, BE) 25%; Proeduca (online hoger onderwijs, ES) 17,22% sinds 2025; Cambridge Associates (vermogensbeheer, VS) 23,67%.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Nuxe keerde in 2026 extra geld uit via een [[dividend recap|bedrijf leent geld en keert dat uit aan de aandeelhouders]].",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Deze familiebedrijven zijn eerder stabiel (basisconsumptie, onderwijs) — het meest 'defensieve' deel van Sofina, maar slechts ±25% van de waarde.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "5. Vinted, Mérieux NutriSciences, Cleo AI"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Vinted (tweedehandskleding, LT) 3,36%; Mérieux NutriSciences (voedingsveiligheidslabo's) 15,5%; Cleo AI (AI-financiële assistent, VK). Salto (elektronische sloten) werd na 30-6-2026 verkocht; de waarde stond al in de cijfers van juni.",
+     "bronnen": [
+      3,
+      1,
+      13
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sector",
+   "titel": "Sector & concurrenten",
+   "kort": "Belgische holdings noteren met 20–50% korting; Sofina is de meest 'tech'",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** bijna alle holdings noteren onder hun intrinsieke waarde. Sofina's korting (−18%) is nu kleiner dan die van GBL, Brederode en Exor — Sofina is dus relatief niet goedkoop.",
+     "bronnen": []
+    },
+    {
+     "type": "tabel",
+     "titel": "Vergelijking holdings (koers 06-11-2026)",
+     "kolommen": [
+      "Holding",
+      "Koers",
+      "Korting*",
+      "1 jaar",
+      "5 jaar",
+      "Dividendrend.",
+      "Volatiliteit"
+     ],
+     "rijen": [
+      [
+       "Sofina",
+       "€267,6",
+       "−18%",
+       "+11%",
+       "−29%",
+       "1,4%",
+       "21%"
+      ],
+      [
+       "GBL",
+       "€79,05",
+       "−22%",
+       "+14%",
+       "+4%",
+       "6,5%",
+       "16%"
+      ],
+      [
+       "Brederode",
+       "€100,8",
+       "−35%",
+       "−2%",
+       "−17%",
+       "1,4%",
+       "12%"
+      ],
+      [
+       "Ackermans & van Haaren",
+       "€268,0",
+       "n.b.",
+       "+21%",
+       "+95%",
+       "1,7%",
+       "23%"
+      ],
+      [
+       "Exor",
+       "€73,35",
+       "−54%",
+       "−3%",
+       "n.b.",
+       "0,7%",
+       "22%"
+      ]
+     ],
+     "bronnen": [
+      12,
+      25,
+      1,
+      22,
+      23,
+      24
+     ],
+     "noot": "*Korting = koers t.o.v. laatst gepubliceerde intrinsieke waarde per aandeel op 30-6-2026 (Sofina 326,48; GBL 100,77; Brederode 154,6; Exor 157,9) — berekend, dus een benadering. Rendementen zonder dividend. Bij AvH vond ik geen recente intrinsieke waarde."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Volgens KBC Securities: rendement over 10 jaar Sofina +100%, Ackermans & van Haaren +113%, Brederode +154%, BEL20 +62%.",
+     "bronnen": [
+      23
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Brederode** lijkt het meest op Sofina (veel private equity via fondsen + beurswaarden), maar met grotere korting en minder AI. **GBL** is meer beursgenoteerd en betaalt veel meer dividend. **AvH** is industrieel (DEME!) en had het beste 5-jaarsrendement.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Sectortrends"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "CEO: steeds meer transacties, maar minder 'liquiditeit in het systeem' voor verkopen; inflatie door de oorlog in de Golf drukt de waarderingsmultiples; softwarebedrijven herstelden maar zitten nog onder vorig jaar.",
+     "bronnen": [
+      13
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Private equity en durfkapitaal zijn **cyclisch**: in goede jaren stijgen waarden en beursgangen, in slechte jaren dalen ze met vertraging (fondsen herwaarderen traag). Sofina's koers reageert sneller dan haar intrinsieke waarde.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "actualiteit",
+   "titel": "Actualiteit",
+   "kort": "AI-beursgangen, dollar, rente en olie bepalen de komende 2 jaar",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de belangrijkste drijvers zijn niet Belgisch maar Amerikaans en Chinees: de waardering van AI-bedrijven (Anthropic-beursgang!), de dollar en de rente.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Verleden"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "2021: koers piekte op €432 met 28% **premie** op de intrinsieke waarde.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "2022: techcrash — intrinsieke waarde −16,5%, koers −52% (van €432 naar €205,6).",
+       "bronnen": [
+        3,
+        12
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "2025: zwakkere dollar kostte €925 mln waarde; claimemissie (€545 mln) en obligatie (€600 mln) voor extra slagkracht.",
+       "bronnen": [
+        4,
+        3
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Januari 2026: TikTok VS ondergebracht in een joint venture → politiek risico rond ByteDance kleiner.",
+       "bronnen": [
+        14
+       ]
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Nu (laatste 3–6 maanden)"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "Juni 2026: SpaceX naar de beurs aan $1,77 biljoen; eind juli ±50% onder de piek.",
+       "bronnen": [
+        15
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Sept 2026: ECB verhoogde de rente naar 2,5% door de gevolgen van de oorlog VS–Iran en olie boven $100; okt 2026: rente behouden, inflatie eurozone 3,8%, markt verwacht mogelijk een verhoging in december.",
+       "bronnen": [
+        20,
+        19
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "EUR/USD rond 1,13 begin november (30-6: 1,139). Een euro die 10% stijgt, kost Sofina ±€694 mln (±6% van de waarde).",
+       "bronnen": [
+        21,
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "5-10-2026: herschikking binnen het consortium Boël (UFB kocht 681.752 aandelen van de twee andere leden, ±€171 mln).",
+       "bronnen": [
+        10
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "26-10-2026: Anthropic diende een beursprospectus in (Nasdaq, 'ANT'); laatste ronde $965 mld.",
+       "bronnen": [
+        17,
+        16
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "3-11-2026: Sofina was met −2,3% de grootste daler van de Bel20.",
+       "bronnen": [
+        26
+       ]
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Komende 2 jaar"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "Anthropic-beursgang (mogelijk eind 2026): herwaardering van de fondsposities, maar met vertraging (fondsrapporten 3–6 maanden oud) en lock-ups.",
+       "bronnen": []
+      },
+      {
+       "label": "inschatting",
+       "tekst": "Afloop lock-up SpaceX voor vroege beleggers (180 dagen na 12-6-2026, dus rond december 2026, gespreid): mogelijk verkoopdruk op het aandeel.",
+       "bronnen": []
+      },
+      {
+       "label": "inschatting",
+       "tekst": "ByteDance: een beursgang is volgens de CEO de meest waarschijnlijke uitweg, maar timing onbekend. Groot positief als het gebeurt; China-VS-spanningen blijven het risico.",
+       "bronnen": []
+      },
+      {
+       "label": "berekening",
+       "tekst": "2028: obligatie van €700 mln (1%) vervalt. Herfinancieren aan ±3,7% kost ±€19 mln extra rente per jaar (±0,2% van de waarde).",
+       "bronnen": []
+      },
+      {
+       "label": "inschatting",
+       "tekst": "Rente/olie: blijft de inflatie hoog door de Golfoorlog, dan drukt dat de waardering van groeibedrijven — het hart van Sofina.",
+       "bronnen": []
+      },
+      {
+       "label": "feit",
+       "tekst": "Nog €1,46 mld te storten in fondsen de komende jaren: verplicht geld, ook in een slechte markt.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Volgende cijfers: jaarverslag 2026 op 24-3-2027, AVA 13-5-2027, halfjaar 2-9-2027.",
+       "bronnen": [
+        9
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "earnings_call",
+   "titel": "Analistencall (halfjaar 2026)",
+   "kort": "Zelfzeker en open over ByteDance; geen cijferprognose",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Call van begin september 2026 met CEO Harold Boël en het hoofd financiën; vragen van KBC Securities, Degroof Petercam, Kepler Cheuvreux en een particuliere belegger.",
+     "bronnen": [
+      13
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Kernboodschap"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "'Onze missie is niet veranderd'; 'we zitten waar we wilden zitten, maar we zijn pas zes maanden ver'.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Fondsen deden het goed; rechtstreekse portefeuille 'praktisch vlak' door Cognita en lagere softwaremultiples.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Korting: is kleiner geworden maar 'nog in de twintig' vs. historisch 15–20%.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Doel netto schuld 5–10% van de portefeuille; nu 1,9%.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Geen cijferprognose (guidance) — normaal voor een holding.",
+       "bronnen": [
+        13
+       ]
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Moeilijke vragen"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "**ByteDance te groot?** Antwoord: >5%, <10%; pas 'in de hoge tien procent' wordt het een probleem; 'een probleem van hoge kwaliteit'.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**Fondsen die over hun looptijd gaan?** Ja, enkele, maar meestal een restje van enkele procenten; beheerders die na 10 jaar nog de helft niet terugbetaalden, halen geen nieuw fonds op.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**Waarom geen rechtstreekse investeringen in OpenAI/Anthropic zoals andere fondsen?** De VS is 'ongelooflijk competitief', Sofina zoekt plekken met een 'recht om te winnen'. Op de specifieke AI-constructies werd niet ingegaan.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**Weerspiegelt de waarde de verkoop van Salto?** Ja, al in de cijfers van juni.",
+       "bronnen": [
+        13
+       ]
+      }
+     ]
+    },
+    {
+     "type": "kader",
+     "stijl": "mening",
+     "tekst": "Rustig en consistent met de vorige communicatie; open over ByteDance en over zwakke punten (Cognita, software). Wel: weinig concrete cijfers per positie en de vraag over AI-co-investeringen werd half ontweken.",
+     "titel": "Mening over toon"
+    }
+   ]
+  },
+  {
+   "id": "waardering",
+   "titel": "Waardering & advies",
+   "kort": "Intrinsieke waarde €326; koopzone €220–240; doel €290",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** voor een holding is de beste maatstaf de intrinsieke waarde min een redelijke korting. Bij 18% korting is Sofina niet duur, maar ook geen koopje — en R1 blijft.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Intrinsieke waarde"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Laatst gepubliceerd: **€326,48 per aandeel** (30-6-2026), €11.534 mln.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "98% van de portefeuille is [[niveau 3|waarde berekend met modellen en schattingen, niet met beurskoersen]] (€11.569 mln van €11.831 mln). Een afwijking van 10% in de fondsrapporten verandert de waarde met ±€597 mln (±5%).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Sinds 30-6: SpaceX lager, euro iets sterker, Anthropic hoger gewaardeerd, Sofina betaalde ±€130 mln dividend in mei (al verwerkt). Netto is er geen reden om een sterk andere waarde aan te nemen; ik reken met **€326**.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat is een redelijke korting?"
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Historisch 15–20% (CEO); 2022–2025 meestal 18–32%. Met R1 en 92% niet-genoteerde activa is **20%** een redelijk midden → faire koers nu ±€261 (326 × 0,8).",
+     "bronnen": []
+    },
+    {
+     "type": "tabel",
+     "titel": "Scenario's eind 2028",
+     "kolommen": [
+      "Scenario",
+      "Intrinsieke waarde",
+      "Korting",
+      "Koers",
+      "Kans"
+     ],
+     "rijen": [
+      [
+       "Slecht",
+       "±€280",
+       "35%",
+       "€180",
+       "25%"
+      ],
+      [
+       "Normaal",
+       "±€360",
+       "20%",
+       "€290",
+       "50%"
+      ],
+      [
+       "Goed",
+       "±€400",
+       "12%",
+       "€350",
+       "25%"
+      ]
+     ],
+     "bron_tekst": "Eigen berekening (inschatting) op basis van halfjaarverslag 2026"
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Verwachte koers (gewogen): 0,25×180 + 0,5×290 + 0,25×350 ≈ **€278** (+4%), plus ±€7,5 bruto dividend over 2 jaar. Dat is mager voor het risico.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Koopzone, koersdoel, stop-loss"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "berekening",
+       "tekst": "**Koopzone €220–240**: korting 26–33%, rond de steun van €238,8.",
+       "bronnen": []
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Koersdoel €290** (normaal scenario).",
+       "bronnen": []
+      },
+      {
+       "label": "berekening",
+       "tekst": "**Stop-loss €214** (−20%); technisch €234 (net onder steun €238,8).",
+       "bronnen": []
+      }
+     ]
+    },
+    {
+     "type": "kader",
+     "stijl": "mening",
+     "tekst": "**Afwachten — 4/10.** R1 maakt dit een NO-GO tenzij de rest uitzonderlijk is. Dat is niet zo: degelijk bestuur en herinvestering (+), maar geen defensief profiel, een waarde die je niet zelf kan controleren, veel AI-gevoeligheid en een korting die al kleiner is dan gemiddeld. De score zou ±6 zijn zonder R1.",
+     "titel": "Oordeel"
+    }
+   ]
+  },
+  {
+   "id": "techniek",
+   "titel": "Koers & techniek",
+   "kort": "Stijgende trend; steun €238,8; stop-loss €214",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Koers €267,6 (6-11-2026). 52 weken: €207,8–285,0. [[SMA200|gemiddelde koers van de laatste 200 beursdagen]] €236,6 en SMA50 €255,4 → **stijgende trend**.",
+     "bronnen": [
+      12
+     ]
+    },
+    {
+     "type": "grafiek",
+     "soort": "lijn",
+     "titel": "Koers SOF.BR – laatste 5 jaar",
+     "eenheid": "EUR",
+     "x": [
+      "2021-12-07",
+      "2021-12-13",
+      "2021-12-17",
+      "2021-12-23",
+      "2021-12-29",
+      "2022-01-04",
+      "2022-01-10",
+      "2022-01-14",
+      "2022-01-20",
+      "2022-01-26",
+      "2022-02-01",
+      "2022-02-07",
+      "2022-02-11",
+      "2022-02-17",
+      "2022-02-23",
+      "2022-03-01",
+      "2022-03-07",
+      "2022-03-11",
+      "2022-03-17",
+      "2022-03-23",
+      "2022-03-29",
+      "2022-04-04",
+      "2022-04-08",
+      "2022-04-14",
+      "2022-04-22",
+      "2022-04-28",
+      "2022-05-04",
+      "2022-05-10",
+      "2022-05-16",
+      "2022-05-20",
+      "2022-05-26",
+      "2022-06-01",
+      "2022-06-07",
+      "2022-06-13",
+      "2022-06-17",
+      "2022-06-23",
+      "2022-06-29",
+      "2022-07-05",
+      "2022-07-11",
+      "2022-07-15",
+      "2022-07-21",
+      "2022-07-27",
+      "2022-08-02",
+      "2022-08-08",
+      "2022-08-12",
+      "2022-08-18",
+      "2022-08-24",
+      "2022-08-30",
+      "2022-09-05",
+      "2022-09-09",
+      "2022-09-15",
+      "2022-09-21",
+      "2022-09-27",
+      "2022-10-03",
+      "2022-10-07",
+      "2022-10-13",
+      "2022-10-19",
+      "2022-10-25",
+      "2022-10-31",
+      "2022-11-04",
+      "2022-11-10",
+      "2022-11-16",
+      "2022-11-22",
+      "2022-11-28",
+      "2022-12-02",
+      "2022-12-08",
+      "2022-12-14",
+      "2022-12-20",
+      "2022-12-27",
+      "2023-01-02",
+      "2023-01-06",
+      "2023-01-12",
+      "2023-01-18",
+      "2023-01-24",
+      "2023-01-30",
+      "2023-02-03",
+      "2023-02-09",
+      "2023-02-15",
+      "2023-02-21",
+      "2023-02-27",
+      "2023-03-03",
+      "2023-03-09",
+      "2023-03-15",
+      "2023-03-21",
+      "2023-03-27",
+      "2023-03-31",
+      "2023-04-06",
+      "2023-04-14",
+      "2023-04-20",
+      "2023-04-26",
+      "2023-05-03",
+      "2023-05-09",
+      "2023-05-15",
+      "2023-05-19",
+      "2023-05-25",
+      "2023-05-31",
+      "2023-06-06",
+      "2023-06-12",
+      "2023-06-16",
+      "2023-06-22",
+      "2023-06-28",
+      "2023-07-04",
+      "2023-07-10",
+      "2023-07-14",
+      "2023-07-20",
+      "2023-07-26",
+      "2023-08-01",
+      "2023-08-07",
+      "2023-08-11",
+      "2023-08-17",
+      "2023-08-23",
+      "2023-08-29",
+      "2023-09-04",
+      "2023-09-08",
+      "2023-09-14",
+      "2023-09-20",
+      "2023-09-26",
+      "2023-10-02",
+      "2023-10-06",
+      "2023-10-12",
+      "2023-10-18",
+      "2023-10-24",
+      "2023-10-30",
+      "2023-11-03",
+      "2023-11-09",
+      "2023-11-15",
+      "2023-11-21",
+      "2023-11-27",
+      "2023-12-01",
+      "2023-12-07",
+      "2023-12-13",
+      "2023-12-19",
+      "2023-12-27",
+      "2024-01-03",
+      "2024-01-09",
+      "2024-01-15",
+      "2024-01-19",
+      "2024-01-25",
+      "2024-01-31",
+      "2024-02-06",
+      "2024-02-12",
+      "2024-02-16",
+      "2024-02-22",
+      "2024-02-28",
+      "2024-03-05",
+      "2024-03-11",
+      "2024-03-15",
+      "2024-03-21",
+      "2024-03-27",
+      "2024-04-04",
+      "2024-04-10",
+      "2024-04-16",
+      "2024-04-22",
+      "2024-04-26",
+      "2024-05-03",
+      "2024-05-09",
+      "2024-05-15",
+      "2024-05-21",
+      "2024-05-27",
+      "2024-05-31",
+      "2024-06-06",
+      "2024-06-12",
+      "2024-06-18",
+      "2024-06-24",
+      "2024-06-28",
+      "2024-07-04",
+      "2024-07-10",
+      "2024-07-16",
+      "2024-07-22",
+      "2024-07-26",
+      "2024-08-01",
+      "2024-08-07",
+      "2024-08-13",
+      "2024-08-19",
+      "2024-08-23",
+      "2024-08-29",
+      "2024-09-04",
+      "2024-09-10",
+      "2024-09-16",
+      "2024-09-20",
+      "2024-09-26",
+      "2024-10-02",
+      "2024-10-08",
+      "2024-10-14",
+      "2024-10-18",
+      "2024-10-24",
+      "2024-10-30",
+      "2024-11-05",
+      "2024-11-11",
+      "2024-11-15",
+      "2024-11-21",
+      "2024-11-27",
+      "2024-12-03",
+      "2024-12-09",
+      "2024-12-13",
+      "2024-12-19",
+      "2024-12-27",
+      "2025-01-03",
+      "2025-01-09",
+      "2025-01-15",
+      "2025-01-21",
+      "2025-01-27",
+      "2025-01-31",
+      "2025-02-06",
+      "2025-02-12",
+      "2025-02-18",
+      "2025-02-24",
+      "2025-02-28",
+      "2025-03-06",
+      "2025-03-12",
+      "2025-03-18",
+      "2025-03-24",
+      "2025-03-28",
+      "2025-04-03",
+      "2025-04-09",
+      "2025-04-15",
+      "2025-04-23",
+      "2025-04-29",
+      "2025-05-06",
+      "2025-05-12",
+      "2025-05-16",
+      "2025-05-22",
+      "2025-05-28",
+      "2025-06-03",
+      "2025-06-09",
+      "2025-06-13",
+      "2025-06-19",
+      "2025-06-25",
+      "2025-07-01",
+      "2025-07-07",
+      "2025-07-11",
+      "2025-07-17",
+      "2025-07-23",
+      "2025-07-29",
+      "2025-08-04",
+      "2025-08-08",
+      "2025-08-14",
+      "2025-08-20",
+      "2025-08-26",
+      "2025-09-01",
+      "2025-09-05",
+      "2025-09-11",
+      "2025-09-17",
+      "2025-09-23",
+      "2025-09-29",
+      "2025-10-03",
+      "2025-10-09",
+      "2025-10-15",
+      "2025-10-21",
+      "2025-10-27",
+      "2025-10-31",
+      "2025-11-06",
+      "2025-11-12",
+      "2025-11-18",
+      "2025-11-24",
+      "2025-11-28",
+      "2025-12-04",
+      "2025-12-10",
+      "2025-12-16",
+      "2025-12-22",
+      "2025-12-30",
+      "2026-01-06",
+      "2026-01-12",
+      "2026-01-16",
+      "2026-01-22",
+      "2026-01-28",
+      "2026-02-03",
+      "2026-02-09",
+      "2026-02-13",
+      "2026-02-19",
+      "2026-02-25",
+      "2026-03-03",
+      "2026-03-09",
+      "2026-03-13",
+      "2026-03-19",
+      "2026-03-25",
+      "2026-03-31",
+      "2026-04-08",
+      "2026-04-14",
+      "2026-04-20",
+      "2026-04-24",
+      "2026-04-30",
+      "2026-05-07",
+      "2026-05-13",
+      "2026-05-19",
+      "2026-05-25",
+      "2026-05-29",
+      "2026-06-04",
+      "2026-06-10",
+      "2026-06-16",
+      "2026-06-22",
+      "2026-06-26",
+      "2026-07-02",
+      "2026-07-08",
+      "2026-07-14",
+      "2026-07-20",
+      "2026-07-24",
+      "2026-07-30",
+      "2026-08-05",
+      "2026-08-11",
+      "2026-08-17",
+      "2026-08-21",
+      "2026-08-27",
+      "2026-09-02",
+      "2026-09-08",
+      "2026-09-14",
+      "2026-09-18",
+      "2026-09-24",
+      "2026-09-30",
+      "2026-10-06",
+      "2026-10-12",
+      "2026-10-16",
+      "2026-10-22",
+      "2026-10-28",
+      "2026-11-03",
+      "2026-11-06"
+     ],
+     "reeksen": [
+      {
+       "naam": "Slotkoers",
+       "waarden": [
+        424.4,
+        429.6,
+        429.8,
+        429.6,
+        431.6,
+        431.0,
+        400.8,
+        386.0,
+        370.8,
+        351.2,
+        355.4,
+        344.6,
+        345.6,
+        344.2,
+        335.0,
+        338.0,
+        329.4,
+        350.0,
+        365.4,
+        358.2,
+        335.2,
+        332.4,
+        326.2,
+        321.6,
+        313.2,
+        291.2,
+        290.6,
+        275.0,
+        279.0,
+        258.6,
+        220.0,
+        217.2,
+        217.4,
+        201.2,
+        198.4,
+        194.9,
+        197.5,
+        193.6,
+        208.4,
+        203.0,
+        211.4,
+        209.2,
+        217.6,
+        223.0,
+        230.8,
+        221.4,
+        211.4,
+        207.6,
+        195.9,
+        202.2,
+        184.0,
+        181.8,
+        179.8,
+        179.6,
+        181.6,
+        176.9,
+        187.5,
+        196.6,
+        197.5,
+        198.6,
+        225.0,
+        221.2,
+        214.0,
+        216.6,
+        216.6,
+        214.6,
+        221.0,
+        203.2,
+        205.8,
+        211.6,
+        215.4,
+        227.0,
+        216.8,
+        222.8,
+        221.4,
+        235.6,
+        240.8,
+        235.2,
+        228.6,
+        234.2,
+        235.0,
+        226.8,
+        195.7,
+        200.8,
+        194.6,
+        206.4,
+        209.8,
+        211.0,
+        206.4,
+        202.8,
+        204.8,
+        200.2,
+        201.4,
+        202.0,
+        194.3,
+        193.0,
+        200.8,
+        204.6,
+        198.2,
+        189.4,
+        192.0,
+        193.8,
+        187.2,
+        195.1,
+        195.7,
+        208.4,
+        210.2,
+        207.4,
+        204.8,
+        198.7,
+        205.2,
+        207.4,
+        208.2,
+        204.6,
+        200.0,
+        200.8,
+        191.9,
+        190.9,
+        187.9,
+        192.2,
+        183.4,
+        175.2,
+        177.9,
+        194.8,
+        196.0,
+        202.0,
+        197.7,
+        202.6,
+        203.0,
+        207.6,
+        211.0,
+        224.4,
+        227.4,
+        219.4,
+        218.2,
+        212.6,
+        208.0,
+        222.2,
+        222.6,
+        218.6,
+        221.4,
+        218.2,
+        214.8,
+        212.0,
+        202.8,
+        206.0,
+        200.6,
+        201.4,
+        203.0,
+        212.2,
+        216.2,
+        211.2,
+        214.4,
+        219.4,
+        222.0,
+        220.6,
+        230.2,
+        222.8,
+        223.0,
+        222.2,
+        221.0,
+        224.2,
+        213.2,
+        216.8,
+        213.2,
+        220.0,
+        214.2,
+        209.4,
+        211.4,
+        218.0,
+        218.6,
+        207.6,
+        210.2,
+        216.2,
+        218.2,
+        219.0,
+        215.6,
+        245.8,
+        252.4,
+        254.6,
+        255.4,
+        248.8,
+        243.0,
+        238.0,
+        239.0,
+        230.8,
+        227.2,
+        222.8,
+        224.6,
+        220.0,
+        218.4,
+        220.0,
+        216.0,
+        215.8,
+        212.0,
+        212.8,
+        218.6,
+        219.4,
+        222.6,
+        221.8,
+        232.0,
+        241.4,
+        241.6,
+        235.8,
+        234.2,
+        232.4,
+        243.4,
+        237.4,
+        227.2,
+        228.8,
+        233.6,
+        239.6,
+        242.6,
+        231.4,
+        217.4,
+        235.4,
+        242.4,
+        244.8,
+        247.0,
+        252.0,
+        258.6,
+        253.4,
+        249.2,
+        252.6,
+        258.2,
+        253.6,
+        255.8,
+        266.0,
+        270.6,
+        262.8,
+        273.0,
+        274.4,
+        275.8,
+        272.0,
+        267.8,
+        276.2,
+        281.2,
+        267.8,
+        262.0,
+        257.8,
+        252.6,
+        258.0,
+        251.4437,
+        253.8495,
+        257.0,
+        250.0,
+        245.4,
+        243.2,
+        244.6,
+        243.6,
+        238.4,
+        239.2,
+        244.6,
+        236.4,
+        241.8,
+        243.2,
+        237.2,
+        238.8,
+        242.2,
+        244.0,
+        246.0,
+        255.0,
+        259.2,
+        264.2,
+        245.6,
+        245.8,
+        237.4,
+        244.4,
+        247.6,
+        246.0,
+        248.6,
+        240.2,
+        237.6,
+        227.4,
+        223.2,
+        223.2,
+        208.0,
+        223.2,
+        226.0,
+        226.8,
+        220.0,
+        218.0,
+        220.8,
+        212.2,
+        218.2,
+        229.6,
+        223.0,
+        217.4,
+        214.6,
+        219.6,
+        226.4,
+        220.2,
+        229.2,
+        224.4,
+        226.8,
+        228.2,
+        238.0,
+        243.0,
+        247.6,
+        246.6,
+        244.6,
+        243.6,
+        246.8,
+        240.4,
+        258.4,
+        255.2,
+        246.4,
+        246.0,
+        243.0,
+        246.4,
+        248.0,
+        259.4,
+        262.2,
+        271.4,
+        276.0,
+        267.6
+       ]
+      }
+     ],
+     "lijnen": [
+      {
+       "naam": "Stop-loss −20%",
+       "waarde": 214.1
+      },
+      {
+       "naam": "Steun 238,8",
+       "waarde": 238.8
+      }
+     ],
+     "bron_tekst": "Yahoo Finance koersdata SOF.BR, opgehaald 2026-11-08"
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Rendement 1 jaar",
+       "waarde": "+11,1%",
+       "trend": "op",
+       "label": "feit",
+       "bronnen": [
+        12
+       ]
+      },
+      {
+       "naam": "Rendement 5 jaar",
+       "waarde": "−29,4%",
+       "trend": "neer",
+       "label": "feit",
+       "bronnen": [
+        12
+       ]
+      },
+      {
+       "naam": "Volatiliteit",
+       "waarde": "21,3%/jaar",
+       "trend": "gelijk",
+       "label": "feit",
+       "toelichting": "[[volatiliteit|hoe sterk de koers schommelt]]",
+       "bronnen": [
+        12
+       ]
+      },
+      {
+       "naam": "Grootste daling 5 j",
+       "waarde": "−60,3%",
+       "trend": "neer",
+       "label": "feit",
+       "toelichting": "van €432 (eind 2021)",
+       "bronnen": [
+        12
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Steunniveaus: €238,8 (2-9-2026), €212,0 (11-6-2026), €203,6 (30-3-2026).",
+     "bronnen": [
+      12
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Cycliciteit: de koers volgt de technologiecyclus (top 2021, bodem 2022, zijwaarts 2023–2025, herstel 2026). Na +25% in 6 maanden is een terugval naar de steun van €238,8 niet ongewoon.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "expert",
+   "titel": "Kritische expertblik",
+   "kort": "Pre-mortem: AI-correctie + dollar + bredere korting",
+   "inhoud": [
+    {
+     "type": "kop",
+     "tekst": "Pre-mortem: stel dat Sofina in 2028 50% lager staat"
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Meest waarschijnlijke oorzaak: een **correctie bij AI- en techwaarderingen** (Anthropic/OpenAI/SpaceX/ByteDance), samen met een zwakkere dollar. De fondsen waarderen met vertraging af, de markt rekent het onmiddellijk in, en de korting schiet terug naar 35–40% zoals in 2022. Een halvering vraagt dan 'maar' −25% intrinsieke waarde en een korting van 40%.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat ziet de markt mogelijk over het hoofd?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "mening",
+       "tekst": "Positief: Sofina zit vroeg in enkele van de grootste bedrijven ter wereld (via topfondsen). Beursgangen maken die waarde zichtbaar en liquide.",
+       "bronnen": []
+      },
+      {
+       "label": "mening",
+       "tekst": "Negatief: de waarde is grotendeels een schatting van fondsbeheerders die zelf belang hebben bij hoge waarderingen; afgeleide producten beperken de winst op beursgenoteerde posities.",
+       "bronnen": []
+      },
+      {
+       "label": "mening",
+       "tekst": "Negatief: de kapitaalverhoging onder de intrinsieke waarde toont dat de familie verwatering aanvaardt als ze kansen ziet — en ze kan het opnieuw doen.",
+       "bronnen": []
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Waar ben ik het minst zeker van?"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "De echte waarde van ByteDance en de AI-fondsposities: Sofina publiceert geen bedragen per bedrijf, en schattingen van derden lopen ver uiteen.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "profiel",
+   "titel": "Toets aan jouw profiel",
+   "kort": "R1 NO-GO; herinvestering ✅; niet defensief; AI-hype-gevoelig",
+   "inhoud": [
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "❌ **R1**: consortium Boël 54,6% → NO-GO tenzij uitzonderlijk.",
+       "bronnen": [
+        9
+       ]
+      },
+      {
+       "label": "berekening",
+       "tekst": "✅ **Herinvestering**: ±99% van de waarde blijft in het bedrijf; langetermijnvisie van een familie die al 5 generaties actief is.",
+       "bronnen": []
+      },
+      {
+       "label": "mening",
+       "tekst": "❌ **Niet defensief**: groeibedrijven, durfkapitaal, tech. Het familiebedrijvendeel (Drylock, Nuxe, scholen) is wel stabieler.",
+       "bronnen": []
+      },
+      {
+       "label": "mening",
+       "tekst": "⚠️ **Hype**: een groeiend deel zit in AI-bedrijven met zeer hoge waarderingen (Anthropic, OpenAI). Geen hypebedrijf zelf, wel hype-gevoelig.",
+       "bronnen": []
+      },
+      {
+       "label": "feit",
+       "tekst": "✅ **Crypto**: geen crypto als kernactiviteit gevonden in de grootste posities.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "mening",
+       "tekst": "✅ R2/R3/R4: geen zelfverrijking, geen vertrekpremies, geen rechtszaken gevonden.",
+       "bronnen": []
+      },
+      {
+       "label": "mening",
+       "tekst": "💶 Fiscaal: 30% roerende voorheffing op het dividend; beurstaks bij aankoop/verkoop; geen Reynderstaks (geen fonds).",
+       "bronnen": []
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Vergelijking met je ervaringen: Sofina lijkt meer op **Ørsted** (2021) dan op DEME — een kwaliteitsbedrijf dat in 2021 met een premie noteerde en daarna −50% deed. Wie toen kocht, staat nog altijd verlies.",
+     "bronnen": []
+    }
+   ]
+  }
+ ],
+ "review": {
+  "status": "bezig",
+  "rondes": []
+ },
+ "bronnen": [
+  {
+   "id": 1,
+   "titel": "Halfjaarverslag 2026",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2026/half-year-report-2026.pdf",
+   "datum": "2026-09-02",
+   "document": "Halfjaarverslag 2026 (p.10–17, 30–41)"
+  },
+  {
+   "id": 2,
+   "titel": "Presentatie halfjaarresultaten 2026",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2026/presentation-of-the-2026-half-year-results.pdf",
+   "datum": "2026-09-02",
+   "document": "Presentatie HY2026 (p.5–16)"
+  },
+  {
+   "id": 3,
+   "titel": "Jaarverslag 2025",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2025/annual-report-2025-print-out-pdf.pdf",
+   "datum": "2026-03-26",
+   "document": "Jaarverslag 2025 (p.5–8, 26, 37, 56–75, 107, 115–137)"
+  },
+  {
+   "id": 4,
+   "titel": "Presentatie jaarresultaten 2025",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2026/Presentation-of-the-2025-annual-results.pdf",
+   "datum": "2026-03-26",
+   "document": "Presentatie FY2025 (p.3–11)"
+  },
+  {
+   "id": 5,
+   "titel": "Jaarverslag 2024",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2024/annual-report-2024-print-out-pdf.pdf",
+   "datum": "2025-03-26",
+   "document": "Jaarverslag 2024 (kerncijfers, aandeelhouders)"
+  },
+  {
+   "id": 6,
+   "titel": "Jaarverslag 2023",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2023/annual-report-2023-print-out-pdf.pdf",
+   "datum": "2024-03-28",
+   "document": "Jaarverslag 2023 (kerncijfers, aandeelhouders)"
+  },
+  {
+   "id": 7,
+   "titel": "Jaarverslag 2022",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2022/Annual-report-2022-single-page-PDF--30032023-1.pdf",
+   "datum": "2023-03-30",
+   "document": "Jaarverslag 2022 (kerncijfers 2021–2022)"
+  },
+  {
+   "id": 8,
+   "titel": "Rapport annuel 2021",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2021/sofina-sa-rapport-annuel-2021-singlepage.pdf",
+   "datum": "2022-03-24",
+   "document": "Rapport annuel 2021 (chiffres clés)"
+  },
+  {
+   "id": 9,
+   "titel": "Aandeelhoudersstructuur (melding van 19-08-2026)",
+   "uitgever": "Sofina",
+   "type": "primair",
+   "url": "https://www.sofinagroup.com/en/investors/shareholder-centre/shareholding-structure",
+   "datum": "2026-08-19"
+  },
+  {
+   "id": 10,
+   "titel": "Meldingen leidinggevenden: herschikking binnen het consortium (05-10-2026)",
+   "uitgever": "FSMA",
+   "type": "primair",
+   "url": "https://www.fsma.be/en/manager-transaction/sofina-47",
+   "datum": "2026-10-05",
+   "document": "FSMA-meldingen sofina-46, -47, -50, -55"
+  },
+  {
+   "id": 11,
+   "titel": "Meldingen transacties leidinggevenden Sofina 2024–2026",
+   "uitgever": "FSMA",
+   "type": "primair",
+   "url": "https://www.fsma.be/en/manager-transaction/sofina-65",
+   "datum": "2026-10-21",
+   "document": "FSMA-meldingen sofina-1 t/m -65"
+  },
+  {
+   "id": 12,
+   "titel": "Koersdata SOF.BR (opgehaald 08-11-2026)",
+   "uitgever": "Yahoo Finance",
+   "type": "data",
+   "url": "https://finance.yahoo.com/quote/SOF.BR",
+   "datum": "2026-11-06"
+  },
+  {
+   "id": 13,
+   "titel": "Transcript analistencall halfjaar 2026",
+   "uitgever": "Investing.com",
+   "type": "analyse",
+   "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-sofina-h1-2025-nav-rises-as-stock-gains-39-93CH-4887840",
+   "datum": "2026-09-03"
+  },
+  {
+   "id": 14,
+   "titel": "Here's what you should know about the US TikTok deal",
+   "uitgever": "TechCrunch",
+   "type": "nieuws",
+   "url": "https://techcrunch.com/2026/01/23/heres-whats-you-should-know-about-the-us-tiktok-deal/",
+   "datum": "2026-01-23"
+  },
+  {
+   "id": 15,
+   "titel": "Initial public offering of SpaceX",
+   "uitgever": "Wikipedia",
+   "type": "overig",
+   "url": "https://en.wikipedia.org/wiki/Initial_public_offering_of_SpaceX",
+   "datum": "2026-07"
+  },
+  {
+   "id": 16,
+   "titel": "Anthropic vaults to a $965 billion valuation with new funding",
+   "uitgever": "AP / ABC News",
+   "type": "nieuws",
+   "url": "https://www-cdn.abcnews.com/Technology/wireStory/anthropic-vaults-965-billion-valuation-new-funding-claude-133397439",
+   "datum": "2026-05-28"
+  },
+  {
+   "id": 17,
+   "titel": "Anthropic IPO 2026: date, valuation & timeline",
+   "uitgever": "tastytrade",
+   "type": "analyse",
+   "url": "https://tastytrade.com/learn/markets/industry/anthropic-ipo/",
+   "datum": "2026-11-05"
+  },
+  {
+   "id": 18,
+   "titel": "OpenAI valued at $852 billion in latest funding round",
+   "uitgever": "Yahoo Finance",
+   "type": "nieuws",
+   "url": "https://finance.yahoo.com/sectors/technology/article/openai-valued-at-852-billion-in-latest-funding-round-ahead-of-ipo-213943098.html",
+   "datum": "2026-03-31"
+  },
+  {
+   "id": 19,
+   "titel": "ECB keeps key interest rate on hold at 2.5%",
+   "uitgever": "CNBC",
+   "type": "nieuws",
+   "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
+   "datum": "2026-10-29"
+  },
+  {
+   "id": 20,
+   "titel": "ECB hikes interest rates to 2.5%",
+   "uitgever": "CNBC",
+   "type": "nieuws",
+   "url": "https://www.cnbc.com/2026/09/10/ecb-interest-rate-hike-lagarde-iran.html",
+   "datum": "2026-09-10"
+  },
+  {
+   "id": 21,
+   "titel": "Euro hits 4-week high",
+   "uitgever": "Trading Economics",
+   "type": "data",
+   "url": "https://tradingeconomics.com/euro-area/currency/news/598161",
+   "datum": "2026-11-04"
+  },
+  {
+   "id": 22,
+   "titel": "GBL bouwt verder aan private portefeuille",
+   "uitgever": "Bolero",
+   "type": "nieuws",
+   "url": "https://www.bolero.be/nl/analyse-en-inzicht/blog/gbl-bouwt-verder-aan-private-portefeuille",
+   "datum": "2026-07-31"
+  },
+  {
+   "id": 23,
+   "titel": "Holdingupdate september 2026",
+   "uitgever": "Bolero / KBC Securities",
+   "type": "analyse",
+   "url": "https://www.bolero.be/nl/analyse-en-inzicht/blog/boleros-ongemeen-interessante-maandelijkse-holdingupdate-september-2026",
+   "datum": "2026-10-07"
+  },
+  {
+   "id": 24,
+   "titel": "Exor H1 2026 results",
+   "uitgever": "Exor",
+   "type": "primair",
+   "url": "https://mfn.se/one/a/exor/exor-press-release-h1-2026-results-18a36b7a",
+   "datum": "2026-09"
+  },
+  {
+   "id": 25,
+   "titel": "Koersdata GBLB.BR, BREB.BR, ACKB.BR, EXO.AS (opgehaald 08-11-2026)",
+   "uitgever": "Yahoo Finance",
+   "type": "data",
+   "url": "https://finance.yahoo.com/",
+   "datum": "2026-11-06"
+  },
+  {
+   "id": 26,
+   "titel": "Beursupdate: Sofina onderaan in rode Bel20",
+   "uitgever": "De Aandeelhouder",
+   "type": "nieuws",
+   "url": "https://www.deaandeelhouder.be/nieuws/2026/11/03/beursupdate-sofina-onderaan-in-rode-bel20/",
+   "datum": "2026-11-03"
+  }
+ ]
+}

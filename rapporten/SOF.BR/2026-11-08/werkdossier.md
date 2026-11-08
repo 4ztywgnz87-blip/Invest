@@ -9,14 +9,14 @@
 | 0 Identificatie & voorbereiding | ✅ | |
 | 1 Koers & techniek | ✅ | koers.json opgehaald 08-11-2026 |
 | 2 Verslagen | ✅ | JV2021–2025, HJ2026, presentaties FY25 + HY26 |
-| 3 Bestuur & rode vlaggen | 🔄 | R1 GERAAKT (54,6%) |
-| 4 Keten (2 niveaus) | ⬜ | |
-| 5 Sector & concurrenten | ⬜ | |
-| 6 Actualiteit | ⬜ | |
-| 7 Earnings call | ⬜ | |
-| 8 Waardering & advies | ⬜ | |
-| 9 Kritische expertblik | ⬜ | |
-| 10 Fact-check | ⬜ | |
+| 3 Bestuur & rode vlaggen | ✅ | R1 GERAAKT (54,6%); R5 FSMA; R6 claimemissie |
+| 4 Keten (2 niveaus) | ✅ | |
+| 5 Sector & concurrenten | ✅ | |
+| 6 Actualiteit | ✅ | |
+| 7 Earnings call | ✅ | |
+| 8 Waardering & advies | ✅ | |
+| 9 Kritische expertblik | ✅ | |
+| 10 Fact-check | 🔄 | |
 | 11 Teamreview ronde 1 | ⬜ | |
 | 11 Teamreview ronde 2 (+3) | ⬜ | |
 | 12 Rapport bouwen | ⬜ | |
@@ -128,3 +128,12 @@ Bronnen: JV2022 p.? (kerncijfers 2021/22, jv2022.txt r.263–291), JV2023 kernci
 
 ## Open vragen / blokkades
 - Wie controleert SPI en MIC? (families Boël / Janssen / …?) → NBB / nieuws
+
+## Aanvulling fase 3–9 (2026-11-08)
+- R5 (FSMA): UFB kocht 5-10-2026 off-exchange 480.653 (van SPI, sofina-47/55) + 201.099 (van MIC, sofina-46/50) à €250,51 → interne herschikking, totaal consortium ongewijzigd. CEO: inschrijving claimemissie 15.923 à €223 (sofina-24); optie-uitoefening à €128,12 + verkoop (sofina-36, 38/39, 42, 57/58, 64/65). Bestuurders kochten: Strömberg 450 à 210,60 (sofina-19), Teo 100 à 209 (sofina-30), Peugeot 178 à 224,66 (sofina-37), Gatopardi 183 à 222,49 (sofina-22) + 118 à 251,69 (sofina-40).
+- R4: geen rechtszaken tegen Sofina gevonden (3 zoekrondes: JV, EN-nieuws, FR/NL-nieuws). Wel class actions tegen TikTok/ByteDance (NL WAMCA, VS).
+- Call H1 2026 (Investing.com transcript): zie rapport sectie earnings_call.
+- Actualiteit: SpaceX IPO 12-6-2026 ($135, $1,77 bn), Anthropic $965 mld (mei), S-1 26-10-2026; OpenAI $852 mld; ECB 2,5%, inflatie 3,8% (Golfoorlog VS-Iran); EUR/USD ~1,13.
+- Peers: korting berekend t.o.v. NAV 30-6-2026: GBL −22%, Brederode −35%, Exor −54%; AvH NAV niet gevonden.
+- Waardering: NAV 326; korting 20% → faire koers 261; scenario's 180/290/350 (25/50/25%).
+- Concept rapport.json + review.md aangemaakt.
