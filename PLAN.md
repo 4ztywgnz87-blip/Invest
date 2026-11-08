@@ -1,6 +1,6 @@
 # Invest — Definitief plan (v1)
 
-> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **klaar om te bouwen – wacht op akkoord**.
+> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **Fase 1 (fundament) gebouwd — volgende stap: eerste echte rapport (Sofina)**.
 
 ---
 

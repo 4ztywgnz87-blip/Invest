@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ r.meta.naam }} – rapport {{ r.meta.datum }}</title>
+<style>{{ css }}</style>
+</head>
+<body>
+{%- macro lab(l) -%}<span class="lab {{ l }}">{{ labels[l] }}</span>{%- endmacro -%}
+
+{%- macro blok(b) -%}
+  {%- if b.type == 'tekst' -%}
+    <p class="blok {{ b.label }}">{{ lab(b.label) }}{{ b.tekst|inline }}{{ b.bronnen|refs }}</p>
+  {%- elif b.type == 'lijst' -%}
+    {%- if b.titel %}<div class="tabel-titel">{{ b.titel }}</div>{% endif -%}
+    <ul class="blokken">
+    {%- for it in b['items'] %}
+      <li class="blok {{ it.label }}">{{ lab(it.label) }}{{ it.tekst|inline }}{{ it.bronnen|refs }}</li>
+    {%- endfor %}
+    </ul>
+  {%- elif b.type == 'kader' -%}
+    <div class="kader {{ b.stijl or 'info' }}">{% if b.titel %}<div class="t">{{ b.titel }}</div>{% endif %}{{ b.tekst|inline }}</div>
+  {%- elif b.type == 'kerncijfers' -%}
+    <div class="kerncijfers">
+    {%- for it in b['items'] %}
+      <div class="tegel">
+        <div class="n">{{ it.naam }}</div>
+        <div class="w">{{ it.waarde }}{% if it.trend %} <span class="trend {{ it.trend }}">{{ {'op':'▲','neer':'▼','gelijk':'▬'}[it.trend] }}</span>{% endif %}{{ it.bronnen|refs }}</div>
+        {%- if it.toelichting %}<div class="t">{{ lab(it.label) }}{{ it.toelichting|inline }}</div>{% endif %}
+      </div>
+    {%- endfor %}
+    </div>
+  {%- elif b.type == 'tabel' -%}
+    {%- if b.titel %}<div class="tabel-titel">{{ b.titel }}{{ b.bronnen|refs }}</div>{% endif -%}
+    <div class="tabelwrap"><table>
+      <thead><tr>{% for k in b.kolommen %}<th>{{ k }}</th>{% endfor %}</tr></thead>
+      <tbody>{% for rij in b.rijen %}<tr>{% for c in rij %}<td>{{ c|inline if c is string else c|getal }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+    </table></div>
+    {%- if b.noot %}<div class="bijschrift">{{ b.noot|inline }}</div>{% endif -%}
+  {%- elif b.type == 'grafiek' -%}
+    <div class="grafiek-titel">{{ b.titel }}{{ b.bronnen|refs }}</div>
+    {{ b|svg }}
+    <div class="bijschrift">{% if b.noot %}{{ b.noot|inline }} · {% endif %}{% if b.bron_tekst %}Bron: {{ b.bron_tekst }}{% endif %}</div>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- set a = r.advies -%}
+<header class="kop"><div class="pagina">
+  <div class="ticker">{{ r.meta.ticker }}{% if r.meta.beurs %} · {{ r.meta.beurs }}{% endif %}{% if r.meta.isin %} · {{ r.meta.isin }}{% endif %} · {{ r.meta.type|upper }}</div>
+  <h1>{{ r.meta.naam }}</h1>
+  <div class="sub">Rapport van {{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
+</div></header>
+
+<main class="pagina">
+  <section class="advies">
+    <div class="oordeel {{ a.oordeel.split(' ')[0] }}">{{ a.oordeel }}{% if a.score %}<small>score {{ a.score }}/10</small>{% endif %}</div>
+    <div>
+      <div class="reden">{{ a.reden|inline }}</div>
+      {%- if a.score %}<div class="score" aria-label="score {{ a.score }} op 10">{% for i in range(1, 11) %}<i class="{{ 'aan' if i <= a.score }}"></i>{% endfor %}</div>{% endif %}
+    </div>
+    <div class="cijferrij">
+      {%- set vl = r.meta.valuta or '' -%}
+      {%- if a.koers_nu is not none %}<div class="tegel"><div class="n">Koers nu</div><div class="w">{{ a.koers_nu|getal(vl) }}</div>{% if a.koers_datum %}<div class="t">{{ a.koers_datum }}</div>{% endif %}</div>{% endif %}
+      {%- if a.koopzone %}<div class="tegel"><div class="n">Koopzone</div><div class="w">{{ a.koopzone.van|getal }} – {{ a.koopzone.tot|getal(vl) }}</div></div>{% endif %}
+      {%- if a.koersdoel is not none %}<div class="tegel"><div class="n">Koersdoel (2 j)</div><div class="w">{{ a.koersdoel|getal(vl) }}</div>{% if a.koersdoel_uitleg %}<div class="t">{{ a.koersdoel_uitleg }}</div>{% endif %}</div>{% endif %}
+      {%- if a.stop_loss %}<div class="tegel"><div class="n">Stop-loss</div><div class="w">{{ a.stop_loss.waarde|getal(vl) }}</div><div class="t">{{ a.stop_loss.uitleg }}</div></div>{% endif %}
+      {%- if a.intrinsieke_waarde %}<div class="tegel"><div class="n">Intrinsieke waarde</div><div class="w">{{ a.intrinsieke_waarde|getal(vl) }}</div><div class="t">schatting, zie Waardering</div></div>{% endif %}
+    </div>
+    {%- if a.scenarios %}
+    <div class="scenarios">
+      {%- for s in a.scenarios %}
+      <div class="scenario {{ s.naam }}"><div class="n">{{ s.naam }}</div><div class="w">{{ s.koers|getal(vl) }}{% if s.kans %} <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans {{ s.kans }}</small>{% endif %}</div><p>{{ s.uitleg|inline }}</p></div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </section>
+
+  <section class="kaart vlaggen">
+    <h2>🚩 Rode vlaggen</h2>
+    {%- if r.rode_vlaggen %}
+      {%- for v in r.rode_vlaggen %}
+      <div class="vlag {{ v.ernst }}">
+        <div><span class="e">{{ {'nogo':'No-go','hoog':'Hoog','middel':'Middel','info':'Info'}[v.ernst] }}{% if v.regel %} · {{ v.regel }}{% endif %}</span><span class="t">{{ v.titel }}</span></div>
+        {%- for b in v.uitleg %}{{ blok(b) }}{% endfor %}
+      </div>
+      {%- endfor %}
+    {%- else %}
+      <p class="geen-vlag">Geen rode vlaggen gevonden.</p>
+    {%- endif %}
+  </section>
+
+  <section class="kaart">
+    <h2>Samenvatting</h2>
+    {%- for b in r.samenvatting %}{{ blok(b) }}{% endfor %}
+    {%- if r.verkoopsignalen %}
+    <div class="kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul>{% for s in r.verkoopsignalen %}<li>{{ s|inline }}</li>{% endfor %}</ul></div>
+    {%- endif %}
+  </section>
+
+  {%- if r.wijzigingen %}
+  <section class="kaart">
+    <h2>Wat is er veranderd sinds het vorige rapport?</h2>
+    {%- for b in r.wijzigingen %}{{ blok(b) }}{% endfor %}
+  </section>
+  {%- endif %}
+
+  {%- if r.onvoldoende_info %}
+  <section class="kaart">
+    <h2>Onvoldoende info gevonden</h2>
+    {%- for o in r.onvoldoende_info %}
+    <div class="kader waarschuwing"><div class="t">{{ o.onderwerp }}</div>
+      {{ o.wat_wel|inline }}
+      <div class="bijschrift">Gezocht in {{ o.zoekrondes|length }} rondes: {{ o.zoekrondes|join('; ') }}</div></div>
+    {%- endfor %}
+  </section>
+  {%- endif %}
+
+  {%- for s in r.secties %}
+  <details class="sectie" id="{{ s.id }}">
+    <summary><span>{{ s.titel }}{% if s.kort %}<span class="kort">{{ s.kort }}</span>{% endif %}</span></summary>
+    <div class="inhoud">
+      {%- if s.id == 'bestuur' and r.aandeelhouders %}
+        {%- set ah = r.aandeelhouders %}
+        <div class="tabel-titel">Aandeelhoudersstructuur{{ ah.bronnen|refs }}</div>
+        <div class="tabelwrap"><table>
+          <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
+          <tbody>{% for x in ah.verdeling %}<tr><td>{{ x.naam }}{% if x.structuur %}<div class="bijschrift">{{ x.structuur }}</div>{% endif %}</td><td>{{ x.pct|getal }}</td><td>{{ (x.stemrecht_pct if x.stemrecht_pct is not none else x.pct)|getal }}</td></tr>{% endfor %}</tbody>
+        </table></div>
+        {%- if r._r1 %}<div class="kader {{ 'waarschuwing' if r._r1.geraakt }}"><div class="t">Regel R1 (> 49%): {{ 'GERAAKT' if r._r1.geraakt else 'niet geraakt' }}</div>Grootste aandeelhouder {{ r._r1.grootste|getal }}% · top 3 samen {{ r._r1.top3|getal }}% kapitaal / {{ r._r1.top3_stem|getal }}% stemrecht.</div>{% endif %}
+        {%- if ah.uitleg %}<p class="blok">{{ ah.uitleg|inline }}</p>{% endif %}
+      {%- endif %}
+      {%- for b in s.inhoud %}{{ blok(b) }}{% endfor %}
+    </div>
+  </details>
+  {%- endfor %}
+
+  <section class="kaart">
+    <h2>Bronnen</h2>
+    <ol class="bronnen">
+      {%- for b in r.bronnen %}
+      <li id="bron-{{ b.id }}"><span class="type">{{ b.type or '' }}</span> {{ b.uitgever }} — {% if b.url %}<a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.titel }}</a>{% else %}{{ b.titel }}{% endif %}{% if b.document %} ({{ b.document }}){% endif %}{% if b.datum %}, {{ b.datum }}{% endif %}</li>
+      {%- endfor %}
+    </ol>
+  </section>
+
+  <section class="kaart">
+    <h2>Hoe lees je dit rapport?</h2>
+    <div class="legende-labels">
+      <span>{{ lab('feit') }}uit een bron, met verwijzing</span>
+      <span>{{ lab('berekening') }}zelf berekend uit feiten</span>
+      <span>{{ lab('inschatting') }}verwachting, kan anders uitdraaien</span>
+      <span>{{ lab('mening') }}oordeel van de analist</span>
+    </div>
+  </section>
+
+  <p class="voet">Gemaakt op {{ gebouwd }}. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,960 @@
+{
+ "meta": {
+  "ticker": "DEMO",
+  "naam": "Voorbeeld NV (FICTIEF – testrapport)",
+  "type": "aandeel",
+  "datum": "2026-11-08",
+  "beurs": "Euronext Brussel",
+  "isin": "BE0000000000",
+  "valuta": "EUR",
+  "sector": "Nutsbedrijven",
+  "defensief": true
+ },
+ "advies": {
+  "oordeel": "Afwachten",
+  "score": 6,
+  "reden": "**Fictief voorbeeld.** Sterk bedrijf met stabiele kasstromen, maar de familie heeft 52% in handen: regel R1 geraakt.",
+  "koers_nu": 139.2,
+  "koers_datum": "06-11-2026",
+  "koopzone": {
+   "van": 118,
+   "tot": 126
+  },
+  "koersdoel": 155,
+  "koersdoel_uitleg": "normaal scenario",
+  "stop_loss": {
+   "waarde": 111.4,
+   "uitleg": "−20% t.o.v. koers nu"
+  },
+  "intrinsieke_waarde": 131,
+  "scenarios": [
+   {
+    "naam": "Slecht",
+    "koers": 105,
+    "kans": "25%",
+    "uitleg": "Regulator verlaagt tarieven."
+   },
+   {
+    "naam": "Normaal",
+    "koers": 155,
+    "kans": "55%",
+    "uitleg": "Groei 4%/jaar, marges stabiel."
+   },
+   {
+    "naam": "Goed",
+    "koers": 180,
+    "kans": "20%",
+    "uitleg": "Nieuwe concessie binnengehaald."
+   }
+  ]
+ },
+ "aandeelhouders": {
+  "verdeling": [
+   {
+    "naam": "Familie Voorbeeld",
+    "pct": 52.0,
+    "stemrecht_pct": 52.0,
+    "structuur": "via Voorbeeld Holding SA"
+   },
+   {
+    "naam": "Eigen aandelen",
+    "pct": 3.1,
+    "stemrecht_pct": 0,
+    "eigen_aandelen": true
+   },
+   {
+    "naam": "Vrij verhandelbaar",
+    "pct": 44.9,
+    "vrij_verhandelbaar": true
+   }
+  ],
+  "bronnen": [
+   1
+  ],
+  "uitleg": "De familie controleert het bedrijf via een niet-genoteerde holding."
+ },
+ "rode_vlaggen": [
+  {
+   "ernst": "nogo",
+   "regel": "R1",
+   "titel": "Familie bezit 52% van de aandelen",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Familie Voorbeeld houdt 52% via Voorbeeld Holding SA.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Kleine aandeelhouders hebben weinig inspraak; enkel kopen als de rest uitzonderlijk is.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "ernst": "middel",
+   "regel": "R4",
+   "titel": "Lopende rechtszaak over waterprijzen",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Consumentenorganisatie daagde het bedrijf in 2025 voor de rechter.",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Uitspraak verwacht in 2027; impact geschat op 2–4% van de omzet.",
+     "bronnen": []
+    }
+   ]
+  }
+ ],
+ "samenvatting": [
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "Omzet steeg in 2025 met 4,1% tot €1,2 mld.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "berekening",
+   "tekst": "Vrije kasstroom dekt het dividend 1,6 keer.",
+   "bronnen": []
+  },
+  {
+   "type": "tekst",
+   "label": "mening",
+   "tekst": "Degelijk en defensief, maar de governance is een probleem.",
+   "bronnen": []
+  }
+ ],
+ "verkoopsignalen": [
+  "Regulator verlaagt de toegelaten [[rendementsvoet|winst die het bedrijf mag maken op zijn netwerk]].",
+  "Schuldgraad stijgt boven 4× EBITDA."
+ ],
+ "wijzigingen": [
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "Eerste rapport — nog niets te vergelijken.",
+   "bronnen": [
+    1
+   ]
+  }
+ ],
+ "secties": [
+  {
+   "id": "bestuur",
+   "titel": "Bestuur & aandeelhouders",
+   "kort": "R1 geraakt",
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "CEO-vergoeding €2,1 mln in 2025 (+5%).",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cijfers",
+   "titel": "Cijfers",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Omzet 2025",
+       "waarde": "€1,2 mld",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "+4,1%",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "naam": "Nettomarge",
+       "waarde": "14%",
+       "trend": "gelijk",
+       "label": "berekening",
+       "toelichting": "winst / omzet"
+      }
+     ]
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Omzet en nettowinst (mln EUR)",
+     "eenheid": "mln EUR",
+     "x": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "reeksen": [
+      {
+       "naam": "Omzet",
+       "waarden": [
+        1010,
+        1060,
+        1105,
+        1153,
+        1200
+       ]
+      },
+      {
+       "naam": "Nettowinst",
+       "waarden": [
+        150,
+        -20,
+        160,
+        165,
+        168
+       ]
+      }
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tabel",
+     "titel": "Kerncijfers",
+     "kolommen": [
+      "(mln EUR)",
+      "2024",
+      "2025"
+     ],
+     "rijen": [
+      [
+       "Omzet",
+       1153,
+       1200
+      ],
+      [
+       "Vrije kasstroom",
+       210,
+       231
+      ]
+     ],
+     "bronnen": [
+      1
+     ],
+     "noot": "Bron: jaarverslag 2025."
+    }
+   ]
+  },
+  {
+   "id": "investeringen",
+   "titel": "Waarin investeren ze?",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Capex €340 mln, waarvan 60% in netvervanging.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "72% van de winst wordt geherinvesteerd.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "keten",
+   "titel": "Keten (2 niveaus)",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "Leverancier pompen: Fictief Pumps AG.",
+       "bronnen": [
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sector",
+   "titel": "Sector & concurrenten",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Sector is defensief; weinig groei, wel voorspelbaar.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "actualiteit",
+   "titel": "Actualiteit",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Droogte in 2025 verhoogde de kosten.",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Nieuwe EU-waterrichtlijn kan vanaf 2027 extra investeringen vereisen.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "earnings_call",
+   "titel": "Earnings call",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Management klonk zelfzeker, maar ontweek vragen over de rechtszaak.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "waardering",
+   "titel": "Waardering",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "DCF met 6% disconteringsvoet geeft €131 per aandeel.",
+     "bronnen": []
+    }
+   ]
+  },
+  {
+   "id": "techniek",
+   "titel": "Grafiek & trend",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "grafiek",
+     "soort": "lijn",
+     "titel": "Koers – 5 jaar (fictief)",
+     "eenheid": "EUR",
+     "x": [
+      "2021-11-08",
+      "2021-11-15",
+      "2021-11-22",
+      "2021-11-29",
+      "2021-12-06",
+      "2021-12-13",
+      "2021-12-20",
+      "2021-12-27",
+      "2022-01-03",
+      "2022-01-10",
+      "2022-01-17",
+      "2022-01-24",
+      "2022-01-31",
+      "2022-02-07",
+      "2022-02-14",
+      "2022-02-21",
+      "2022-02-28",
+      "2022-03-07",
+      "2022-03-14",
+      "2022-03-21",
+      "2022-03-28",
+      "2022-04-04",
+      "2022-04-11",
+      "2022-04-18",
+      "2022-04-25",
+      "2022-05-02",
+      "2022-05-09",
+      "2022-05-16",
+      "2022-05-23",
+      "2022-05-30",
+      "2022-06-06",
+      "2022-06-13",
+      "2022-06-20",
+      "2022-06-27",
+      "2022-07-04",
+      "2022-07-11",
+      "2022-07-18",
+      "2022-07-25",
+      "2022-08-01",
+      "2022-08-08",
+      "2022-08-15",
+      "2022-08-22",
+      "2022-08-29",
+      "2022-09-05",
+      "2022-09-12",
+      "2022-09-19",
+      "2022-09-26",
+      "2022-10-03",
+      "2022-10-10",
+      "2022-10-17",
+      "2022-10-24",
+      "2022-10-31",
+      "2022-11-07",
+      "2022-11-14",
+      "2022-11-21",
+      "2022-11-28",
+      "2022-12-05",
+      "2022-12-12",
+      "2022-12-19",
+      "2022-12-26",
+      "2023-01-02",
+      "2023-01-09",
+      "2023-01-16",
+      "2023-01-23",
+      "2023-01-30",
+      "2023-02-06",
+      "2023-02-13",
+      "2023-02-20",
+      "2023-02-27",
+      "2023-03-06",
+      "2023-03-13",
+      "2023-03-20",
+      "2023-03-27",
+      "2023-04-03",
+      "2023-04-10",
+      "2023-04-17",
+      "2023-04-24",
+      "2023-05-01",
+      "2023-05-08",
+      "2023-05-15",
+      "2023-05-22",
+      "2023-05-29",
+      "2023-06-05",
+      "2023-06-12",
+      "2023-06-19",
+      "2023-06-26",
+      "2023-07-03",
+      "2023-07-10",
+      "2023-07-17",
+      "2023-07-24",
+      "2023-07-31",
+      "2023-08-07",
+      "2023-08-14",
+      "2023-08-21",
+      "2023-08-28",
+      "2023-09-04",
+      "2023-09-11",
+      "2023-09-18",
+      "2023-09-25",
+      "2023-10-02",
+      "2023-10-09",
+      "2023-10-16",
+      "2023-10-23",
+      "2023-10-30",
+      "2023-11-06",
+      "2023-11-13",
+      "2023-11-20",
+      "2023-11-27",
+      "2023-12-04",
+      "2023-12-11",
+      "2023-12-18",
+      "2023-12-25",
+      "2024-01-01",
+      "2024-01-08",
+      "2024-01-15",
+      "2024-01-22",
+      "2024-01-29",
+      "2024-02-05",
+      "2024-02-12",
+      "2024-02-19",
+      "2024-02-26",
+      "2024-03-04",
+      "2024-03-11",
+      "2024-03-18",
+      "2024-03-25",
+      "2024-04-01",
+      "2024-04-08",
+      "2024-04-15",
+      "2024-04-22",
+      "2024-04-29",
+      "2024-05-06",
+      "2024-05-13",
+      "2024-05-20",
+      "2024-05-27",
+      "2024-06-03",
+      "2024-06-10",
+      "2024-06-17",
+      "2024-06-24",
+      "2024-07-01",
+      "2024-07-08",
+      "2024-07-15",
+      "2024-07-22",
+      "2024-07-29",
+      "2024-08-05",
+      "2024-08-12",
+      "2024-08-19",
+      "2024-08-26",
+      "2024-09-02",
+      "2024-09-09",
+      "2024-09-16",
+      "2024-09-23",
+      "2024-09-30",
+      "2024-10-07",
+      "2024-10-14",
+      "2024-10-21",
+      "2024-10-28",
+      "2024-11-04",
+      "2024-11-11",
+      "2024-11-18",
+      "2024-11-25",
+      "2024-12-02",
+      "2024-12-09",
+      "2024-12-16",
+      "2024-12-23",
+      "2024-12-30",
+      "2025-01-06",
+      "2025-01-13",
+      "2025-01-20",
+      "2025-01-27",
+      "2025-02-03",
+      "2025-02-10",
+      "2025-02-17",
+      "2025-02-24",
+      "2025-03-03",
+      "2025-03-10",
+      "2025-03-17",
+      "2025-03-24",
+      "2025-03-31",
+      "2025-04-07",
+      "2025-04-14",
+      "2025-04-21",
+      "2025-04-28",
+      "2025-05-05",
+      "2025-05-12",
+      "2025-05-19",
+      "2025-05-26",
+      "2025-06-02",
+      "2025-06-09",
+      "2025-06-16",
+      "2025-06-23",
+      "2025-06-30",
+      "2025-07-07",
+      "2025-07-14",
+      "2025-07-21",
+      "2025-07-28",
+      "2025-08-04",
+      "2025-08-11",
+      "2025-08-18",
+      "2025-08-25",
+      "2025-09-01",
+      "2025-09-08",
+      "2025-09-15",
+      "2025-09-22",
+      "2025-09-29",
+      "2025-10-06",
+      "2025-10-13",
+      "2025-10-20",
+      "2025-10-27",
+      "2025-11-03",
+      "2025-11-10",
+      "2025-11-17",
+      "2025-11-24",
+      "2025-12-01",
+      "2025-12-08",
+      "2025-12-15",
+      "2025-12-22",
+      "2025-12-29",
+      "2026-01-05",
+      "2026-01-12",
+      "2026-01-19",
+      "2026-01-26",
+      "2026-02-02",
+      "2026-02-09",
+      "2026-02-16",
+      "2026-02-23",
+      "2026-03-02",
+      "2026-03-09",
+      "2026-03-16",
+      "2026-03-23",
+      "2026-03-30",
+      "2026-04-06",
+      "2026-04-13",
+      "2026-04-20",
+      "2026-04-27",
+      "2026-05-04",
+      "2026-05-11",
+      "2026-05-18",
+      "2026-05-25",
+      "2026-06-01",
+      "2026-06-08",
+      "2026-06-15",
+      "2026-06-22",
+      "2026-06-29",
+      "2026-07-06",
+      "2026-07-13",
+      "2026-07-20",
+      "2026-07-27",
+      "2026-08-03",
+      "2026-08-10",
+      "2026-08-17",
+      "2026-08-24",
+      "2026-08-31",
+      "2026-09-07",
+      "2026-09-14",
+      "2026-09-21",
+      "2026-09-28",
+      "2026-10-05",
+      "2026-10-12",
+      "2026-10-19",
+      "2026-10-26",
+      "2026-11-02"
+     ],
+     "reeksen": [
+      {
+       "naam": "Slotkoers",
+       "waarden": [
+        100.0,
+        101.26,
+        102.52,
+        103.77,
+        105.01,
+        106.23,
+        107.44,
+        108.63,
+        109.8,
+        110.94,
+        112.05,
+        113.13,
+        114.17,
+        115.17,
+        116.13,
+        117.05,
+        117.93,
+        118.75,
+        119.53,
+        120.25,
+        120.92,
+        121.54,
+        122.1,
+        122.6,
+        123.04,
+        123.42,
+        123.74,
+        124.0,
+        124.2,
+        124.33,
+        124.41,
+        124.42,
+        124.37,
+        124.26,
+        124.1,
+        123.87,
+        123.59,
+        123.25,
+        122.85,
+        122.4,
+        121.9,
+        121.36,
+        120.76,
+        120.12,
+        119.44,
+        118.72,
+        117.96,
+        117.17,
+        116.35,
+        115.49,
+        114.62,
+        113.72,
+        112.8,
+        111.87,
+        110.92,
+        109.97,
+        109.01,
+        108.05,
+        107.09,
+        106.13,
+        105.19,
+        104.25,
+        103.34,
+        102.43,
+        101.56,
+        100.7,
+        99.87,
+        99.08,
+        98.32,
+        97.59,
+        96.91,
+        96.26,
+        95.66,
+        95.11,
+        94.61,
+        94.15,
+        93.75,
+        93.41,
+        93.12,
+        92.89,
+        92.71,
+        92.6,
+        92.55,
+        92.55,
+        92.62,
+        92.75,
+        92.94,
+        93.2,
+        93.51,
+        93.89,
+        94.32,
+        94.82,
+        95.37,
+        95.98,
+        96.64,
+        97.36,
+        98.13,
+        98.95,
+        99.82,
+        100.74,
+        101.7,
+        102.7,
+        103.74,
+        104.81,
+        105.92,
+        107.05,
+        108.22,
+        109.4,
+        110.61,
+        111.84,
+        113.08,
+        114.32,
+        115.58,
+        116.84,
+        118.1,
+        119.36,
+        120.61,
+        121.85,
+        123.08,
+        124.29,
+        125.48,
+        126.65,
+        127.79,
+        128.91,
+        129.99,
+        131.03,
+        132.04,
+        133.01,
+        133.93,
+        134.81,
+        135.64,
+        136.42,
+        137.15,
+        137.83,
+        138.45,
+        139.01,
+        139.52,
+        139.96,
+        140.35,
+        140.68,
+        140.94,
+        141.15,
+        141.29,
+        141.37,
+        141.39,
+        141.35,
+        141.24,
+        141.08,
+        140.86,
+        140.58,
+        140.25,
+        139.86,
+        139.41,
+        138.92,
+        138.38,
+        137.79,
+        137.15,
+        136.47,
+        135.76,
+        135.0,
+        134.21,
+        133.39,
+        132.54,
+        131.67,
+        130.77,
+        129.86,
+        128.92,
+        127.98,
+        127.03,
+        126.07,
+        125.11,
+        124.15,
+        123.19,
+        122.24,
+        121.31,
+        120.39,
+        119.49,
+        118.6,
+        117.75,
+        116.92,
+        116.12,
+        115.35,
+        114.63,
+        113.94,
+        113.29,
+        112.68,
+        112.13,
+        111.62,
+        111.16,
+        110.76,
+        110.41,
+        110.11,
+        109.87,
+        109.69,
+        109.57,
+        109.51,
+        109.51,
+        109.58,
+        109.7,
+        109.89,
+        110.13,
+        110.44,
+        110.81,
+        111.24,
+        111.73,
+        112.28,
+        112.88,
+        113.54,
+        114.25,
+        115.02,
+        115.84,
+        116.7,
+        117.61,
+        118.57,
+        119.56,
+        120.6,
+        121.67,
+        122.77,
+        123.91,
+        125.07,
+        126.25,
+        127.46,
+        128.68,
+        129.92,
+        131.17,
+        132.42,
+        133.68,
+        134.94,
+        136.2,
+        137.45,
+        138.7,
+        139.93,
+        141.14,
+        142.33,
+        143.5,
+        144.65,
+        145.76,
+        146.85,
+        147.9,
+        148.91,
+        149.88,
+        150.81,
+        151.69,
+        152.53,
+        153.31,
+        154.05,
+        154.73,
+        155.35,
+        155.92,
+        156.43,
+        156.89,
+        157.28,
+        157.61,
+        157.88,
+        158.09,
+        158.24,
+        158.33,
+        158.35,
+        158.32,
+        158.22,
+        158.06
+       ]
+      }
+     ],
+     "lijnen": [
+      {
+       "naam": "Stop-loss −20%",
+       "waarde": 111.4
+      }
+     ],
+     "bron_tekst": "fictieve data"
+    }
+   ]
+  },
+  {
+   "id": "expert",
+   "titel": "Kritische expertblik",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "kader",
+     "stijl": "mening",
+     "titel": "Mening",
+     "tekst": "Ik zou wachten tot de rechtszaak beslecht is."
+    }
+   ]
+  },
+  {
+   "id": "profiel",
+   "titel": "Past dit bij jou?",
+   "kort": null,
+   "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Defensief en herinvesteert veel ✅, maar R1 is voor jou normaal een no-go ❌.",
+     "bronnen": []
+    }
+   ]
+  }
+ ],
+ "bronnen": [
+  {
+   "id": 1,
+   "titel": "Jaarverslag 2025 (fictief)",
+   "uitgever": "Voorbeeld NV",
+   "document": "Jaarverslag 2025, p. 12–40",
+   "type": "primair",
+   "datum": "2026-03-15"
+  },
+  {
+   "id": 2,
+   "titel": "Artikel over rechtszaak (fictief)",
+   "uitgever": "De Tijd",
+   "url": "https://www.tijd.be",
+   "type": "nieuws",
+   "datum": "2025-09-01"
+  }
+ ]
+}

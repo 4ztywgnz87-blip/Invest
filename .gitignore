@@ -1,0 +1,5 @@
+# Gedownloade verslagen zijn groot; de tekstextractie (.txt) blijft wel bewaard.
+data/*/docs/*.pdf
+__pycache__/
+*.pyc
+node_modules/
