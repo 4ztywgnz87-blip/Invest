@@ -27,3 +27,16 @@
 22. Technische analyse: ja — om stop-loss te bepalen en trend/cycliciteit te zien. Beïnvloedt koopbeslissing enkel als de rest al negatief is.
 23. ESG: maakt niet uit.
 24. Verkopen: alle redenen mogelijk (koersdoel, these gebroken, betere kans, winst nemen, stop-loss).
+
+## C. Rapport & advies
+25. Advies: combinatie (kopen/houden/verkopen + score + koopzone/koersdoel + scenario's).
+26. Lengte: samenvatting van 1 scherm, details inklapbaar.
+27. Grafieken: ja.
+28. Bronnen bij elk feit: ja.
+29. Ketendiepte: 2 niveaus.
+30. Tijdshorizon: focus op meest recente kwartaal-/jaarcijfers. Trends ~5 jaar als context; oudere gebeurtenissen alleen als ze nu nog impact hebben.
+31. Peers: ja, de dichtste concurrenten.
+32. Intrinsieke waarde: ja.
+33. Export: ja (PDF/mail/delen).
+34. Rapporten bewaren en vergelijken: ja.
+35. Taal: Nederlands.
