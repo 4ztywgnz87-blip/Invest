@@ -63,3 +63,17 @@ De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt 
 46. Toestel: gsm én laptop.
 47. Modus: altijd grondig.
 48. Frequentie: enkele rapporten per maand, extra bij grote wereldgebeurtenissen of opvallend nieuws.
+
+## G. Techniek, platform & budget
+49. Type: webapp.
+50. Toestellen: OnePlus 9 Pro (Android), Windows-pc, soms iPhone.
+51. Programmeren: Claude bouwt en onderhoudt alles.
+52. Draaien: lokaal; rapporten worden gedownload. Wens: na het rapport vragen kunnen stellen over het rapport.
+53. Budget: voorlopig €0 extra — draaien op Claude Pro-abonnement.
+54. Accounts: Anthropic Claude Pro. Geen data-API-accounts.
+55. Opslag: mag overal (cloud ok).
+56. Europa/België: even grondig als VS. PDF-jaarverslagen lezen is net de kern (grootste tijdsverslinder).
+
+### Notities
+- Idee voor later: analyse starten vanuit een nieuwsfeit ("Wat betekent X voor bedrijf Y?").
+- Claude Pro bevat geen API-toegang → architectuur via Claude Code (inbegrepen in Pro) i.p.v. eigen API-calls. Te bevestigen door gebruiker.
