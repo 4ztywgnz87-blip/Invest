@@ -1,143 +1,133 @@
-# Invest — Plan & Vragenlijst
+# Invest — Definitief plan (v1)
 
-> Status: **Fase 0 – Intake**. Dit document is het startpunt. Beantwoord de vragen in sectie 3 (mag kort, mag in het Nederlands, mag "weet ik niet / kies jij"). Op basis van jouw antwoorden werk ik sectie 1, 2 en 4 uit tot een definitief plan.
-
----
-
-## 1. Visie (eerste versie)
-
-Een persoonlijke onderzoeksassistent voor beleggen. Je typt een **ticker** (bv. `ASML`, `MSFT`, `UCB.BR`) en de app:
-
-1. **Identificeert** het bedrijf eenduidig (ticker + beurs + ISIN).
-2. **Verzamelt** financiële data: jaar- en kwartaalverslagen, omzet, winst, marges, kasstromen, schulden, capex (waarin investeren ze?), segmenten, dividend, inkoop eigen aandelen, waardering.
-3. **Volgt de keten**: leveranciers, klanten, partners, deelnemingen en grote investeringen (bv. bedrijf koopt veel GPU's → analyseer ook NVIDIA), en concurrenten.
-4. **Koppelt actualiteit**: geopolitiek (oorlogen, Straat van Hormuz, sancties), macro (rente, inflatie, olieprijs, grondstoffen), politiek (verkiezingen, tarieven, regelgeving), sectornieuws — verleden, heden én mogelijke toekomstige impact.
-5. **Analyseert de sector**: trends, cycli, concurrentiepositie, marktaandeel.
-6. **Schrijft een rapport** met een duidelijke conclusie (kopen / houden / verkopen / afwachten), onderbouwing, risico's, scenario's en bronnen.
-7. **Kent jou**: weegt de analyse volgens jouw voorkeuren, stijl en risicoprofiel, en leert bij uit je feedback.
-8. **Volgt op**: houdt je portefeuille/watchlist in de gaten en waarschuwt wanneer iets verandert dat een verkoop- of koopmoment kan zijn.
-
-## 2. Voorlopige bouwstenen (modules)
-
-| # | Module | Doel | Afgewerkt wanneer… |
-|---|--------|------|---------------------|
-| M1 | Ticker-zoeker | Aandeel opzoeken, eenduidig bedrijf kiezen | Elk gangbaar aandeel (VS, EU, …) wordt correct gevonden |
-| M2 | Financiële data | Cijfers uit verslagen/API's ophalen en normaliseren | 10 jaar + laatste kwartalen, kerncijfers + ratio's correct |
-| M3 | Verslag-lezer | Jaar-/kwartaalverslagen (PDF/10-K/10-Q) lezen en samenvatten, capex & strategie eruit halen | Samenvatting met verwijzing naar pagina/sectie |
-| M4 | Relatie-graaf | Leveranciers, klanten, deelnemingen, concurrenten in kaart + recursief analyseren | Graaf tot diepte N, met korte analyse per knoop |
-| M5 | Nieuws & actualiteit | Relevant nieuws + macro/geopolitiek verzamelen en impact inschatten | Gefilterd, gedateerd, met bron en impact-inschatting |
-| M6 | Sectoranalyse | Sector-trends, peers vergelijken | Peer-tabel + sectorbeeld |
-| M7 | Persoonlijk profiel | Jouw voorkeuren, regels, risico; leert uit feedback | Rapport past aantoonbaar aan op profiel |
-| M8 | Rapportgenerator | Alles samenbrengen tot advies | Leesbaar rapport met score, advies, bronnen |
-| M9 | Portefeuille & alerts | Posities/watchlist volgen, signalen geven | Meldingen bij relevante gebeurtenissen |
-| M10 | Interface | Web/mobiel/desktop | Volgens antwoorden op sectie 3 |
-
-Volgorde (voorstel): M1 → M2 → M8 (eenvoudig rapport) → M7 → M3 → M5 → M6 → M4 → M9. Zo heb je snel iets bruikbaars en wordt het daarna dieper.
+> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **klaar om te bouwen – wacht op akkoord**.
 
 ---
 
-## 3. Vragen
+## 1. Wat bouwen we?
 
-### A. Over jou (persoonlijk profiel)
-1. Hoe lang belegt je al, en hoe zou je je ervaring omschrijven (beginner / gevorderd / expert)?
-2. Wat is je beroep of achtergrond? (Helpt om in te schatten hoeveel uitleg / jargon je wil.)
-3. In welk land woon je / ben je fiscaal inwoner? (België? → beurstaks, roerende voorheffing, meerwaardebelasting zijn relevant.)
-4. Bij welke broker(s) beleg je? (Bolero, Saxo, DEGIRO, Keytrade, IBKR, …)
-5. Wat is je beleggingsdoel? (vermogensopbouw, pensioen, passief inkomen/dividend, korte-termijn winst, …)
-6. Wat is je typische beleggingshorizon per aandeel? (weken / maanden / jaren / "voor altijd")
-7. Hoe ga je om met verlies? Bij welke daling verkoop je of koop je bij?
-8. Grootteorde van je portefeuille en aantal posities? (Mag een range zijn, of overslaan.)
-9. Hoeveel uur per week steek je nu in onderzoek? Hoeveel wil je er nog in steken met de app?
-10. Welke beleggers, boeken, podcasts of websites inspireren jou? (bv. Buffett, Lynch, Fisher, Seeking Alpha, …)
-11. Wat was je beste en je slechtste belegging, en waarom liep die zo?
-12. Welke fouten maak je volgens jezelf het vaakst? (te vroeg verkopen, FOMO, te lang vasthouden, …) — de app kan je daarop wijzen.
+Een persoonlijke, kritische beleggingsonderzoeker. Jij geeft een **ticker** (aandeel of ETF), de app doet het werk dat jou nu 5+ uur kost:
 
-### B. Beleggingsstijl & voorkeuren
-13. Welke stijl past het best: value, growth, quality, dividend, momentum, turnaround, speculatief, mix?
-14. Welke kerncijfers vind je het belangrijkst? (bv. omzetgroei, vrije kasstroom, ROIC, marges, schuldgraad, P/E, EV/EBITDA, PEG, dividendrendement, …)
-15. Welke kenmerken vind je **positief** (bv. founder-led, eigen aandelen inkopen, netto kaspositie, monopolie/moat, recurring revenue)?
-16. Welke zaken zijn voor jou **rode vlaggen** of absolute no-go's (bv. hoge schuld, verwatering, verlieslatend, bepaalde landen)?
-17. Zijn er sectoren of thema's die je **uitsluit** (wapens, tabak, fossiel, gokken, …) of juist **zoekt** (AI, halfgeleiders, defensie, energie, gezondheid, …)?
-18. Welke markten/beurzen? (VS, Euronext Brussel, rest van Europa, Azië, opkomende markten)
-19. Welke bedrijfsgrootte? (megacap, midcap, smallcap, microcap)
-20. Alleen aandelen, of ook ETF's, obligaties, crypto, grondstoffen, opties?
-21. Hoe belangrijk is waardering voor jou: "goed bedrijf tegen elke prijs" of "alleen bij korting"?
-22. Gebruik je technische analyse (grafieken, steunniveaus, RSI, …)? Moet de app dat meenemen?
-23. Hoe belangrijk is ESG/duurzaamheid voor je?
-24. Wat moet er gebeuren voor jij een aandeel **verkoopt**? (koersdoel bereikt, these gebroken, betere kans, stop-loss, …)
+1. Alle jaar- en kwartaalverslagen lezen en de juiste cijfers eruit halen.
+2. De gelinkte bedrijven (2 niveaus diep) en hun cijfers analyseren.
+3. Zelf bedenken welke actualiteit relevant is en daar gericht naar zoeken (verleden, nu, 2 jaar vooruit).
+4. Alles fact-checken.
+5. Een kort, direct, zakelijk rapport in het Nederlands schrijven, met kritische expertopmerkingen en jouw rode vlaggen bovenaan.
 
-### C. Rapport & advies
-25. Hoe moet het eindadvies eruitzien? (alleen kopen/verkopen, of score 1–10, of koopzone/koersdoel, of scenario's bull/base/bear)
-26. Hoe lang mag een rapport zijn? Eerst een samenvatting van 1 scherm en daarna inklapbare details?
-27. Wil je grafieken (omzet/winst over tijd, marges, koers, peers)?
-28. Wil je bij elk cijfer/feit de **bron** zien (link naar verslag, pagina)?
-29. Hoe diep moet de "keten" gaan? (bv. bedrijf → NVIDIA → TSMC → ASML …) Maximaal 1, 2 of 3 niveaus? Of laat je dat per keer kiezen?
-30. Hoe ver terug moet de analyse kijken? (5 jaar, 10 jaar, maximaal)
-31. Wil je een vergelijking met concurrenten/peers in elk rapport?
-32. Wil je dat de app een **intrinsieke waarde** schat (DCF, multiples)? Met welke aannames?
-33. Moet het rapport exporteerbaar zijn (PDF, Word, Notion, e-mail)?
-34. Wil je rapporten bewaren en later vergelijken ("wat dacht ik 6 maanden geleden en wat is er veranderd")?
-35. Taal van de app en rapporten: Nederlands, Engels, of beide?
+**Kernprincipes**
+- **Enkel op vraag.** Geen continue scan, geen portefeuille, geen watchlist, geen meldingen.
+- **Kwaliteit boven snelheid.** Geen tijdslimiet.
+- **Nooit verzinnen.** Elk feit heeft een bron. Forums zijn nooit een bron van feiten.
+- **Enkel advies.** De app plaatst nooit orders.
+- **Labels in elk rapport:** 🟦 *Feit* (met bron) · 🟩 *Berekening* · 🟨 *Inschatting* (speculatief, met reden) · 🟥 *Mening*.
 
-### D. Actualiteit & nieuws
-36. Welke nieuwsbronnen vertrouw je (De Tijd, FT, Bloomberg, Reuters, WSJ, X/Twitter, Reddit, …)? En welke absoluut niet?
-37. Wil je ook "zachtere" signalen: insider-aankopen/-verkopen, short-interesse, analistenratings, posities van grote fondsen (13F), sentiment op sociale media?
-38. Wil je earnings calls (transcripts) laten samenvatten, inclusief toon van het management?
-39. Hoe ver vooruit moet de app "mogelijke toekomstige impact" inschatten, en hoe speculatief mag dat zijn?
+## 2. Hoe werkt het technisch? (gratis, op Claude Pro)
 
-### E. Portefeuille, watchlist & meldingen
-40. Wil je je portefeuille in de app invoeren (handmatig, CSV-import van je broker)?
-41. Wil je een watchlist met automatische opvolging?
-42. Welke meldingen wil je? (nieuw kwartaalverslag, groot nieuws, koersdaling X%, waardering in koopzone, these gebroken, …)
-43. Via welk kanaal? (push op gsm, e-mail, Telegram/WhatsApp, enkel in de app) en hoe vaak? (realtime, dagelijks overzicht, wekelijks)
-44. Wil je dat de app zelf **nieuwe kandidaten** voorstelt (screener op basis van jouw profiel)?
+```
+ ┌──────────────────────────────┐         ┌────────────────────────────────┐
+ │ 1. ONDERZOEK  (Claude-chat)  │  ───►   │ 2. INVEST-APP  (claude.ai)     │
+ │ Claude Code, gsm of pc        │ rapport │ webapp op gsm + pc              │
+ │ "analyseer SOF.BR"            │         │ • archief van rapporten         │
+ │ • leest verslagen (PDF)       │         │ • rapport lezen + grafieken     │
+ │ • zoekt nieuws/keten/sector   │  ◄───   │ • vragen stellen over rapport   │
+ │ • fact-check                  │ feedback│ • PDF downloaden                │
+ │ • schrijft rapport            │ profiel │ • feedback + profiel beheren    │
+ └──────────────────────────────┘         └────────────────────────────────┘
+              │
+              ▼
+   Deze GitHub-repo = het geheugen
+   (profiel, regels, rapporten, gecheckte bronnen)
+```
 
-### F. Gebruikers & gebruik
-45. Ben jij de enige gebruiker, of ook familie/vrienden/klanten? Ooit commercieel (verkopen als product)?
-46. Waar gebruik je het vooral: gsm onderweg, laptop thuis, beide?
-47. Typisch gebruik: snel even een ticker checken (2 min) of grondig onderzoek (uur)? Of beide met een "snel" en "diep" modus?
-48. Hoe vaak verwacht je een rapport te maken? (per dag / per week)
+- **Onderzoeksdeel:** een vaste werkwijze (Claude Code *skill*) in deze repo. Jij start het vanuit de Claude-app op gsm of pc. Het draait op je Pro-abonnement.
+- **App:** een webapp gepubliceerd op claude.ai (privé). Vragen over een rapport gebruiken je eigen Pro-verbruik → geen extra kosten. De app kan zelf niet op internet zoeken; dat doet stap 1.
+- **Opslag:** rapporten (HTML + PDF), profiel, feedback en bronnengeheugen in deze repo én in de database van de app.
+- **Beperking:** Pro heeft gebruikslimieten. Een zeer grondig rapport kan over meerdere sessies verdeeld moeten worden. Voor enkele rapporten per maand is dat oké.
+- **Later optioneel:** echte eigen webapp met Claude API (~€5–20/maand). De werkwijze is herbruikbaar.
 
-### G. Techniek, platform & budget
-49. Wat voor app: webapp (in browser, ook op gsm), mobiele app (iOS/Android), desktop, of eerst gewoon een chat/CLI-tool?
-50. Welke gsm/computer gebruik je? (iPhone/Android, Windows/Mac)
-51. Heb je zelf programmeerervaring? Wil je de code zelf kunnen onderhouden? Voorkeurstaal (Python, TypeScript, …)?
-52. Waar mag het draaien: lokaal op je pc, op een server/cloud (bv. Vercel, Railway, eigen VPS), of maakt het niet uit?
-53. **Budget per maand** voor data en AI? (Gratis bronnen zoals SEC EDGAR, Yahoo zijn beperkt; goede data-API's zoals Financial Modeling Prep, EODHD, Polygon kosten ca. €15–100/maand; AI-gebruik (Claude API) kost per rapport ongeveer enkele cent tot ~€1 afhankelijk van diepgang.)
-54. Mag de app de Claude API gebruiken voor de analyse? Heb je al een API-sleutel of account bij een data-provider?
-55. Privacy: mogen portefeuillegegevens in de cloud staan, of moet alles lokaal blijven?
-56. Moet het werken voor Europese aandelen (waar verslagen vaak PDF's zijn en data schaarser is) even goed als voor Amerikaanse?
+## 3. Databronnen (gratis)
 
-### H. Stijl & uitstraling
-57. Welke sfeer: zakelijk/Bloomberg-terminal, minimalistisch/Apple-achtig, speels/kleurrijk?
-58. Donkere modus, lichte modus, of beide?
-59. Apps of sites waarvan je het ontwerp mooi vindt (bv. Koyfin, TradingView, Finviz, Simply Wall St, Revolut)?
-60. Toon van de tekst: kort en direct, of uitgebreid met uitleg? Mag de app kritisch/"eerlijk-hard" zijn tegen je?
+| Wat | Bronnen |
+|-----|---------|
+| Jaar-/kwartaalverslagen | Investor-relations-sites van bedrijven, SEC EDGAR (VS: 10-K, 10-Q, 20-F), EDINET (Japan), nationale registers (FSMA/NBB België, AMF, AFM, …) |
+| Aandeelhouders & insiders | Transparantieverklaringen (FSMA e.a.), SEC 13D/13G en Form 4, jaarverslag (aandeelhoudersstructuur), meldingen van leidinggevenden (MAR) |
+| Koersen & technische analyse | Gratis koersdata (bv. Yahoo Finance, Stooq), berekend: trend, steun/weerstand, cycliciteit |
+| Nieuws & actualiteit | Zo breed mogelijk: De Tijd, Reuters, FT, Bloomberg, WSJ, AP, Nikkei, L'Echo, vakpers per sector, persberichten bedrijven, overheden/toezichthouders |
+| Macro & grondstoffen | ECB, Fed/FRED, Eurostat, IEA/EIA (energie), IMF/Wereldbank |
+| Rechtszaken | Persberichten, jaarverslag (geschillen/voorzieningen), rechtbankdatabanken (bv. CourtListener VS), toezichthouders |
+| ETF's | Factsheet, KID, holdingslijst en jaarverslag van de uitgever |
 
-### I. Grenzen & afspraken
-61. Mag de app ooit zelf orders plaatsen bij je broker, of strikt alleen adviseren? (Voorstel: alleen adviseren.)
-62. Hoe moet de app omgaan met onzekerheid: altijd een advies geven, of ook "onvoldoende info" durven zeggen?
-63. Wat zijn dingen die de app absoluut **niet** mag doen of tonen?
-64. Wat is voor jou de **definitie van afgewerkt**? Bv.: "Ik typ een ticker, binnen X minuten krijg ik een rapport dat minstens zo goed is als wat ik zelf in Y uur maak."
-65. Wat is een **eerste versie (MVP)** waar je al blij mee zou zijn? Welke functies mogen tot later wachten?
-66. Heb je een deadline of gewenst tempo?
-67. Hoe wil je testen of de adviezen goed zijn? (bv. backtest op bedrijven die je al kent, vergelijken met je eigen analyses, paper trading)
-68. Kun je 2–3 tickers geven die we als **testcases** gebruiken (een die je bezit, een die je overweegt, een die je afwees)? En eventueel een eigen analyse van één ervan als referentie?
+**Fact-check regel:** belangrijke cijfers bij voorkeur uit de primaire bron (verslag) en waar mogelijk gecontroleerd met een tweede bron. Tegenstrijdigheden worden gemeld.
 
-### J. Leren van jou
-69. Hoe wil je dat de app je voorkeuren leert: een intake-vragenlijst, duimpjes omhoog/omlaag per rapport, je eigen notities, je echte aan- en verkopen analyseren, of een combinatie?
-70. Mag de app je voorkeuren automatisch aanpassen, of wil je elke wijziging eerst bevestigen?
-71. Wil je een "beleggingsdagboek" waarin je per aankoop je reden (these) noteert, zodat de app later kan controleren of die these nog klopt?
+**Te weinig info:** eerst 3 grondige zoekrondes. Pas daarna "onvoldoende info" melden, mét wat wel gevonden werd.
 
-### K. Vrije ruimte
-72. Wat vergeten we nog? Welke stap in jouw huidige werkwijze kost het meeste tijd of vind je het vervelendst?
-73. Is er een bestaande tool die je al gebruikt en wat mist daar?
+**Bronnengeheugen:** per bedrijf wordt bijgehouden welke artikels/verslagen al gelezen zijn (link + datum + korte samenvatting). Bij een nieuw rapport worden die niet opnieuw geanalyseerd, tenzij ze gewijzigd zijn.
 
----
+## 4. Het rapport
 
-## 4. Volgende stappen
-1. Jij beantwoordt de vragen (in de chat of rechtstreeks in dit bestand).
-2. Ik werk het definitieve plan uit: architectuur, databronnen, MVP-scope, testplan en mijlpalen.
-3. We bouwen module per module, met na elke module een test op jouw testcases.
+Zakelijk, strak, licht thema. Eerst **1 scherm samenvatting**, daarna inklapbare secties.
 
-> ⚠️ De app geeft onderzoek en meningen, geen gereglementeerd financieel advies. De eindbeslissing blijft altijd bij jou.
+**Kop (1 scherm)**
+- Advies: **Kopen / Houden / Verkopen / Afwachten**
+- Score 1–10 + korte reden
+- Koopzone en koersdoel
+- Scenario's (2 jaar): slecht / normaal / goed
+- 🚩 Rode vlaggen (altijd bovenaan)
+- Wat is er veranderd sinds het vorige rapport
+
+**Secties**
+1. **Rode vlaggen & bestuur**
+   - Aandeelhouders > 49% (één of samen) → **NO-GO**, tenzij de rest uitzonderlijk positief is; altijd verdeling uitleggen (wie, %, via welke structuur).
+   - Management dat geld naar zichzelf sluist (vergoedingen, related-party transacties).
+   - Aandeelhoudersgeld om een topmanager uit te kopen.
+   - Rechtszaken: vroeger, lopend, mogelijk — met reden.
+   - Insider-aankopen/-verkopen en corporate actions — met reden.
+2. **Cijfers** — laatste kwartaal en jaar, trend 5 jaar, met grafieken en uitleg in gewone taal (omzet, winst, marges, kasstroom, schulden, rendement, dividend, inkoop, verwatering, …).
+3. **Waarin investeren ze?** — capex, R&D, overnames, deelnemingen; hoeveel van de winst wordt geherinvesteerd (langetermijnvisie ✔, hype ✘).
+4. **De keten (2 niveaus)** — belangrijkste leveranciers, klanten, investeringen, deelnemingen en hun kerncijfers en situatie.
+5. **Sector & concurrenten** — sectortrends + vergelijking met de dichtste concurrenten. Label "defensief" waar van toepassing.
+6. **Actualiteit** — wat had impact, wat heeft impact, wat kan impact hebben (2 jaar), elk met bron en labels.
+7. **Earnings call** — samenvatting + mening over houding/zelfzekerheid management.
+8. **Waardering** — intrinsieke waarde (DCF + vergelijking multiples), aannames zichtbaar.
+9. **Grafiek & trend** — technische trend, cycliciteit, voorstel stop-loss (jouw −20% + technische steunniveaus).
+10. **Kritische expertblik** 🟥 — wat een ervaren, kritische investeerder hierover zou zeggen.
+11. **Past dit bij jou?** — toetsing aan je profiel.
+12. **Bronnen** — volledige lijst met links.
+
+**ETF-variant:** kosten (TER), inhoud en concentratie (landen, sectoren, top-posities), indexvolging, grootte, replicatie, fiscaliteit België (beurstaks, Reynders-taks), overlap met wat je al hebt (als je dat opgeeft).
+
+## 5. Jouw profiel & leren
+
+- `profiel/PROFIEL.md`: je antwoorden vertaald naar regels en voorkeuren.
+- Na elk rapport: score + commentaar + "let hier extra op" / "dit is nutteloos".
+- De app **stelt profielwijzigingen voor**; pas na jouw akkoord worden ze doorgevoerd.
+- Extra (later): beleggingsdagboek — waarom je kocht; nieuwe rapporten checken of die redenen nog kloppen.
+
+## 6. Bouwfases
+
+| Fase | Wat | Klaar wanneer… |
+|------|-----|-----------------|
+| **F1 – Fundament** | Profiel + regels, rapportsjabloon (HTML/PDF), onderzoekswerkwijze (skill), bronnengeheugen | Eerste volledig rapport over **Sofina** |
+| **F2 – Diepte & kwaliteit** | Keten 2 niveaus, actualiteitsonderzoek, fact-check, ETF-variant | Rapporten over **Sofina, iShares Core MSCI World, SoftBank** die jij goedkeurt na vergelijking met je eigen kennis |
+| **F3 – De app** | Webapp op claude.ai: archief, lezen (gsm + pc), grafieken, vragen stellen, PDF, feedback/profiel | Je opent en leest alle rapporten vlot op gsm én pc en kunt er vragen over stellen |
+| **F4 – Terugkijktest** | Analyse "zoals het toen was": **Ørsted 2021** (zou het risico gezien zijn?) en **DEME** (zou de kans gezien zijn?) | Rapporten zijn achteraf verdedigbaar |
+| **F5 – Extra's** | Beleggingsdagboek, analyse starten vanuit een nieuwsfeit, screener op vraag, eventueel eigen webapp met API | Op jouw vraag |
+
+## 7. Definitie van "af" (versie 1)
+
+- Ik typ een ticker in de chat → de app werkt het volledige proces af (verslagen → keten → actualiteit → fact-check → rapport) zonder dat ik zelf iets moet opzoeken.
+- Het rapport bevat alle secties uit §4, elk feit met bron, alle labels correct, rode vlaggen bovenaan.
+- Geen verzonnen informatie (steekproef op bronnen bij de testcases).
+- Het rapport staat in de app en is goed leesbaar op OnePlus 9 Pro, iPhone en Windows-pc, en downloadbaar als PDF.
+- Ik kan in de app vragen stellen over een rapport.
+- Mijn feedback leidt tot voorstellen om het profiel aan te passen.
+- Mijn tijd per beslissing gaat van ~5 uur naar ≤ 2 uur.
+
+## 8. Risico's & open punten
+
+- **Gebruikslimiet Pro:** zeer diepe rapporten kunnen meerdere sessies vragen.
+- **Netwerktoegang van de cloudomgeving:** sommige sites (betaalmuren, PDF-servers) kunnen geblokkeerd zijn; testen in F1.
+- **Betaalmuren** (FT, Bloomberg, De Tijd): enkel vrij toegankelijke delen; dekking via andere bronnen.
+- **Europese/Japanse verslagen:** minder gestructureerde data → meer PDF-lezen (dat is net de kern).
+
+> ⚠️ Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt altijd bij jou.

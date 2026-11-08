@@ -11,7 +11,7 @@
 8. Vermogen: ca. €50.000, gemixt (ETF's, aandelen, pensioenplan, fondsen, sparen).
 9. Tijd: doel min. 5u/week manueel → met app max. ~2u/week.
 10. Bronnen: De Tijd, Reuters (app moet veel breder zoeken).
-11. Beste/slechtste belegging: volgt later.
+11. Beste: DEME (gekocht ca. vorig jaar). Slechtste: Ørsted (2021).
 12. Vaakste fout: te lang vasthouden door niet op te volgen (te weinig tijd) → opvolging/meldingen zijn cruciaal.
 
 ## B. Beleggingsstijl & voorkeuren
@@ -42,7 +42,7 @@
 35. Taal: Nederlands.
 
 ## D. Nieuws & actualiteit
-36. Nieuwsbronnen: volgt later.
+36. Nieuwsbronnen: zoveel mogelijk, zo breed mogelijk (De Tijd, Reuters als basis).
 37. Extra signalen: enkel insider-aankopen/-verkopen, mét reden. Ook corporate actions (splitsingen, uitgiftes, inkopen, fusies, ...) mét reden. Geen short-interest, analistenratings, fondsposities of sociale-media-sentiment.
 38. Earnings calls: samenvatten + mening over houding/zelfzekerheid management mag; gebruiker oordeelt zelf.
 39. Toekomstige impact: horizon 2 jaar. Speculatief mag, mits duidelijk gemarkeerd en onderbouwd.
@@ -106,3 +106,16 @@ De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt 
     - Bezit: Sofina (Belgische holding).
     - Overweegt: iShares Core MSCI World UCITS ETF (ETF → aparte ETF-analyse nodig).
     - Bewust niet gekocht: SoftBank Group Corp.
+
+### Verduidelijking 49%-regel
+- Normaal een NO-GO, tenzij al de rest uitzonderlijk positief is.
+- Altijd uitleggen hoe de >49% verdeeld is (wie, hoeveel %, via welke structuur).
+
+## J. Leren van jou
+69. Combinatie: vast profiel + feedback per rapport (wat extra opvolgen, wat nutteloos is) + beoordelingen en commentaar per rapport.
+70. Profielwijzigingen: eerst voorstellen, pas na akkoord wijzigen.
+71. Beleggingsdagboek: ja, als extraatje (later).
+
+## K. Vrije ruimte
+72. Grootste tijdverslinders: (1) kwartaal- en jaarverslagen doorbladeren en de juiste info vinden, (2) gelinkte bedrijven en hun cijfers opzoeken, (3) actualiteit: zeer moeilijk, snel dingen over het hoofd zien.
+73. Andere tools: kijkt soms naar broker-tools, gebruikt ze niet echt.
