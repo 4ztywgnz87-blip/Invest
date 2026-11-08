@@ -16,8 +16,8 @@
 | 7 Earnings call | ✅ | |
 | 8 Waardering & advies | ✅ | |
 | 9 Kritische expertblik | ✅ | |
-| 10 Fact-check | 🔄 | |
-| 11 Teamreview ronde 1 | ⬜ | |
+| 10 Fact-check | ✅ | |
+| 11 Teamreview ronde 1 | ✅ | 1 niet goedgekeurd (FA), 2 met opmerkingen; alles verwerkt | |
 | 11 Teamreview ronde 2 (+3) | ⬜ | |
 | 12 Rapport bouwen | ⬜ | |
 | 13 Afronding & feedback | ⬜ | |
@@ -104,14 +104,18 @@ Bronnen: JV2022 p.? (kerncijfers 2021/22, jv2022.txt r.263–291), JV2023 kernci
 (todo) — kandidaten: GBL, Ackermans & van Haaren, Exor, Investor AB, HAL Trust, Gimv, Brederode, HgCapital Trust/ICG? (dichtste: GBL, Brederode, AvH, Exor, Investor)
 
 ### Blootstellingskaart (fase 6)
-| Blootstelling | Waarom relevant | Gezocht | Gevonden |
+| Blootstelling | Waarom relevant | Gezocht (zoektermen, talen) | Gevonden |
 |---|---|---|---|
-| USD | 65% van portefeuille in USD | | |
-| China/ByteDance (TikTok VS-deal) | grootste positie | | |
-| AI-hype (OpenAI, Anthropic, Databricks) | groeiend deel PF | | |
-| IPO-markt / exits | liquiditeit, waardering | | |
-| Rente | waardering groeibedrijven, obligaties | | |
-| India (Lenskart, Pine Labs, Honasa) | INR €347m | | |
+| USD (+GBP, INR, CNY) | USD €7,6 mld = 65% portefeuille | "EUR/USD november 2026" (EN/NL) | ~1,13 (TradingEconomics 4-11); 2025 FX-impact −€925m |
+| ByteDance/TikTok/China | grootste positie 5–10% | "ByteDance valuation 2026", "TikTok US deal" (EN), "Sofina ByteDance" (NL) | JV 22-1-2026; GA-verkoop $550 mld (Reuters 25-2-2026) |
+| AI-waarderingen (Anthropic, OpenAI, SpaceX) | top-10 fondsposities ±10% | "Anthropic IPO", "OpenAI valuation", "SpaceX IPO" (EN) | S-1 Anthropic 26-10; OpenAI $852 mld + vertrouwelijke filing; SpaceX IPO 12-6; Nasdaq −6,4% op 5-11 |
+| Rente/inflatie | waardering groeibedrijven; herfinanciering 2028 | "ECB October 2026", "eurozone inflation October 2026" (EN) | depo 2,5%; inflatie okt 4,0%; ECB 17-12 |
+| Golfoorlog/olie | inflatie, multiples | "Gulf war oil 2026", "Iran war oil prices" (EN) | olie >$100 (sept); stromen herstellen eind okt, prijs hoog (Al Jazeera) |
+| UK-btw privéscholen | Cognita | "Cognita verkoop mislukt" (NL), EN | mislukte verkoop 2025 (Bolero 20-8-2025) |
+| India-exits | Lenskart, Pine Labs, Honasa | HJ2026; AS-review | gedeeltelijke verkopen 2026 (HJ2026) |
+| BE-fiscaliteit | netto rendement | "meerwaardebelasting 2026" (NL) | 10%, vrijstelling €10.000 (KPMG) |
+| Rechtszaken | R4 | NL/FR/EN | niets tegen Sofina; class actions tegen TikTok |
+| Klimaat/pandemie | — | niet relevant voor holding | niet gevonden |
 
 ### Actualiteit
 
