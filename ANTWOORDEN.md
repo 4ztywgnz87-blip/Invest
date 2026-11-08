@@ -40,3 +40,19 @@
 33. Export: ja (PDF/mail/delen).
 34. Rapporten bewaren en vergelijken: ja.
 35. Taal: Nederlands.
+
+## D. Nieuws & actualiteit
+36. Nieuwsbronnen: volgt later.
+37. Extra signalen: enkel insider-aankopen/-verkopen, mét reden. Ook corporate actions (splitsingen, uitgiftes, inkopen, fusies, ...) mét reden. Geen short-interest, analistenratings, fondsposities of sociale-media-sentiment.
+38. Earnings calls: samenvatten + mening over houding/zelfzekerheid management mag; gebruiker oordeelt zelf.
+39. Toekomstige impact: horizon 2 jaar. Speculatief mag, mits duidelijk gemarkeerd en onderbouwd.
+
+### Extra harde regels (rode vlaggen, altijd duidelijk melden)
+- Meerderheidsaandeelhouder(s) bezitten > 49% van de aandelen → RODE VLAG. (Te verduidelijken: één aandeelhouder of groep samen?)
+- Rechtszaken: vroeger, lopend of mogelijk in de toekomst → altijd melden + reden.
+- Aandeelhoudersgeld gebruikt om een topmanager/kaderlid uit te kopen (golden parachute, ontslagvergoeding, ...) → melden.
+- (Uit B) Management dat geld van het bedrijf naar zichzelf sluist → rode vlag.
+
+## E. Portefeuille, watchlist & meldingen
+40-44. GEEN constante opvolging, geen portefeuille, geen watchlist, geen meldingen, geen automatische voorstellen.
+De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt zijn (per bedrijf), zodat ze die niet opnieuw analyseert, tenzij de inhoud gewijzigd is.
