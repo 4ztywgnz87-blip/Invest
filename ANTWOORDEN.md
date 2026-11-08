@@ -77,3 +77,12 @@ De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt 
 ### Notities
 - Idee voor later: analyse starten vanuit een nieuwsfeit ("Wat betekent X voor bedrijf Y?").
 - Claude Pro bevat geen API-toegang → architectuur via Claude Code (inbegrepen in Pro) i.p.v. eigen API-calls. Te bevestigen door gebruiker.
+- Gebruiker kiest: werken via de chat (Claude Code). Vraagt of er toch een gratis app-optie is.
+  → Optie: claude.ai Artifact-webapp die Claude aanroept via het eigen Pro-abonnement (geen API-kosten),
+    maar zonder eigen webtoegang. Hybride: onderzoek via chat, app voor archief/profiel/rapporten/vragen.
+
+## H. Stijl & uitstraling
+57. Sfeer: zakelijk en strak.
+58. Modus: enkel licht.
+59. Voorbeelden: geen.
+60. Toon: kort en direct. Eerlijk en hard mag/moet, maar meningen altijd duidelijk als mening markeren.
