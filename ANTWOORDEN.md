@@ -48,11 +48,18 @@
 39. Toekomstige impact: horizon 2 jaar. Speculatief mag, mits duidelijk gemarkeerd en onderbouwd.
 
 ### Extra harde regels (rode vlaggen, altijd duidelijk melden)
-- Meerderheidsaandeelhouder(s) bezitten > 49% van de aandelen → RODE VLAG. (Te verduidelijken: één aandeelhouder of groep samen?)
+- Meerderheidsaandeelhouder(s) bezitten > 49% van de aandelen → RODE VLAG. Geldt voor één aandeelhouder én voor grote aandeelhouders samen (bv. top 3 samen > 49%).
 - Rechtszaken: vroeger, lopend of mogelijk in de toekomst → altijd melden + reden.
 - Aandeelhoudersgeld gebruikt om een topmanager/kaderlid uit te kopen (golden parachute, ontslagvergoeding, ...) → melden.
 - (Uit B) Management dat geld van het bedrijf naar zichzelf sluist → rode vlag.
 
 ## E. Portefeuille, watchlist & meldingen
 40-44. GEEN constante opvolging, geen portefeuille, geen watchlist, geen meldingen, geen automatische voorstellen.
+44. Screener/voorstellen op vraag: misschien later, niet in eerste versie.
 De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt zijn (per bedrijf), zodat ze die niet opnieuw analyseert, tenzij de inhoud gewijzigd is.
+
+## F. Gebruikers & gebruik
+45. Gebruikers: voorlopig enkel hijzelf.
+46. Toestel: gsm én laptop.
+47. Modus: altijd grondig.
+48. Frequentie: enkele rapporten per maand, extra bij grote wereldgebeurtenissen of opvallend nieuws.
