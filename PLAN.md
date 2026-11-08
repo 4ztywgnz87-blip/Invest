@@ -115,6 +115,10 @@ Zakelijk, strak, licht thema. Eerst **1 scherm samenvatting**, daarna inklapbare
 
 ## 7. Definitie van "af" (versie 1)
 
+**Per rapport:** alle gevonden nuttige info verwerkt → eigen fact-check → teamreview door financieel analist (bronnen naast het rapport), actua-specialist (actualiteit gestaafd en aangevuld) en kritische belegger (advies op de proef) → opmerkingen verwerkt → team bekijkt samen opnieuw (min. 2 rondes, max. 3; meningsverschillen zichtbaar als open punten).
+
+**Voor de app als geheel:**
+
 - Ik typ een ticker in de chat → de app werkt het volledige proces af (verslagen → keten → actualiteit → fact-check → rapport) zonder dat ik zelf iets moet opzoeken.
 - Het rapport bevat alle secties uit §4, elk feit met bron, alle labels correct, rode vlaggen bovenaan.
 - Geen verzonnen informatie (steekproef op bronnen bij de testcases).

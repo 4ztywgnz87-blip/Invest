@@ -956,5 +956,37 @@
    "type": "nieuws",
    "datum": "2025-09-01"
   }
- ]
+ ],
+ "review": {
+  "status": "afgerond",
+  "feiten_gecontroleerd": 24,
+  "feiten_correct": 22,
+  "rondes": [
+   {
+    "nr": 1,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "niet goedgekeurd",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 11,
+    "verwerkt": 9,
+    "verworpen": 2
+   },
+   {
+    "nr": 2,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd",
+     "actua-specialist": "goedgekeurd",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 3,
+    "verwerkt": 2,
+    "verworpen": 1
+   }
+  ],
+  "open_punten": [
+   "Kritische belegger vindt score 6 te hoog gezien R1 (zou 5 geven). (fictief)"
+  ]
+ }
 }

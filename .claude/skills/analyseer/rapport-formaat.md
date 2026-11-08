@@ -48,6 +48,20 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
   "secties": [
     {"id": "bestuur", "titel": "Bestuur & aandeelhouders", "kort": "1 regel zichtbaar als ingeklapt", "inhoud": [ <blokken> ]}
   ],
+  "review": {                               // fase 11 — verplicht voor een definitief rapport
+    "status": "afgerond",                   // bezig | afgerond
+    "feiten_gecontroleerd": 42, "feiten_correct": 39,
+    "rondes": [
+      {"nr": 1, "oordelen": {"financieel-analist": "goedgekeurd met opmerkingen",
+                             "actua-specialist": "niet goedgekeurd",
+                             "kritische-belegger": "goedgekeurd met opmerkingen"},
+       "opmerkingen": 14, "verwerkt": 12, "verworpen": 2},
+      {"nr": 2, "oordelen": {"financieel-analist": "goedgekeurd", "actua-specialist": "goedgekeurd",
+                             "kritische-belegger": "goedgekeurd met opmerkingen"},
+       "opmerkingen": 3, "verwerkt": 2, "verworpen": 1}
+    ],
+    "open_punten": ["Meningsverschil: kritische belegger zou score 5 geven omdat ..."]
+  },
   "bronnen": [
     {"id": 1, "titel": "Jaarverslag 2025", "uitgever": "Sofina", "type": "primair",
      "url": "https://...", "document": "Jaarverslag 2025, p. 34", "datum": "2026-03-27"}
@@ -102,4 +116,4 @@ Elk tekstelement heeft een **label**: `feit` (bronnen verplicht), `berekening`, 
 - Bronverwijzingen komen uit het veld `bronnen`, niet in de tekst zelf.
 
 ## Wat de controle afdwingt
-Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.
+Teamreview: ≥ 2 rondes, alle 3 reviewers in de laatste ronde, feiten_gecontroleerd ingevuld, open punten als een reviewer niet goedkeurt (anders enkel `bouw --concept`, met CONCEPT-markering) · Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.

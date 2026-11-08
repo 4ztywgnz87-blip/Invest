@@ -17,8 +17,10 @@
 | 8 Waardering & advies | ⬜ | |
 | 9 Kritische expertblik | ⬜ | |
 | 10 Fact-check | ⬜ | |
-| 11 Rapport bouwen | ⬜ | |
-| 12 Afronding & feedback | ⬜ | |
+| 11 Teamreview ronde 1 | ⬜ | |
+| 11 Teamreview ronde 2 (+3) | ⬜ | |
+| 12 Rapport bouwen | ⬜ | |
+| 13 Afronding & feedback | ⬜ | |
 
 (⬜ te doen · 🔄 bezig · ✅ klaar)
 

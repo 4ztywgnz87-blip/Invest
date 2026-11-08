@@ -6,6 +6,7 @@ Gebruik:
 
 De structuur van rapport.json staat in .claude/skills/analyseer/rapport-formaat.md.
 'bouw' weigert te bouwen zolang er FOUTEN zijn (waarschuwingen mogen).
+Zonder afgeronde teamreview (>= 2 rondes, 3 reviewers) kan enkel met --concept gebouwd worden.
 """
 from __future__ import annotations
 
@@ -35,6 +36,8 @@ VERPLICHT = {
     "fonds": ["samenstelling", "kosten", "beheer", "risico", "actualiteit", "fiscaliteit", "expert", "profiel"],
 }
 BLOKTYPES = ("tekst", "lijst", "tabel", "grafiek", "kader", "kerncijfers")
+REVIEWERS = ("financieel-analist", "actua-specialist", "kritische-belegger")
+REVIEW_OORDELEN = ("goedgekeurd", "goedgekeurd met opmerkingen", "niet goedgekeurd")
 
 
 # ---------------------------------------------------------------- controle
@@ -72,7 +75,36 @@ def _items(b: dict):
         yield from b.get("items", [])
 
 
-def controleer(r: dict) -> Controle:
+def controleer_review(r: dict, c: "Controle", definitief: bool) -> None:
+    rv = r.get("review")
+    meld = c.fout if definitief else c.let_op
+    if not rv:
+        meld("review ontbreekt: het analyseteam heeft dit rapport nog niet gereviewd (fase 11)")
+        return
+    rondes = rv.get("rondes", [])
+    for rd in rondes:
+        for naam, oordeel in rd.get("oordelen", {}).items():
+            if naam not in REVIEWERS:
+                c.fout(f"review ronde {rd.get('nr')}: onbekende reviewer '{naam}'")
+            if oordeel not in REVIEW_OORDELEN:
+                c.fout(f"review ronde {rd.get('nr')}: oordeel '{oordeel}' ongeldig")
+    if rv.get("status") != "afgerond":
+        meld("review is nog niet afgerond (status ≠ 'afgerond')")
+        return
+    if len(rondes) < 2:
+        c.fout("review: minstens 2 rondes nodig (onafhankelijk + samen opnieuw bekijken)")
+        return
+    laatste = rondes[-1].get("oordelen", {})
+    ontbrekend = [n for n in REVIEWERS if n not in laatste]
+    if ontbrekend:
+        c.fout(f"review: in de laatste ronde ontbreken {ontbrekend}")
+    if "niet goedgekeurd" in laatste.values() and not rv.get("open_punten"):
+        c.fout("review: een reviewer keurt niet goed, maar er staan geen open punten in het rapport")
+    if not rv.get("feiten_gecontroleerd"):
+        c.fout("review: feiten_gecontroleerd ontbreekt (financieel analist moet bronnen naast het rapport leggen)")
+
+
+def controleer(r: dict, definitief: bool = True) -> Controle:
     c = Controle()
     meta = r.get("meta", {})
     for k in ("ticker", "naam", "type", "datum"):
@@ -180,6 +212,7 @@ def controleer(r: dict) -> Controle:
             c.fout(f"onvoldoende_info '{o.get('onderwerp')}': minstens 3 gedocumenteerde zoekrondes nodig")
     if not r.get("bronnen"):
         c.fout("geen bronnen")
+    controleer_review(r, c, definitief)
     return c
 
 
@@ -218,10 +251,12 @@ def main(argv=None):
     ap.add_argument("cmd", choices=["controleer", "bouw"])
     ap.add_argument("json")
     ap.add_argument("--pdf", action="store_true")
+    ap.add_argument("--concept", action="store_true", help="bouwen zonder afgeronde teamreview (met CONCEPT-markering)")
     a = ap.parse_args(argv)
     pad = Path(a.json)
     r = json.loads(pad.read_text(encoding="utf-8"))
-    c = controleer(r)
+    c = controleer(r, definitief=not a.concept)
+    r["_concept"] = a.concept
     for w in c.waarsch:
         print(f"⚠️  {w}")
     for f in c.fouten:

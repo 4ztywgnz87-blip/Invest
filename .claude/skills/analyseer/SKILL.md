@@ -14,6 +14,16 @@ Lees vóór je begint, in deze volgorde:
 4. `.claude/skills/analyseer/rapport-formaat.md` — het formaat van `rapport.json`.
 5. Bij een ETF/fonds: ook `.claude/skills/analyseer/etf.md`.
 
+## Wanneer is een rapport af?
+Pas als **alle** onderstaande punten waar zijn:
+1. Alle info die je kon vinden **en die nuttig is** voor de beslissing staat erin (niet stoppen bij "genoeg").
+2. Je eigen fact-check is gedaan (fase 10).
+3. Het **analyseteam** heeft het rapport gereviewd (fase 11): de financieel analist heeft de bronnen naast het rapport gelegd, de actua-specialist heeft de actualiteit gestaafd en aangevuld, de kritische belegger heeft het advies op de proef gesteld.
+4. Alle opmerkingen zijn verwerkt of gemotiveerd verworpen, en het team heeft het herwerkte rapport **samen opnieuw** kritisch bekeken.
+5. `tools/rapport.py controleer` geeft geen fouten.
+
+Je werkt dus als een **team**: jij bent de hoofdanalist die onderzoekt en schrijft; drie onafhankelijke reviewers (`.claude/agents/`) controleren je werk.
+
 ## Gouden regels
 - **Geen bron = geen feit.** Elk feit krijgt een bron (document + pagina, of URL). Twijfel → label het als *Inschatting* of laat het weg.
 - **Forums** (Reddit, X, beursfora, Seeking Alpha-comments) zijn nooit een bron. Ze mogen enkel een aanwijzing zijn om in primaire bronnen verder te zoeken.
@@ -29,7 +39,7 @@ Het Claude Pro-abonnement heeft gebruikslimieten. Een analyse kan dus over **mee
 - Kopieer bij de start `templates/werkdossier.md` en vul het per fase aan: bevindingen **met bron**, open vragen, wat nog moet.
 - **Na elke fase**: werkdossier bijwerken, `git add` + `git commit` + `git push` (branch volgens sessie-instructies).
 - **Hervatten**: staat er al een werkdossier voor deze ticker (< 14 dagen oud) met open fases? Lees het en ga verder waar het stopte. Vraag niets opnieuw op wat al in het dossier of in `data/<TICKER>/bronnen.json` staat.
-- Geef de gebruiker na elke fase één korte statusregel ("Fase 3/12 klaar: governance — 1 rode vlag gevonden").
+- Geef de gebruiker na elke fase één korte statusregel ("Fase 3/13 klaar: governance — 1 rode vlag gevonden").
 
 ## Fases
 
@@ -131,19 +141,32 @@ Loop **elk** `feit` in je concept na:
 3. Is de bron recent genoeg? Is er een nieuwer cijfer?
 4. Klopt elke `berekening` (herreken)?
 5. Is niets uit een forum of uit je geheugen zonder bron?
-Noteer in het werkdossier welke feiten gecontroleerd zijn. Daarna: `python3 tools/rapport.py controleer <rapport.json>` — alle fouten oplossen.
+Noteer in het werkdossier welke feiten gecontroleerd zijn. Daarna: `python3 tools/rapport.py controleer <rapport.json>` — alle fouten oplossen. Dit is jouw eigen controle; de onafhankelijke controle volgt in fase 11.
 
-### Fase 11 — Rapport bouwen
-1. Schrijf `rapport.json` volgens `rapport-formaat.md`. **Samenvatting = 1 scherm**: 4–7 blokken, het belangrijkste eerst.
+### Fase 11 — Teamreview (minstens 2 rondes)
+Schrijf eerst een volledig concept-`rapport.json` dat door `tools/rapport.py controleer` geraakt (de `review`-sectie mag nog op `"status": "bezig"` staan). Commit + push.
+
+**Ronde 1 — onafhankelijke review.** Start de drie reviewers **parallel** met de Agent-tool (`subagent_type`: `financieel-analist`, `actua-specialist`, `kritische-belegger`). Geef elk: het pad naar de rapportmap, de ticker, en de vraag om hun volledige review terug te geven. Ze wijzigen zelf niets.
+
+**Verwerken.** Maak/werk `review.md` in de rapportmap bij (sjabloon: `templates/review.md`): per opmerking ID, ernst, samenvatting, en wat je ermee deed — `verwerkt` (wat aangepast) of `verworpen` (met reden). Kritieke opmerkingen mag je enkel verwerpen met bewijs. Doe extra onderzoek waar de reviewers gaten vonden (nieuwe bronnen → `tools/bronnen.py voegtoe`). Pas `rapport.json` aan. Commit + push.
+
+**Ronde 2 — samen opnieuw kritisch bekijken.** Start de drie reviewers opnieuw, nu met de opdracht: (a) controleer of jouw vorige opmerkingen correct verwerkt zijn, (b) lees `review.md` met de opmerkingen van de **andere** reviewers en reageer waar je het oneens bent of iets wil toevoegen, (c) beoordeel het herwerkte rapport als geheel. Verwerk opnieuw.
+
+**Ronde 3** (enkel als er na ronde 2 nog `kritiek`-opmerkingen of een `niet goedgekeurd` is). Na ronde 3 stop je: overblijvende meningsverschillen komen als **open punten** in het rapport, zodat de gebruiker ze ziet.
+
+Vul daarna de `review`-sectie in `rapport.json` in (zie `rapport-formaat.md`) met `"status": "afgerond"`. Het rapport toont zo een korte "Teamreview"-kaart: hoeveel feiten gecontroleerd, opmerkingen verwerkt/verworpen, en open punten of meningsverschillen.
+
+### Fase 12 — Rapport bouwen
+1. Controleer: **samenvatting = 1 scherm** (4–7 blokken, belangrijkste eerst).
 2. `python3 tools/rapport.py bouw <rapport.json> --pdf`.
 3. Controleer visueel (Playwright-screenshot op 390 px breed) of grafieken en tabellen leesbaar zijn.
 
-### Fase 12 — Afronding
+### Fase 13 — Afronding
 1. Bronnengeheugen bijgewerkt? (`tools/bronnen.py lijst`)
 2. `git add` + commit + push.
-3. Geef de gebruiker in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + pad naar het rapport. Kort, gsm-vriendelijk.
+3. Geef de gebruiker in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
 4. Vraag feedback: score 1–10, wat moet extra onderzocht worden, wat was nutteloos. Noteer in `profiel/feedback.md`. Leid je er een profielwijziging uit af → zet een voorstel in `profiel/voorstellen.md` en vraag akkoord. Wijzig `PROFIEL.md` **nooit** zonder akkoord.
-5. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json` + werkdossier, en zoek extra info als dat nodig is (met bron).
+5. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json`, `werkdossier.md` en `review.md`, en zoek extra info als dat nodig is (met bron).
 
 ## Update van een bestaand rapport
-Zelfde fases, maar: start van het vorige werkdossier en `bronnen.json`, lees enkel nieuwe/gewijzigde bronnen, en vul de sectie **"Wat is er veranderd"** grondig in (cijfers, advies, score, rode vlaggen, actualiteit).
+Zelfde fases (ook de teamreview), maar: start van het vorige werkdossier en `bronnen.json`, lees enkel nieuwe/gewijzigde bronnen, en vul de sectie **"Wat is er veranderd"** grondig in (cijfers, advies, score, rode vlaggen, actualiteit).

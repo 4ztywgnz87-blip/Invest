@@ -18,10 +18,11 @@ Dit project is een onderzoeksassistent voor één gebruiker: een beginnende Belg
 |-----|--------|
 | `profiel/` | Profiel, feedback, voorstellen tot wijziging |
 | `.claude/skills/analyseer/` | Werkwijze, rapportformaat, bronnen, ETF-variant |
+| `.claude/agents/` | Analyseteam (reviewers): financieel-analist, actua-specialist, kritische-belegger |
 | `tools/` | `koers.py` (koers + techniek), `pdf.py` (verslagen lezen), `bronnen.py` (bronnengeheugen), `rapport.py` (controle + HTML/PDF) |
 | `templates/` | Rapportsjabloon (HTML/CSS), werkdossier |
 | `data/<TICKER>/` | Koersdata, bronnengeheugen, gedownloade verslagen (PDF's niet in git) |
-| `rapporten/<TICKER>/<datum>/` | `werkdossier.md`, `rapport.json`, `rapport.html`, `rapport.pdf` |
+| `rapporten/<TICKER>/<datum>/` | `werkdossier.md`, `review.md`, `rapport.json`, `rapport.html`, `rapport.pdf` |
 | `voorbeelden/demo/` | Fictief testrapport (opmaak/controle testen) |
 
 ## Technisch

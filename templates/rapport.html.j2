@@ -48,6 +48,7 @@
 {%- set a = r.advies -%}
 <header class="kop"><div class="pagina">
   <div class="ticker">{{ r.meta.ticker }}{% if r.meta.beurs %} · {{ r.meta.beurs }}{% endif %}{% if r.meta.isin %} · {{ r.meta.isin }}{% endif %} · {{ r.meta.type|upper }}</div>
+  {%- if r._concept %}<div style="display:inline-block;background:#fec84b;color:#101828;font-weight:700;font-size:12px;padding:2px 8px;border-radius:4px;margin:6px 0 2px">CONCEPT — nog niet volledig gereviewd</div>{% endif %}
   <h1>{{ r.meta.naam }}</h1>
   <div class="sub">Rapport van {{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
 </div></header>
@@ -98,6 +99,23 @@
       <ul>{% for s in r.verkoopsignalen %}<li>{{ s|inline }}</li>{% endfor %}</ul></div>
     {%- endif %}
   </section>
+
+  {%- if r.review %}
+  {%- set rv = r.review %}
+  <section class="kaart">
+    <h2>Teamreview</h2>
+    <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
+    {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}
+    {%- set ns = namespace(o=0, v=0, w=0) %}{% for rd in rv.rondes %}{% set ns.o = ns.o + (rd.opmerkingen or 0) %}{% set ns.v = ns.v + (rd.verwerkt or 0) %}{% set ns.w = ns.w + (rd.verworpen or 0) %}{% endfor %}
+    {{ ns.o }} opmerkingen: {{ ns.v }} verwerkt, {{ ns.w }} gemotiveerd verworpen.</p>
+    {%- if rv.rondes %}{% set last = rv.rondes[-1] %}
+    <div class="legende-labels">{% for n, o in last.oordelen.items() %}<span><strong>{{ {'financieel-analist':'Financieel analist','actua-specialist':'Actua-specialist','kritische-belegger':'Kritische belegger'}.get(n, n) }}:</strong> {{ o }}</span>{% endfor %}</div>
+    {%- endif %}
+    {%- if rv.open_punten %}
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul>{% for o in rv.open_punten %}<li>{{ o|inline }}</li>{% endfor %}</ul></div>
+    {%- endif %}
+  </section>
+  {%- endif %}
 
   {%- if r.wijzigingen %}
   <section class="kaart">
