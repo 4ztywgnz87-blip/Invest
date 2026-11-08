@@ -8,6 +8,9 @@
 | De Tijd (tijd.be) | ✅ (betaalmuur op artikels) | WebSearch voor de kern, WebFetch voor vrije delen |
 | Reuters | ❌ direct (401) | WebSearch-resultaten + andere bronnen; web-fetch agent proberen |
 | sofina.be | ❌ direct (certificaatprobleem op de site) | web-fetch agent, of het verslag bij een andere bron (FSMA, Euronext, NBB) |
+| sofinagroup.com (nieuwe Sofina-site) | ✅ direct (getest 2026-11-08) | `tools/pdf.py download` met `https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/...`; PDF-links staan in de HTML van /en/investors/reports-and-publications |
+| FSMA transacties leidinggevenden | ✅ direct | `https://www.fsma.be/en/manager-transaction/<bedrijf>-<nr>` (nummer ophogen) |
+| Investing.com transcripts | ✅ via web-fetch agent | titel kan foutief jaar tonen: controleer de inhoud |
 | EDINET (Japan) | ❌ direct (403) | SoftBank IR-site (group.softbank ✅), TDnet-persberichten, WebSearch |
 | FSMA, NBB Balanscentrale, Euronext | ✅ | direct |
 
