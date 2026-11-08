@@ -240,6 +240,11 @@ def bouw_html(r: dict) -> str:
     env.filters["refs"] = lambda ids: Markup(bron_refs(ids, bron_nr))
     env.filters["svg"] = lambda b: Markup(grafiek.svg(b))
     env.filters["getal"] = lambda v, e="": grafiek.fmt(v, e) if isinstance(v, (int, float)) else (v if v is not None else "–")
+    # Woordenlijst: alle [[term|uitleg]] uit het rapport, alfabetisch.
+    woorden = {}
+    for term, uitleg in re.findall(r"\[\[(.+?)\|(.+?)\]\]", json.dumps(r, ensure_ascii=False)):
+        woorden.setdefault(term.strip(), uitleg.strip())
+    r["_woordenlijst"] = sorted(woorden.items(), key=lambda kv: kv[0].lower())
     css = (ROOT / "templates" / "rapport.css").read_text(encoding="utf-8")
     tpl = env.get_template("rapport.html.j2")
     return tpl.render(r=r, labels=LABELS, bron_nr=bron_nr, css=Markup(css),

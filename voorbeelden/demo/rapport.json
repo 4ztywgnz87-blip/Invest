@@ -135,7 +135,7 @@
   {
    "type": "tekst",
    "label": "mening",
-   "tekst": "Degelijk en defensief, maar de governance is een probleem.",
+   "tekst": "Degelijk en defensief, maar het [[bestuur (governance)|de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden]] is een probleem.",
    "bronnen": []
   }
  ],
@@ -163,6 +163,14 @@
      "type": "tekst",
      "label": "feit",
      "tekst": "CEO-vergoeding €2,1 mln in 2025 (+5%).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De [[raad van bestuur|groep die toezicht houdt op het management namens de aandeelhouders]] telt 3 onafhankelijke leden. (fictief)",
      "bronnen": [
       1
      ]

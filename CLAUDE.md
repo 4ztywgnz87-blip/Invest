@@ -29,3 +29,9 @@ Dit project is een onderzoeksassistent voor één gebruiker: een beginnende Belg
 - Python 3 (`requests`, `pdfplumber`, `jinja2`, `bs4`); PDF-export via Node + Playwright (`tools/pdf_export.js`).
 - Tools draaien vanuit de projectmap: `python3 tools/<tool>.py ...`.
 - Commit + push na elke fase van een analyse (werk kan over meerdere sessies lopen door gebruikslimieten).
+
+## Git-afspraak (toestemming gebruiker, 2026-11-08)
+- De vaste hoofdversie is **`main`**. Alles wat af is (profiel, feedback, rapporten, werkdossiers) moet in `main` staan, zodat elke nieuwe sessie erop verder bouwt.
+- Bij de start van een sessie: `git fetch origin main` en zorg dat je werkbranch de nieuwste `main` bevat (`git merge origin/main`).
+- Na elke afgeronde fase van een analyse en op het einde: commit, push je werkbranch, merge je werkbranch in `main` en push `main` (`git checkout main && git pull origin main && git merge --no-edit <werkbranch> && git push origin main`, daarna terug naar je werkbranch). Nooit force-pushen op `main`.
+- Dit geldt enkel voor deze repository.

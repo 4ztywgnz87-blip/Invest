@@ -157,6 +157,9 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
   details.sectie .inhoud { padding-top: 8px; }
   p, li { orphans: 1; widows: 1; }
 }
+dl.woorden { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13.5px; }
+dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt-2); }
+@media (max-width: 600px) { dl.woorden { grid-template-columns: 1fr; } dl.woorden dd { margin-bottom: 6px; } }
 </style>
 </head>
 <body><header class="kop"><div class="pagina">
@@ -191,7 +194,7 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
   </section>
 
   <section class="pdf-blok kaart">
-    <h2>Samenvatting</h2><p class="blok feit"><span class="lab feit">Feit</span>Omzet steeg in 2025 met 4,1% tot €1,2 mld.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Vrije kasstroom dekt het dividend 1,6 keer.</p><p class="blok mening"><span class="lab mening">Mening</span>Degelijk en defensief, maar de governance is een probleem.</p>
+    <h2>Samenvatting</h2><p class="blok feit"><span class="lab feit">Feit</span>Omzet steeg in 2025 met 4,1% tot €1,2 mld.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Vrije kasstroom dekt het dividend 1,6 keer.</p><p class="blok mening"><span class="lab mening">Mening</span>Degelijk en defensief, maar het <span class="term">bestuur (governance)</span> <span class="uitleg">(de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden)</span> is een probleem.</p>
     <div class="kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
       <ul><li>Regulator verlaagt de toegelaten <span class="term">rendementsvoet</span> <span class="uitleg">(winst die het bedrijf mag maken op zijn netwerk)</span>.</li><li>Schuldgraad stijgt boven 4× EBITDA.</li></ul></div>
   </section>
@@ -218,7 +221,7 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
         <div class="tabelwrap"><table>
           <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
           <tbody><tr><td>Familie Voorbeeld<div class="bijschrift">via Voorbeeld Holding SA</div></td><td>52</td><td>52</td></tr><tr><td>Eigen aandelen</td><td>3,10</td><td>0</td></tr><tr><td>Vrij verhandelbaar</td><td>44,90</td><td></td></tr></tbody>
-        </table></div><div class="kader waarschuwing"><div class="t">Regel R1 (> 49%): GERAAKT</div>Grootste aandeelhouder 52% · top 3 samen 52% kapitaal / 52% stemrecht.</div><p class="blok">De familie controleert het bedrijf via een niet-genoteerde holding.</p><p class="blok feit"><span class="lab feit">Feit</span>CEO-vergoeding €2,1 mln in 2025 (+5%).<a class="ref" href="#bron-1">1</a></p>
+        </table></div><div class="kader waarschuwing"><div class="t">Regel R1 (> 49%): GERAAKT</div>Grootste aandeelhouder 52% · top 3 samen 52% kapitaal / 52% stemrecht.</div><p class="blok">De familie controleert het bedrijf via een niet-genoteerde holding.</p><p class="blok feit"><span class="lab feit">Feit</span>CEO-vergoeding €2,1 mln in 2025 (+5%).<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>De <span class="term">raad van bestuur</span> <span class="uitleg">(groep die toezicht houdt op het management namens de aandeelhouders)</span> telt 3 onafhankelijke leden. (fictief)<a class="ref" href="#bron-1">1</a></p>
     </div>
   </details>
   <details class="sectie pdf-blok" id="cijfers">
@@ -293,6 +296,10 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
     <div class="inhoud"><p class="blok mening"><span class="lab mening">Mening</span>Defensief en herinvesteert veel ✅, maar R1 is voor jou normaal een no-go ❌.</p>
     </div>
   </details>
+  <section class="pdf-blok kaart">
+    <h2>Woordenlijst</h2>
+    <dl class="woorden"><dt>bestuur (governance)</dt><dd>de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden</dd><dt>raad van bestuur</dt><dd>groep die toezicht houdt op het management namens de aandeelhouders</dd><dt>rendementsvoet</dt><dd>winst die het bedrijf mag maken op zijn netwerk</dd></dl>
+  </section>
 
   <section class="pdf-blok kaart">
     <h2>Bronnen</h2>
@@ -312,7 +319,7 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
     </div>
   </section>
 
-  <p class="voet">Gemaakt op 08-11-2026 21:06. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+  <p class="voet">Gemaakt op 08-11-2026 21:11. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
 </body>
 </html>

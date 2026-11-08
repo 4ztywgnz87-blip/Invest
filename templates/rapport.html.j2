@@ -165,6 +165,13 @@
   </details>
   {%- endfor %}
 
+  {%- if r._woordenlijst %}
+  <section class="pdf-blok kaart">
+    <h2>Woordenlijst</h2>
+    <dl class="woorden">{% for t, u in r._woordenlijst %}<dt>{{ t }}</dt><dd>{{ u }}</dd>{% endfor %}</dl>
+  </section>
+  {%- endif %}
+
   <section class="pdf-blok kaart">
     <h2>Bronnen</h2>
     <ol class="bronnen">
