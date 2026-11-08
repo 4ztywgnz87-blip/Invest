@@ -86,3 +86,23 @@ De app werkt ENKEL op vraag. Ze onthoudt wel welke artikels/bronnen al gecheckt 
 58. Modus: enkel licht.
 59. Voorbeelden: geen.
 60. Toon: kort en direct. Eerlijk en hard mag/moet, maar meningen altijd duidelijk als mening markeren.
+
+## I. Grenzen & afspraken
+61. Enkel adviseren, nooit orders plaatsen: akkoord.
+62. Onvoldoende info: eerst verder zoeken; pas na 3 grondige zoekpogingen "onvoldoende info" melden, en dan wel de beperkte info delen.
+63. Absoluut niet: continu screenen; valse of verzonnen info tonen; forumberichten zomaar als waarheid aannemen (forums hooguit als signaal, nooit als bron van feiten).
+64. Definitie van afgewerkt (proces per ticker):
+    1. Alle rapporten en verslagen grondig lezen.
+    2. Gelinkte bedrijven (keten, 2 niveaus) en hun cijfers analyseren.
+    3. Zelf bepalen welke actualiteit relevant kan zijn en daar gericht naar zoeken.
+    4. Zeer diep gaan.
+    5. Alles fact-checken.
+    6. Samenvatten in rapport + kritische opmerkingen als ervaren investeerder/expert.
+    Geen tijdslimiet: kwaliteit primeert.
+65. MVP: rapporten van zeer hoge kwaliteit (data + grondig speurwerk), makkelijk te openen en lezen in de app, op pc én gsm.
+66. Tempo: kwaliteit boven snelheid; app en rapporten zo snel mogelijk beschikbaar, maar kwaliteit eerst.
+67. Testen: beide (vergelijken met eigen analyse + terugkijk-test/backtest).
+68. Testcases:
+    - Bezit: Sofina (Belgische holding).
+    - Overweegt: iShares Core MSCI World UCITS ETF (ETF → aparte ETF-analyse nodig).
+    - Bewust niet gekocht: SoftBank Group Corp.
