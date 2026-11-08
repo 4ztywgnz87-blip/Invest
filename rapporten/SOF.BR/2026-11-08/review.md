@@ -53,9 +53,35 @@ Ernst: kritiek · belangrijk · klein. Afhandeling: verwerkt (wat aangepast) · 
 | KB-16 | klein | Kleine punten | verwerkt |
 
 ## Ronde 2
-**Oordelen:** FA: … · AS: … · KB: …
+**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen (score 4/10)
+**Gecontroleerde feiten (FA):** ±40 waarvan ±36 correct
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
+| FA2-2 | belangrijk | Verwatering "≈€312" verkeerd afgeleid; Sofina paste beginwaarde aan (311,77 → 304,77) | verwerkt |
+| FA2-3 | klein | Limiet €7,97 mln zonder voorkeurrecht | verwerkt |
+| FA2-4 | klein | Ontvangen dividend: ook €102,6 mln incl. fondsen | verwerkt |
+| FA2-5 | klein | Eigen aandelen 3,85% gedateerd | verwerkt: datum 14-8-2026 vermeld |
+| FA2-6 | klein | AVA-uitslag niet gevonden | geen wijziging nodig (open punt) |
+| AS2-1 | belangrijk | Oorzaak uitverkoop (midterms/AI-datacenters) | verwerkt (bron 27) + inschatting beleidsrisico |
+| AS2-2 | belangrijk | Fed-renteverhoging december | verworpen: enkel aggregators, niet geverifieerd → open punt |
+| AS2-3 | klein | Herstel 6-11 | deels: techniektekst "de dag na de uitverkoop"; herstel niet opgenomen (bron niet geverifieerd) |
+| AS2-4 | belangrijk | Anthropic-timing | verwerkt als "volgens media, niet bevestigd" |
+| AS2-5 / KB2-2 | belangrijk | Stop-loss €214 in techniek inconsistent | verwerkt: kort, grafieklijn en uitlegblok aangepast |
+| AS2-6 | klein | Strömberg-benoeming als feit | verwerkt: "raad besliste … (AVA-uitslag niet gevonden)" (JV2025 p.60) |
+| AS2-7 | klein | Secundaire bronnen (Wikipedia, VZ) | verworpen: geen primaire bron bereikbaar; vermeld als open punt |
+| KB2-1 | belangrijk | Scenario's starten van NAV 30-6 zonder AI-correctie | verwerkt: noot −5% → ±0%/jaar; "hooguit 2%" in samenvatting |
+| KB2-3 | belangrijk | "±99% geherinvesteerd" in kort | verwerkt |
+| KB2-4 | klein | Rendementsrij = intrinsieke waarde, niet koers | verwerkt |
+| KB2-5 | belangrijk | Vaktermen | verwerkt voor samenvatting en hoofdtermen (NO-GO, consortium, koopzone, stop-loss, verwatering, toegestaan kapitaal, steun, Nasdaq) |
+| KB2-6 | klein | 65% dollar zonder bron | verwerkt: berekening in sectie investeringen |
+| KB2-7 | klein | Wachtmoment AI | verwerkt (keten) |
+| KB2-8 | klein | Peers met verouderde NAV | verwerkt |
+
+Geen kritieke opmerkingen of "niet goedgekeurd" na ronde 2 → geen ronde 3.
 
 ## Open punten / meningsverschillen
+- AVA-uitslag 13-5-2026 niet gevonden.
+- Fed-renteverhoging december niet geverifieerd.
+- Enkele secundaire bronnen (Wikipedia SpaceX, VZ Exor).
+- KB vindt AI-gevoeligheid licht onderschat (geen waarde per bedrijf beschikbaar); score blijft 4/10.

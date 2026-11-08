@@ -10,6 +10,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://investinglive.com/stocks/nasdaq-100-suffers-worst-day-since-2020",
+    "titel": "Nasdaq 100 suffers worst day since 2020",
+    "uitgever": "investingLive",
+    "datum": "2026-11-05",
+    "type": "nieuws",
+    "samenvatting": "Nasdaq 100 -6,36% op 5-11-2026; chips tot -12%; AI-twijfels en midterm-uitslag.",
+    "hash": "2cdea2f17bcd813c",
+    "gelezen_op": "2026-11-08"
+  },
+  {
     "url": "https://tradingeconomics.com/euro-area/currency/news/598161",
     "titel": "Euro hits 4-week high",
     "uitgever": "Trading Economics",
@@ -17,6 +27,16 @@
     "type": "data",
     "samenvatting": "EUR/USD rond 1,13 op 4-11-2026.",
     "hash": "54fc80165a4851db",
+    "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://tradingeconomics.com/euro-area/inflation-cpi/news/598103",
+    "titel": "Eurozone inflation hits fresh three-year high",
+    "uitgever": "Trading Economics",
+    "datum": "2026-11-04",
+    "type": "data",
+    "samenvatting": "Inflatie eurozone oktober 2026 4,0% (flash).",
+    "hash": "95f59e6e1347b00b",
     "gelezen_op": "2026-11-08"
   },
   {
@@ -30,6 +50,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://aljazeera.com/economy/2026/10/30/oil-flows-are-up-as-iran-war-turmoil-eases-why-do-prices-keep-rising",
+    "titel": "Oil flows are up as Iran war turmoil eases",
+    "uitgever": "Al Jazeera",
+    "datum": "2026-10-30",
+    "type": "nieuws",
+    "samenvatting": "Olietransporten herstellen, prijs blijft hoog na Golfoorlog VS-Iran.",
+    "hash": "b2f0d13c871b4f22",
+    "gelezen_op": "2026-11-08"
+  },
+  {
     "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
     "titel": "ECB keeps key interest rate on hold at 2.5%",
     "uitgever": "CNBC",
@@ -37,6 +67,16 @@
     "type": "nieuws",
     "samenvatting": "ECB-depositorente 2,50%; inflatie eurozone 3,8% door energie; markt prijst decemberverhoging in.",
     "hash": null,
+    "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.opb.org/article/2026/10/26/ai-giant-anthropic-files-for-an-ipo-that-could-break-records",
+    "titel": "Anthropic files for an IPO",
+    "uitgever": "OPB/NPR",
+    "datum": "2026-10-26",
+    "type": "nieuws",
+    "samenvatting": "Anthropic S-1 publiek 26-10-2026, ticker ANT, notering mogelijk november.",
+    "hash": "c30bb0dcbd73ff4b",
     "gelezen_op": "2026-11-08"
   },
   {
@@ -67,6 +107,16 @@
     "type": "primair",
     "samenvatting": "UFB kocht buiten de beurs 480.653 aandelen van SPI (sofina-55) en 201.099 van MIC (sofina-50, sofina-46) à €250,51; totaal consortium ongewijzigd.",
     "hash": "ede1d48009e5a141",
+    "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/shareholding-structure/sofina-sa-press-release-publication-regarding-a-transparency-statement-28-09-2026.pdf",
+    "titel": "Transparantiemelding BlackRock",
+    "uitgever": "Sofina",
+    "datum": "2026-09-28",
+    "type": "primair",
+    "samenvatting": "BlackRock overschreed 3% op 23-9-2026: 3,01% (2,24% aandelen + 0,77% instrumenten).",
+    "hash": "e37920127ca32447",
     "gelezen_op": "2026-11-08"
   },
   {
@@ -150,6 +200,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo",
+    "titel": "OpenAI files confidentially for IPO",
+    "uitgever": "TechCrunch",
+    "datum": "2026-06-08",
+    "type": "nieuws",
+    "samenvatting": "OpenAI diende 8-6-2026 vertrouwelijk een beursgang in.",
+    "hash": null,
+    "gelezen_op": "2026-11-08"
+  },
+  {
     "url": "https://www-cdn.abcnews.com/Technology/wireStory/anthropic-vaults-965-billion-valuation-new-funding-claude-133397439",
     "titel": "Anthropic vaults to a 965 billion dollar valuation",
     "uitgever": "AP/ABC News",
@@ -157,6 +217,16 @@
     "type": "nieuws",
     "samenvatting": "Anthropic haalt 65 mld dollar op aan 965 mld waardering; Sequoia mee-leider.",
     "hash": null,
+    "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://kpmg.com/be/nl/insights/my-tax-compass-de-trends-die-op-uw-fiscale-radar-moeten-staan/people-services-updates/meerwaardebelasting-goedgekeurd-door-het-parlement.html",
+    "titel": "Meerwaardebelasting goedgekeurd door het parlement",
+    "uitgever": "KPMG Belgie",
+    "datum": "2026-04",
+    "type": "analyse",
+    "samenvatting": "10% op meerwaarden financiele activa vanaf 1-1-2026; vrijstelling 10.000 euro per jaar.",
+    "hash": "ec3930315a0cf1b8",
     "gelezen_op": "2026-11-08"
   },
   {
@@ -190,6 +260,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.scmp.com/tech/big-tech/article/3344631/bytedance-valuation-said-hit-record-us550-billion-proposed-equity-sale",
+    "titel": "ByteDance valuation said to hit record 550 billion dollar",
+    "uitgever": "SCMP/Reuters",
+    "datum": "2026-02-25",
+    "type": "nieuws",
+    "samenvatting": "General Atlantic bood ByteDance-aandelen aan tegen waardering tot 550 mld dollar.",
+    "hash": "acd5a8eda147a8d3",
+    "gelezen_op": "2026-11-08"
+  },
+  {
     "url": "https://techcrunch.com/2026/01/23/heres-whats-you-should-know-about-the-us-tiktok-deal",
     "titel": "What you should know about the US TikTok deal",
     "uitgever": "TechCrunch",
@@ -197,6 +277,16 @@
     "type": "nieuws",
     "samenvatting": "TikTok USDS JV opgericht 22-1-2026; ByteDance <20%, Oracle/Silver Lake/MGX elk 15%; waardering TikTok US ~$14 mld.",
     "hash": "2bc27fff86595e80",
+    "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.bolero.be/nl/analyse-en-inzicht/blog/sofina-ziet-waardering-cognita-dalen-door-mislukte-verkoopsdeal",
+    "titel": "Sofina ziet waardering Cognita dalen door mislukte verkoopsdeal",
+    "uitgever": "Bolero",
+    "datum": "2025-08-20",
+    "type": "nieuws",
+    "samenvatting": "Verkoop meerderheidsbelang Cognita (biedingen tot 6 mld) mislukt door waarderingsverschil en btw op Britse privéscholen.",
+    "hash": "60387471a9c4ba6e",
     "gelezen_op": "2026-11-08"
   },
   {

@@ -69,7 +69,7 @@
     "structuur": "lid van het referentieconsortium (sinds 2013)"
    },
    {
-    "naam": "Eigen aandelen Sofina",
+    "naam": "Eigen aandelen Sofina (14-8-2026)",
     "pct": 3.85,
     "stemrecht_pct": 0,
     "eigen_aandelen": true
@@ -127,7 +127,7 @@
     {
      "type": "tekst",
      "label": "mening",
-     "tekst": "Kleine aandeelhouders kunnen niets afdwingen: de familie beslist over bestuur, dividend, kapitaalverhogingen en een eventueel bod. Tot nu toe gedroeg het consortium zich correct (zelfde voorwaarden bij de claimemissie, geen opvallende transacties met verbonden partijen) — maar dat is een kwestie van vertrouwen, geen garantie.",
+     "tekst": "Kleine aandeelhouders kunnen niets afdwingen: het consortium beslist over bestuur, dividend, kapitaalverhogingen en een eventueel bod. Tot nu toe gedroeg het consortium zich correct (zelfde voorwaarden bij de claimemissie, geen opvallende transacties met verbonden partijen) — maar dat is een kwestie van vertrouwen, geen garantie.",
      "bronnen": []
     }
    ]
@@ -140,7 +140,15 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Op 7-10-2025 gaf Sofina 2.446.428 nieuwe aandelen uit à **€223** (totaal €545,6 mln, kosten €7,5 mln) via een [[claimemissie|kapitaalverhoging waarbij bestaande aandeelhouders voorrang krijgen om bij te kopen]], onder zowel de beurskoers als de intrinsieke waarde. Sofina noemt zelf de 'mechanische verwatering' van de intrinsieke waarde per aandeel en corrigeerde er de bonusberekening voor. Reden: extra slagkracht om 'doorheen cycli' te investeren.",
+     "tekst": "Op 7-10-2025 gaf Sofina 2.446.428 nieuwe aandelen uit à **€223** (totaal €545,6 mln, kosten €7,5 mln) via een [[claimemissie|kapitaalverhoging waarbij bestaande aandeelhouders voorrang krijgen om bij te kopen]], onder zowel de beurskoers als de intrinsieke waarde. Sofina noemt zelf de '[[mechanische verwatering|elk bestaand aandeel krijgt een kleiner deel van de waarde omdat nieuwe aandelen goedkoper werden uitgegeven]]' van de intrinsieke waarde per aandeel en corrigeerde er de bonusberekening voor. Reden: extra slagkracht om 'doorheen cycli' te investeren.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Voor de bonustest verlaagde Sofina de intrinsieke waarde per aandeel van eind 2024 van €311,77 naar €304,77 (−€7, ±2,2%) om de verwatering uit te zuiveren: zo groot was dus het verlies voor wie niet meedeed en zijn rechten niet verkocht.",
      "bronnen": [
       3
      ]
@@ -148,19 +156,13 @@
     {
      "type": "tekst",
      "label": "berekening",
-     "tekst": "Sofina's eigen correctie (ANAVPS €304,85 + 2 × €3,50 dividend ≈ €312 vs. werkelijk €305,77) toont ±2% verwatering voor wie niet meedeed en zijn rechten niet verkocht.",
-     "bronnen": []
-    },
-    {
-     "type": "tekst",
-     "label": "berekening",
-     "tekst": "Er blijft nog ±€18,2 mln nominaal toegestaan kapitaal (±7,8 mln nieuwe aandelen = ±21% van het huidige aantal): de raad kan dus opnieuw kapitaal ophalen zonder AVA.",
+     "tekst": "Er blijft nog €18,2 mln nominaal [[toegestaan kapitaal|bedrag waarmee de raad zelf, zonder stemming van de aandeelhouders, nieuwe aandelen mag uitgeven]] (±7,8 mln nieuwe aandelen = ±21% van het huidige aantal), waarvan max. €7,97 mln zonder voorrang voor bestaande aandeelhouders. De raad kan dus opnieuw kapitaal ophalen zonder AVA.",
      "bronnen": []
     },
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Toegestaan kapitaal resterend €18.225.130 (machtiging tot mei 2028).",
+     "tekst": "Toegestaan kapitaal resterend €18.225.130 op 31-12-2025 (limiet zonder voorkeurrecht €7.973.494); machtiging tot mei 2028.",
      "bronnen": [
       3
      ]
@@ -232,7 +234,7 @@
   {
    "type": "tekst",
    "label": "feit",
-   "tekst": "**R1 geraakt (NO-GO):** een consortium rond de familie Boël bezit 54,6% (meer dan de 49%-grens).",
+   "tekst": "**R1 geraakt — [[NO-GO|volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is]]:** een [[consortium|groep aandeelhouders die wettelijk als één blok handelt]] rond de familie Boël bezit 54,6% (meer dan de 49%-grens).",
    "bronnen": [
     9
    ]
@@ -240,7 +242,7 @@
   {
    "type": "tekst",
    "label": "berekening",
-   "tekst": "Verwacht rendement over 2 jaar: ±**2% per jaar** (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%).",
+   "tekst": "[[Verwacht rendement|gemiddelde van de drie scenario's, gewogen met hun kans]] over 2 jaar: hooguit ±**2% per jaar** (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%). De AI-uitverkoop van 5-11 zit nog niet in de cijfers.",
    "bronnen": []
   },
   {
@@ -252,7 +254,7 @@
   {
    "type": "kader",
    "stijl": "mening",
-   "tekst": "**Afwachten (niet kopen: R1) — 4/10.** Wie R1 bewust aanvaardt: pas bij een korting van ±26% of meer (koers €220–240).",
+   "tekst": "**Afwachten (niet kopen: R1) — 4/10.** Wie R1 bewust aanvaardt: pas in de [[koopzone|prijs waarbij risico en rendement aantrekkelijk worden]] €220–240 (koers ±26% of meer onder de intrinsieke waarde), met een [[stop-loss|koers waarbij je verkoopt om verdere verliezen te beperken]] 20% onder je aankoopprijs.",
    "titel": "Oordeel"
   }
  ],
@@ -374,7 +376,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Op 31-12-2025: 13 bestuurders, waarvan 8 onafhankelijk; voorzitter en CEO zijn verschillende personen. Op de AVA van 13-5-2026 vertrokken Dominique Lancksweert (voorzitter, 29 jaar) en Nicolas Boël; voorgedragen waren o.a. Union Financière Boël (vertegenwoordigd door Pascal Hubinont) en Charles Peugeot (onafhankelijk). Charlotte Strömberg werd voorzitter. Harold Boël werkt sinds 2004 bij Sofina en is CEO sinds 2008 (mandaat tot 2028).",
+     "tekst": "Op 31-12-2025: 13 bestuurders, waarvan 8 onafhankelijk; voorzitter en CEO zijn verschillende personen. Op de AVA van 13-5-2026 vertrokken Dominique Lancksweert (voorzitter, 29 jaar) en Nicolas Boël; voorgedragen waren o.a. Union Financière Boël (vertegenwoordigd door Pascal Hubinont) en Charles Peugeot (onafhankelijk). De raad besliste Charlotte Strömberg vanaf die AVA voorzitter te maken (uitslag van de AVA zelf niet gevonden). Harold Boël werkt sinds 2004 bij Sofina en is CEO sinds 2008 (mandaat tot 2028).",
      "bronnen": [
       3
      ]
@@ -503,7 +505,7 @@
      ],
      "reeksen": [
       {
-       "naam": "Intrinsieke waarde/aandeel",
+       "naam": "Intr. waarde",
        "waarden": [
         337.86,
         279.41,
@@ -514,7 +516,7 @@
        ]
       },
       {
-       "naam": "Beurskoers (jaareinde)",
+       "naam": "Koers",
        "waarden": [
         432.0,
         205.6,
@@ -572,7 +574,7 @@
        "857"
       ],
       [
-       "Rendement (incl. dividend)",
+       "Rendement intrinsieke waarde (incl. dividend) — niet de koers",
        "29,0%",
        "−16,5%",
        "−0,9%",
@@ -777,7 +779,7 @@
   {
    "id": "investeringen",
    "titel": "Waarin investeren ze?",
-   "kort": "±99% van de waarde wordt geherinvesteerd: fondsen, groeibedrijven, familiebedrijven",
+   "kort": "Weinig uitgekeerd (±1,1% van de waarde); groei vooral via waardestijging, niet via ingehouden winst",
    "inhoud": [
     {
      "type": "tekst",
@@ -831,7 +833,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Regio: Noord-Amerika 42%, Europa 35%, Azië 23%. Beursgenoteerd 8%, niet-genoteerd 92%.",
+     "tekst": "Regio: Noord-Amerika 42%, Europa 35%, Azië 23%. Beursgenoteerd 8%, niet-genoteerd 92%. In dollar: €7.632 mln van €11.831 mln (±65%).",
      "bronnen": [
       1
      ]
@@ -873,7 +875,7 @@
     {
      "type": "tekst",
      "label": "berekening",
-     "tekst": "Dividend ±€130 mln per jaar = ±1,1% van de intrinsieke waarde. Over 2021–2025 was het nettoresultaat samen ±€2,09 mld en het betaalde dividend ±€0,55 mld: ±75% ingehouden. Maar in 2025 was het dividend (€115,8 mln) groter dan de winst (€113 mln) en de ontvangen dividenden (±€49 mln) dekken het niet. Over 2021–2025 investeerde Sofina €4,9 mld en verkocht ze €5,0 mld: netto verkoper; groei kwam uit waardestijging en sinds 2025 uit nieuw kapitaal en schuld.",
+     "tekst": "Dividend ±€130 mln per jaar = ±1,1% van de intrinsieke waarde. Over 2021–2025 was het nettoresultaat samen ±€2,09 mld en het betaalde dividend ±€0,55 mld: ±75% ingehouden. Maar in 2025 was het dividend (€115,8 mln) groter dan de winst (€113 mln) en het ontvangen dividend dekt het niet volledig (rechtstreekse belangen ±€49 mln; inclusief fondsen €102,6 mln in de resultatenrekening). Over 2021–2025 investeerde Sofina €4,9 mld en verkocht ze €5,0 mld: netto verkoper; groei kwam uit waardestijging en sinds 2025 uit nieuw kapitaal en schuld.",
      "bronnen": []
     }
    ]
@@ -893,6 +895,12 @@
      "type": "tekst",
      "label": "berekening",
      "tekst": "Wat kost wat? Dollar −10% → intrinsieke waarde ±−6%. Fondsrapporten −10% → ±−5%. ByteDance −30% → −1,5% tot −3% (positie 5–10%). Top-10 bedrijven in de fondsen (o.a. AI) −20% → ±−2%.",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Wachtmoment: hoe de Anthropic-beursgang verloopt (volgens media mogelijk nog in november, niet bevestigd) en de intrinsieke waarde van 24-3-2027, die als eerste de AI-correctie van november zal tonen.",
      "bronnen": []
     },
     {
@@ -1049,7 +1057,7 @@
     {
      "type": "tekst",
      "label": "mening",
-     "tekst": "**Kern:** bijna alle holdings noteren onder hun intrinsieke waarde. Sofina's korting (−18%) is nu kleiner dan die van GBL, Brederode en Exor — Sofina is dus relatief niet goedkoop, al ligt de korting wel in Sofina's eigen historische bereik (15–20%).",
+     "tekst": "**Kern:** bijna alle holdings noteren onder hun intrinsieke waarde. Sofina's korting (−18%) is nu kleiner dan die van GBL, Brederode en Exor — Sofina is dus relatief niet goedkoop, al ligt de korting wel in Sofina's eigen historische bereik (15–20%). Let op: Sofina's koers steeg sinds 30-6 ±20%, terwijl alle kortingen met de intrinsieke waarde van 30-6 berekend zijn.",
      "bronnen": []
     },
     {
@@ -1274,7 +1282,7 @@
       },
       {
        "label": "feit",
-       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — Nasdaq 100 −6,4%, slechtste dag sinds 2020; chipbedrijven tot −12%.",
+       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — [[Nasdaq|Amerikaanse technologiebeurs]] 100 −6,4%, slechtste dag sinds 2020; chipbedrijven tot −12%. Aanleiding volgens de bron: twijfels over AI-investeringen en wat de uitslag van de Amerikaanse tussentijdse verkiezingen (3-11) betekent voor de bouw van datacenters.",
        "bronnen": [
         27
        ]
@@ -1301,6 +1309,11 @@
       {
        "label": "inschatting",
        "tekst": "Afloop van de gespreide lock-ups bij SpaceX (tot 180 dagen na 12-6-2026, dus rond december 2026): mogelijk verkoopdruk.",
+       "bronnen": []
+      },
+      {
+       "label": "inschatting",
+       "tekst": "Amerikaans beleid na de tussentijdse verkiezingen kan de AI-investeringen (datacenters, chips) vertragen — dat raakt de duurste fondsposities.",
        "bronnen": []
       },
       {
@@ -1519,12 +1532,13 @@
        "25%"
       ]
      ],
-     "bron_tekst": "Eigen berekening (inschatting; kansen = mening) op basis van halfjaarverslag 2026"
+     "bron_tekst": "Eigen berekening (inschatting; kansen = mening) op basis van halfjaarverslag 2026",
+     "noot": "Startpunt: intrinsieke waarde €326 (30-6-2026). Als de AI-uitverkoop die met 5% verlaagt (±€310), wordt dit ±€173 / €274 / €334 en is het verwacht rendement ±0% per jaar."
     },
     {
      "type": "tekst",
      "label": "berekening",
-     "tekst": "Verwachte koers (gewogen): 0,30×180 + 0,45×290 + 0,25×350 ≈ **€272** (+2%), plus ±€7,5 bruto dividend over 2 jaar → ±4% in 2 jaar = **±2% per jaar** vóór belastingen. Mager voor het risico.",
+     "tekst": "Verwachte koers (gewogen): 0,30×180 + 0,45×290 + 0,25×350 ≈ **€272** (+2%), plus ±€7,5 bruto dividend over 2 jaar → ±4% in 2 jaar = **±2% per jaar** vóór belastingen. Mager voor het risico. Dit is eerder een bovengrens: bij een startwaarde 5% lager wordt het ±0% per jaar.",
      "bronnen": []
     },
     {
@@ -1562,12 +1576,12 @@
   {
    "id": "techniek",
    "titel": "Koers & techniek",
-   "kort": "Stijgende trend; steun €238,8; stop-loss €214",
+   "kort": "Stijgende trend, maar AI-correctie; steun €238,8; stop-loss −20% onder aankoopprijs",
    "inhoud": [
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Koers €267,6 (6-11-2026, net na de start van de AI-uitverkoop). 52 weken: €207,8–285,0. [[SMA200|gemiddelde koers van de laatste 200 beursdagen]] €236,6 en SMA50 €255,4 → **stijgende trend**, maar die kan snel keren als de techcorrectie doorzet.",
+     "tekst": "Koers €267,6 (6-11-2026, de dag na de AI-uitverkoop). 52 weken: €207,8–285,0. [[SMA200|gemiddelde koers van de laatste 200 beursdagen]] €236,6 en SMA50 (gemiddelde van 50 dagen) €255,4 → **stijgende trend**, maar die kan snel keren als de techcorrectie doorzet.",
      "bronnen": [
       12
      ]
@@ -2220,7 +2234,7 @@
      ],
      "lijnen": [
       {
-       "naam": "Stop-loss −20%",
+       "naam": "Stop-loss bij aankoop nu (€214)",
        "waarde": 214.1
       },
       {
@@ -2276,7 +2290,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Steunniveaus: €238,8 (2-9-2026), €212,0 (11-6-2026), €203,6 (30-3-2026).",
+     "tekst": "[[Steunniveaus|koersen waar het aandeel eerder ophield met dalen]]: €238,8 (2-9-2026), €212,0 (11-6-2026), €203,6 (30-3-2026).",
      "bronnen": [
       12
      ]
@@ -2285,6 +2299,12 @@
      "type": "tekst",
      "label": "mening",
      "tekst": "Cycliciteit: de koers volgt de technologiecyclus (top 2021, bodem 2022, zijwaarts 2023–2025, herstel 2026). Na +25% in 6 maanden is een terugval naar de steun van €238,8 niet ongewoon.",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Stop-loss: −20% onder je eigen aankoopprijs (bij aankoop nu €214, in de koopzone €176–192). Het slechte scenario (€180) ligt daar onder; bij een plotse koersval kan je onder je stop-loss verkopen.",
      "bronnen": []
     }
    ]
@@ -2430,8 +2450,40 @@
   }
  ],
  "review": {
-  "status": "bezig",
-  "rondes": []
+  "status": "afgerond",
+  "feiten_gecontroleerd": 158,
+  "feiten_correct": 135,
+  "rondes": [
+   {
+    "nr": 1,
+    "oordelen": {
+     "financieel-analist": "niet goedgekeurd",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 47,
+    "verwerkt": 45,
+    "verworpen": 2
+   },
+   {
+    "nr": 2,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 20,
+    "verwerkt": 17,
+    "verworpen": 3
+   }
+  ],
+  "open_punten": [
+   "Alle fouten uit de controle (23 van 158 feiten) zijn verbeterd; geen kritieke opmerkingen meer.",
+   "De uitslag van de AVA van 13-5-2026 (nieuwe bestuurders) is niet gevonden; benoemingen staan als 'voorgedragen'.",
+   "Mogelijke renteverhoging door de Amerikaanse centrale bank in december: enkel via secundaire bronnen gevonden, niet opgenomen.",
+   "Enkele feiten steunen op secundaire bronnen (Wikipedia voor de SpaceX-beursgang, VZ VermögensZentrum voor Exor).",
+   "De kritische belegger vindt de AI-gevoeligheid nog licht onderschat (Sofina publiceert geen waarde per bedrijf), maar houdt het bij score 4/10."
+  ]
  },
  "bronnen": [
   {

@@ -18,9 +18,9 @@
 | 9 Kritische expertblik | ✅ | |
 | 10 Fact-check | ✅ | |
 | 11 Teamreview ronde 1 | ✅ | 1 niet goedgekeurd (FA), 2 met opmerkingen; alles verwerkt | |
-| 11 Teamreview ronde 2 (+3) | ⬜ | |
-| 12 Rapport bouwen | ⬜ | |
-| 13 Afronding & feedback | ⬜ | |
+| 11 Teamreview ronde 2 (+3) | ✅ | 3× goedgekeurd met opmerkingen; geen ronde 3 | |
+| 12 Rapport bouwen | ✅ | HTML+PDF; 390px gecontroleerd | |
+| 13 Afronding & feedback | 🔄 | wacht op feedback gebruiker | |
 
 ## Identificatie
 - Ticker / beurs / ISIN / valuta: SOF.BR / Euronext Brussel / BE0003717312 / EUR (JV2025 p.56)
@@ -141,3 +141,6 @@ Bronnen: JV2022 p.? (kerncijfers 2021/22, jv2022.txt r.263–291), JV2023 kernci
 - Peers: korting berekend t.o.v. NAV 30-6-2026: GBL −22%, Brederode −35%, Exor −54%; AvH NAV niet gevonden.
 - Waardering: NAV 326; korting 20% → faire koers 261; scenario's 180/290/350 (25/50/25%).
 - Concept rapport.json + review.md aangemaakt.
+
+## Reproduceren
+rapport.json werd opgebouwd met `maak_rapport/maak.py` + `patch1.py` (ronde 1) + `patch2.py` (ronde 2) in deze map.
