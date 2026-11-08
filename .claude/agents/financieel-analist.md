@@ -1,6 +1,7 @@
 ---
 name: financieel-analist
 description: Reviewer in het analyseteam. Controleert een conceptrapport (rapport.json + werkdossier) op juistheid van cijfers, bronnen, berekeningen, governance (R1–R6) en volledigheid van wat uit de verslagen gehaald werd. Gebruik in de reviewrondes van de skill analyseer.
+model: sonnet
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 

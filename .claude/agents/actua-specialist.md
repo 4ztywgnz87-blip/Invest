@@ -1,6 +1,7 @@
 ---
 name: actua-specialist
 description: Reviewer en scanner in het analyseteam voor actualiteit, geopolitiek, macro en sectornieuws. Controleert of de actualiteit in een conceptrapport klopt, actueel is en volledig is, en zoekt zelf gericht naar gemiste gebeurtenissen (verleden, nu, 2 jaar vooruit). Gebruik in de reviewrondes van de skill analyseer.
+model: sonnet
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 

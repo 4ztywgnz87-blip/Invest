@@ -172,8 +172,18 @@
   {
    "id": "cijfers",
    "titel": "Cijfers",
-   "kort": null,
+   "kort": "Groei 4%/jaar, stabiele marges, schuld onder controle",
    "inhoud": [
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** voorspelbaar bedrijf met trage maar stabiele groei. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Omzet & groei"
+    },
     {
      "type": "kerncijfers",
      "items": [
@@ -235,6 +245,36 @@
      ]
     },
     {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Gereguleerde activiteiten zijn 80% van de omzet. (fictief)",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Winstgevendheid"
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "EBITDA-marge 38% in 2025, 37% in 2024. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Nettowinst €168 mln. (fictief)",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Kasstroom"
+    },
+    {
      "type": "tabel",
      "titel": "Kerncijfers",
      "kolommen": [
@@ -258,6 +298,42 @@
       1
      ],
      "noot": "Bron: jaarverslag 2025."
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Vrije kasstroom groeide 10%. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Schulden"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Netto schuld €2,1 mld, 3,2× EBITDA. (fictief)",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Beheersbaar voor een nutsbedrijf.",
+     "bronnen": []
+    },
+    {
+     "type": "kop",
+     "tekst": "Vergoeding aandeelhouders"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Dividend €4,20 per aandeel (+3%). (fictief)",
+     "bronnen": [
+      1
+     ]
     }
    ]
   },
@@ -317,20 +393,140 @@
   {
    "id": "actualiteit",
    "titel": "Actualiteit",
-   "kort": null,
+   "kort": "Droogte en nieuwe EU-richtlijn",
    "inhoud": [
+    {
+     "type": "kop",
+     "tekst": "Verleden"
+    },
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Droogte in 2025 verhoogde de kosten.",
+     "tekst": "Gebeurtenis 1 uit het verleden met impact op de kosten. (fictief)",
      "bronnen": [
       2
      ]
     },
     {
      "type": "tekst",
+     "label": "feit",
+     "tekst": "Gebeurtenis 2 uit het verleden met impact op de kosten. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Gebeurtenis 3 uit het verleden met impact op de kosten. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Gebeurtenis 4 uit het verleden met impact op de kosten. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Gebeurtenis 5 uit het verleden met impact op de kosten. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Nu"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Actueel feit 1. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Actueel feit 2. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Actueel feit 3. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Actueel feit 4. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Actueel feit 5. (fictief)",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Komende 2 jaar"
+    },
+    {
+     "type": "tekst",
      "label": "inschatting",
-     "tekst": "Nieuwe EU-waterrichtlijn kan vanaf 2027 extra investeringen vereisen.",
+     "tekst": "Mogelijke ontwikkeling 1 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 2 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 3 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 4 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 5 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 6 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
+     "bronnen": []
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Mogelijke ontwikkeling 7 met uitleg waarom dit relevant kan zijn voor de marges. (fictief)",
      "bronnen": []
     }
    ]

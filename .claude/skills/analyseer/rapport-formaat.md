@@ -103,7 +103,15 @@ Elk tekstelement heeft een **label**: `feit` (bronnen verplicht), `berekening`, 
  "bronnen": [1]}                                                           // of "bron_tekst": "..."
 
 {"type": "kader", "stijl": "info", "titel": "optioneel", "tekst": "..."}  // stijl: info | waarschuwing | mening
+
+{"type": "kop", "tekst": "Tussentitel"}                                   // structuur binnen een sectie
 ```
+
+### Structuur binnen een sectie (vaste opbouw)
+1. **Kern** — 1–3 blokken met de conclusie van die sectie (wat moet de lezer onthouden?).
+2. **Tussentitels** (`kop`) per deelonderwerp, bv. in `cijfers`: *Omzet & groei*, *Winstgevendheid*, *Kasstroom*, *Schulden*, *Aandeelhouders­vergoeding*; in `actualiteit`: *Verleden*, *Nu*, *Komende 2 jaar*; in `keten`: één tussentitel per niveau-1-partij.
+3. Onder elke tussentitel: kerncijfers/grafiek/tabel eerst, dan de uitleg.
+Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingeklapt).
 
 ### Grafiekregels
 - Eén y-as. Twee grootheden met een andere schaal (bv. omzet en marge %) → **twee grafieken**.

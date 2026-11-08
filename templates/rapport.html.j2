@@ -19,6 +19,8 @@
       <li class="blok {{ it.label }}">{{ lab(it.label) }}{{ it.tekst|inline }}{{ it.bronnen|refs }}</li>
     {%- endfor %}
     </ul>
+  {%- elif b.type == 'kop' -%}
+    <h3 class="tussentitel pdf-blok pdf-klein">{{ b.tekst }}</h3>
   {%- elif b.type == 'kader' -%}
     <div class="kader {{ b.stijl or 'info' }}">{% if b.titel %}<div class="t">{{ b.titel }}</div>{% endif %}{{ b.tekst|inline }}</div>
   {%- elif b.type == 'kerncijfers' -%}
@@ -39,9 +41,11 @@
     </table></div>
     {%- if b.noot %}<div class="bijschrift">{{ b.noot|inline }}</div>{% endif -%}
   {%- elif b.type == 'grafiek' -%}
+    <div class="grafiek-blok">
     <div class="grafiek-titel">{{ b.titel }}{{ b.bronnen|refs }}</div>
     {{ b|svg }}
     <div class="bijschrift">{% if b.noot %}{{ b.noot|inline }} · {% endif %}{% if b.bron_tekst %}Bron: {{ b.bron_tekst }}{% endif %}</div>
+    </div>
   {%- endif -%}
 {%- endmacro -%}
 
@@ -77,7 +81,7 @@
     {%- endif %}
   </section>
 
-  <section class="kaart vlaggen">
+  <section class="pdf-blok kaart vlaggen">
     <h2>🚩 Rode vlaggen</h2>
     {%- if r.rode_vlaggen %}
       {%- for v in r.rode_vlaggen %}
@@ -91,7 +95,7 @@
     {%- endif %}
   </section>
 
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Samenvatting</h2>
     {%- for b in r.samenvatting %}{{ blok(b) }}{% endfor %}
     {%- if r.verkoopsignalen %}
@@ -102,7 +106,7 @@
 
   {%- if r.review %}
   {%- set rv = r.review %}
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Teamreview</h2>
     <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
     {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}
@@ -118,14 +122,14 @@
   {%- endif %}
 
   {%- if r.wijzigingen %}
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Wat is er veranderd sinds het vorige rapport?</h2>
     {%- for b in r.wijzigingen %}{{ blok(b) }}{% endfor %}
   </section>
   {%- endif %}
 
   {%- if r.onvoldoende_info %}
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Onvoldoende info gevonden</h2>
     {%- for o in r.onvoldoende_info %}
     <div class="kader waarschuwing"><div class="t">{{ o.onderwerp }}</div>
@@ -135,9 +139,16 @@
   </section>
   {%- endif %}
 
+  <nav class="pdf-blok kaart inhoudstafel">
+    <h2>Inhoud</h2>
+    <ol>
+      {%- for s in r.secties %}<li><a href="#{{ s.id }}">{{ s.titel }}</a>{% if s.kort %} <span class="kort">— {{ s.kort }}</span>{% endif %}</li>{% endfor %}
+    </ol>
+  </nav>
+
   {%- for s in r.secties %}
-  <details class="sectie" id="{{ s.id }}">
-    <summary><span>{{ s.titel }}{% if s.kort %}<span class="kort">{{ s.kort }}</span>{% endif %}</span></summary>
+  <details class="sectie pdf-blok" id="{{ s.id }}">
+    <summary><span><span class="nr">{{ loop.index }}.</span> {{ s.titel }}{% if s.kort %}<span class="kort">{{ s.kort }}</span>{% endif %}</span></summary>
     <div class="inhoud">
       {%- if s.id == 'bestuur' and r.aandeelhouders %}
         {%- set ah = r.aandeelhouders %}
@@ -154,7 +165,7 @@
   </details>
   {%- endfor %}
 
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Bronnen</h2>
     <ol class="bronnen">
       {%- for b in r.bronnen %}
@@ -163,7 +174,7 @@
     </ol>
   </section>
 
-  <section class="kaart">
+  <section class="pdf-blok kaart">
     <h2>Hoe lees je dit rapport?</h2>
     <div class="legende-labels">
       <span>{{ lab('feit') }}uit een bron, met verwijzing</span>

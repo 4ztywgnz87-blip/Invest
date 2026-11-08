@@ -1,6 +1,7 @@
 ---
 name: kritische-belegger
 description: Advocaat van de duivel in het analyseteam. Toetst een conceptrapport op de logica van het advies, consistentie tussen bevindingen en score, het profiel en de harde regels van de gebruiker, gemiste risico's en leesbaarheid voor een beginner. Gebruik in de reviewrondes van de skill analyseer.
+model: sonnet
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 

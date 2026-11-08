@@ -35,7 +35,7 @@ VERPLICHT = {
     "etf": ["samenstelling", "kosten", "index", "risico", "actualiteit", "techniek", "fiscaliteit", "expert", "profiel"],
     "fonds": ["samenstelling", "kosten", "beheer", "risico", "actualiteit", "fiscaliteit", "expert", "profiel"],
 }
-BLOKTYPES = ("tekst", "lijst", "tabel", "grafiek", "kader", "kerncijfers")
+BLOKTYPES = ("kop", "tekst", "lijst", "tabel", "grafiek", "kader", "kerncijfers")
 REVIEWERS = ("financieel-analist", "actua-specialist", "kritische-belegger")
 REVIEW_OORDELEN = ("goedgekeurd", "goedgekeurd met opmerkingen", "niet goedgekeurd")
 

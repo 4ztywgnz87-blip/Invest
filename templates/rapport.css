@@ -131,8 +131,23 @@ ol.bronnen .type { font-size: 10.5px; text-transform: uppercase; color: var(--in
 @media print {
   body { background: #fff; font-size: 11.5px; }
   .kop { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .kaart, details.sectie, .advies { break-inside: auto; border-color: #d0d5dd; }
+  .kaart, details.sectie, .advies { border-color: #d0d5dd; }
+  .kop { margin: 0; }
   details.g-tabel { display: none; }
-  .tegel, .scenario, .vlag { break-inside: avoid; }
   .pagina { max-width: none; }
+}
+
+/* Structuur */
+.tussentitel { font-size: 14.5px; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--rand); color: var(--kop); }
+details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-right: 2px; }
+.inhoudstafel ol { margin: 0; padding-left: 22px; }
+.inhoudstafel li { margin: 3px 0; }
+.inhoudstafel a { text-decoration: none; font-weight: 600; }
+.inhoudstafel .kort { color: var(--inkt-3); font-size: 13px; }
+@media print {
+  .kaart > h2, .tussentitel, .grafiek-titel, .tabel-titel { break-after: avoid; }
+  details.sectie > summary { font-size: 17px; border-bottom: 2px solid var(--kop); margin: 0 18px; padding: 14px 0 6px; }
+  details.sectie > summary::after { content: none; }
+  details.sectie .inhoud { padding-top: 8px; }
+  p, li { orphans: 1; widows: 1; }
 }

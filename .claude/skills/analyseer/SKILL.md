@@ -164,7 +164,7 @@ Vul daarna de `review`-sectie in `rapport.json` in (zie `rapport-formaat.md`) me
 ### Fase 13 — Afronding
 1. Bronnengeheugen bijgewerkt? (`tools/bronnen.py lijst`)
 2. `git add` + commit + push.
-3. Geef de gebruiker in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
+3. Stuur de PDF naar de gebruiker met de SendUserFile-tool (zodat hij ze op de gsm kan openen). Geef in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
 4. Vraag feedback: score 1–10, wat moet extra onderzocht worden, wat was nutteloos. Noteer in `profiel/feedback.md`. Leid je er een profielwijziging uit af → zet een voorstel in `profiel/voorstellen.md` en vraag akkoord. Wijzig `PROFIEL.md` **nooit** zonder akkoord.
 5. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json`, `werkdossier.md` en `review.md`, en zoek extra info als dat nodig is (met bron).
 
