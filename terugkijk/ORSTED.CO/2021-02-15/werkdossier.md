@@ -65,7 +65,7 @@
 ## Gelezen documenten
 | Document | Pagina's gelezen | Waar opgeslagen |
 |----------|------------------|-----------------|
-| Ørsted Annual report 2020 (gepubliceerd 3-2-2021, financiële kalender p.74) | 3, 12–17, 29, 33, 43, 70–75 | `data/ORSTED.CO/docs/annualreport2020.pdf` (bron: https://orsted.com/annualreport2020) |
+| Ørsted Annual report 2020 (gepubliceerd 3-2-2021, financiële kalender p.74) | 3, 10–17, 29, 33, 43, 52, 62–63, 70–75, 104, 111, 113, 126–127, 187–188 | `data/ORSTED.CO/docs/annualreport2020.pdf` (bron: https://orsted.com/annualreport2020) |
 
 ## Bevindingen per fase
 ### Verslagen
@@ -118,5 +118,25 @@
 | CEO Henrik Poulsen weg (15-6-2020), Mads Nipper CEO (aangesteld 9-9-2020); CMD 2-6-2021 | p.74, p.17 | AR2020 | A | | |
 | Beroep tegen Deense belastingdienst over 2 UK-parken (1-12-2020) | "Ørsted appeals against decision from the Danish Tax Agency" | AR2020 p.74 | A | | R4 uit te diepen |
 | Capaciteit 11,3 GW; 4,0 GW in aanbouw; 5,0 GW toegekend; doel >30 GW in 2030 | p.33 | AR2020 | A | | |
+| Bestuurscontrole: wijziging statuten/ontbinding vereist dat Deense Staat deelneemt en steunt (bijzondere quorumregel) | "proposals to amend the Articles of Association or dissolve the company require that the Danish State participates in the general meeting and supports the proposals" | AR2020 p.63 | A | | R1 |
+| Staat oefent eigendom uit via AV, professionele bestuurders; eigendomsbeleid fm.dk 2015 | p.63 | AR2020 | A | | R1 |
+| Change of control: vergunningen/schuld kunnen herzien worden als Staat < 50% | "if the Danish State holds less than 50 % of the share capital or voting rights in Ørsted A/S" | AR2020 p.113 | A | | R1 |
+| Raad van bestuur 9 leden (6 AV + 3 werknemers), voorzitter Thomas Thune Andersen | p.63, p.62 | AR2020 | A | | |
+| Vergoeding Executive Board 2020 DKK 22,0 mln (2019 26,0); RvB 4,6 mln totaal | tabel "Total 22,011 25,981 ... 4,593 4,779" | AR2020 p.104 | A | | R2: niet buitensporig (mening) |
+| Poulsen verloor aandelentoekenningen 2018-2020 bij vertrek (−4,6 mln) | "Henrik Poulsen lost the right to the 2018, 2019, and 2020 grant upon his resignation" | AR2020 p.104 | A | | R3: geen uitkoop |
+| 2019: opzegperiode 11,6 mln + vertrekvergoeding 4,5 mln voor 2 ex-leden (Dalsgaard, Kjems Sørensen) | tabel p.104 voetnoot 2 | AR2020 p.104 | A | | R3 (2019) |
+| Retentiebonus/aankoopprijs Lincoln Clean Energy 9,8 mln aan ander directielid | "Short-term retention-dependent purchase price related to the acquisition of Lincoln Clean Energy ... 9,810" | AR2020 p.104 | A | | R2 context |
+| R4 Elsam: schadeclaim ±DKK 4,4 mld + interest (2007), maart 2020 vrijgesproken, beroep hangend bij Hoge Raad West-Denemarken | p.113 | AR2020 | A | | |
+| R4 Belastingdienst DK: geen arm's-length vergoedingen Walney Ext. & Hornsea 1, extra belasting; Ørsted in beroep; voorziening aangelegd | p.126–127, p.188 | AR2020 | A | | |
+| R4 Naamgeschil (afstammelingen Ørsted): mei 2019 gewonnen, beroep | p.11 | AR2020 | A | | |
+| Commissaris PwC sinds 2010, oordeel zonder voorbehoud; kernpunten: farm-downs, belastingen | p.187–188 | AR2020 | A | | |
+| Geen bijzondere waardeverminderingen 2020 | "We have not impaired any property, plant, and equipment in 2020" | AR2020 p.111 | A | | |
+| VS: start bouw Revolution Wind, Ocean Wind 1, Skipjack, Sunrise wellicht later dan 2023/2024 door BOEM; South Fork eind 2023 ongewijzigd; "satisfactory returns" verwacht | p.52 | AR2020 | A | | |
+| Greater Changhua 1&2a: funderingen Q1 2021, oplevering 2022; 50% Changhua 1 verkocht aan CDPQ/Cathay PE (dec 2020) | p.52 | AR2020 | A | | |
+| TSMC-contract 20 jaar vaste prijs, Changhua 2b&4 (920 MW), oplevering 2025/26 | p.52 | AR2020 | A | | |
+| 25% Ocean Wind 1 verkocht aan PSEG (dec 2020) | p.52 | AR2020 | A | | |
+| 2021 plannen: farm-down 50% Borssele 1&2, sluiten Changhua 1; CMD 2-6-2021 | p.15, p.17 | AR2020 | A | | |
+| Schuld excl. hybriden DKK 37,1 mld, >51% groen; hybride kapitaal 13,2 mld | p.29, p.43 | AR2020 | A | | |
+| Rating-beleid min. Baa1/BBB+/BBB+ | p.17 | AR2020 | A | | |
 
 ## Open vragen / blokkades
