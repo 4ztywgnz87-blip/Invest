@@ -146,6 +146,17 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 - `[[term|korte uitleg]]` → term met uitleg tussen haakjes (voor de beginnende belegger).
 - Bronverwijzingen komen uit het veld `bronnen`, niet in de tekst zelf.
 
+## Opbouw van het rapport (vast, in het sjabloon)
+Het sjabloon zet de delen altijd in deze volgorde, elk met een korte inleiding waarover het gaat:
+0. **Hoe lees je dit rapport?** — leeswijzer met de opbouw en de vier labels.
+1. **Samenvatting** — wat is dit bedrijf en wat vinden we ervan (1 scherm).
+2. **Wat is er veranderd** — enkel bij een update; begint met de kernboodschap (advies gewijzigd of niet, en waarom).
+3. **Het advies in cijfers** — oordeel + reden, belangrijke prijzen (koopzone, koersdoel, stop-loss), drie scenario's ("Wat kan de koers over twee jaar doen?"), verkoopsignalen en de scoreopbouw.
+4. **Rode vlaggen** — wat botst met de harde regels.
+5. **Details per thema** — inhoudstafel + uitklapbare secties.
+6. **Achteraan** — woordenlijst, kwaliteitscontrole (teamreview) en bronnen.
+Schrijf de inhoud zo dat elk deel op zichzelf leesbaar is: een update wordt vaak los gelezen, dus leg termen ook daar uit.
+
 ## Scoreopbouw (verplicht)
 `advies.score` = afronding (half naar boven) van **gewogen gemiddelde van de onderdelen + correcties**, begrensd op 1–10. `tools/rapport.py controleer` rekent dit na en geeft een fout als het niet klopt.
 

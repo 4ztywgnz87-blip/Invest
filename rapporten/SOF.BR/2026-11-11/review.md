@@ -31,6 +31,25 @@ Reviewers: financieel-analist (FA), actua-specialist (AS), kritische-belegger (K
 | KB-11 | klein | Staartrisico in gemiddelde | geen wijziging nodig (staat in noot + scenario) |
 
 ## Ronde 2
-**Oordelen:** …
+**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen (score 4/10)
+**Gecontroleerde feiten (FA):** ±14 waarvan 12 correct
+
+| ID | Ernst | Opmerking | Afhandeling |
+|----|-------|-----------|-------------|
+| FA2-1 | klein | +45,6% → ±46% | verwerkt |
+| FA2-2 / AS2-1 / KB (opm.) | belangrijk | SpaceX: "eerste winst", "juli", lock-up "begin december" niet gedekt door 39/40 | verwerkt: per bewering juiste bron (Wikipedia 15 voor IPO/lock-up, AP/RTT voor Q3), "winst na reeks verliezen", lock-up-datum als inschatting (±9-12) |
+| FA2-3 / AS2-2 | klein | Koers boven $135 = momentopname 21-10 (bron 40) | verwerkt: "op 21-10 ±$161 buiten de beursuren"; geen recentere koers gevonden |
+| AS2-3 | klein | $1,26 bn is eigen berekening | verwerkt: "(eigen berekening)" |
+| KB2-1 | klein | R1 en intrinsieke waarde uitleggen in wijzigingen | verwerkt |
+| KB2-2 | klein | "heffen elkaar op" past niet | verwerkt: "gemengd nieuws, weinig dat Sofina wezenlijk verandert" |
+| KB2-3 | klein | Verwacht rendement uitleggen | verwerkt |
+| KB2-4 | klein | Stop-loss €184 verklaren | verwerkt (aankoop €230) |
+| KB2-5 | klein | Zin slecht scenario vs stop-loss | verwerkt |
+| KB2-6 | klein | "waarde van het hele bedrijf" | verwerkt |
+| KB2-7 | klein | Kans slecht scenario 30–35% | verworpen als wijziging (mening, score ongewijzigd) → open punt |
+| FA (b) | klein | Brent als "niet bevestigd" noteren | verwerkt in werkdossier |
+| FA (b) | klein | ±1,6% bevat staartrisico | verwerkt in wijzigingen |
+
+Geen kritieke opmerkingen of "niet goedgekeurd" → geen ronde 3.
 
 ## Open punten / meningsverschillen

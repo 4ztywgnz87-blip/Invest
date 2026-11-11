@@ -60,11 +60,59 @@
 </div></header>
 
 <main class="pagina">
+  {%- set d = namespace(sam=1, wijz=0, adv=2, vlag=3, det=4, ach=5) %}
+  {%- if r.wijzigingen %}{% set d.wijz = 2 %}{% set d.adv = 3 %}{% set d.vlag = 4 %}{% set d.det = 5 %}{% set d.ach = 6 %}{% endif %}
+  {%- set vl = r.meta.valuta or '' -%}
+
+  <section class="pdf-blok kaart leeswijzer">
+    <h2>Hoe lees je dit rapport?</h2>
+    <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ol class="opbouw">
+      <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li>
+      {%- if r.wijzigingen %}<li><strong>Wat is er veranderd</strong> — het verschil met het vorige rapport.</li>{% endif %}
+      <li><strong>Het advies in cijfers</strong> — tegen welke prijs kopen, het koersdoel, wanneer verkopen, drie mogelijke uitkomsten voor de koers en hoe de score tot stand komt.</li>
+      <li><strong>Rode vlaggen</strong> — wat botst met jouw harde regels.</li>
+      <li><strong>Details per thema</strong> — {{ r.secties|length }} hoofdstukken om open te klappen, met alle cijfers, uitleg en bronnen.</li>
+      <li><strong>Achteraan</strong> — woordenlijst, kwaliteitscontrole en bronnenlijst.</li>
+    </ol>
+    <p class="deel-intro" style="margin-top:10px">Elk stuk tekst krijgt een label, zodat je weet hoe zeker het is:</p>
+    <div class="legende-labels">
+      <span>{{ lab('feit') }}uit een bron, met verwijzing</span>
+      <span>{{ lab('berekening') }}zelf berekend uit feiten</span>
+      <span>{{ lab('inschatting') }}verwachting, kan anders uitdraaien</span>
+      <span>{{ lab('mening') }}oordeel van de analist</span>
+    </div>
+  </section>
+
+  <section class="pdf-blok kaart">
+    <div class="deel">Deel {{ d.sam }}</div>
+    <h2>Samenvatting</h2>
+    <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p>
+    {%- for b in r.samenvatting %}{{ blok(b) }}{% endfor %}
+  </section>
+
+  {%- if r.wijzigingen %}
+  <section class="pdf-blok kaart">
+    <div class="deel">Deel {{ d.wijz }}</div>
+    <h2>Wat is er veranderd sinds het vorige rapport?</h2>
+    {%- for b in r.wijzigingen %}{{ blok(b) }}{% endfor %}
+  </section>
+  {%- endif %}
+
   <section class="advies">
+    <div class="vol">
+      <div class="deel">Deel {{ d.adv }}</div>
+      <h2>Het advies in cijfers</h2>
+      <p class="deel-intro">Ons oordeel, de prijzen om in de gaten te houden, en wat de koers de komende twee jaar zou kunnen doen.</p>
+    </div>
     <div class="oordeel {{ a.oordeel.split(' ')[0] }}">{{ a.oordeel }}{% if a.score %}<small>score {{ a.score }}/10</small>{% endif %}</div>
     <div>
       <div class="reden">{{ a.reden|inline }}</div>
       {%- if a.score %}<div class="score" aria-label="score {{ a.score }} op 10">{% for i in range(1, 11) %}<i class="{{ 'aan' if i <= a.score }}"></i>{% endfor %}</div>{% endif %}
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Belangrijke prijzen</div>
+      <p class="deel-intro">De <strong>koopzone</strong> is de prijs waarbij kopen aantrekkelijk wordt, het <strong>koersdoel</strong> is waar de koers volgens het normale scenario binnen twee jaar zou staan, en de <strong>stop-loss</strong> is de koers waarop je verkoopt om grotere verliezen te vermijden.</p>
     </div>
     <div class="cijferrij">
       {%- set vl = r.meta.valuta or '' -%}
@@ -75,11 +123,19 @@
       {%- if a.intrinsieke_waarde %}<div class="tegel"><div class="n">Intrinsieke waarde</div><div class="w">{{ a.intrinsieke_waarde|getal(vl) }}</div><div class="t">schatting, zie Waardering</div></div>{% endif %}
     </div>
     {%- if a.scenarios %}
+    <div class="vol">
+      <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten: een <strong>slecht</strong>, een <strong>normaal</strong> en een <strong>goed</strong> scenario, telkens met de koers die daarbij hoort en hoe waarschijnlijk we dat vinden. Het koersdoel hierboven is het normale scenario.</p>
+    </div>
     <div class="scenarios">
       {%- for s in a.scenarios %}
       <div class="scenario {{ s.naam }}"><div class="n">{{ s.naam }}</div><div class="w">{{ s.koers|getal(vl) }}{% if s.kans %} <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans {{ s.kans }}</small>{% endif %}</div><p>{{ s.uitleg|inline }}</p></div>
       {%- endfor %}
     </div>
+        {%- endif %}
+    {%- if r.verkoopsignalen %}
+    <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul>{% for s in r.verkoopsignalen %}<li>{{ s|inline }}</li>{% endfor %}</ul></div>
     {%- endif %}
     {%- if a.score_opbouw %}
     {%- set so = a.score_opbouw %}{% set be = so._berekend or {} %}
@@ -106,7 +162,9 @@
   </section>
 
   <section class="pdf-blok kaart vlaggen">
+    <div class="deel">Deel {{ d.vlag }}</div>
     <h2>🚩 Rode vlaggen</h2>
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou, hoe erg het is en daarna de details. <strong>No-go</strong> betekent: normaal niet kopen.</p>
     {%- if r.rode_vlaggen %}
       {%- for v in r.rode_vlaggen %}
       <div class="vlag {{ v.ernst }}">
@@ -118,39 +176,6 @@
       <p class="geen-vlag">Geen rode vlaggen gevonden.</p>
     {%- endif %}
   </section>
-
-  <section class="pdf-blok kaart">
-    <h2>Samenvatting</h2>
-    {%- for b in r.samenvatting %}{{ blok(b) }}{% endfor %}
-    {%- if r.verkoopsignalen %}
-    <div class="kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
-      <ul>{% for s in r.verkoopsignalen %}<li>{{ s|inline }}</li>{% endfor %}</ul></div>
-    {%- endif %}
-  </section>
-
-  {%- if r.review %}
-  {%- set rv = r.review %}
-  <section class="pdf-blok kaart">
-    <h2>Teamreview</h2>
-    <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
-    {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}
-    {%- set ns = namespace(o=0, v=0, w=0) %}{% for rd in rv.rondes %}{% set ns.o = ns.o + (rd.opmerkingen or 0) %}{% set ns.v = ns.v + (rd.verwerkt or 0) %}{% set ns.w = ns.w + (rd.verworpen or 0) %}{% endfor %}
-    {{ ns.o }} opmerkingen: {{ ns.v }} verwerkt, {{ ns.w }} gemotiveerd verworpen.</p>
-    {%- if rv.rondes %}{% set last = rv.rondes[-1] %}
-    <div class="legende-labels">{% for n, o in last.oordelen.items() %}<span><strong>{{ {'financieel-analist':'Financieel analist','actua-specialist':'Actua-specialist','kritische-belegger':'Kritische belegger'}.get(n, n) }}:</strong> {{ o }}</span>{% endfor %}</div>
-    {%- endif %}
-    {%- if rv.open_punten %}
-    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul>{% for o in rv.open_punten %}<li>{{ o|inline }}</li>{% endfor %}</ul></div>
-    {%- endif %}
-  </section>
-  {%- endif %}
-
-  {%- if r.wijzigingen %}
-  <section class="pdf-blok kaart">
-    <h2>Wat is er veranderd sinds het vorige rapport?</h2>
-    {%- for b in r.wijzigingen %}{{ blok(b) }}{% endfor %}
-  </section>
-  {%- endif %}
 
   {%- if r.onvoldoende_info %}
   <section class="pdf-blok kaart">
@@ -164,7 +189,9 @@
   {%- endif %}
 
   <nav class="pdf-blok kaart inhoudstafel">
-    <h2>Inhoud</h2>
+    <div class="deel">Deel {{ d.det }}</div>
+    <h2>Details per thema</h2>
+    <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
     <ol>
       {%- for s in r.secties %}<li><a href="#{{ s.id }}">{{ s.titel }}</a>{% if s.kort %} <span class="kort">— {{ s.kort }}</span>{% endif %}</li>{% endfor %}
     </ol>
@@ -189,10 +216,30 @@
   </details>
   {%- endfor %}
 
+  <div class="achteraan-kop"><div class="deel">Deel {{ d.ach }} · Achteraan</div></div>
+
   {%- if r._woordenlijst %}
   <section class="pdf-blok kaart">
     <h2>Woordenlijst</h2>
     <dl class="woorden">{% for t, u in r._woordenlijst %}<dt>{{ t }}</dt><dd>{{ u }}</dd>{% endfor %}</dl>
+  </section>
+  {%- endif %}
+
+  {%- if r.review %}
+  {%- set rv = r.review %}
+  <section class="pdf-blok kaart">
+    <h2>Kwaliteitscontrole</h2>
+    <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p>
+    <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
+    {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}
+    {%- set ns = namespace(o=0, v=0, w=0) %}{% for rd in rv.rondes %}{% set ns.o = ns.o + (rd.opmerkingen or 0) %}{% set ns.v = ns.v + (rd.verwerkt or 0) %}{% set ns.w = ns.w + (rd.verworpen or 0) %}{% endfor %}
+    {{ ns.o }} opmerkingen: {{ ns.v }} verwerkt, {{ ns.w }} gemotiveerd verworpen.</p>
+    {%- if rv.rondes %}{% set last = rv.rondes[-1] %}
+    <div class="legende-labels">{% for n, o in last.oordelen.items() %}<span><strong>{{ {'financieel-analist':'Financieel analist','actua-specialist':'Actua-specialist','kritische-belegger':'Kritische belegger'}.get(n, n) }}:</strong> {{ o }}</span>{% endfor %}</div>
+    {%- endif %}
+    {%- if rv.open_punten %}
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul>{% for o in rv.open_punten %}<li>{{ o|inline }}</li>{% endfor %}</ul></div>
+    {%- endif %}
   </section>
   {%- endif %}
 
@@ -203,16 +250,6 @@
       <li id="bron-{{ b.id }}"><span class="type">{{ b.type or '' }}</span> {{ b.uitgever }} — {% if b.url %}<a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.titel }}</a>{% else %}{{ b.titel }}{% endif %}{% if b.document %} ({{ b.document }}){% endif %}{% if b.datum %}, {{ b.datum }}{% endif %}</li>
       {%- endfor %}
     </ol>
-  </section>
-
-  <section class="pdf-blok kaart">
-    <h2>Hoe lees je dit rapport?</h2>
-    <div class="legende-labels">
-      <span>{{ lab('feit') }}uit een bron, met verwijzing</span>
-      <span>{{ lab('berekening') }}zelf berekend uit feiten</span>
-      <span>{{ lab('inschatting') }}verwachting, kan anders uitdraaien</span>
-      <span>{{ lab('mening') }}oordeel van de analist</span>
-    </div>
   </section>
 
   <p class="voet">Gemaakt op {{ gebouwd }}. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>

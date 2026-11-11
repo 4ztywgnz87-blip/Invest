@@ -178,6 +178,16 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
 .so-corr .so-p { color: #b42318; }
 .so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
 .so-som.totaal { font-size: 15px; }
+
+/* opbouw en leeswijzer */
+.vol { grid-column: 1 / -1; }
+.deel { font-size: 11.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--inkt-3); margin-bottom: 2px; }
+.deel-intro { margin: 4px 0 10px; font-size: 14.5px; line-height: 1.5; color: var(--inkt-2, #344054); }
+.advies h2 { margin: 0; font-size: 20px; }
+.sub-titel { font-weight: 650; font-size: 16px; margin-top: 6px; }
+.opbouw { margin: 4px 0 6px; padding-left: 20px; line-height: 1.5; font-size: 14.5px; }
+.opbouw li { margin: 4px 0; }
+.achteraan-kop { margin: 26px 0 4px; }
 </style>
 </head>
 <body><header class="kop"><div class="pagina">
@@ -186,19 +196,58 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
   <div class="sub">Rapport van 2026-11-08 · Investeringsholding (durf- en groeikapitaal)</div>
 </div></header>
 
-<main class="pagina">
+<main class="pagina"><section class="pdf-blok kaart leeswijzer">
+    <h2>Hoe lees je dit rapport?</h2>
+    <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ol class="opbouw">
+      <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li>
+      <li><strong>Het advies in cijfers</strong> — tegen welke prijs kopen, het koersdoel, wanneer verkopen, drie mogelijke uitkomsten voor de koers en hoe de score tot stand komt.</li>
+      <li><strong>Rode vlaggen</strong> — wat botst met jouw harde regels.</li>
+      <li><strong>Details per thema</strong> — 11 hoofdstukken om open te klappen, met alle cijfers, uitleg en bronnen.</li>
+      <li><strong>Achteraan</strong> — woordenlijst, kwaliteitscontrole en bronnenlijst.</li>
+    </ol>
+    <p class="deel-intro" style="margin-top:10px">Elk stuk tekst krijgt een label, zodat je weet hoe zeker het is:</p>
+    <div class="legende-labels">
+      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
+      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
+      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
+      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
+    </div>
+  </section>
+
+  <section class="pdf-blok kaart">
+    <div class="deel">Deel 1</div>
+    <h2>Samenvatting</h2>
+    <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p><p class="blok feit"><span class="lab feit">Feit</span>Sofina is een Brusselse <span class="term">investeringsholding</span> <span class="uitleg">(bedrijf dat geld belegt in andere bedrijven en fondsen)</span>. Haar <span class="term">intrinsieke waarde</span> <span class="uitleg">(wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf)</span> was €326 per aandeel op 30-6-2026 (4 maanden oud). De koers (€267,6) ligt <strong>18% lager</strong>.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-12">12</a></p><p class="blok feit"><span class="lab feit">Feit</span><strong>R1 geraakt — <span class="term">NO-GO</span> <span class="uitleg">(volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is)</span>:</strong> een <span class="term">consortium</span> <span class="uitleg">(groep aandeelhouders die wettelijk als één blok handelt)</span> rond de familie Boël bezit 54,6% (meer dan de 49%-grens).<a class="ref" href="#bron-9">9</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span><span class="term">Verwacht rendement</span> <span class="uitleg">(gemiddelde van de drie scenario&#x27;s, gewogen met hun kans)</span> over 2 jaar: hooguit ±<strong>2% per jaar</strong> (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%). De AI-uitverkoop van 5-11 zit nog niet in de cijfers.</p><p class="blok mening"><span class="lab mening">Mening</span>Positief: lage schuld, een stabiele familie-aandeelhouder en topfondsen. Negatief: 92% van de portefeuille is niet-beursgenoteerd (je kan de waarde niet zelf nagaan), 65% in dollar, veel gevoeligheid voor AI- en techwaarderingen, en geen <span class="term">defensief</span> <span class="uitleg">(bedrijf in een sector die weinig last heeft van een slechte economie)</span> profiel.</p><div class="kader mening"><div class="t">Oordeel</div><strong>Afwachten (niet kopen: R1) — 4/10.</strong> Wie R1 bewust aanvaardt: pas in de <span class="term">koopzone</span> <span class="uitleg">(prijs waarbij risico en rendement aantrekkelijk worden)</span> €220–240 (koers ±26% of meer onder de intrinsieke waarde), met een <span class="term">stop-loss</span> <span class="uitleg">(koers waarbij je verkoopt om verdere verliezen te beperken)</span> 20% onder je aankoopprijs.</div>
+  </section>
+
   <section class="advies">
+    <div class="vol">
+      <div class="deel">Deel 2</div>
+      <h2>Het advies in cijfers</h2>
+      <p class="deel-intro">Ons oordeel, de prijzen om in de gaten te houden, en wat de koers de komende twee jaar zou kunnen doen.</p>
+    </div>
     <div class="oordeel Afwachten">Afwachten<small>score 4/10</small></div>
     <div>
       <div class="reden">Regel <strong>R1 is geraakt</strong>: een consortium van drie vennootschappen rond de familie Boël heeft samen <strong>54,6%</strong>. De rest is degelijk maar niet uitzonderlijk: verwacht rendement ±2% per jaar, 92% van de portefeuille is niet-beursgenoteerd en de AI-uitverkoop van 5 november raakt de waarde nog met vertraging.</div><div class="score" aria-label="score 4 op 10"><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
     </div>
+    <div class="vol">
+      <div class="sub-titel">Belangrijke prijzen</div>
+      <p class="deel-intro">De <strong>koopzone</strong> is de prijs waarbij kopen aantrekkelijk wordt, het <strong>koersdoel</strong> is waar de koers volgens het normale scenario binnen twee jaar zou staan, en de <strong>stop-loss</strong> is de koers waarop je verkoopt om grotere verliezen te vermijden.</p>
+    </div>
     <div class="cijferrij"><div class="tegel"><div class="n">Koers nu</div><div class="w">267,60 EUR</div><div class="t">06-11-2026</div></div><div class="tegel"><div class="n">Koopzone</div><div class="w">220 – 240 EUR</div></div><div class="tegel"><div class="n">Koersdoel (2 j)</div><div class="w">290 EUR</div><div class="t">normaal scenario, eind 2028: intrinsieke waarde ±€360 (+4%/jaar) met 20% korting</div></div><div class="tegel"><div class="n">Stop-loss</div><div class="w">184 EUR</div><div class="t">Bij aankoop in de koopzone (€220–240): −20% = €176–192 (midden €184); technisch net onder de steun van €212 → ±€205. Wie toch nu koopt aan €267,6: −20% = €214.</div></div><div class="tegel"><div class="n">Intrinsieke waarde</div><div class="w">326 EUR</div><div class="t">schatting, zie Waardering</div></div>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten: een <strong>slecht</strong>, een <strong>normaal</strong> en een <strong>goed</strong> scenario, telkens met de koers die daarbij hoort en hoe waarschijnlijk we dat vinden. Het koersdoel hierboven is het normale scenario.</p>
     </div>
     <div class="scenarios">
       <div class="scenario Slecht"><div class="n">Slecht</div><div class="w">180 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 30%</small></div><p>Bredere techcorrectie (zoals begonnen op 5-11-2026) en zwakkere dollar: intrinsieke waarde −14% naar ±€280 en de korting loopt op tot 35% (zoals 2022–2024). Staartrisico: een herhaling van 2022 (waarde −25%, korting 40%) geeft ±€147 — kans ±10% (mening), zit hier in.</p></div>
       <div class="scenario Normaal"><div class="n">Normaal</div><div class="w">290 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 45%</small></div><p>Intrinsieke waarde +4%/jaar naar ±€360 eind 2028 (onder het 10-jaarsgemiddelde, boven de laatste 4 jaar), korting 20%.</p></div>
       <div class="scenario Goed"><div class="n">Goed</div><div class="w">350 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 25%</small></div><p>Intrinsieke waarde +8%/jaar (≈ het 10-jaarsgemiddelde van 8,4%) naar ±€400, geholpen door beursgangen (Anthropic, ByteDance) en verkopen boven boekwaarde; korting 12%.</p></div>
     </div>
+    <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul><li>Korting op de intrinsieke waarde onder <strong>10%</strong> of een premie (zoals 2021) → winst nemen. *Controle: koers vs. laatste NAV (24-3-2027 en 2-9-2027).*</li><li>Twee halfjaren na elkaar <strong>negatieve waardecreatie zonder valuta-effect</strong>. *Controle: presentatie bij het (half)jaarverslag.*</li><li><span class="term">LTV</span> <span class="uitleg">(schuld gedeeld door de waarde van de portefeuille)</span> boven <strong>10%</strong> of een nieuwe kapitaalverhoging onder de intrinsieke waarde. *Controle: (half)jaarverslag, persberichten.*</li><li>Sofina meldt een <strong>grote afwaardering van ByteDance</strong> of vermeldt een tweede positie boven 5%. *Controle: top-10-pagina in het (half)jaarverslag.*</li><li>Het consortium Boël verandert van koers: <strong>uitkoopbod</strong>, belang boven 60% of vrije handel onder 35%. *Controle: website Sofina (aandeelhoudersstructuur), FSMA.*</li><li>Koers sluit onder je <strong>stop-loss</strong> (−20% onder je aankoopprijs; bij aankoop €220–240 is dat €176–192).</li></ul></div>
     <div class="scoreopbouw">
       <div class="so-titel">Hoe komt de score 4/10 tot stand?</div><p class="so-intro">Elk onderdeel krijgt punten op 10 en weegt mee volgens zijn gewicht. Daarna gaan er punten af als een harde regel geraakt is. De punten zijn mijn mening op basis van de feiten in de secties hieronder.</p>
       <div class="so-rij">
@@ -241,7 +290,9 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
   </section>
 
   <section class="pdf-blok kaart vlaggen">
+    <div class="deel">Deel 3</div>
     <h2>🚩 Rode vlaggen</h2>
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou, hoe erg het is en daarna de details. <strong>No-go</strong> betekent: normaal niet kopen.</p>
       <div class="vlag nogo">
         <div><span class="e">No-go · R1</span><span class="t">Consortium rond de familie Boël controleert 54,6%</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> Drie vennootschappen rond de familie Boël hebben afgesproken om als één blok te handelen. Samen bezitten ze meer dan de helft van alle aandelen van Sofina.<a class="ref" href="#bron-9">9</a><a class="ref" href="#bron-3">3</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Waarom is dat een probleem voor jou?</strong> Wie meer dan de helft heeft, beslist alleen: over het bestuur, het dividend, nieuwe aandelen en eventueel een bod om alle andere aandeelhouders uit te kopen. Als kleine aandeelhouder kan je niets afdwingen, en omdat maar ±39% vrij verhandeld wordt, is de handel in het aandeel beperkter.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Hoe erg is het?</strong> Dit raakt jouw harde regel <strong>R1</strong> (meer dan 49% in één hand of samen): normaal niet kopen, tenzij al de rest uitzonderlijk goed is. Tot nu toe gedroeg het blok zich correct — zelfde voorwaarden voor iedereen bij de kapitaalverhoging, geen verdachte transacties — maar dat is vertrouwen, geen garantie.</p><p class="blok feit"><span class="lab feit">Feit</span><strong>De details.</strong> Union Financière Boël (22,41%), Société de Participations Industrielles (24,78%) en Mobilière et Immobilière du Centre (7,40%) vormen samen één blok met <strong>20.034.661 aandelen = 54,60%</strong>. Sofina zelf heeft nog 3,85% eigen aandelen; samen 58,45%. Het consortium bestaat sinds 2007. CEO Harold Boël zit in de raad van bestuur; Union Financière Boël zelf werd in 2026 voorgedragen als bestuurder en meldt zich bij de FSMA als lid van het bestuursorgaan. De raad vond een <span class="term">relationship agreement</span> <span class="uitleg">(schriftelijke afspraak tussen bedrijf en hoofdaandeelhouder over hoe zij met elkaar omgaan)</span> &#x27;niet nodig&#x27;.<a class="ref" href="#bron-9">9</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-10">10</a></p>
       </div>
@@ -255,19 +306,6 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
         <div><span class="e">Info · R4</span><span class="t">Geen rechtszaken tegen Sofina gevonden</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> Er zijn geen rechtszaken tegen Sofina gevonden. Zoekbasis: jaarverslagen 2021–2025, halfjaarverslag 2026 en nieuws in NL/FR/EN. Daarin vond ik geen lopende of afgesloten rechtszaak tegen Sofina zelf.<a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-1">1</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Wel om te weten:</strong> Wel lopen er groepsvorderingen tegen TikTok/ByteDance (privacy, verslaving bij jongeren) — dat raakt Sofina enkel onrechtstreeks via de waarde van ByteDance.</p>
       </div>
   </section>
-
-  <section class="pdf-blok kaart">
-    <h2>Samenvatting</h2><p class="blok feit"><span class="lab feit">Feit</span>Sofina is een Brusselse <span class="term">investeringsholding</span> <span class="uitleg">(bedrijf dat geld belegt in andere bedrijven en fondsen)</span>. Haar <span class="term">intrinsieke waarde</span> <span class="uitleg">(wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf)</span> was €326 per aandeel op 30-6-2026 (4 maanden oud). De koers (€267,6) ligt <strong>18% lager</strong>.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-12">12</a></p><p class="blok feit"><span class="lab feit">Feit</span><strong>R1 geraakt — <span class="term">NO-GO</span> <span class="uitleg">(volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is)</span>:</strong> een <span class="term">consortium</span> <span class="uitleg">(groep aandeelhouders die wettelijk als één blok handelt)</span> rond de familie Boël bezit 54,6% (meer dan de 49%-grens).<a class="ref" href="#bron-9">9</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span><span class="term">Verwacht rendement</span> <span class="uitleg">(gemiddelde van de drie scenario&#x27;s, gewogen met hun kans)</span> over 2 jaar: hooguit ±<strong>2% per jaar</strong> (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%). De AI-uitverkoop van 5-11 zit nog niet in de cijfers.</p><p class="blok mening"><span class="lab mening">Mening</span>Positief: lage schuld, een stabiele familie-aandeelhouder en topfondsen. Negatief: 92% van de portefeuille is niet-beursgenoteerd (je kan de waarde niet zelf nagaan), 65% in dollar, veel gevoeligheid voor AI- en techwaarderingen, en geen <span class="term">defensief</span> <span class="uitleg">(bedrijf in een sector die weinig last heeft van een slechte economie)</span> profiel.</p><div class="kader mening"><div class="t">Oordeel</div><strong>Afwachten (niet kopen: R1) — 4/10.</strong> Wie R1 bewust aanvaardt: pas in de <span class="term">koopzone</span> <span class="uitleg">(prijs waarbij risico en rendement aantrekkelijk worden)</span> €220–240 (koers ±26% of meer onder de intrinsieke waarde), met een <span class="term">stop-loss</span> <span class="uitleg">(koers waarbij je verkoopt om verdere verliezen te beperken)</span> 20% onder je aankoopprijs.</div>
-    <div class="kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
-      <ul><li>Korting op de intrinsieke waarde onder <strong>10%</strong> of een premie (zoals 2021) → winst nemen. *Controle: koers vs. laatste NAV (24-3-2027 en 2-9-2027).*</li><li>Twee halfjaren na elkaar <strong>negatieve waardecreatie zonder valuta-effect</strong>. *Controle: presentatie bij het (half)jaarverslag.*</li><li><span class="term">LTV</span> <span class="uitleg">(schuld gedeeld door de waarde van de portefeuille)</span> boven <strong>10%</strong> of een nieuwe kapitaalverhoging onder de intrinsieke waarde. *Controle: (half)jaarverslag, persberichten.*</li><li>Sofina meldt een <strong>grote afwaardering van ByteDance</strong> of vermeldt een tweede positie boven 5%. *Controle: top-10-pagina in het (half)jaarverslag.*</li><li>Het consortium Boël verandert van koers: <strong>uitkoopbod</strong>, belang boven 60% of vrije handel onder 35%. *Controle: website Sofina (aandeelhoudersstructuur), FSMA.*</li><li>Koers sluit onder je <strong>stop-loss</strong> (−20% onder je aankoopprijs; bij aankoop €220–240 is dat €176–192).</li></ul></div>
-  </section>
-  <section class="pdf-blok kaart">
-    <h2>Teamreview</h2>
-    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 158 feiten naast de bron gelegd, 135 meteen correct.
-    67 opmerkingen: 62 verwerkt, 5 gemotiveerd verworpen.</p>
-    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd met opmerkingen</span><span><strong>Actua-specialist:</strong> goedgekeurd met opmerkingen</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
-    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>Alle fouten uit de controle (23 van 158 feiten) zijn verbeterd; geen kritieke opmerkingen meer.</li><li>De uitslag van de AVA van 13-5-2026 (nieuwe bestuurders) is niet gevonden; benoemingen staan als &#x27;voorgedragen&#x27;.</li><li>Mogelijke renteverhoging door de Amerikaanse centrale bank in december: enkel via secundaire bronnen gevonden, niet opgenomen.</li><li>Enkele feiten steunen op secundaire bronnen (Wikipedia voor de SpaceX-beursgang, VZ VermögensZentrum voor Exor).</li><li>De kritische belegger vindt de AI-gevoeligheid nog licht onderschat (Sofina publiceert geen waarde per bedrijf), maar houdt het bij score 4/10.</li></ul></div>
-  </section>
   <section class="pdf-blok kaart">
     <h2>Onvoldoende info gevonden</h2>
     <div class="kader waarschuwing"><div class="t">Waarde per deelneming (ByteDance, Anthropic, OpenAI …)</div>
@@ -279,7 +317,9 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
   </section>
 
   <nav class="pdf-blok kaart inhoudstafel">
-    <h2>Inhoud</h2>
+    <div class="deel">Deel 4</div>
+    <h2>Details per thema</h2>
+    <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
     <ol><li><a href="#bestuur">Bestuur &amp; aandeelhouders</a> <span class="kort">— R1 geraakt (familie Boël 54,6%); verloning redelijk; geen vertrekpremies</span></li><li><a href="#cijfers">Cijfers</a> <span class="kort">— Intrinsieke waarde €326/aandeel, in 5 jaar amper gestegen; schuld laag</span></li><li><a href="#investeringen">Waarin investeren ze?</a> <span class="kort">— Weinig uitgekeerd (±1,1% van de waarde); groei vooral via waardestijging, niet via ingehouden winst</span></li><li><a href="#keten">De keten (2 niveaus)</a> <span class="kort">— ByteDance, Cognita, Nuxe, Drylock … en via fondsen SpaceX, Anthropic, OpenAI</span></li><li><a href="#sector">Sector &amp; concurrenten</a> <span class="kort">— Holdings noteren met 20–55% korting; Sofina is de meest &#39;tech&#39;</span></li><li><a href="#actualiteit">Actualiteit</a> <span class="kort">— AI-beursgangen, dollar, rente en olie bepalen de komende 2 jaar</span></li><li><a href="#earnings_call">Analistencall (halfjaar 2026)</a> <span class="kort">— Zelfzeker en open over ByteDance; geen cijferprognose</span></li><li><a href="#waardering">Waardering &amp; advies</a> <span class="kort">— Intrinsieke waarde €326; koopzone €220–240; doel €290</span></li><li><a href="#techniek">Koers &amp; techniek</a> <span class="kort">— Stijgende trend, maar AI-correctie; steun €238,8; stop-loss −20% onder aankoopprijs</span></li><li><a href="#expert">Kritische expertblik</a> <span class="kort">— Pre-mortem: AI-correctie + dollar + bredere korting</span></li><li><a href="#profiel">Toets aan jouw profiel</a> <span class="kort">— R1 NO-GO; herinvestering ✅; niet defensief; AI-hype-gevoelig</span></li>
     </ol>
   </nav>
@@ -473,9 +513,19 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
     </ul><p class="blok feit"><span class="lab feit">Feit</span><strong>Meerwaardebelasting</strong>: sinds 1-1-2026 betaal je in België 10% op gerealiseerde winst op aandelen, met een vrijstelling van €10.000 per persoon per jaar; de waarde op 31-12-2025 geldt als startpunt. Bij een kleine positie blijft de winst tot het koersdoel meestal onder de vrijstelling.<a class="ref" href="#bron-34">33</a></p><p class="blok mening"><span class="lab mening">Mening</span>Vergelijking met je ervaringen: zoals <strong>Ørsted</strong> in 2021 noteerde Sofina toen met een premie (+28%) en zakte daarna meer dan 50%. Verschil: Sofina noteert nu met korting en is gespreid over ±90 bedrijven en ±90 fondsen, Ørsted was één verhaal. Met <strong>DEME</strong> (je beste belegging) heeft Sofina weinig gemeen: DEME is een industrieel bedrijf met zichtbare orders en kasstromen.</p>
     </div>
   </details>
+
+  <div class="achteraan-kop"><div class="deel">Deel 5 · Achteraan</div></div>
   <section class="pdf-blok kaart">
     <h2>Woordenlijst</h2>
     <dl class="woorden"><dt>afgeleide producten</dt><dd>contracten die een koers vastleggen: minder risico, maar ook minder winst als de koers verder stijgt</dd><dt>beurstaks</dt><dd>kleine taks bij elke aankoop en verkoop</dd><dt>carried interest</dt><dd>winstdeel voor de fondsbeheerder, meestal 20% van de winst</dd><dt>claimemissie</dt><dd>kapitaalverhoging waarbij bestaande aandeelhouders voorrang krijgen om bij te kopen</dd><dt>clawback</dt><dd>recht om uitbetaalde bonussen terug te vorderen</dd><dt>consortium</dt><dd>groep aandeelhouders die wettelijk als één blok handelt</dd><dt>defensief</dt><dd>bedrijf in een sector die weinig last heeft van een slechte economie</dd><dt>dividend recap</dt><dd>bedrijf leent geld en keert dat uit aan de aandeelhouders</dd><dt>illiquiditeitskorting</dt><dd>korting omdat je het aandeel niet zomaar kan verkopen</dd><dt>intrinsieke waarde</dt><dd>wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf</dd><dt>investeringsholding</dt><dd>bedrijf dat geld belegt in andere bedrijven en fondsen</dd><dt>joint venture</dt><dd>gezamenlijke onderneming van meerdere eigenaars</dd><dt>koopzone</dt><dd>prijs waarbij risico en rendement aantrekkelijk worden</dd><dt>kredietrating</dt><dd>oordeel van S&amp;P over hoe veilig Sofina&#39;s schuld is</dd><dt>langetermijnplan (LTIP)</dt><dd>bonus die pas na 4 jaar uitbetaald wordt, afhankelijk van de prestaties</dd><dt>lock-up</dt><dd>periode waarin bestaande aandeelhouders niet mogen verkopen</dd><dt>LTV</dt><dd>schuld gedeeld door de waarde van de portefeuille</dd><dt>mechanische verwatering</dt><dd>elk bestaand aandeel krijgt een kleiner deel van de waarde omdat nieuwe aandelen goedkoper werden uitgegeven</dd><dt>Nasdaq</dt><dd>Amerikaanse technologiebeurs</dd><dt>NAV</dt><dd>intrinsieke waarde: wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf</dd><dt>niveau 3</dt><dd>waarde berekend met modellen en schattingen, niet met beurskoersen</dd><dt>NO-GO</dt><dd>volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is</dd><dt>obligaties</dt><dd>leningen die Sofina op de kapitaalmarkt opnam</dd><dt>opties</dt><dd>recht om aandelen te kopen aan een vooraf vastgelegde prijs</dd><dt>relationship agreement</dt><dd>schriftelijke afspraak tussen bedrijf en hoofdaandeelhouder over hoe zij met elkaar omgaan</dd><dt>roerende voorheffing</dt><dd>Belgische belasting op dividenden, wordt automatisch ingehouden</dd><dt>SMA200</dt><dd>gemiddelde koers van de laatste 200 beursdagen</dd><dt>Steunniveaus</dt><dd>koersen waar het aandeel eerder ophield met dalen</dd><dt>stop-loss</dt><dd>koers waarbij je verkoopt om verdere verliezen te beperken</dd><dt>toegestaan kapitaal</dt><dd>bedrag waarmee de raad zelf, zonder stemming van de aandeelhouders, nieuwe aandelen mag uitgeven</dd><dt>valuta-effect</dt><dd>winst of verlies door wisselkoersen, vooral de dollar</dd><dt>Verwacht rendement</dt><dd>gemiddelde van de drie scenario&#39;s, gewogen met hun kans</dd><dt>verwatering</dt><dd>elk bestaand aandeel krijgt een kleiner deel van de waarde</dd><dt>volatiliteit</dt><dd>hoe sterk de koers schommelt</dd><dt>waardecreatie</dt><dd>hoeveel de portefeuille in waarde won, na aankopen en verkopen</dd></dl>
+  </section>
+  <section class="pdf-blok kaart">
+    <h2>Kwaliteitscontrole</h2>
+    <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p>
+    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 158 feiten naast de bron gelegd, 135 meteen correct.
+    67 opmerkingen: 62 verwerkt, 5 gemotiveerd verworpen.</p>
+    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd met opmerkingen</span><span><strong>Actua-specialist:</strong> goedgekeurd met opmerkingen</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>Alle fouten uit de controle (23 van 158 feiten) zijn verbeterd; geen kritieke opmerkingen meer.</li><li>De uitslag van de AVA van 13-5-2026 (nieuwe bestuurders) is niet gevonden; benoemingen staan als &#x27;voorgedragen&#x27;.</li><li>Mogelijke renteverhoging door de Amerikaanse centrale bank in december: enkel via secundaire bronnen gevonden, niet opgenomen.</li><li>Enkele feiten steunen op secundaire bronnen (Wikipedia voor de SpaceX-beursgang, VZ VermögensZentrum voor Exor).</li><li>De kritische belegger vindt de AI-gevoeligheid nog licht onderschat (Sofina publiceert geen waarde per bedrijf), maar houdt het bij score 4/10.</li></ul></div>
   </section>
 
   <section class="pdf-blok kaart">
@@ -519,17 +569,7 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
     </ol>
   </section>
 
-  <section class="pdf-blok kaart">
-    <h2>Hoe lees je dit rapport?</h2>
-    <div class="legende-labels">
-      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
-      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
-      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
-      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
-    </div>
-  </section>
-
-  <p class="voet">Gemaakt op 11-11-2026 02:39. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+  <p class="voet">Gemaakt op 11-11-2026 02:50. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
 </body>
 </html>

@@ -16,9 +16,9 @@
 | 8 Waardering & advies | ✅ | ongewijzigd 4/10; verwacht rendement ±1,5%/j |
 | 9 Expert | ✅ | ongewijzigd |
 | 10 Fact-check | ✅ | nieuwe feiten nagekeken bij bron (CNBC, Reuters) |
-| 11 Teamreview | ⬜ | |
-| 12 Bouwen | ⬜ | |
-| 13 Afronding | ⬜ | |
+| 11 Teamreview | ✅ | 2 rondes, 3× goedgekeurd met opmerkingen |
+| 12 Bouwen | ✅ | nieuwe rapportopbouw (feedback 11-11), 390 px gecontroleerd |
+| 13 Afronding | ✅ | app gepubliceerd, PDF verstuurd |
 
 ## Nieuwe bevindingen
 - Koers 270,4 (9-11-2026); SMA50 255,8; SMA200 236,8; 1j +12,4%; 5j −31,5% (Yahoo).
@@ -36,3 +36,6 @@
 - Extra bronnen: AP 20-10-2026 (SpaceX eerste winst, omzet Q3 ±$14,6 mld), RTTNews 21-10 (aandeel stijgt).
 - Blootstellingskaart aangevuld: SpaceX-lock-ups (laatste grote vrijgave ±begin december), Anthropic-IPO (herwaardering fondsen), Fed december (78% volgens Reuters 6-11), ECB 17-12.
 - Verworpen: Brent $98,29 / tankeraanvallen 5-11 (zwakke bron).
+
+- Brent $98,29 / tankeraanvallen 5-11: niet bevestigd (enkel zwakke bron), niet opgenomen.
+- `rapport.json` = patch5 + patch6 + patch7 (zie maak_rapport/).

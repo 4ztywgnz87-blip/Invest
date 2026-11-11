@@ -172,3 +172,13 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
 .so-corr .so-p { color: #b42318; }
 .so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
 .so-som.totaal { font-size: 15px; }
+
+/* opbouw en leeswijzer */
+.vol { grid-column: 1 / -1; }
+.deel { font-size: 11.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--inkt-3); margin-bottom: 2px; }
+.deel-intro { margin: 4px 0 10px; font-size: 14.5px; line-height: 1.5; color: var(--inkt-2, #344054); }
+.advies h2 { margin: 0; font-size: 20px; }
+.sub-titel { font-weight: 650; font-size: 16px; margin-top: 6px; }
+.opbouw { margin: 4px 0 6px; padding-left: 20px; line-height: 1.5; font-size: 14.5px; }
+.opbouw li { margin: 4px 0; }
+.achteraan-kop { margin: 26px 0 4px; }

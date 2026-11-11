@@ -178,6 +178,16 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
 .so-corr .so-p { color: #b42318; }
 .so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
 .so-som.totaal { font-size: 15px; }
+
+/* opbouw en leeswijzer */
+.vol { grid-column: 1 / -1; }
+.deel { font-size: 11.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--inkt-3); margin-bottom: 2px; }
+.deel-intro { margin: 4px 0 10px; font-size: 14.5px; line-height: 1.5; color: var(--inkt-2, #344054); }
+.advies h2 { margin: 0; font-size: 20px; }
+.sub-titel { font-weight: 650; font-size: 16px; margin-top: 6px; }
+.opbouw { margin: 4px 0 6px; padding-left: 20px; line-height: 1.5; font-size: 14.5px; }
+.opbouw li { margin: 4px 0; }
+.achteraan-kop { margin: 26px 0 4px; }
 </style>
 </head>
 <body><header class="kop"><div class="pagina">
@@ -186,19 +196,62 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
   <div class="sub">Rapport van 2026-11-08 · Nutsbedrijven · Defensief</div>
 </div></header>
 
-<main class="pagina">
+<main class="pagina"><section class="pdf-blok kaart leeswijzer">
+    <h2>Hoe lees je dit rapport?</h2>
+    <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ol class="opbouw">
+      <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li><li><strong>Wat is er veranderd</strong> — het verschil met het vorige rapport.</li>
+      <li><strong>Het advies in cijfers</strong> — tegen welke prijs kopen, het koersdoel, wanneer verkopen, drie mogelijke uitkomsten voor de koers en hoe de score tot stand komt.</li>
+      <li><strong>Rode vlaggen</strong> — wat botst met jouw harde regels.</li>
+      <li><strong>Details per thema</strong> — 11 hoofdstukken om open te klappen, met alle cijfers, uitleg en bronnen.</li>
+      <li><strong>Achteraan</strong> — woordenlijst, kwaliteitscontrole en bronnenlijst.</li>
+    </ol>
+    <p class="deel-intro" style="margin-top:10px">Elk stuk tekst krijgt een label, zodat je weet hoe zeker het is:</p>
+    <div class="legende-labels">
+      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
+      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
+      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
+      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
+    </div>
+  </section>
+
+  <section class="pdf-blok kaart">
+    <div class="deel">Deel 1</div>
+    <h2>Samenvatting</h2>
+    <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p><p class="blok feit"><span class="lab feit">Feit</span>Omzet steeg in 2025 met 4,1% tot €1,2 mld.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Vrije kasstroom dekt het dividend 1,6 keer.</p><p class="blok mening"><span class="lab mening">Mening</span>Degelijk en defensief, maar het <span class="term">bestuur (governance)</span> <span class="uitleg">(de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden)</span> is een probleem.</p>
+  </section>
+  <section class="pdf-blok kaart">
+    <div class="deel">Deel 2</div>
+    <h2>Wat is er veranderd sinds het vorige rapport?</h2><p class="blok feit"><span class="lab feit">Feit</span>Eerste rapport — nog niets te vergelijken.<a class="ref" href="#bron-1">1</a></p>
+  </section>
+
   <section class="advies">
+    <div class="vol">
+      <div class="deel">Deel 3</div>
+      <h2>Het advies in cijfers</h2>
+      <p class="deel-intro">Ons oordeel, de prijzen om in de gaten te houden, en wat de koers de komende twee jaar zou kunnen doen.</p>
+    </div>
     <div class="oordeel Afwachten">Afwachten<small>score 6/10</small></div>
     <div>
       <div class="reden"><strong>Fictief voorbeeld.</strong> Sterk bedrijf met stabiele kasstromen, maar de familie heeft 52% in handen: regel R1 geraakt.</div><div class="score" aria-label="score 6 op 10"><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
     </div>
+    <div class="vol">
+      <div class="sub-titel">Belangrijke prijzen</div>
+      <p class="deel-intro">De <strong>koopzone</strong> is de prijs waarbij kopen aantrekkelijk wordt, het <strong>koersdoel</strong> is waar de koers volgens het normale scenario binnen twee jaar zou staan, en de <strong>stop-loss</strong> is de koers waarop je verkoopt om grotere verliezen te vermijden.</p>
+    </div>
     <div class="cijferrij"><div class="tegel"><div class="n">Koers nu</div><div class="w">139,20 EUR</div><div class="t">06-11-2026</div></div><div class="tegel"><div class="n">Koopzone</div><div class="w">118 – 126 EUR</div></div><div class="tegel"><div class="n">Koersdoel (2 j)</div><div class="w">155 EUR</div><div class="t">normaal scenario</div></div><div class="tegel"><div class="n">Stop-loss</div><div class="w">111,40 EUR</div><div class="t">−20% t.o.v. koers nu</div></div><div class="tegel"><div class="n">Intrinsieke waarde</div><div class="w">131 EUR</div><div class="t">schatting, zie Waardering</div></div>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten: een <strong>slecht</strong>, een <strong>normaal</strong> en een <strong>goed</strong> scenario, telkens met de koers die daarbij hoort en hoe waarschijnlijk we dat vinden. Het koersdoel hierboven is het normale scenario.</p>
     </div>
     <div class="scenarios">
       <div class="scenario Slecht"><div class="n">Slecht</div><div class="w">105 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 25%</small></div><p>Regulator verlaagt tarieven.</p></div>
       <div class="scenario Normaal"><div class="n">Normaal</div><div class="w">155 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 55%</small></div><p>Groei 4%/jaar, marges stabiel.</p></div>
       <div class="scenario Goed"><div class="n">Goed</div><div class="w">180 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 20%</small></div><p>Nieuwe concessie binnengehaald.</p></div>
     </div>
+    <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul><li>Regulator verlaagt de toegelaten <span class="term">rendementsvoet</span> <span class="uitleg">(winst die het bedrijf mag maken op zijn netwerk)</span>.</li><li>Schuldgraad stijgt boven 4× EBITDA.</li></ul></div>
     <div class="scoreopbouw">
       <div class="so-titel">Hoe komt de score 6/10 tot stand?</div><p class="so-intro">Fictief voorbeeld. Elk onderdeel krijgt punten op 10 en weegt mee volgens zijn gewicht; daarna gaan er punten af voor geraakte harde regels.</p>
       <div class="so-rij">
@@ -241,7 +294,9 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
   </section>
 
   <section class="pdf-blok kaart vlaggen">
+    <div class="deel">Deel 4</div>
     <h2>🚩 Rode vlaggen</h2>
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou, hoe erg het is en daarna de details. <strong>No-go</strong> betekent: normaal niet kopen.</p>
       <div class="vlag nogo">
         <div><span class="e">No-go · R1</span><span class="t">Familie bezit 52% van de aandelen</span></div><p class="blok feit"><span class="lab feit">Feit</span>Familie Voorbeeld houdt 52% via Voorbeeld Holding SA.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Kleine aandeelhouders hebben weinig inspraak; enkel kopen als de rest uitzonderlijk is.</p>
       </div>
@@ -250,24 +305,10 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
       </div>
   </section>
 
-  <section class="pdf-blok kaart">
-    <h2>Samenvatting</h2><p class="blok feit"><span class="lab feit">Feit</span>Omzet steeg in 2025 met 4,1% tot €1,2 mld.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Vrije kasstroom dekt het dividend 1,6 keer.</p><p class="blok mening"><span class="lab mening">Mening</span>Degelijk en defensief, maar het <span class="term">bestuur (governance)</span> <span class="uitleg">(de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden)</span> is een probleem.</p>
-    <div class="kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
-      <ul><li>Regulator verlaagt de toegelaten <span class="term">rendementsvoet</span> <span class="uitleg">(winst die het bedrijf mag maken op zijn netwerk)</span>.</li><li>Schuldgraad stijgt boven 4× EBITDA.</li></ul></div>
-  </section>
-  <section class="pdf-blok kaart">
-    <h2>Teamreview</h2>
-    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 24 feiten naast de bron gelegd, 22 meteen correct.
-    14 opmerkingen: 11 verwerkt, 3 gemotiveerd verworpen.</p>
-    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd</span><span><strong>Actua-specialist:</strong> goedgekeurd</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
-    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>Kritische belegger vindt score 6 te hoog gezien R1 (zou 5 geven). (fictief)</li></ul></div>
-  </section>
-  <section class="pdf-blok kaart">
-    <h2>Wat is er veranderd sinds het vorige rapport?</h2><p class="blok feit"><span class="lab feit">Feit</span>Eerste rapport — nog niets te vergelijken.<a class="ref" href="#bron-1">1</a></p>
-  </section>
-
   <nav class="pdf-blok kaart inhoudstafel">
-    <h2>Inhoud</h2>
+    <div class="deel">Deel 5</div>
+    <h2>Details per thema</h2>
+    <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
     <ol><li><a href="#bestuur">Bestuur &amp; aandeelhouders</a> <span class="kort">— R1 geraakt</span></li><li><a href="#cijfers">Cijfers</a> <span class="kort">— Groei 4%/jaar, stabiele marges, schuld onder controle</span></li><li><a href="#investeringen">Waarin investeren ze?</a></li><li><a href="#keten">Keten (2 niveaus)</a></li><li><a href="#sector">Sector &amp; concurrenten</a></li><li><a href="#actualiteit">Actualiteit</a> <span class="kort">— Droogte en nieuwe EU-richtlijn</span></li><li><a href="#earnings_call">Earnings call</a></li><li><a href="#waardering">Waardering</a></li><li><a href="#techniek">Grafiek &amp; trend</a></li><li><a href="#expert">Kritische expertblik</a></li><li><a href="#profiel">Past dit bij jou?</a></li>
     </ol>
   </nav>
@@ -353,9 +394,19 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
     <div class="inhoud"><p class="blok mening"><span class="lab mening">Mening</span>Defensief en herinvesteert veel ✅, maar R1 is voor jou normaal een no-go ❌.</p>
     </div>
   </details>
+
+  <div class="achteraan-kop"><div class="deel">Deel 6 · Achteraan</div></div>
   <section class="pdf-blok kaart">
     <h2>Woordenlijst</h2>
     <dl class="woorden"><dt>bestuur (governance)</dt><dd>de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden</dd><dt>raad van bestuur</dt><dd>groep die toezicht houdt op het management namens de aandeelhouders</dd><dt>rendementsvoet</dt><dd>winst die het bedrijf mag maken op zijn netwerk</dd></dl>
+  </section>
+  <section class="pdf-blok kaart">
+    <h2>Kwaliteitscontrole</h2>
+    <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p>
+    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 24 feiten naast de bron gelegd, 22 meteen correct.
+    14 opmerkingen: 11 verwerkt, 3 gemotiveerd verworpen.</p>
+    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd</span><span><strong>Actua-specialist:</strong> goedgekeurd</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>Kritische belegger vindt score 6 te hoog gezien R1 (zou 5 geven). (fictief)</li></ul></div>
   </section>
 
   <section class="pdf-blok kaart">
@@ -366,17 +417,7 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
     </ol>
   </section>
 
-  <section class="pdf-blok kaart">
-    <h2>Hoe lees je dit rapport?</h2>
-    <div class="legende-labels">
-      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
-      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
-      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
-      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
-    </div>
-  </section>
-
-  <p class="voet">Gemaakt op 11-11-2026 02:39. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+  <p class="voet">Gemaakt op 11-11-2026 02:50. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
 </body>
 </html>
