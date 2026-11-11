@@ -241,9 +241,22 @@ def bouw_html(r: dict) -> str:
     env.filters["svg"] = lambda b: Markup(grafiek.svg(b))
     env.filters["getal"] = lambda v, e="": grafiek.fmt(v, e) if isinstance(v, (int, float)) else (v if v is not None else "–")
     # Woordenlijst: alle [[term|uitleg]] uit het rapport, alfabetisch.
+    # Enkel binnen tekstwaarden zoeken: op de hele JSON zou "[[" van geneste
+    # lijsten (tabelrijen) als term gelezen worden.
+    def teksten(o):
+        if isinstance(o, str):
+            yield o
+        elif isinstance(o, dict):
+            for v in o.values():
+                yield from teksten(v)
+        elif isinstance(o, list):
+            for v in o:
+                yield from teksten(v)
+
     woorden = {}
-    for term, uitleg in re.findall(r"\[\[(.+?)\|(.+?)\]\]", json.dumps(r, ensure_ascii=False)):
-        woorden.setdefault(term.strip(), uitleg.strip())
+    for s in teksten(r):
+        for term, uitleg in re.findall(r"\[\[([^\[\]|]+)\|([^\[\]]+)\]\]", s):
+            woorden.setdefault(term.strip(), uitleg.strip())
     r["_woordenlijst"] = sorted(woorden.items(), key=lambda kv: kv[0].lower())
     css = (ROOT / "templates" / "rapport.css").read_text(encoding="utf-8")
     tpl = env.get_template("rapport.html.j2")
