@@ -42,20 +42,20 @@
 | Investeerderspresentatie | strategie, vooruitzichten | ✅ | Investor presentation Q4/FY2020 (3-2-2021), kopie energiesdelamer.eu; orsted.com gaf 403 |
 | Earnings call (transcript of verslag) | toon management | ❌ | transcript achter login (GuruFocus, roic.ai); alternatief: presentatie van de call gelezen |
 | Verslag van de commissaris (oordeel, kernpunten, wissel revisor) | betrouwbaarheid cijfers | ✅ | AR2020 p.187–188: PwC sinds 2010, zonder voorbehoud, kernpunten farm-downs en belastingen |
-| Remuneratieverslag | R2, R3 | ✅ | vergoedingstabel AR2020 p.104 (afzonderlijk remuneratieverslag niet gelezen) |
+| Remuneratieverslag | R2, R3 | ❌ | afzonderlijk verslag niet bereikbaar (orsted.com 403); alternatief: vergoedingstabel AR2020 p.104 en verbonden partijen p.159 |
 | Aandeelhouders: nationale toezichthouder (aandeelhouders) | R1 | ✅ | AR2020 p.74–75 (Staat 50,1%, Andel 5,01%, Capital Group 5–10%); Finanstilsynet/OAM niet apart bevraagd |
 | Insiders: nationale toezichthouder (insiders) | R5 | ❌ | orsted.com-meldingen laden enkel met JavaScript, GlobeNewswire 403; enkel titels gevonden (3 rondes, zie onvoldoende_info) |
 | Corporate actions: beurs / officieel publicatieblad + persberichten bedrijf | R6 | ✅ | AR2020 p.74 (aandelenkapitaal ongewijzigd, verkoop RBC/LNG) |
 | Rechtszaken: jaarverslag + zoekronde nieuws (NL/EN/FR/lokaal) + mededingingsautoriteit/EC | R4 | ✅ | AR2020 p.11, 113, 126–127 (Elsam-claim, belastinggeschil, naamgeschil); nieuwsronde EN: niets nieuws |
-| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ✅ | AR2020 p.17: rating in lijn met beleid min. BBB+/Baa1; geen persbericht van ratingbureau gelezen |
+| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ❌ | persberichten ratingbureaus niet gezocht/bereikbaar; alternatief: AR2020 p.17 (rating in lijn met beleid min. BBB+/Baa1) |
 | Persberichten van het bedrijf (laatste 12 maanden; snelle update: sinds vorig rapport) | actualiteit | ✅ | selectie bedrijfsmeldingen 2020 in AR2020 p.74 |
 | Basisnieuws: De Tijd / L'Echo | actualiteit | ❌ | sites laten Claude niet toe; Belgische pers weinig over Ørsted; alternatief Bloomberg/Reuters overgenomen |
 | Basisnieuws: Reuters (originele URL) | actualiteit | ❌ | reuters.com geblokkeerd; Reuters-bericht 3-2-2021 via OE Digital (bron 9) |
 | Internationale kwaliteitspers (FT, Bloomberg, WSJ, AP) | actualiteit | ✅ | Bloomberg 26-1-2021 via WealthManagement (bron 8) |
 | Vakpers van de sector | sector, keten | ✅ | WindEurope 8-2-2021 (bron 7) |
-| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ✅ | FRED: VS 10j (DGS10), Duitsland 10j (OECD) |
+| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ✅ | FRED DGS10, T10YIE, DFII10 (dagwaarden ≤12-2-2021); ECB AAA-rentecurve 10j (dagwaarden). Maandgemiddelde OECD februari geschrapt (na peildatum, review AS-1/KB-1/FA-1) |
 | Verslagen van de 3–5 dichtste concurrenten | vergelijking | ➖ | bewuste beperking van deze terugkijktest (tijd); enkel sectorindex uit AR2020 p.74 en Bloomberg; genoteerd voor evaluatie |
-| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ➖ | Siemens Gamesa/Eversource niet gelezen (beperking, genoteerd voor evaluatie); BOEM-bron wel |
+| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ✅ | Siemens Gamesa Q1 FY21 (offshorewind.biz 25-1-2021; persbericht SGRE 404); BOEM; Eversource niet gelezen |
 | Short-seller-onderzoek (enkel aanwijzing, nooit bron) | R2, R4 | ➖ | zoekronde 'Orsted short seller report' vóór 2021: niets gevonden |
 | Sancties en sectorregelgeving (EU-sanctielijst, sectorregulator) | risico | ➖ | geen sanctierisico; sectorregels (CfD, BOEM) in keten verwerkt |
 | Fiscaliteit België (FOD Financiën) | netto rendement | ➖ | niet nagekeken in officiële bron; in rapport als mening met waarschuwing |
@@ -81,6 +81,17 @@
 ### Blootstellingskaart (fase 6)
 | Blootstelling | Waarom relevant | Gezocht (zoektermen, talen) | Gevonden |
 |---------------|-----------------|-----------------------------|----------|
+| Rente & inflatie (VS, eurozone) | risico 1 volgens Ørsted; farm-down-prijzen | FRED DGS10/T10YIE/DFII10, ECB YC | VS 10j 0,52→0,93→1,20; breakeven 1,57→2,21; reëel −1,01; EUR AAA −0,42 |
+| VK: CfD, stroomprijs, GBP | grootste markt; risico 2 | AR p.70–72, presentatie dia 6/20 | Brexit-akkoord, GBP-risico blijft; CfD AR4 tot 12 GW H2 2021; zeebodem Round 4 8-2-2021 |
+| VS: vergunningen, beleid | risico 4; ±5 GW pijplijn | "BOEM Vineyard Wind February 2021", "Biden executive order offshore wind January 2021" | EO 27-1-2021; BOEM hervat VW 3-2-2021; Ørsted-bouwstarts schuiven op (AR p.52) |
+| Taiwan (Changhua, TSMC, TWD) | 2 grote projecten | AR p.52, 71; presentatie dia 30; WebSearch "Changhua Orsted 2021 risk" | bouw volgens plan; TWD afgedekt; staartrisico tyfoon/aardbeving (AR p.71); geen specifiek nieuw risico gevonden |
+| Polen | nieuwe markt | "Orsted PGE Baltica February 2021" | JV 50/50 Baltica 2&3 (10-2-2021) |
+| Denemarken (politiek, Staat) | R1, thuismarkt | "Denmark energy island February 2021" | energie-eiland Noordzee goedgekeurd 4-2-2021; spelregels onbekend |
+| Toeleveringsketen (turbines, schepen, havens) | bouwkosten en planning | "Siemens Gamesa Q1 2021 results" | SGRE: geen offshore-orders Q1, marge 5,3%; AR noemt havens/schepen als VS-risico |
+| Concurrentie in veilingen | risico 3 | WindEurope, RenewableUK 8-2-2021 | hoge option fees; oliemaatschappijen (BP) winnen |
+| Fondsinstroom / waardering sector | koers | "clean energy bubble January 2021" | Bloomberg 26-1-2021 |
+| Wind (volume), COVID 2021 | EBITDA | AR p.15, 71 | 2020 9,7 m/s vs normaal 9,3; COVID-risico door Ørsted 'laag' ingeschat |
+| Belastingen (DK) | R4 | AR p.11, 127 | DKK 5,1 mld eis; CFC-regels in voorbereiding |
 
 ### Actualiteit
 
@@ -126,9 +137,9 @@
 | Poulsen verloor aandelentoekenningen 2018-2020 bij vertrek (−4,6 mln) | "Henrik Poulsen lost the right to the 2018, 2019, and 2020 grant upon his resignation" | AR2020 p.104 | A | | R3: geen uitkoop |
 | 2019: opzegperiode 11,6 mln + vertrekvergoeding 4,5 mln voor 2 ex-leden (Dalsgaard, Kjems Sørensen) | tabel p.104 voetnoot 2 | AR2020 p.104 | A | | R3 (2019) |
 | Retentiebonus/aankoopprijs Lincoln Clean Energy 9,8 mln aan ander directielid | "Short-term retention-dependent purchase price related to the acquisition of Lincoln Clean Energy ... 9,810" | AR2020 p.104 | A | | R2 context |
-| R4 Elsam: schadeclaim ±DKK 4,4 mld + interest (2007), maart 2020 vrijgesproken, beroep hangend bij Hoge Raad West-Denemarken | p.113 | AR2020 | A | | |
+| R4 Elsam: schadeclaim ±DKK 4,4 mld + interest (2007), maart 2020 vrijgesproken, beroep hangend bij het Hof van West-Denemarken (High Court of Western Denmark) | p.113 | AR2020 | A | | |
 | R4 Belastingdienst DK: geen arm's-length vergoedingen Walney Ext. & Hornsea 1, extra belasting; Ørsted in beroep; voorziening aangelegd | p.126–127, p.188 | AR2020 | A | | |
-| R4 Naamgeschil (afstammelingen Ørsted): mei 2019 gewonnen, beroep | p.11 | AR2020 | A | | |
+| R4 Naamgeschil (afstammelingen Ørsted): mei 2019 gewonnen, november 2020 definitief gewonnen voor het Hooggerechtshof, zaak gesloten | p.11 | AR2020 | A | | |
 | Commissaris PwC sinds 2010, oordeel zonder voorbehoud; kernpunten: farm-downs, belastingen | p.187–188 | AR2020 | A | | |
 | Geen bijzondere waardeverminderingen 2020 | "We have not impaired any property, plant, and equipment in 2020" | AR2020 p.111 | A | | |
 | VS: start bouw Revolution Wind, Ocean Wind 1, Skipjack, Sunrise wellicht later dan 2023/2024 door BOEM; South Fork eind 2023 ongewijzigd; "satisfactory returns" verwacht | p.52 | AR2020 | A | | |
@@ -148,6 +159,9 @@
 - Alle bronnen hebben een datum ≤ 15-02-2021 (gecontroleerd door tools/rapport.py).
 
 ## Waardering (aannames)
-Zie sectie `waardering`: CE 110 → ±200 mld (2025), ROCE 10%, belasting 22%, WACC 5,5%, groei 2%. WACC is een inschatting (Bund 10j −0,45%, VS 10j 1,20%; projectrisico); Ørsted publiceert geen WACC in het jaarverslag.
+Zie sectie `waardering`: CE 110 → ±200 mld (2025), ROCE 10%, belasting 22%, WACC 5,5%, groei 2%. WACC is een inschatting (ECB AAA 10j −0,42% op 12-2-2021, VS 10j 1,20%; kost van de schuld ±2,8% volgens presentatie; projectrisico). Gevoeligheid in rapport: 3,5–6,5%, break-even ±3,9%; Ørsted publiceert geen WACC in het jaarverslag.
+
+## Besmetting (voor de evaluatie)
+- Het profiel (`profiel/PROFIEL.md` §1) vermeldt dat Ørsted (2021) de slechtste belegging van de gebruiker was. De hoofdanalist heeft dat gelezen vóór het schrijven (bij het opstarten van de taak). Dit rapport is dus **niet blind** geschreven; te vermelden in de besmettingscheck van de evaluatie (review KB-3). Volgende terugkijktests: profiel zonder ervaringen van na de peildatum aan reviewers geven.
 
 ## Open vragen / blokkades
