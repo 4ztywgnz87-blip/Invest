@@ -77,7 +77,7 @@
   {%- if r.wijzigingen %}{% set d.wijz = 2 %}{% set d.adv = 3 %}{% set d.vlag = 4 %}{% set d.det = 5 %}{% set d.ach = 6 %}{% endif %}
   {%- set vl = r.meta.valuta or '' -%}
 
-  <section class="pdf-blok kort-oordeel">
+  <section class="pdf-blok kort-oordeel" id="oordeel">
     <div class="ko-kop">
       <div class="oordeel {{ a.oordeel.split(' ')[0] }}">{{ a.oordeel }}</div>
       {%- if a.score %}<div class="ko-score" aria-label="score {{ a.score }} op 10"><b>{{ a.score }}</b><small>/10</small></div>{% endif %}
@@ -112,7 +112,7 @@
     </div>
   </details>
 
-  <section class="pdf-blok kaart">
+  <section class="pdf-blok kaart" id="samenvatting">
     <div class="deel">Deel {{ d.sam }}</div>
     <h2>Samenvatting</h2>
     <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p>
@@ -130,7 +130,7 @@
   </section>
   {%- endif %}
 
-  <section class="advies">
+  <section class="advies" id="advies">
     <div class="vol">
       <div class="deel">Deel {{ d.adv }}</div>
       <h2>Het advies in cijfers</h2>
@@ -252,7 +252,7 @@
   </section>
   {%- endif %}
 
-  <nav class="pdf-blok kaart inhoudstafel">
+  <nav class="pdf-blok kaart inhoudstafel" id="details">
     <div class="deel">Deel {{ d.det }}</div>
     <h2>Details per thema</h2>
     <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>

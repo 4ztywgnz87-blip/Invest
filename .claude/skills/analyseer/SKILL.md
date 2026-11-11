@@ -50,7 +50,7 @@ Het Claude Pro-abonnement heeft gebruikslimieten. Een analyse kan dus over **mee
 ## Fases
 
 ### Fase 0 — Identificatie & voorbereiding
-0. Haal openstaande feedback uit de app op en verwerk ze (zie `app/APP.md`).
+0. Haal openstaande feedback uit de app op en verwerk ze, en lees de **vragen** die de gebruiker in de app stelde, zijn **positie** en zijn **aangevinkte verkoopsignalen** voor deze ticker (zie `app/APP.md`).
 1. `python3 tools/koers.py zoek "<naam of ticker>"`. Kies de **primaire notering** (thuisbeurs). Bij twijfel (meerdere bedrijven, holding vs. dochter) → vraag de gebruiker kort welke.
 2. Bepaal het type: `aandeel`, `etf`, `fonds` of `ipo`. Noteer ISIN, beurs, valuta, sector, of het **defensief** is.
 3. Is er een vorig rapport in `rapporten/<TICKER>/`? Lees de samenvatting en het advies → je zal moeten melden **wat er veranderd is**.
@@ -59,7 +59,7 @@ Het Claude Pro-abonnement heeft gebruikslimieten. Een analyse kan dus over **mee
 6. Maak het werkdossier en plak er de **dekkingslijst** in: `python3 tools/dekking.py lijst --type <type> --regio <land> [--snel]`. Vul ze aan met bronnen die specifiek zijn voor dit bedrijf. Werk ze na elke fase bij.
 
 ### Fase 1 — Koers & techniek
-`python3 tools/koers.py analyse <TICKER> [--aankoop <prijs>]` (vraag de aankoopprijs alleen als de gebruiker het aandeel bezit en die wil delen; anders t.o.v. huidige koers). Gebruik `grafiek_blok` uit `data/<TICKER>/koers.json` direct in de sectie `techniek`. Beschrijf: trend, cycliciteit (slotkoers per jaar), steunniveaus, volatiliteit, grootste daling, stop-loss −20% én technisch voorstel.
+`python3 tools/koers.py analyse <TICKER> [--aankoop <prijs>]` (de aankoopprijs staat in de app als de gebruiker ze daar invulde — collectie `posities`; vraag er anders niet naar. Het rapport zelf rekent altijd voor iemand die nu koopt; de app toont dezelfde cijfers voor zijn eigen aandelen). Gebruik `grafiek_blok` uit `data/<TICKER>/koers.json` direct in de sectie `techniek`. Beschrijf: trend, cycliciteit (slotkoers per jaar), steunniveaus, volatiliteit, grootste daling, stop-loss −20% én technisch voorstel.
 
 ### Fase 2 — Verslagen (de kern: hier gaat het meeste tijd naar)
 Zoek en lees, **meest recent eerst**:

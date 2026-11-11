@@ -136,6 +136,79 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
 .sectiekop { font: 700 19px var(--f-kop); letter-spacing: -.015em; margin: 28px 0 10px; }
 .fbl { display: grid; gap: 10px; }
 .fbl .kaart { font-size: 14px; }
+/* Prijsbalk (startpagina + positie) */
+.pb { grid-column: 1 / -1; margin-top: 12px; }
+.pb-spoor { position: relative; height: 10px; border-radius: 5px; background: var(--rand); margin: 16px 0 12px; }
+.pb-zone { position: absolute; top: 0; bottom: 0; background: var(--kopen); opacity: .5; border-radius: 3px; }
+.pb-s { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1.5px; border-radius: 2px; }
+.pb-s.stop, .pk.stop { background: var(--verkopen); } .pb-s.doel, .pk.doel { background: var(--houden); } .pb-s.koop, .pk.koop { background: #8a5cf6; }
+.pb-nu { position: absolute; top: -5px; width: 12px; height: 20px; margin-left: -6px; border-radius: 4px; background: var(--inkt); border: 2px solid var(--vlak); }
+.pb-b { position: absolute; top: 14px; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: var(--inkt-3); }
+.pb-b.Slecht { background: var(--verkopen); } .pb-b.Normaal { background: var(--houden); } .pb-b.Goed { background: var(--kopen); }
+.pb-leg { display: flex; flex-wrap: wrap; gap: 3px 12px; font-size: 12px; color: var(--inkt-2); }
+.pb-leg span { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.pk { display: inline-block; width: 4px; height: 12px; border-radius: 2px; flex: none; }
+.pk.nu { width: 9px; background: var(--inkt); border-radius: 3px; } .pk.zone { width: 11px; background: var(--kopen); opacity: .5; }
+.k-eigen { grid-column: 1 / -1; display: grid; gap: 4px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rand); font-size: 13.5px; color: var(--inkt-2); }
+.k-eigen:empty { display: none; }
+.k-eigen b { color: var(--inkt); }
+.plus { color: #08744f; font-weight: 700; } .min { color: #c4262b; font-weight: 700; }
+.chip.oud { background: var(--afwachten-z); color: #9a6200; }
+.tip { margin-top: 18px; font-size: 13.5px; color: var(--inkt-3); }
+.tip code { font-family: var(--f-data); background: #e7eaf2; padding: 2px 6px; border-radius: 6px; color: var(--inkt-2); }
+
+/* Jouw positie + opvolgen */
+details.blok { background: var(--vlak); border: 1px solid var(--rand); border-radius: var(--r-groot); box-shadow: var(--schaduw); margin-bottom: 12px; }
+details.blok > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 14px 18px; font: 700 17px var(--f-kop); letter-spacing: -.015em; }
+details.blok > summary::-webkit-details-marker { display: none; }
+details.blok > summary small { font: 500 13px var(--f-tekst); color: var(--inkt-3); letter-spacing: 0; margin-left: auto; text-align: right; }
+details.blok > summary::after { content: "+"; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--grond); color: var(--accent-donker); display: grid; place-items: center; font: 500 18px/1 var(--f-tekst); }
+details.blok[open] > summary::after { content: "–"; }
+.blok-in { padding: 0 18px 18px; display: grid; gap: 14px; }
+.blok-in p { margin: 0; }
+.velden { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.veld label { display: block; font-size: 12.5px; font-weight: 600; color: var(--inkt-2); margin-bottom: 4px; }
+.veld input { width: 100%; border: 1.5px solid var(--rand); border-radius: 12px; padding: 9px 12px; font: 600 16px var(--f-data); background: var(--vlak); }
+.veld input:focus { border-color: var(--accent); outline: 0; }
+.veld small { display: block; font-size: 11.5px; color: var(--inkt-3); margin-top: 3px; }
+.knoprij { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tegels { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.tgl { border: 1px solid var(--rand); border-radius: var(--r); padding: 10px 12px; }
+.tgl .n { font-size: 12px; color: var(--inkt-3); } .tgl .w { font: 700 21px var(--f-kop); letter-spacing: -.02em; } .tgl .t { font-size: 12.5px; color: var(--inkt-2); }
+.watnu { border-radius: var(--r); padding: 14px 16px; background: var(--accent-zacht); }
+.watnu.rood { background: var(--verkopen-z); } .watnu.geel { background: var(--afwachten-z); } .watnu.groen { background: var(--kopen-z); }
+.watnu h3 { margin: 0 0 6px; font: 700 18px var(--f-kop); letter-spacing: -.015em; }
+.watnu ul { margin: 6px 0 0; padding-left: 20px; } .watnu li { margin: 4px 0; }
+.watnu .klein, .klein { font-size: 12.5px; color: var(--inkt-3); }
+.subkop { font: 700 15px var(--f-kop); margin: 0; }
+.sctab { width: 100%; font-size: 14px; } .sctab td, .sctab th { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--rand); }
+.sctab td:not(:first-child) { text-align: right; font-family: var(--f-data); white-space: nowrap; }
+.signalen { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.signalen li { display: grid; grid-template-columns: auto 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rand); align-items: start; }
+.signalen input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--verkopen); }
+.signalen em, .agenda em { display: block; font-style: normal; font-size: 12.5px; color: var(--inkt-3); }
+.signalen li.aan { color: #c4262b; font-weight: 600; }
+.agenda { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14.5px; }
+.agenda li { padding-left: 12px; border-left: 3px solid var(--accent); } .agenda li.voorbij { border-color: var(--rand); color: var(--inkt-3); }
+
+/* Navigatie binnen een rapport */
+.rnav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 60px); z-index: 4; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 8px 0; margin: 0 0 6px; background: rgba(243,245,249,.92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.rnav::-webkit-scrollbar { display: none; }
+.rnav:empty { display: none; }
+.rnav button { flex: none; border: 1px solid var(--rand); background: var(--vlak); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; font-weight: 600; color: var(--inkt-2); cursor: pointer; }
+.omhoog { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 6; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--nacht); color: #fff; font-size: 20px; cursor: pointer; box-shadow: var(--schaduw); }
+.omhoog[hidden] { display: none; }
+
+/* Vergelijken */
+.vgl { display: grid; gap: 10px; }
+.vgl .kaart { padding: 14px 18px; }
+.vgl .lab { font: 600 11.5px var(--f-data); letter-spacing: .05em; text-transform: uppercase; color: var(--inkt-3); display: flex; justify-content: space-between; gap: 8px; }
+.vgl .nu { font: 700 19px var(--f-kop); letter-spacing: -.015em; margin: 4px 0 2px; }
+.vgl .nu.tekst { font: 400 15px/1.5 var(--f-tekst); letter-spacing: 0; }
+.vgl .was { font-size: 13.5px; color: var(--inkt-2); margin-top: 4px; padding-top: 6px; border-top: 1px dashed var(--rand); }
+.vgl .gelijk { font-size: 13px; color: var(--inkt-3); }
+.vgl .gew { color: #9a6200; }
+
 @media (max-width: 560px) {
   .k-score b { font-size: 38px; }
   .nav a { padding: 6px 12px; }
@@ -161,7 +234,16 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
 (() => {
   const $ = (s, el = document) => el.querySelector(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const vet = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "$1");
+  const vet = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*([^*]+?)\*/g, "<em>$1</em>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "$1");
+  const tkSlug = t => String(t).replace(/[^A-Za-z0-9-]/g, "-");
+  const vandaag = () => new Date().toISOString().slice(0, 10);
+  const dagenSinds = d => Math.round((new Date(vandaag()) - new Date(String(d).slice(0, 10))) / 864e5);
+  const geleden = n => n <= 0 ? "vandaag" : n === 1 ? "gisteren" : n + " dagen geleden";
+  const num = t => { const v = parseFloat(String(t ?? "").replace(/\s/g, "").replace(",", ".")); return Number.isFinite(v) && v > 0 ? v : null; };
+  const pct = (a, b) => { if (!a || !b) return ""; const d = (a / b - 1) * 100; return (d >= 0 ? "+" : "−") + Math.abs(d).toLocaleString("nl-BE", { maximumFractionDigits: 1 }) + "%"; };
+  const kleur = (a, b) => a >= b ? "plus" : "min";
+  // Datum uit een agendapunt ("**Rond 19-11-2026 — …**") → "2026-11-19"
+  const agendaDatum = t => { const m = /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(t || ""); return m ? `${m[3]}-${m[2].padStart(2, "0")}-${m[1].padStart(2, "0")}` : null; };
   const getal = (v, e = "") => v == null ? "–" : (Number.isInteger(v) ? v.toLocaleString("nl-BE") : v.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + (e ? " " + e : "");
   const datum = d => { try { return new Date(d + "T12:00:00").toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" }); } catch { return d; } };
   const opslag = {
@@ -174,6 +256,44 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
   const cap = {};
   const kanUse = window.claude && typeof window.claude.use === "function";
   for (const n of ["sample", "db", "downloads"]) cap[n] = kanUse ? window.claude.use(n).catch(() => null) : Promise.resolve(null);
+
+  // Bewaarde gegevens van de gebruiker (positie, opvolging, vragen): in de app-database, met een lokale kopie.
+  async function bewaard(pad, std = {}) {
+    const lokaal = opslag.lees("db:" + pad, null);
+    const db = await cap.db;
+    if (!db) return lokaal ?? std;
+    try { const d = await db.doc(pad).get(); if (d.exists) { opslag.schrijf("db:" + pad, d.data()); return d.data(); } } catch {}
+    return lokaal ?? std;
+  }
+  async function bewaar(pad, data) {
+    opslag.schrijf("db:" + pad, data);
+    const db = await cap.db;
+    if (db) await db.doc(pad).set(data);
+  }
+
+  // Alle prijzen op één lijn. pos = eigen positie (optioneel): dan eigen aankoopprijs en eigen stop-loss.
+  function prijsbalk(i, pos) {
+    const nu = pos?.koers || i.koers_nu, stop = pos?.aankoop ? pos.aankoop * 0.8 : i.stop_loss;
+    const w = [nu, stop, i.koersdoel, i.koopzone?.van, i.koopzone?.tot, pos?.aankoop, ...(i.scenarios || []).map(x => x.koers)].filter(x => typeof x === "number");
+    if (!nu || w.length < 3) return "";
+    let lo = Math.min(...w), hi = Math.max(...w); const m = (hi - lo) * 0.06 || 1; lo -= m; hi += m;
+    const p = x => ((x - lo) / (hi - lo) * 100).toFixed(1);
+    const v = i.valuta || "";
+    return `<div class="pb"><div class="pb-spoor">
+        ${i.koopzone ? `<i class="pb-zone" style="left:${p(i.koopzone.van)}%;width:${(p(i.koopzone.tot) - p(i.koopzone.van)).toFixed(1)}%"></i>` : ""}
+        ${stop ? `<i class="pb-s stop" style="left:${p(stop)}%"></i>` : ""}
+        ${i.koersdoel ? `<i class="pb-s doel" style="left:${p(i.koersdoel)}%"></i>` : ""}
+        ${pos?.aankoop ? `<i class="pb-s koop" style="left:${p(pos.aankoop)}%"></i>` : ""}
+        ${(i.scenarios || []).map(x => `<i class="pb-b ${esc(x.naam)}" style="left:${p(x.koers)}%"></i>`).join("")}
+        <i class="pb-nu" style="left:${p(nu)}%"></i></div>
+      <div class="pb-leg">
+        ${stop ? `<span><i class="pk stop"></i>${pos?.aankoop ? "jouw stop-loss" : "stop-loss"} ${getal(Math.round(stop * 100) / 100)}</span>` : ""}
+        ${i.koopzone ? `<span><i class="pk zone"></i>koopzone ${getal(i.koopzone.van)}–${getal(i.koopzone.tot)}</span>` : ""}
+        ${pos?.aankoop ? `<span><i class="pk koop"></i>jouw aankoop ${getal(pos.aankoop)}</span>` : ""}
+        <span><i class="pk nu"></i>koers ${getal(nu, v)}</span>
+        ${i.koersdoel ? `<span><i class="pk doel"></i>koersdoel ${getal(i.koersdoel)}</span>` : ""}
+      </div></div>`;
+  }
 
   async function laadManifest() {
     if (manifest) return manifest;
@@ -216,11 +336,30 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
           <div class="k-top"><span class="k-ticker">${esc(i.ticker)}</span>${oordeelHtml(i)}</div>
           <div class="k-score" aria-label="score ${i.score ?? "–"} op 10"><b>${i.score ?? "–"}</b><small>/10</small></div>
           <div class="k-naam">${esc(i.naam)}</div>
-          <div class="k-meta">${datum(i.datum)}${i.sector ? " · " + esc(i.sector) : ""}${l.length > 1 ? ` · ${l.length - 1} eerder rapport${l.length > 2 ? "en" : ""}` : ""}</div>
+          <div class="k-meta">${i.soort === "snelle_update" ? "Snelle update · " : ""}${datum(i.datum)} (${geleden(dagenSinds(i.datum))})${i.sector ? " · " + esc(i.sector) : ""}${l.length > 1 ? ` · ${l.length - 1} eerder rapport${l.length > 2 ? "en" : ""}` : ""}</div>
           <div class="k-reden">${vet(i.reden)}</div>
-          <div class="k-onder">${i.defensief ? `<span class="chip def">Defensief</span>` : ""}${vlaggen.map(v => `<span class="chip ${esc(v.ernst)}">${esc(ERNST[v.ernst] || v.ernst)}${v.regel ? " · " + esc(v.regel) : ""}</span>`).join("")}${!vlaggen.length ? `<span class="chip">Geen rode vlaggen</span>` : ""}</div>
+          ${prijsbalk(i)}
+          <div class="k-eigen" data-id="${esc(i.id)}"></div>
+          <div class="k-onder">${i.defensief ? `<span class="chip def">Defensief</span>` : ""}${vlaggen.map(v => `<span class="chip ${esc(v.ernst)}">${esc(ERNST[v.ernst] || v.ernst)}${v.regel ? " · " + esc(v.regel) : ""}</span>`).join("")}${!vlaggen.length ? `<span class="chip">Geen rode vlaggen</span>` : ""}${dagenSinds(i.datum) > 90 ? `<span class="chip oud">Meer dan 3 maanden oud: vraag een update</span>` : ""}</div>
         </a>`;
-      }).join("") + `</div>`;
+      }).join("") + `</div><p class="tip">Nieuwe analyse of update? Typ in Claude Code <code>analyseer &lt;naam&gt;</code> of <code>update &lt;naam&gt;</code>. De app zoekt niets uit zichzelf op: koersen zijn die van de rapportdatum.</p>`;
+    // Eigen gegevens per bedrijf: positie, laatst nagekeken, volgende datum.
+    for (const l of groepen) {
+      const i = l[0], el2 = el.querySelector(`.k-eigen[data-id="${CSS.escape(i.id)}"]`);
+      Promise.all([bewaard("posities/" + tkSlug(i.ticker)), bewaard("opvolging/" + i.id)]).then(([pos, opv]) => {
+        const regels = [];
+        if (pos.aankoop) {
+          const nu = pos.koers || i.koers_nu, stop = pos.aankoop * 0.8;
+          regels.push(`<span><b>Je bezit dit.</b> Resultaat <span class="${kleur(nu, pos.aankoop)}">${pct(nu, pos.aankoop)}</span> · jouw stop-loss ${getal(Math.round(stop * 100) / 100, i.valuta)}${nu <= stop ? ` · <span class="min">geraakt</span>` : ""}</span>`);
+        }
+        const geraakt = Object.values(opv.geraakt || {}).filter(Boolean).length;
+        if (geraakt) regels.push(`<span class="min">${geraakt} verkoopsignaal${geraakt > 1 ? "en" : ""} aangevinkt</span>`);
+        const komend = (i.agenda || []).map(t => [agendaDatum(t), t]).filter(([d]) => d && d >= vandaag()).sort()[0];
+        if (komend) regels.push(`<span>Volgende datum: ${vet((/\*\*(.+?)\*\*/.exec(komend[1]) || [0, komend[1]])[1])}</span>`);
+        regels.push(`<span>${opv.nagekeken ? "Verkoopsignalen laatst nagekeken: " + geleden(dagenSinds(opv.nagekeken)) : "Verkoopsignalen nog niet nagekeken"}</span>`);
+        if (el2) el2.innerHTML = regels.join("");
+      });
+    }
   }
 
   // ------------------------------------------------------------ rapport
@@ -242,10 +381,118 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       </div>
       <div class="status" id="pdf-status" role="status"></div>
       <section id="p-vragen" class="vraagblok" aria-label="Vragen over dit rapport"></section>
+      <section id="p-eigen" aria-label="Jouw positie en opvolging"></section>
+      <nav class="rnav" id="rnav" aria-label="Delen van het rapport"></nav>
+      <button class="omhoog" id="omhoog" type="button" aria-label="Naar boven" hidden>↑</button>
       <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>`;
     $("#pdf").addEventListener("click", () => downloadPdf(r));
     bouwVragen(r);
+    bouwEigen(r);
     laadRapportHtml(r);
+    const om = $("#omhoog");
+    om.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    window.onscroll = () => { const k = $("#omhoog"); if (k) k.hidden = window.scrollY < 900; };
+  }
+
+  // ------------------------------------------------------------ jouw positie + opvolgen
+  const eigen = {};   // per ticker: laatst gekende positie (ook voor vragen aan Claude)
+  function watNu(r, pos, nu, geraakt) {
+    const stop = pos.aankoop * 0.8, v = r.valuta || "", nogo = (r.rode_vlaggen || []).find(x => x.ernst === "nogo");
+    const o = (r.oordeel || "").split(" ")[0], kz = r.koopzone, pt = [];
+    let kop, kl = "";
+    if (nu <= stop) { kop = "Je stop-loss is geraakt"; kl = "rood";
+      pt.push(`De koers (${getal(nu, v)}) staat op of onder jouw stop-loss van ${getal(Math.round(stop * 100) / 100, v)} (20% onder je aankoopprijs). Volgens je eigen regel is dit het moment om te verkopen en het verlies te beperken.`);
+    } else if (geraakt.length) { kop = "Een verkoopsignaal is geraakt"; kl = "rood";
+      pt.push(`Je vinkte ${geraakt.length} verkoopsignaal${geraakt.length > 1 ? "en" : ""} aan. Dat betekent dat de reden om dit aandeel te houden mogelijk niet meer klopt. Overweeg te verkopen, of vraag eerst een update van het rapport.`);
+    } else if (o === "Verkopen") { kop = "Het rapport zegt: verkopen"; kl = "rood";
+      pt.push("Het oordeel van het rapport is Verkopen. Dat geldt ook voor wie het aandeel al bezit.");
+    } else if (r.koersdoel && nu >= r.koersdoel) { kop = "Koersdoel bereikt: winst nemen overwegen"; kl = "geel";
+      pt.push(`De koers (${getal(nu, v)}) staat op of boven het koersdoel van ${getal(r.koersdoel, v)}. Het normale scenario verwacht geen verdere stijging meer. "Koersdoel bereikt" is één van je eigen redenen om te verkopen.`);
+    } else if (o === "Kopen") { kop = "Houden"; kl = "groen";
+      pt.push("Het rapport is positief. Er is geen reden om te verkopen zolang je stop-loss en de verkoopsignalen niet geraakt zijn.");
+      if (kz) pt.push(nu <= kz.tot ? `De koers zit in of onder de koopzone (${getal(kz.van)}–${getal(kz.tot, v)}): bijkopen kan volgens het rapport.` : `Bijkopen doe je volgens het rapport liefst pas in de koopzone (${getal(kz.van)}–${getal(kz.tot, v)}).`);
+    } else if (o === "Houden") { kop = "Houden, niet bijkopen"; kl = "";
+      pt.push("Het rapport zegt Houden: geen reden om te verkopen zolang je stop-loss en de verkoopsignalen niet geraakt zijn, maar ook geen reden om nu bij te kopen.");
+      if (kz && nu > kz.tot) pt.push(`Bijkopen wordt pas interessant in de koopzone (${getal(kz.van)}–${getal(kz.tot, v)}).`);
+    } else { kop = "Houden en opvolgen, niet bijkopen"; kl = "geel";
+      pt.push(`Het rapport zegt ${esc(r.oordeel || "Afwachten")}: nu niet (bij)kopen. Voor aandelen die je al hebt, is er geen verkoopsignaal geraakt en staat de koers boven je stop-loss. Houden kan dus, zolang je de verkoopsignalen opvolgt.`);
+      if (kz) pt.push(nu <= kz.tot ? `De koers zit in de koopzone (${getal(kz.van)}–${getal(kz.tot, v)}), maar het oordeel is geen koopadvies: lees eerst waarom.` : `Bijkopen zou pas in de koopzone (${getal(kz.van)}–${getal(kz.tot, v)}) te overwegen zijn.`);
+    }
+    if (nogo) pt.push(`Let op: dit aandeel raakt je harde regel ${esc(nogo.regel || "")} (${esc(nogo.titel)}). Volgens je profiel zou je het normaal niet kopen. Beslis bewust of je het wil aanhouden.`);
+    if (nu > stop) pt.push(`Jouw stop-loss ligt op ${getal(Math.round(stop * 100) / 100, v)}: de koers mag nog ${Math.abs((stop / nu - 1) * 100).toLocaleString("nl-BE", { maximumFractionDigits: 0 })}% zakken voor hij geraakt wordt.`);
+    return { kop, kl, pt };
+  }
+  async function bouwEigen(r) {
+    const host = $("#p-eigen"), tk = tkSlug(r.ticker), v = r.valuta || "";
+    let [pos, opv] = await Promise.all([bewaard("posities/" + tk), bewaard("opvolging/" + r.id)]);
+    opv.geraakt ||= {};
+    const teken = (openPos, openOpv) => {
+      if (actief !== r || !host.isConnected) return;
+      eigen[r.ticker] = pos;
+      const heeft = !!pos.aankoop, nu = pos.koers || r.koers_nu, eigenKoers = !!pos.koers;
+      const geraakt = (r.verkoopsignalen || []).filter((_, n) => opv.geraakt[n]);
+      let res = "";
+      if (heeft) {
+        const stop = pos.aankoop * 0.8, w = watNu(r, pos, nu, geraakt), a = pos.aantal || 0;
+        const bedrag = x => a ? ` · ${x >= 0 ? "+" : "−"}${getal(Math.round(Math.abs(x)), v)}` : "";
+        res = `
+          <div class="watnu ${w.kl}"><h3>${w.kop}</h3><ul>${w.pt.map(x => `<li>${x}</li>`).join("")}</ul>
+            <p class="klein" style="margin-top:8px">Dit voorstel volgt automatisch uit het rapport van ${datum(r.datum)}, jouw aankoopprijs en je regel van −20%. Het is geen nieuw onderzoek en geen gereglementeerd advies. ${eigenKoers ? `Gerekend met jouw koers van ${pos.koers_datum ? datum(pos.koers_datum) : "vandaag"}.` : `Gerekend met de koers van het rapport (${esc(r.koers_datum || r.datum)}): vul hierboven de koers van vandaag in voor een juist beeld.`}</p></div>
+          <div class="tegels">
+            <div class="tgl"><div class="n">Jouw resultaat</div><div class="w ${kleur(nu, pos.aankoop)}">${pct(nu, pos.aankoop)}</div><div class="t">${getal(pos.aankoop)} → ${getal(nu, v)}${a ? bedrag((nu - pos.aankoop) * a) : ""}</div></div>
+            <div class="tgl"><div class="n">Jouw stop-loss</div><div class="w">${getal(Math.round(stop * 100) / 100, v)}</div><div class="t">20% onder je aankoopprijs${nu <= stop ? ` · <span class="min">geraakt</span>` : ` · ${pct(stop, nu)} vanaf nu`}</div></div>
+            ${r.koersdoel ? `<div class="tgl"><div class="n">Tot het koersdoel</div><div class="w">${pct(r.koersdoel, nu)}</div><div class="t">koersdoel ${getal(r.koersdoel, v)} · ${pct(r.koersdoel, pos.aankoop)} t.o.v. je aankoop</div></div>` : ""}
+            ${a ? `<div class="tgl"><div class="n">Waarde nu</div><div class="w">${getal(Math.round(nu * a), v)}</div><div class="t">${getal(a)} aandelen · inleg ${getal(Math.round(pos.aankoop * a), v)}</div></div>` : ""}
+          </div>
+          ${prijsbalk(r, { ...pos, koers: nu })}
+          ${(r.scenarios || []).length ? `<div><h3 class="subkop">De drie scenario's voor jouw aandelen</h3>
+            <table class="sctab"><tbody>${r.scenarios.map(x => `<tr><td><strong>${esc(x.naam)}</strong>${x.kans ? ` <span class="klein">kans ${esc(x.kans)}</span>` : ""}</td><td>${getal(x.koers, v)}</td><td class="${kleur(x.koers, pos.aankoop)}">${pct(x.koers, pos.aankoop)}${a ? bedrag((x.koers - pos.aankoop) * a) : ""}</td></tr>`).join("")}</tbody></table>
+            <p class="klein">Koers over twee jaar volgens het rapport, vergeleken met jouw aankoopprijs (zonder dividend, kosten en belasting).</p></div>` : ""}
+          <div class="knoprij"><button class="knop hoofd" type="button" id="pos-vraag">Vraag Claude wat ik best doe</button></div>`;
+      }
+      host.innerHTML = `
+        <details class="blok" id="b-pos" ${openPos ?? heeft ? "open" : ""}>
+          <summary>Jouw positie<small>${heeft ? `gekocht aan ${getal(pos.aankoop, v)} · <span class="${kleur(nu, pos.aankoop)}">${pct(nu, pos.aankoop)}</span>` : "Bezit je dit? Vul je aankoopprijs in"}</small></summary>
+          <div class="blok-in">
+            <p class="klein">Het rapport rekent voor iemand die nu zou kopen. Vul je eigen aankoopprijs in en je krijgt hier dezelfde cijfers voor jouw aandelen, met een voorstel wat je ermee kan doen.</p>
+            <form class="velden" id="pos-form">
+              <div class="veld"><label for="pos-aankoop">Aankoopprijs per aandeel (${esc(v)})</label><input id="pos-aankoop" inputmode="decimal" autocomplete="off" value="${pos.aankoop ? String(pos.aankoop).replace(".", ",") : ""}"><small>gemiddelde prijs als je in stukken kocht</small></div>
+              <div class="veld"><label for="pos-aantal">Aantal aandelen</label><input id="pos-aantal" inputmode="decimal" autocomplete="off" value="${pos.aantal ? String(pos.aantal).replace(".", ",") : ""}"><small>mag leeg blijven</small></div>
+              <div class="veld"><label for="pos-koers">Koers vandaag (${esc(v)})</label><input id="pos-koers" inputmode="decimal" autocomplete="off" value="${pos.koers ? String(pos.koers).replace(".", ",") : ""}" placeholder="${getal(r.koers_nu)}"><small>leeg = koers van het rapport (${esc(r.koers_datum || r.datum)})</small></div>
+              <div class="knoprij" style="grid-column:1/-1"><button class="knop hoofd" type="submit">${heeft ? "Herberekenen" : "Bereken voor mijn aandelen"}</button>${heeft ? `<button class="knop" type="button" id="pos-wis">Ik bezit dit niet meer</button>` : ""}<span class="status" id="pos-status" role="status"></span></div>
+            </form>
+            ${res}
+          </div>
+        </details>
+        ${(r.verkoopsignalen || []).length || (r.agenda || []).length ? `
+        <details class="blok" id="b-opv" ${openOpv ? "open" : ""}>
+          <summary>Opvolgen<small>${geraakt.length ? `<span class="min">${geraakt.length} signaal${geraakt.length > 1 ? "en" : ""} geraakt</span>` : opv.nagekeken ? "nagekeken " + geleden(dagenSinds(opv.nagekeken)) : "nog niet nagekeken"}</small></summary>
+          <div class="blok-in">
+            ${(r.verkoopsignalen || []).length ? `<div><h3 class="subkop">Verkoopsignalen</h3><p class="klein">Vink aan wat gebeurd is. Eén geraakt signaal betekent: de reden om dit aandeel te houden klopt mogelijk niet meer.</p>
+              <ul class="signalen">${r.verkoopsignalen.map((t, n) => `<li class="${opv.geraakt[n] ? "aan" : ""}"><input type="checkbox" id="sig-${n}" data-n="${n}" ${opv.geraakt[n] ? "checked" : ""}><label for="sig-${n}">${vet(t)}</label></li>`).join("")}</ul></div>` : ""}
+            ${(r.agenda || []).length ? `<div><h3 class="subkop">Data om in de gaten te houden</h3>
+              <ul class="agenda">${r.agenda.map(t => { const d = agendaDatum(t); return `<li class="${d && d < vandaag() ? "voorbij" : ""}">${vet(t)}</li>`; }).join("")}</ul></div>` : ""}
+            <div class="knoprij"><button class="knop hoofd" type="button" id="opv-ok">Ik heb dit vandaag nagekeken</button><span class="status" id="opv-status" role="status">${opv.nagekeken ? "Laatst nagekeken: " + datum(opv.nagekeken) : ""}</span></div>
+            <p class="klein">De app kijkt niets zelf na en stuurt geen meldingen: jij vinkt af. Twijfel je of is het rapport oud? Vraag in Claude Code <code>update ${esc(r.ticker)}</code>.</p>
+          </div>
+        </details>` : ""}`;
+      $("#pos-form").addEventListener("submit", async e => {
+        e.preventDefault();
+        const aankoop = num($("#pos-aankoop").value), st = $("#pos-status");
+        if (!aankoop) { st.textContent = "Vul je aankoopprijs in (bv. 245,50)."; return; }
+        const koers = num($("#pos-koers").value);
+        pos = { aankoop, aantal: num($("#pos-aantal").value), koers, koers_datum: koers ? (koers === pos.koers && pos.koers_datum ? pos.koers_datum : vandaag()) : null,
+                ticker: r.ticker, naam: r.naam, valuta: v, bijgewerkt: new Date().toISOString() };
+        teken(true, $("#b-opv")?.open);
+        try { await bewaar("posities/" + tk, pos); } catch { const s2 = $("#pos-status"); if (s2) s2.textContent = "Bewaren lukte niet; de berekening blijft wel staan tot je de pagina sluit."; }
+      });
+      $("#pos-wis")?.addEventListener("click", async () => { pos = {}; teken(true, $("#b-opv")?.open); try { await bewaar("posities/" + tk, { ticker: r.ticker, verwijderd: new Date().toISOString() }); } catch {} });
+      $("#pos-vraag")?.addEventListener("click", () => { const t = $("#vraag"); if (!t) return; t.value = "Ik bezit dit aandeel. Wat doe ik best met mijn positie, en waarom?"; $("#vf").requestSubmit(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      const bewaarOpv = async () => { opv = { ...opv, rapport: r.id, ticker: r.ticker, bijgewerkt: new Date().toISOString() }; try { await bewaar("opvolging/" + r.id, opv); } catch {} };
+      host.querySelectorAll(".signalen input").forEach(c => c.addEventListener("change", () => { opv.geraakt[c.dataset.n] = c.checked; teken($("#b-pos").open, true); bewaarOpv(); }));
+      $("#opv-ok")?.addEventListener("click", () => { opv.nagekeken = vandaag(); teken($("#b-pos").open, true); bewaarOpv(); });
+    };
+    teken();
   }
 
   async function laadRapportHtml(r) {
@@ -274,6 +521,16 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
         doel.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       st.textContent = "";
+      const delen = [["oordeel", "Oordeel"], ["samenvatting", "Samenvatting"], ["advies", "Advies"], ["vlaggen", "Rode vlaggen"], ["details", "Details"], ["bronnen", "Bronnen"]]
+        .filter(([id]) => schaduw.getElementById(id));
+      const rn = $("#rnav");
+      if (rn) {
+        rn.innerHTML = delen.map(([id, n]) => `<button type="button" data-id="${id}">${n}</button>`).join("");
+        rn.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+          const d = schaduw.getElementById(b.dataset.id); if (d.tagName === "DETAILS") d.open = true;
+          d.scrollIntoView({ behavior: "smooth", block: "start" });
+        }));
+      }
       voegFeedbackToe(r, schaduw);
     } catch (e) {
       st.textContent = "Het rapport kon niet geladen worden. Herlaad de pagina.";
@@ -309,6 +566,8 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     p.dataset.klaar = r.id;
     const sleutel = "chat:" + r.id;
     let gesprek = opslag.lees(sleutel, []);
+    const bewaarGesprek = () => { opslag.schrijf(sleutel, gesprek);
+      bewaar("vragen/" + r.id, { gesprek, rapport: r.id, ticker: r.ticker, naam: r.naam, bijgewerkt: new Date().toISOString(), verwerkt: false }).catch(() => {}); };
     p.innerHTML = `
       <form class="invoer" id="vf"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><label for="vraag" hidden>Vraag over dit rapport</label><textarea id="vraag" rows="1" placeholder="Vraag iets over dit rapport…"></textarea><button class="stuur" type="submit" id="stuur" aria-label="Vraag versturen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button></form>
       <div class="status" id="v-status" role="status"></div>
@@ -324,13 +583,14 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       const paarHtml = pr => `<div class="paar">${pr.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("")}</div>`;
       chat.innerHTML = paren.length ? paarHtml(paren[0]) : "";
       $("#eerder").innerHTML = paren.length > 1 || paren.length ? `<details class="eerder"><summary>${paren.length > 1 ? `Eerdere vragen (${paren.length - 1})` : "Opties"}</summary>${paren.slice(1).map(paarHtml).join("")}<button class="knop" type="button" id="wis">Vragen wissen</button></details>` : "";
-      $("#wis")?.addEventListener("click", () => { gesprek = []; opslag.schrijf(sleutel, gesprek); teken(); });
+      $("#wis")?.addEventListener("click", () => { gesprek = []; bewaarGesprek(); teken(); });
       vb.innerHTML = gesprek.length ? "" : VOORBEELDEN.map(v => `<button type="button">${esc(v)}</button>`).join("");
       vb.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { $("#vraag").value = b.textContent; vraag(); }));
     };
     const sample = await cap.sample;
     if (!sample) { st.textContent = "Vragen stellen kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; $("#stuur").disabled = true; }
     teken();
+    bewaard("vragen/" + r.id).then(d => { if ((d.gesprek || []).length > gesprek.length && !bezig) { gesprek = d.gesprek; opslag.schrijf(sleutel, gesprek); teken(); } });
     let bezig = false;
     async function vraag() {
       const t = $("#vraag").value.trim();
@@ -344,11 +604,11 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       st.textContent = ""; st.classList.remove("fout");
       try {
         if (!context[r.id]) context[r.id] = await (await fetch(r.vraag)).text();
-        const instructie = `Je bent de hoofdanalist van een klein team dat beleggingsrapporten maakt voor één persoon: een beginnende Belgische belegger. Antwoord in het Nederlands, duidelijk en in volledige zinnen, in gewone taal (leg vaktermen uit). Leg bij vragen over de score uit hoe de scoreopbouw (advies.score_opbouw: punten per onderdeel × gewicht, min correcties voor harde regels) tot het totaal komt. Baseer je ENKEL op het rapport, het werkdossier en de teamreview hieronder. Verzin niets. Staat het antwoord er niet in, zeg dat eerlijk en stel voor om in Claude Code "update ${r.ticker}" of een gerichte onderzoeksvraag te stellen. Verwijs naar bronnen als [n], met n het volgnummer van de bron in de lijst "bronnen" van het rapport (eerste = 1). Maak duidelijk wat een feit is en wat een mening of inschatting. Dit is geen gereglementeerd financieel advies.\n\nRAPPORT, WERKDOSSIER EN REVIEW (JSON):\n${context[r.id]}`;
+        const instructie = `Je bent de hoofdanalist van een klein team dat beleggingsrapporten maakt voor één persoon: een beginnende Belgische belegger. Antwoord in het Nederlands, duidelijk en in volledige zinnen, in gewone taal (leg vaktermen uit). Leg bij vragen over de score uit hoe de scoreopbouw (advies.score_opbouw: punten per onderdeel × gewicht, min correcties voor harde regels) tot het totaal komt. Baseer je ENKEL op het rapport, het werkdossier en de teamreview hieronder. Verzin niets. Staat het antwoord er niet in, zeg dat eerlijk en stel voor om in Claude Code "update ${r.ticker}" of een gerichte onderzoeksvraag te stellen. Verwijs naar bronnen als [n], met n het volgnummer van de bron in de lijst "bronnen" van het rapport (eerste = 1). Maak duidelijk wat een feit is en wat een mening of inschatting. Dit is geen gereglementeerd financieel advies.${positieTekst(r)}\n\nRAPPORT, WERKDOSSIER EN REVIEW (JSON):\n${context[r.id]}`;
         const berichten = gesprek.map((b, i) => i === 0 ? { role: "user", content: instructie + "\n\nEERSTE VRAAG: " + b.content } : b);
         const { text, truncated } = await sample(berichten, { cache: false, onText: ({ text }) => { bubbel.innerHTML = opmaak(text); } });
         gesprek.push({ role: "assistant", content: text + (truncated ? "\n\n(Antwoord afgebroken — vraag gerust verder.)" : "") });
-        opslag.schrijf(sleutel, gesprek);
+        bewaarGesprek();
       } catch (e) {
         gesprek.pop();
         $("#vraag").value = t;
@@ -361,6 +621,12 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     }
     $("#vf").addEventListener("submit", e => { e.preventDefault(); vraag(); });
     $("#vraag").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); vraag(); } });
+  }
+  function positieTekst(r) {
+    const p = eigen[r.ticker];
+    if (!p?.aankoop) return "";
+    const nu = p.koers || r.koers_nu;
+    return `\n\nPOSITIE VAN DE GEBRUIKER (door hem ingevuld in de app): hij bezit dit aandeel${p.aantal ? `, ${p.aantal} stuks` : ""}, gekocht aan gemiddeld ${p.aankoop} ${r.valuta || ""} per aandeel. ${p.koers ? `Koers volgens hem op ${p.koers_datum}: ${p.koers}.` : `Hij gaf geen koers van vandaag op; reken met de rapportkoers ${r.koers_nu} (${r.koers_datum || r.datum}) en zeg dat erbij.`} Zijn stop-loss is 20% onder zijn aankoopprijs = ${(p.aankoop * 0.8).toFixed(2)}. Resultaat nu: ${pct(nu, p.aankoop)}. Vraagt hij wat hij met zijn positie moet doen, antwoord dan voor iemand die het al bezit (houden, bijkopen, deels of helemaal verkopen), op basis van het oordeel, de verkoopsignalen, het koersdoel, de scenario's en zijn stop-loss, en zeg duidelijk dat de beslissing bij hem ligt.`;
   }
   function opmaak(t) {
     try { return window.marked ? window.marked.parse(esc(t).replace(/&gt;/g, ">")) : esc(t).replace(/\n/g, "<br>"); }
@@ -375,6 +641,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
   --feit: #2a44d6; --feit-bg: #eef1ff; --berek: #08744f; --berek-bg: #e7f8f1; --inschat: #9a6200; --inschat-bg: #fdf4e3; --mening: #c4262b; --mening-bg: #fdeced;
   --kopen: #0e9f6e; --houden: #3b5bff; --verkopen: #e5484d; --afwachten: #b87400; --onvoldoende: #7a8098;
   --nogo: #e5484d; --hoog: #e8590c; --middel: #d48806; --info: #7a8098; --g-raster: #edf0f5; --g-as: #7a8098; }
+.rb [id] { scroll-margin-top: 120px; }
 .rb { background: transparent; font-family: "Figtree", -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 15.5px; -webkit-font-smoothing: antialiased; }
 .pagina { padding-left: 0; padding-right: 0; }
 .rb h1, .rb h2, .rb h3, details.sectie > summary, .tegel .w, .scenario .w, .oordeel { font-family: "Bricolage Grotesque", "Figtree", sans-serif; letter-spacing: -.02em; }
@@ -546,19 +813,28 @@ details.sectie .inhoud { padding: 0 20px 18px; }
     const l = m.rapporten.filter(x => x.ticker.replace(/[^A-Za-z0-9-]/g, "-") === tk).sort((a, b) => b.datum.localeCompare(a.datum));
     if (!l.length) { el.innerHTML = `<p class="status fout">Geen rapporten gevonden. <a href="#rapporten">Terug</a>.</p>`; return; }
     const v = l[0].valuta || "";
-    const rij = (n, f, cls = "") => `<tr><th>${n}</th>${l.map(i => `<td class="${cls}">${f(i)}</td>`).join("")}</tr>`;
+    const kort = d => new Date(d + "T12:00:00").toLocaleDateString("nl-BE", { day: "numeric", month: "short", year: "numeric" });
+    const punten = [
+      ["Oordeel", i => i.oordeel || "–"], ["Score", i => i.score != null ? i.score + "/10" : "–"],
+      ["Koers", i => getal(i.koers_nu, v)], ["Koopzone", i => i.koopzone ? `${getal(i.koopzone.van)} – ${getal(i.koopzone.tot, v)}` : "–"],
+      ["Koersdoel", i => getal(i.koersdoel, v)], ["Stop-loss (bij aankoop in de koopzone)", i => getal(i.stop_loss, v)],
+      ["Intrinsieke waarde", i => getal(i.intrinsieke_waarde, v)],
+      ["Scenario's (slecht / normaal / goed)", i => (i.scenarios || []).map(x => `${getal(x.koers)}${x.kans ? " (" + x.kans + ")" : ""}`).join(" / ") || "–"],
+      ["Rode vlaggen", i => i.rode_vlaggen.filter(x => x.ernst !== "info").map(x => x.titel).join(" · ") || "geen", true],
+      ["Reden", i => i.reden || "–", true],
+    ];
+    let gewijzigd = 0;
+    const kaarten = punten.map(([naam, f, tekst]) => {
+      const w = l.map(f), anders = w.slice(1).some(x => x !== w[0]);
+      if (anders) gewijzigd++;
+      const oud = l.slice(1).map((i, n) => w[n + 1] !== w[n] ? `<div class="was">${kort(i.datum)}: ${vet(w[n + 1])}</div>` : "").join("");
+      return `<div class="kaart"><div class="lab"><span>${naam}</span>${anders ? `<span class="gew">gewijzigd</span>` : ""}</div>
+        <div class="nu ${tekst ? "tekst" : ""}">${vet(w[0])}</div>${anders ? oud : `<div class="gelijk">ongewijzigd sinds ${kort(l[l.length - 1].datum)}</div>`}</div>`;
+    }).join("");
     el.innerHTML = `<div class="rbalk"><a class="terug" href="#r-${esc(l[0].id)}">← ${esc(l[0].naam)}</a></div>
-      <h1>${esc(l[0].naam)}: rapporten vergelijken</h1><p class="sub">${l.length} rapporten, nieuwste links</p>
-      <div class="tabelwrap"><table><tbody>
-      ${rij("Datum", i => `<a href="#r-${esc(i.id)}">${datum(i.datum)}</a>`)}
-      ${rij("Oordeel", i => oordeelHtml(i))}
-      ${rij("Koers", i => getal(i.koers_nu, v), "n")}
-      ${rij("Koopzone", i => i.koopzone ? `${getal(i.koopzone.van)} – ${getal(i.koopzone.tot, v)}` : "–", "n")}
-      ${rij("Koersdoel", i => getal(i.koersdoel, v), "n")}
-      ${rij("Intrinsieke waarde", i => getal(i.intrinsieke_waarde, v), "n")}
-      ${rij("Rode vlaggen", i => i.rode_vlaggen.filter(x => x.ernst !== "info").map(x => esc(x.titel)).join("<br>") || "–")}
-      ${rij("Reden", i => vet(i.reden))}
-      </tbody></table></div>`;
+      <h1>${esc(l[0].naam)}: wat is er veranderd?</h1>
+      <p class="sub">${l.length} rapporten: ${l.map(i => `<a href="#r-${esc(i.id)}">${kort(i.datum)}</a>`).join(" · ")}. Bovenaan staat telkens de nieuwste waarde; daaronder wat het vroeger was. ${gewijzigd} van de ${punten.length} punten zijn gewijzigd.</p>
+      <div class="vgl">${kaarten}</div>`;
   }
 
   // ------------------------------------------------------------ profiel
@@ -566,18 +842,23 @@ details.sectie .inhoud { padding: 0 20px 18px; }
     zetNav("profiel");
     const el = $("#inhoud");
     el.innerHTML = `<div class="eyebrow">Zo kent het team je</div><h1>Profiel</h1><p class="sub">Zo kent het team je. Wijzigingen stelt Claude eerst voor; jij beslist.</p>
-      <h2 class="sectiekop">Openstaande voorstellen</h2><div class="md" id="md-v">Laden…</div>
+      <h2 class="sectiekop">Voorstellen die op jouw akkoord wachten</h2><div class="md" id="md-v">Laden…</div>
       <h2 class="sectiekop">Feedback die nog verwerkt moet worden</h2><div class="fbl" id="fb-lijst"><p class="status">Laden…</p></div>
       <h2 class="sectiekop">Je profiel</h2><div class="md" id="md-p">Laden…</div>`;
-    const md = async (pad, doel) => {
+    const md = async (pad, doel, schoon = t => t) => {
       try {
-        const t = await (await fetch(pad, { cache: "no-store" })).text();
+        const t = schoon(await (await fetch(pad, { cache: "no-store" })).text());
         $(doel).innerHTML = window.marked ? window.marked.parse(t) : `<pre>${esc(t)}</pre>`;
         $(doel).querySelectorAll("table").forEach(tb => { const w = document.createElement("div"); w.className = "tw"; tb.replaceWith(w); w.appendChild(tb); });
       } catch { $(doel).textContent = "Kon niet geladen worden."; }
     };
-    md("profiel/voorstellen.md", "#md-v");
-    md("profiel/PROFIEL.md", "#md-p");
+    // Enkel wat voor de lezer telt: open voorstellen, en het profiel zonder werknotities en bestandsnamen.
+    md("profiel/voorstellen.md", "#md-v", t => {
+      const open = (/## Open\s*([\s\S]*?)(?=\n## |$)/.exec(t) || [0, ""])[1].trim();
+      return !open || /^_?\(geen\)_?$/.test(open) ? "Er wacht niets op jouw akkoord. Wil je iets aan je profiel veranderen, zeg het dan in Claude Code." : open;
+    });
+    md("profiel/PROFIEL.md", "#md-p", t => t.replace(/^# .*\n/, "").replace(/^>.*\n/gm, "").replace(/\s*\*\((gewijzigd|toegevoegd)[^)]*\)\*/g, "")
+      .replace(/## 8\.[\s\S]*$/, "").replace(/`/g, ""));
     const db = await cap.db, lijst = $("#fb-lijst");
     if (!db) { lijst.innerHTML = `<p class="status">Niet beschikbaar in deze weergave.</p>`; return; }
     try {

@@ -19,6 +19,35 @@
     "tot": 240
    },
    "intrinsieke_waarde": 326,
+   "koers_datum": "06-11-2026",
+   "stop_loss": 184,
+   "soort": "volledig",
+   "scenarios": [
+    {
+     "naam": "Slecht",
+     "koers": 180,
+     "kans": "30%"
+    },
+    {
+     "naam": "Normaal",
+     "koers": 290,
+     "kans": "45%"
+    },
+    {
+     "naam": "Goed",
+     "koers": 350,
+     "kans": "25%"
+    }
+   ],
+   "verkoopsignalen": [
+    "Korting op de intrinsieke waarde onder **10%** of een premie (zoals 2021) → winst nemen. *Controle: koers vs. laatste NAV (24-3-2027 en 2-9-2027).*",
+    "Twee halfjaren na elkaar **negatieve waardecreatie zonder valuta-effect**. *Controle: presentatie bij het (half)jaarverslag.*",
+    "[[LTV|schuld gedeeld door de waarde van de portefeuille]] boven **10%** of een nieuwe kapitaalverhoging onder de intrinsieke waarde. *Controle: (half)jaarverslag, persberichten.*",
+    "Sofina meldt een **grote afwaardering van ByteDance** of vermeldt een tweede positie boven 5%. *Controle: top-10-pagina in het (half)jaarverslag.*",
+    "Het consortium Boël verandert van koers: **uitkoopbod**, belang boven 60% of vrije handel onder 35%. *Controle: website Sofina (aandeelhoudersstructuur), FSMA.*",
+    "Koers sluit onder je **stop-loss** (−20% onder je aankoopprijs; bij aankoop €220–240 is dat €176–192)."
+   ],
+   "agenda": [],
    "rode_vlaggen": [
     {
      "ernst": "nogo",
@@ -75,6 +104,40 @@
     "tot": 240
    },
    "intrinsieke_waarde": 326,
+   "koers_datum": "09-11-2026",
+   "stop_loss": 184,
+   "soort": "volledig",
+   "scenarios": [
+    {
+     "naam": "Slecht",
+     "koers": 180,
+     "kans": "30%"
+    },
+    {
+     "naam": "Normaal",
+     "koers": 290,
+     "kans": "45%"
+    },
+    {
+     "naam": "Goed",
+     "koers": 350,
+     "kans": "25%"
+    }
+   ],
+   "verkoopsignalen": [
+    "Korting op de intrinsieke waarde onder **10%** of een premie (zoals 2021) → winst nemen. *Controle: koers vs. laatste NAV (24-3-2027 en 2-9-2027).*",
+    "Twee halfjaren na elkaar **negatieve waardecreatie zonder valuta-effect**. *Controle: presentatie bij het (half)jaarverslag.*",
+    "[[LTV|schuld gedeeld door de waarde van de portefeuille]] boven **10%** of een nieuwe kapitaalverhoging onder de intrinsieke waarde. *Controle: (half)jaarverslag, persberichten.*",
+    "Sofina meldt een **grote afwaardering van ByteDance** of vermeldt een tweede positie boven 5%. *Controle: top-10-pagina in het (half)jaarverslag.*",
+    "Het consortium Boël verandert van koers: **uitkoopbod**, belang boven 60% of vrije handel onder 35%. *Controle: website Sofina (aandeelhoudersstructuur), FSMA.*",
+    "Koers sluit onder je **stop-loss** (−20% onder je aankoopprijs; bij aankoop €220–240 is dat €176–192)."
+   ],
+   "agenda": [
+    "**Rond 19-11-2026 — Anthropic op de beurs.** Een vlotte notering boven de prijsvork is goed nieuws voor de stemming rond Sofina; een zwakke start het omgekeerde.",
+    "**Rond 9-12-2026 — SpaceX-aandelen vrij voor vroege beleggers.** Kijk of de koers van SpaceX daarna sterk zakt.",
+    "**17-12-2026 — ECB-vergadering** (en de Amerikaanse centrale bank in december). Een renteverhoging is licht negatief voor Sofina.",
+    "**24-3-2027 — jaarcijfers 2026 van Sofina.** De eerste intrinsieke waarde na de AI-correctie van november: dan zie je of de korting echt zo klein is."
+   ],
    "rode_vlaggen": [
     {
      "ernst": "nogo",

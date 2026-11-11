@@ -11,6 +11,15 @@
    Lukt publiceren naar deze URL niet vanuit een nieuwe sessie: eerst `action: read` met de URL, dan opnieuw publiceren.
 3. Commit `app/manifest.json` en `app/vraag/`.
 
+## Wat de gebruiker zelf in de app bewaart (ArtifactData, zelfde URL)
+| Collectie | Document | Inhoud | Wat doe je ermee? |
+|---|---|---|---|
+| `posities` | per ticker (`SOF-BR`) | `aankoop` (prijs per aandeel), `aantal`, `koers` + `koers_datum` (door de gebruiker ingevulde koers), of `verwijderd` | Bij een analyse of update van die ticker: gebruik `aankoop` voor `tools/koers.py analyse --aankoop` en vermeld in het chatantwoord kort wat het advies voor zíjn positie betekent. Niet in `rapport.json` of git zetten (privé). |
+| `opvolging` | per rapport-id | `geraakt` (aangevinkte verkoopsignalen, index → true), `nagekeken` (datum) | Bij een update: een aangevinkt signaal is een aanwijzing om dat punt eerst na te kijken. |
+| `vragen` | per rapport-id | `gesprek` (vragen en antwoorden in de app), `verwerkt` | Begin van een sessie en bij een update: lees ze (`where verwerkt == false`). Een vraag die het rapport niet kon beantwoorden of die terugkomt → neem het antwoord op in het volgende rapport en noteer het patroon in `profiel/feedback.md`. Zet daarna `verwerkt: true`. |
+
+Het blok **"Jouw positie"** in de app rekent zelf (zonder Claude) op basis van `manifest.json`: resultaat, eigen stop-loss (−20% onder de aankoopprijs), afstand tot het koersdoel, de drie scenario's t.o.v. de aankoopprijs en een voorstel volgens vaste regels (stop-loss geraakt → verkoopsignaal aangevinkt → oordeel Verkopen → koersdoel bereikt → anders volgens het oordeel). Het blok **"Opvolgen"** toont `verkoopsignalen` en de lijst onder de tussentitel "Waar moet je op letten?" (begin elk punt met een datum `d-m-jjjj` in het vetgedrukte deel, dan toont de startpagina de volgende datum). De app zoekt niets zelf op en stuurt geen meldingen.
+
 ## Feedback uit de app ophalen (begin van elke sessie)
 - ArtifactData: `action: query`, `url`: de URL hierboven, `collection: feedback`, `query.where: [["verwerkt","==",false]]`.
 - Per document (één per rapport): velden `score`, `extra`, `nutteloos`, `opmerking` (hele rapport) en `secties` (per deel: `titel`, `score`, `opmerking`; sleutel = sectie-id zoals `cijfers`, `keten`, `advies`, `samenvatting`). Feedback per deel zegt het meest: neem ze letterlijk mee bij een update van dat rapport en bij volgende rapporten.

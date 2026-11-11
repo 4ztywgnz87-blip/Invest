@@ -47,6 +47,16 @@ def main():
         m, a = r["meta"], r.get("advies", {})
         rid = rapport_id(m["ticker"], m["datum"])
         rel = f"rapporten/{map_.parent.name}/{map_.name}"
+        agenda = []
+        for s in r.get("secties", []):
+            blokken = s.get("inhoud", [])
+            for n, b in enumerate(blokken):
+                if b.get("type") == "kop" and "letten" in b.get("tekst", "").lower():
+                    for b2 in blokken[n + 1:]:
+                        if b2.get("type") == "kop":
+                            break
+                        if b2.get("type") == "lijst":
+                            agenda += [it.get("tekst", "") for it in b2.get("items", [])]
         vraag = {"rapport": slank(r)}
         for extra in ("werkdossier.md", "review.md"):
             if (map_ / extra).exists():
@@ -61,7 +71,10 @@ def main():
             "sector": m.get("sector"), "defensief": m.get("defensief", False), "valuta": m.get("valuta"),
             "oordeel": a.get("oordeel"), "score": a.get("score"), "reden": a.get("reden"),
             "koers_nu": a.get("koers_nu"), "koersdoel": a.get("koersdoel"), "koopzone": a.get("koopzone"),
-            "intrinsieke_waarde": a.get("intrinsieke_waarde"),
+            "intrinsieke_waarde": a.get("intrinsieke_waarde"), "koers_datum": a.get("koers_datum"),
+            "stop_loss": (a.get("stop_loss") or {}).get("waarde"), "soort": m.get("soort") or "volledig",
+            "scenarios": [{"naam": s.get("naam"), "koers": s.get("koers"), "kans": s.get("kans")} for s in a.get("scenarios", [])],
+            "verkoopsignalen": r.get("verkoopsignalen", []), "agenda": agenda,
             "rode_vlaggen": [{"ernst": v.get("ernst"), "regel": v.get("regel"), "titel": v.get("titel")} for v in r.get("rode_vlaggen", [])],
             "review": {k: r.get("review", {}).get(k) for k in ("feiten_gecontroleerd", "feiten_correct", "open_punten")},
             "html": f"{rel}/rapport.html", "pdf": f"{rel}/rapport.pdf" if pdf.exists() else None,

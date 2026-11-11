@@ -158,7 +158,7 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 2. `kader` (stijl `mening`) met titel **"Besluit: wat betekent de actualiteit voor <bedrijf>?"** — de 2–3 belangrijkste drijvers als genummerde regels (nieuwe regel met `\n`), daarna de positieve tegenwichten, het netto-effect en altijd **het gevolg voor het advies** (oordeel + score).
 3. `kop` "Impact per onderwerp" + `uitleg` met de schaal (klein <1% / middel 1–3% / groot >3% van de waarde of winst) + een **`lijst`** (geen brede tabel: onleesbaar op gsm) met per onderwerp één item, label `inschatting`, in de vorm `**Onderwerp — ▲/▼/▼▲ grootte (cijfer).** Waarom, met cijfers uit het rapport.` Daarna één `mening`-zin "Wat zie je hier?" met het netto-effect.
 4. Tijdlijn: `kop` + lijst voor *Wat gebeurde er?*, *Wat speelt er nu?*, *Wat komt eraan?*, elk afgesloten met een `tekst` (label `mening`) **"Wat betekent dit?"**.
-5. `kop` "Waar moet je op letten?" + lijst met concrete data en wat goed/slecht nieuws zou zijn.
+5. `kop` "Waar moet je op letten?" + lijst met concrete data en wat goed/slecht nieuws zou zijn. Begin elk punt met `**<d-m-jjjj> — <wat>.**` (bv. `**Rond 19-11-2026 — Anthropic op de beurs.**`): de app toont deze lijst onder "Opvolgen" en de eerstvolgende datum op de startpagina.
 
 ## Wat klapt open? (doet het sjabloon automatisch)
 Het rapport toont eerst het korte antwoord; alles daaronder klapt open bij een tik. Schrijf de inhoud daarop:
