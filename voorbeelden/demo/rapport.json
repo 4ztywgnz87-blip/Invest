@@ -46,7 +46,55 @@
     "kans": "20%",
     "uitleg": "Nieuwe concessie binnengehaald."
    }
-  ]
+  ],
+  "score_opbouw": {
+   "uitleg": "Fictief voorbeeld. Elk onderdeel krijgt punten op 10 en weegt mee volgens zijn gewicht; daarna gaan er punten af voor geraakte harde regels.",
+   "onderdelen": [
+    {
+     "naam": "Bestuur & aandeelhouders (zonder R1)",
+     "gewicht": 15,
+     "punten": 6,
+     "uitleg": "Redelijke verloning, maar een lopende rechtszaak. (fictief)"
+    },
+    {
+     "naam": "Financiële gezondheid",
+     "gewicht": 20,
+     "punten": 8,
+     "uitleg": "Stabiele kasstromen, schuld onder controle. (fictief)"
+    },
+    {
+     "naam": "Groei & herinvestering",
+     "gewicht": 15,
+     "punten": 7,
+     "uitleg": "Groei 4%/jaar, investeert in het netwerk. (fictief)"
+    },
+    {
+     "naam": "Waardering (prijs nu)",
+     "gewicht": 20,
+     "punten": 6,
+     "uitleg": "Koers iets boven de geschatte waarde. (fictief)"
+    },
+    {
+     "naam": "Risico's & actualiteit",
+     "gewicht": 15,
+     "punten": 7,
+     "uitleg": "Regulering is het grootste risico. (fictief)"
+    },
+    {
+     "naam": "Past bij jouw profiel",
+     "gewicht": 15,
+     "punten": 8,
+     "uitleg": "Defensief nutsbedrijf. (fictief)"
+    }
+   ],
+   "correcties": [
+    {
+     "naam": "R1 geraakt: familie 52%",
+     "punten": -1,
+     "uitleg": "Harde regel R1. (fictief)"
+    }
+   ]
+  }
  },
  "aandeelhouders": {
   "verdeling": [

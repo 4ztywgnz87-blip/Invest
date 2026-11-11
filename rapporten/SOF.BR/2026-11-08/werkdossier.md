@@ -145,3 +145,4 @@ Bronnen: JV2022 p.? (kerncijfers 2021/22, jv2022.txt r.263–291), JV2023 kernci
 ## Reproduceren
 rapport.json werd opgebouwd met `maak_rapport/maak.py` + `patch1.py` (ronde 1) + `patch2.py` (ronde 2) + `patch3.py` (leesbaarheid, feedback 2026-11-11) in deze map.
 - 2026-11-11: herschreven in nieuwe stijl (inleidingen, overgangszinnen, rode vlaggen in vaste opbouw) na feedback gebruiker. Inhoud, cijfers en advies ongewijzigd.
+- 2026-11-11: scoreopbouw toegevoegd (patch4.py) op vraag gebruiker: gewogen 4,75 − 1 (R1) = 3,75 → 4/10.

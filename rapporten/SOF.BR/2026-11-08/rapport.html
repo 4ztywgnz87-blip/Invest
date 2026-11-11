@@ -163,6 +163,21 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
 
 /* uitleg: inleiding/overgang zonder label */
 .leestekst { margin: 8px 0 10px; line-height: 1.55; }
+
+/* scoreopbouw */
+.scoreopbouw { grid-column: 1 / -1; background: var(--bg); border-radius: 10px; padding: 12px 14px; }
+.so-titel { font-weight: 650; margin-bottom: 4px; }
+.so-intro { margin: 0 0 8px; font-size: 14px; color: var(--inkt-3); }
+.so-rij { padding: 8px 0; border-top: 1px solid rgba(0,0,0,.06); }
+.so-kop { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+.so-naam { font-weight: 600; }
+.so-p { font-weight: 700; white-space: nowrap; }
+.so-balk { height: 6px; background: rgba(0,0,0,.08); border-radius: 3px; margin: 5px 0; overflow: hidden; }
+.so-balk i { display: block; height: 100%; background: var(--afwachten, #b54708); border-radius: 3px; }
+.so-uitleg { font-size: 13px; line-height: 1.45; color: var(--inkt-3); }
+.so-corr .so-p { color: #b42318; }
+.so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
+.so-som.totaal { font-size: 15px; }
 </style>
 </head>
 <body><header class="kop"><div class="pagina">
@@ -183,6 +198,45 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
       <div class="scenario Slecht"><div class="n">Slecht</div><div class="w">180 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 30%</small></div><p>Bredere techcorrectie (zoals begonnen op 5-11-2026) en zwakkere dollar: intrinsieke waarde −14% naar ±€280 en de korting loopt op tot 35% (zoals 2022–2024). Staartrisico: een herhaling van 2022 (waarde −25%, korting 40%) geeft ±€147 — kans ±10% (mening), zit hier in.</p></div>
       <div class="scenario Normaal"><div class="n">Normaal</div><div class="w">290 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 45%</small></div><p>Intrinsieke waarde +4%/jaar naar ±€360 eind 2028 (onder het 10-jaarsgemiddelde, boven de laatste 4 jaar), korting 20%.</p></div>
       <div class="scenario Goed"><div class="n">Goed</div><div class="w">350 EUR <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans 25%</small></div><p>Intrinsieke waarde +8%/jaar (≈ het 10-jaarsgemiddelde van 8,4%) naar ±€400, geholpen door beursgangen (Anthropic, ByteDance) en verkopen boven boekwaarde; korting 12%.</p></div>
+    </div>
+    <div class="scoreopbouw">
+      <div class="so-titel">Hoe komt de score 4/10 tot stand?</div><p class="so-intro">Elk onderdeel krijgt punten op 10 en weegt mee volgens zijn gewicht. Daarna gaan er punten af als een harde regel geraakt is. De punten zijn mijn mening op basis van de feiten in de secties hieronder.</p>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Bestuur &amp; aandeelhouders (zonder R1)</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Meerderheid onafhankelijke bestuurders, redelijke verloning, geen vertrekpremies of verdachte transacties. Min: kapitaalverhoging onder de waarde, geen terugvorderingsrecht op bonussen, CEO verkoopt optie-aandelen.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Financiële gezondheid</span><span class="so-p">7/10</span></div>
+        <div class="so-balk"><i style="width: 70%"></i></div>
+        <div class="so-uitleg">Weegt 20% · Weinig schuld (1,9% van de portefeuille), goede kredietrating A− en ruime kredietlijnen. Min: het dividend wordt betaald uit verkopen, niet uit inkomsten.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Groei &amp; herinvestering</span><span class="so-p">4/10</span></div>
+        <div class="so-balk"><i style="width: 40%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Over 10 jaar 8,4% per jaar, maar de intrinsieke waarde per aandeel staat midden 2026 lager dan eind 2021, en de laatste 4 jaar deed Sofina het slechter dan de wereldindex.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Waardering (prijs nu)</span><span class="so-p">4/10</span></div>
+        <div class="so-balk"><i style="width: 40%"></i></div>
+        <div class="so-uitleg">Weegt 20% · 18% korting ligt binnen Sofina&#x27;s normale bereik; vergelijkbare holdings zijn goedkoper. Verwacht rendement hooguit ±2% per jaar.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Risico&#39;s &amp; actualiteit</span><span class="so-p">3/10</span></div>
+        <div class="so-balk"><i style="width: 30%"></i></div>
+        <div class="so-uitleg">Weegt 15% · 92% niet-beursgenoteerd (waarde is een schatting), ±65% in dollar, grote gevoeligheid voor AI- en techwaarderingen; de uitverkoop van 5 november zit nog niet in de cijfers.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Past bij jouw profiel</span><span class="so-p">4/10</span></div>
+        <div class="so-balk"><i style="width: 40%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Weinig uitkering (+), maar niet defensief en via fondsen gevoelig voor hype rond AI-bedrijven.</div>
+      </div>
+      <div class="so-som">Gewogen gemiddelde: <strong>4,75</strong></div>
+      <div class="so-rij so-corr">
+        <div class="so-kop"><span class="so-naam">R1 geraakt: consortium Boël 54,6%</span><span class="so-p">-1</span></div>
+        <div class="so-uitleg">Harde regel R1 (meer dan 49% in één blok). Daarbovenop geldt: normaal niet kopen, tenzij al de rest uitzonderlijk goed is — en dat is hier niet zo.</div>
+      </div>
+      <div class="so-som totaal">Totaal 3,75 → afgerond <strong>4/10</strong></div>
     </div>
   </section>
 
@@ -364,7 +418,7 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
       <li class="blok berekening"><span class="lab berekening">Berekening</span><strong>Koopzone €220–240</strong>: korting 26–33% t.o.v. €326 — genoeg marge om bij een normaal verloop ±10%/jaar te halen.</li>
       <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Koersdoel €290</strong> (normaal scenario).</li>
       <li class="blok berekening"><span class="lab berekening">Berekening</span><strong>Stop-loss</strong>: −20% onder je aankoopprijs (bij €220–240: €176–192); technisch net onder de steun van €212 (±€205).</li>
-    </ul><div class="kader mening"><div class="t">Oordeel</div><strong>Afwachten (niet kopen: R1) — 4/10.</strong> Kwaliteit en prijs samen zouden zonder R1 ±5/10 geven: degelijk bestuur en lage schuld (+), maar geen defensief profiel, een waarde die je niet zelf kan controleren, AI-gevoeligheid en een verwacht rendement van ±2%/jaar. R1 maakt het een NO-GO tenzij de rest uitzonderlijk is — dat is hier niet zo. De koopzone geldt enkel voor wie R1 bewust aanvaardt.</div>
+    </ul><div class="kader mening"><div class="t">Oordeel</div><strong>Afwachten (niet kopen: R1) — 4/10.</strong> Zonder R1 komt Sofina op een gewogen gemiddelde van ±4,8/10: degelijk bestuur en weinig schuld (+), maar geen defensief profiel, een waarde die je niet zelf kan controleren, AI-gevoeligheid en een verwacht rendement van hooguit ±2% per jaar. R1 kost nog een punt en maakt het een NO-GO, tenzij de rest uitzonderlijk is — dat is hier niet zo. De volledige scoreopbouw staat bovenaan bij het advies. De koopzone geldt enkel voor wie R1 bewust aanvaardt.</div>
     </div>
   </details>
   <details class="sectie pdf-blok" id="techniek">
@@ -475,7 +529,7 @@ dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt
     </div>
   </section>
 
-  <p class="voet">Gemaakt op 11-11-2026 02:32. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+  <p class="voet">Gemaakt op 11-11-2026 02:39. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
 </body>
 </html>

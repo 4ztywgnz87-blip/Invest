@@ -51,6 +51,7 @@
 ## 7. Rapportvoorkeuren
 - Taal: **Nederlands**. Toon: **duidelijk en volledig in gewone zinnen**, eerlijk en hard mag — maar **meningen altijd als mening markeren**. Liever een zin meer uitleg dan een opsomming van feiten zonder context. Kort mag in de samenvatting, niet in de uitleg. *(gewijzigd 2026-11-11, voorstel V1)*
 - Advies = combinatie: oordeel (Kopen/Houden/Verkopen/Afwachten) + score 1–10 + koopzone + koersdoel + 3 scenario's.
+- **Scoreopbouw zichtbaar**: per onderdeel punten op 10 met gewicht en uitleg, plus de aftrek voor geraakte harde regels, zodat je ziet hoe de totale score tot stand komt. *(toegevoegd 2026-11-11 op vraag van de gebruiker, V2)*
 - Eerst 1 scherm samenvatting, daarna inklapbare details. Grafieken. Bronnen bij elk feit.
 - Keten: **2 niveaus** diep. Concurrenten: de **dichtste**.
 - Tijd: focus op **laatste kwartaal- en jaarcijfers**; trends over ~5 jaar als context; ouder enkel als het nu nog impact heeft.

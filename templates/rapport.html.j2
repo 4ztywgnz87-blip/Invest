@@ -81,6 +81,28 @@
       {%- endfor %}
     </div>
     {%- endif %}
+    {%- if a.score_opbouw %}
+    {%- set so = a.score_opbouw %}{% set be = so._berekend or {} %}
+    <div class="scoreopbouw">
+      <div class="so-titel">Hoe komt de score {{ a.score }}/10 tot stand?</div>
+      {%- if so.uitleg %}<p class="so-intro">{{ so.uitleg|inline }}</p>{% endif %}
+      {%- for o in so.onderdelen %}
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">{{ o.naam }}</span><span class="so-p">{{ o.punten|getal }}/10</span></div>
+        <div class="so-balk"><i style="width: {{ (o.punten or 0) * 10 }}%"></i></div>
+        <div class="so-uitleg">Weegt {{ o.gewicht|getal }}% · {{ o.uitleg|inline }}</div>
+      </div>
+      {%- endfor %}
+      <div class="so-som">Gewogen gemiddelde: <strong>{{ be.basis|getal }}</strong></div>
+      {%- for x in so.correcties or [] %}
+      <div class="so-rij so-corr">
+        <div class="so-kop"><span class="so-naam">{{ x.naam }}</span><span class="so-p">{{ '%+g'|format(x.punten) }}</span></div>
+        <div class="so-uitleg">{{ x.uitleg|inline }}</div>
+      </div>
+      {%- endfor %}
+      <div class="so-som totaal">Totaal {{ be.totaal|getal }} → afgerond <strong>{{ a.score }}/10</strong></div>
+    </div>
+    {%- endif %}
   </section>
 
   <section class="pdf-blok kaart vlaggen">

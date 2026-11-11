@@ -21,6 +21,16 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
     "koersdoel": 300, "koersdoel_uitleg": "normaal scenario, 2 jaar",
     "stop_loss": {"waarde": 214.1, "uitleg": "−20% t.o.v. koers nu; technische steun 238,8"},
     "intrinsieke_waarde": 310,
+    "score_opbouw": {                       // verplicht: hoe de score tot stand komt
+      "uitleg": "1–2 zinnen voor de lezer",
+      "onderdelen": [                       // gewichten samen 100; punten 0–10; uitleg verplicht
+        {"naam": "Bestuur & aandeelhouders (zonder R1)", "gewicht": 15, "punten": 6, "uitleg": "waarom deze punten"},
+        {"naam": "Financiële gezondheid", "gewicht": 20, "punten": 7, "uitleg": "..."}
+      ],
+      "correcties": [                       // aftrek voor harde regels (R1 verplicht als R1 geraakt)
+        {"naam": "R1 geraakt: familie 52%", "punten": -1, "uitleg": "..."}
+      ]
+    },
     "scenarios": [                          // precies deze 3, in deze volgorde
       {"naam": "Slecht",  "koers": 190, "kans": "25%", "uitleg": "..."},
       {"naam": "Normaal", "koers": 300, "kans": "55%", "uitleg": "..."},
@@ -136,5 +146,18 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 - `[[term|korte uitleg]]` → term met uitleg tussen haakjes (voor de beginnende belegger).
 - Bronverwijzingen komen uit het veld `bronnen`, niet in de tekst zelf.
 
+## Scoreopbouw (verplicht)
+`advies.score` = afronding (half naar boven) van **gewogen gemiddelde van de onderdelen + correcties**, begrensd op 1–10. `tools/rapport.py controleer` rekent dit na en geeft een fout als het niet klopt.
+
+**Vaste onderdelen** (zelfde namen en gewichten in elk rapport, zodat rapporten vergelijkbaar zijn):
+
+| Type | Onderdelen (gewicht) |
+|---|---|
+| aandeel / ipo | Bestuur & aandeelhouders (zonder R1) 15 · Financiële gezondheid 20 · Groei & herinvestering 15 · Waardering (prijs nu) 20 · Risico's & actualiteit 15 · Past bij jouw profiel 15 |
+| etf / fonds | Kosten 20 · Samenstelling & spreiding 20 · Index/beheer & spoorvolging 15 · Waardering (prijs nu) 15 · Risico's & actualiteit 15 · Past bij jouw profiel 15 |
+
+**Correcties**: R1 geraakt → minstens **−1** (en oordeel normaal "niet kopen"); andere rode vlaggen met ernst `hoog` → −0,5 tot −1, met uitleg. Positieve correcties enkel uitzonderlijk en met reden.
+Per onderdeel: punten zijn een `mening`, maar de uitleg verwijst naar de feiten in de secties. De scoreopbouw verschijnt automatisch onder het advies.
+
 ## Wat de controle afdwingt
-Teamreview: ≥ 2 rondes, alle 3 reviewers in de laatste ronde, feiten_gecontroleerd ingevuld, open punten als een reviewer niet goedkeurt (anders enkel `bouw --concept`, met CONCEPT-markering) · Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.
+Scoreopbouw aanwezig en score klopt met de berekening; R1-correctie als R1 geraakt · Teamreview: ≥ 2 rondes, alle 3 reviewers in de laatste ronde, feiten_gecontroleerd ingevuld, open punten als een reviewer niet goedkeurt (anders enkel `bouw --concept`, met CONCEPT-markering) · Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.

@@ -104,6 +104,49 @@ def controleer_review(r: dict, c: "Controle", definitief: bool) -> None:
         c.fout("review: feiten_gecontroleerd ontbreekt (financieel analist moet bronnen naast het rapport leggen)")
 
 
+def bereken_score(so: dict) -> dict:
+    """Gewogen gemiddelde van de onderdelen + correcties, afgerond (half naar boven), begrensd op 1–10."""
+    onderdelen = so.get("onderdelen", [])
+    basis = sum((o.get("gewicht") or 0) * (o.get("punten") or 0) for o in onderdelen) / 100
+    corr = sum(x.get("punten") or 0 for x in so.get("correcties", []))
+    totaal = basis + corr
+    return {"basis": round(basis, 2), "correcties": round(corr, 2), "totaal": round(totaal, 2),
+            "score": max(1, min(10, int(totaal + 0.5)))}
+
+
+def controleer_scoreopbouw(r: dict, c: "Controle", definitief: bool) -> None:
+    adv = r.get("advies", {})
+    if adv.get("oordeel") == "Onvoldoende info":
+        return
+    so = adv.get("score_opbouw")
+    if not so:
+        (c.fout if definitief else c.let_op)("advies.score_opbouw ontbreekt: toon per onderdeel hoe de score tot stand komt")
+        return
+    onderdelen = so.get("onderdelen", [])
+    if not onderdelen:
+        c.fout("advies.score_opbouw.onderdelen is leeg")
+        return
+    som = sum(o.get("gewicht") or 0 for o in onderdelen)
+    if abs(som - 100) > 0.01:
+        c.fout(f"advies.score_opbouw: gewichten tellen op tot {som}%, moet 100% zijn")
+    for o in onderdelen:
+        p = o.get("punten")
+        if not isinstance(p, (int, float)) or not 0 <= p <= 10:
+            c.fout(f"score_opbouw '{o.get('naam')}': punten moeten 0–10 zijn")
+        if not o.get("uitleg"):
+            c.fout(f"score_opbouw '{o.get('naam')}': uitleg ontbreekt (waarom deze punten?)")
+    for x in so.get("correcties", []):
+        if not isinstance(x.get("punten"), (int, float)) or not x.get("uitleg"):
+            c.fout(f"score_opbouw correctie '{x.get('naam')}': punten en uitleg verplicht")
+    uit = bereken_score(so)
+    so["_berekend"] = uit
+    if adv.get("score") != uit["score"]:
+        c.fout(f"advies.score ({adv.get('score')}) ≠ berekende score uit score_opbouw ({uit['score']}; "
+               f"basis {uit['basis']} + correcties {uit['correcties']})")
+    if r.get("_r1", {}).get("geraakt") and not any("R1" in (x.get("naam") or "") for x in so.get("correcties", [])):
+        c.fout("R1 geraakt maar score_opbouw heeft geen correctie met 'R1' in de naam")
+
+
 def controleer(r: dict, definitief: bool = True) -> Controle:
     c = Controle()
     meta = r.get("meta", {})
@@ -206,6 +249,7 @@ def controleer(r: dict, definitief: bool = True) -> Controle:
             if r["_r1"]["geraakt"] and not any(v.get("regel") == "R1" for v in r.get("rode_vlaggen", [])):
                 c.fout(f"Regel R1 geraakt (grootste {grootste}%, top 3 samen {top3:.1f}%, stemrecht top 3 {top3_stem:.1f}%) "
                        "maar er is geen rode vlag met regel 'R1'")
+    controleer_scoreopbouw(r, c, definitief)
     # Onvoldoende info vereist 3 zoekrondes
     for o in r.get("onvoldoende_info", []):
         if len(o.get("zoekrondes", [])) < 3:

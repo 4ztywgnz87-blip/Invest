@@ -125,7 +125,7 @@ Laatste call (transcript, webcast-samenvatting of presentatie + Q&A-verslag in p
 - **Intrinsieke waarde**: eenvoudige DCF (2 fases) met **zichtbare aannames** (groei, marge, disconteringsvoet, eindgroei) + vergelijking met multiples van peers. Holdings: som-der-delen / intrinsieke waarde per aandeel en de **korting/premie**.
 - **Scenario's (2 jaar)**: Slecht / Normaal / Goed met koers, kans en uitleg.
 - **Koopzone** (prijs waarbij risico/rendement aantrekkelijk is), **koersdoel** (= normaal scenario), **stop-loss**.
-- **Oordeel**: Kopen / Houden / Verkopen / Afwachten (of Onvoldoende info) + **score 1–10**. Leg uit welke factoren de score bepalen. Toets aan het profiel (defensief? herinvestering? hype? R1–R6?).
+- **Oordeel**: Kopen / Houden / Verkopen / Afwachten (of Onvoldoende info) + **score 1–10**. De score komt **altijd** uit `advies.score_opbouw` (zie `rapport-formaat.md`): punten op 10 per vast onderdeel × gewicht, plus correcties voor geraakte harde regels. De tool rekent na dat de score klopt. Toets aan het profiel (defensief? herinvestering? hype? R1–R6?).
 - **Verkoopsignalen**: 2–5 concrete, controleerbare signalen die betekenen dat de reden om te kopen niet meer klopt (helpt tegen "te lang vasthouden").
 
 ### Fase 9 — Kritische expertblik
