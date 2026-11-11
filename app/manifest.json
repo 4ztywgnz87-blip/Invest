@@ -55,6 +55,61 @@
    "html": "rapporten/SOF.BR/2026-11-08/rapport.html",
    "pdf": "rapporten/SOF.BR/2026-11-08/rapport.pdf",
    "vraag": "vraag/SOF-BR-2026-11-08.json"
+  },
+  {
+   "id": "SOF-BR-2026-11-11",
+   "ticker": "SOF.BR",
+   "naam": "Sofina",
+   "type": "aandeel",
+   "datum": "2026-11-11",
+   "sector": "Investeringsholding (durf- en groeikapitaal)",
+   "defensief": false,
+   "valuta": "EUR",
+   "oordeel": "Afwachten",
+   "score": 4,
+   "reden": "Regel **R1 is geraakt**: een consortium van drie vennootschappen rond de familie Boël heeft samen **54,6%**. De rest is degelijk maar niet uitzonderlijk: verwacht rendement ±1,6% per jaar, 92% van de bezittingen heeft geen beurskoers (de waarde is dus een schatting), en de waarderingen van AI-bedrijven schommelen sterk.",
+   "koers_nu": 270.4,
+   "koersdoel": 290,
+   "koopzone": {
+    "van": 220,
+    "tot": 240
+   },
+   "intrinsieke_waarde": 326,
+   "rode_vlaggen": [
+    {
+     "ernst": "nogo",
+     "regel": "R1",
+     "titel": "Consortium rond de familie Boël controleert 54,6%"
+    },
+    {
+     "ernst": "middel",
+     "regel": "R6",
+     "titel": "Kapitaalverhoging onder de intrinsieke waarde (okt 2025)"
+    },
+    {
+     "ernst": "info",
+     "regel": "R5",
+     "titel": "Insiders: kleine aankopen bestuurders; CEO en leiders verkopen optie-aandelen"
+    },
+    {
+     "ernst": "info",
+     "regel": "R4",
+     "titel": "Geen rechtszaken tegen Sofina gevonden"
+    }
+   ],
+   "review": {
+    "feiten_gecontroleerd": 52,
+    "feiten_correct": 48,
+    "open_punten": [
+     "Deze update bouwt verder op het volledig gecontroleerde rapport van 8-11-2026; de open punten van dat rapport blijven gelden (o.a. uitslag AVA mei 2026 niet gevonden).",
+     "De koers van SpaceX na de uitverkoop van 5-11 en de exacte data van de SpaceX-lock-ups zijn niet met een primaire bron bevestigd.",
+     "Of er tussen 8 en 11 november geen nieuwe meldingen van insiders waren, is niet sluitend te bewijzen (de FSMA-lijst is niet chronologisch); er werd niets gevonden.",
+     "De kritische belegger zou de kans op het slechte scenario eerder op 30–35% zetten; dat verandert de score niet."
+    ]
+   },
+   "html": "rapporten/SOF.BR/2026-11-11/rapport.html",
+   "pdf": "rapporten/SOF.BR/2026-11-11/rapport.pdf",
+   "vraag": "vraag/SOF-BR-2026-11-11.json"
   }
  ]
 }
