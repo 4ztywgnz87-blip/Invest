@@ -199,6 +199,19 @@ details.blok[open] > summary::after { content: "–"; }
 .omhoog { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 6; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--nacht); color: #fff; font-size: 20px; cursor: pointer; box-shadow: var(--schaduw); }
 .omhoog[hidden] { display: none; }
 
+/* Bedrijfspagina */
+.kaart.stand { display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; margin-bottom: 14px; }
+.kaart.stand h1.k-naam { font-size: clamp(26px, 6vw, 34px); margin: 6px 0 0; }
+.stand-reden { grid-column: 1 / -1; font-size: 15px; color: var(--inkt-2); margin-top: 8px; }
+.tijdlijn { list-style: none; margin: 0 0 16px 6px; padding: 0 0 0 18px; border-left: 2px solid var(--rand); display: grid; gap: 18px; }
+.tijdlijn li { position: relative; display: grid; gap: 8px; justify-items: start; }
+.tijdlijn li::before { content: ""; position: absolute; left: -25px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 2px solid var(--grond); }
+.tijdlijn li + li::before { background: var(--inkt-3); }
+.tl-kop { font-size: 14px; color: var(--inkt-2); } .tl-kop strong { color: var(--inkt); }
+.tl-kern { font-size: 14.5px; }
+.tijdlijn .k-onder { margin-top: 0; } .tijdlijn .chip { background: #e7eaf2; font-weight: 500; }
+.oudmelding { background: var(--afwachten-z); color: #6d4500; border-radius: var(--r-klein); padding: 10px 14px; font-size: 14px; margin: 0 0 12px; }
+
 /* Vergelijken */
 .vgl { display: grid; gap: 10px; }
 .vgl .kaart { padding: 14px 18px; }
@@ -332,7 +345,7 @@ details.blok[open] > summary::after { content: "–"; }
       groepen.map(l => {
         const i = l[0];
         const vlaggen = i.rode_vlaggen.filter(v => v.ernst !== "info");
-        return `<a class="kaart" href="#r-${esc(i.id)}">
+        return `<a class="kaart" href="#b-${esc(tkSlug(i.ticker))}">
           <div class="k-top"><span class="k-ticker">${esc(i.ticker)}</span>${oordeelHtml(i)}</div>
           <div class="k-score" aria-label="score ${i.score ?? "–"} op 10"><b>${i.score ?? "–"}</b><small>/10</small></div>
           <div class="k-naam">${esc(i.naam)}</div>
@@ -371,23 +384,22 @@ details.blok[open] > summary::after { content: "–"; }
     try { m = await laadManifest(); } catch { el.innerHTML = `<p class="status fout">Kon de rapportenlijst niet laden.</p>`; return; }
     const r = m.rapporten.find(x => x.id === id);
     if (!r) { el.innerHTML = `<p class="status fout">Dit rapport bestaat niet (meer). <a href="#rapporten">Terug naar de lijst</a>.</p>`; return; }
-    const zelfde = m.rapporten.filter(x => x.ticker === r.ticker);
+    const zelfde = m.rapporten.filter(x => x.ticker === r.ticker).sort((a, b) => b.datum.localeCompare(a.datum));
+    const nieuwste = zelfde[0];
     actief = r;
     el.innerHTML = `
       <div class="rbalk">
-        <a class="terug" href="#rapporten">← Rapporten</a>
-        ${zelfde.length > 1 ? `<a class="knop" href="#v-${esc(r.ticker.replace(/[^A-Za-z0-9-]/g, "-"))}">Vergelijk ${zelfde.length}</a>` : ""}
+        <a class="terug" href="#b-${esc(tkSlug(r.ticker))}">← ${esc(r.naam)}</a>
         <button class="knop" id="pdf" type="button" ${r.pdf ? "" : "disabled"}>PDF downloaden</button>
       </div>
       <div class="status" id="pdf-status" role="status"></div>
       <section id="p-vragen" class="vraagblok" aria-label="Vragen over dit rapport"></section>
-      <section id="p-eigen" aria-label="Jouw positie en opvolging"></section>
+      ${nieuwste.id !== r.id ? `<p class="oudmelding">Dit is een ouder rapport. Het nieuwste is van <a href="#r-${esc(nieuwste.id)}">${datum(nieuwste.datum)}</a>.</p>` : ""}
       <nav class="rnav" id="rnav" aria-label="Delen van het rapport"></nav>
       <button class="omhoog" id="omhoog" type="button" aria-label="Naar boven" hidden>↑</button>
       <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>`;
     $("#pdf").addEventListener("click", () => downloadPdf(r));
     bouwVragen(r);
-    bouwEigen(r);
     laadRapportHtml(r);
     const om = $("#omhoog");
     om.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -806,12 +818,7 @@ details.sectie .inhoud { padding: 0 20px 18px; }
   }
 
   // ------------------------------------------------------------ vergelijken
-  async function toonVergelijk(tk) {
-    zetNav("rapporten");
-    const el = $("#inhoud");
-    const m = await laadManifest();
-    const l = m.rapporten.filter(x => x.ticker.replace(/[^A-Za-z0-9-]/g, "-") === tk).sort((a, b) => b.datum.localeCompare(a.datum));
-    if (!l.length) { el.innerHTML = `<p class="status fout">Geen rapporten gevonden. <a href="#rapporten">Terug</a>.</p>`; return; }
+  function vergelijkHtml(l) {
     const v = l[0].valuta || "";
     const kort = d => new Date(d + "T12:00:00").toLocaleDateString("nl-BE", { day: "numeric", month: "short", year: "numeric" });
     const punten = [
@@ -831,10 +838,46 @@ details.sectie .inhoud { padding: 0 20px 18px; }
       return `<div class="kaart"><div class="lab"><span>${naam}</span>${anders ? `<span class="gew">gewijzigd</span>` : ""}</div>
         <div class="nu ${tekst ? "tekst" : ""}">${vet(w[0])}</div>${anders ? oud : `<div class="gelijk">ongewijzigd sinds ${kort(l[l.length - 1].datum)}</div>`}</div>`;
     }).join("");
-    el.innerHTML = `<div class="rbalk"><a class="terug" href="#r-${esc(l[0].id)}">← ${esc(l[0].naam)}</a></div>
-      <h1>${esc(l[0].naam)}: wat is er veranderd?</h1>
-      <p class="sub">${l.length} rapporten: ${l.map(i => `<a href="#r-${esc(i.id)}">${kort(i.datum)}</a>`).join(" · ")}. Bovenaan staat telkens de nieuwste waarde; daaronder wat het vroeger was. ${gewijzigd} van de ${punten.length} punten zijn gewijzigd.</p>
-      <div class="vgl">${kaarten}</div>`;
+    return `<p class="klein">Bovenaan staat telkens de nieuwste waarde; daaronder wat het vroeger was. ${gewijzigd} van de ${punten.length} punten zijn gewijzigd.</p><div class="vgl">${kaarten}</div>`;
+  }
+
+  // ------------------------------------------------------------ bedrijfspagina: laatste stand + tijdlijn
+  async function toonBedrijf(tk) {
+    zetNav("rapporten");
+    const el = $("#inhoud");
+    let m;
+    try { m = await laadManifest(); } catch { el.innerHTML = `<p class="status fout">Kon de rapportenlijst niet laden.</p>`; return; }
+    const l = m.rapporten.filter(x => tkSlug(x.ticker) === tk).sort((a, b) => b.datum.localeCompare(a.datum));
+    if (!l.length) { el.innerHTML = `<p class="status fout">Geen rapporten gevonden. <a href="#rapporten">Terug</a>.</p>`; return; }
+    const r = l[0], v = r.valuta || "", oud = dagenSinds(r.datum);
+    actief = r;
+    const vlaggen = r.rode_vlaggen.filter(x => x.ernst !== "info");
+    const verschil = (nieuw, vorig) => [
+      ["Oordeel", i => i.oordeel], ["Score", i => i.score != null ? i.score + "/10" : null], ["Koers", i => getal(i.koers_nu, v)],
+      ["Koopzone", i => i.koopzone ? `${getal(i.koopzone.van)}–${getal(i.koopzone.tot)}` : null], ["Koersdoel", i => getal(i.koersdoel, v)],
+      ["Intrinsieke waarde", i => getal(i.intrinsieke_waarde, v)], ["Rode vlaggen", i => i.rode_vlaggen.filter(x => x.ernst !== "info").map(x => x.regel || x.titel).join(", ") || "geen"],
+    ].filter(([, f]) => f(nieuw) !== f(vorig)).map(([n, f]) => `<span class="chip">${n}: ${esc(f(vorig) ?? "–")} → <b>${esc(f(nieuw) ?? "–")}</b></span>`).join("");
+    el.innerHTML = `
+      <div class="rbalk"><a class="terug" href="#rapporten">← Rapporten</a><a class="knop hoofd" href="#r-${esc(r.id)}">Lees het volledige rapport</a></div>
+      <div class="kaart stand">
+        <div class="k-top"><span class="k-ticker">${esc(r.ticker)}</span>${oordeelHtml(r)}</div>
+        <div class="k-score" aria-label="score ${r.score ?? "–"} op 10"><b>${r.score ?? "–"}</b><small>/10</small></div>
+        <h1 class="k-naam">${esc(r.naam)}</h1>
+        <div class="k-meta">Laatste stand: ${r.soort === "snelle_update" ? "snelle update" : "rapport"} van ${datum(r.datum)} (${geleden(oud)})${r.sector ? " · " + esc(r.sector) : ""}</div>
+        <div class="stand-reden">${vet(r.reden)}</div>
+        ${prijsbalk(r)}
+        <div class="k-onder">${r.defensief ? `<span class="chip def">Defensief</span>` : ""}${vlaggen.map(x => `<span class="chip ${esc(x.ernst)}">${esc(ERNST[x.ernst] || x.ernst)}${x.regel ? " · " + esc(x.regel) : ""}</span>`).join("")}${!vlaggen.length ? `<span class="chip">Geen rode vlaggen</span>` : ""}${oud > 90 ? `<span class="chip oud">Meer dan 3 maanden oud: vraag een update</span>` : ""}</div>
+      </div>
+      <section id="p-vragen" class="vraagblok" aria-label="Vragen over dit bedrijf"></section>
+      <section id="p-eigen" aria-label="Jouw positie en opvolging"></section>
+      <h2 class="sectiekop">Tijdlijn</h2>
+      <ol class="tijdlijn">${l.map((i, n) => { const vorig = l[n + 1]; return `<li>
+        <div class="tl-kop"><strong>${datum(i.datum)}</strong> · ${i.soort === "snelle_update" ? "snelle update" : vorig ? "update" : "eerste rapport"} · ${esc(i.oordeel || "–")} ${i.score != null ? i.score + "/10" : ""}</div>
+        ${vorig ? `<div class="tl-kern">${vet(i.kern || "Geen samenvatting van de wijzigingen.")}</div><div class="k-onder">${verschil(i, vorig) || `<span class="chip">Geen cijfer van het advies gewijzigd</span>`}</div>` : `<div class="tl-kern">${vet(i.reden)}</div>`}
+        <a class="knop" href="#r-${esc(i.id)}">${n === 0 ? "Lees dit rapport" : "Open dit oudere rapport"}</a></li>`; }).join("")}</ol>
+      ${l.length > 1 ? `<details class="blok"><summary>Alle cijfers naast elkaar<small>${l.length} rapporten</small></summary><div class="blok-in">${vergelijkHtml(l)}</div></details>` : ""}`;
+    bouwVragen(r);
+    bouwEigen(r);
   }
 
   // ------------------------------------------------------------ profiel
@@ -875,7 +918,7 @@ details.sectie .inhoud { padding: 0 20px 18px; }
     window.scrollTo(0, 0);
     if (h === "profiel") return toonProfiel();
     if (h.startsWith("r-")) return toonRapport(h.slice(2));
-    if (h.startsWith("v-")) return toonVergelijk(h.slice(2));
+    if (h.startsWith("b-") || h.startsWith("v-")) return toonBedrijf(h.slice(2));
     return toonOverzicht();
   }
   window.addEventListener("hashchange", route);

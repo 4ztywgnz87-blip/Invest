@@ -75,6 +75,7 @@ def main():
             "stop_loss": (a.get("stop_loss") or {}).get("waarde"), "soort": m.get("soort") or "volledig",
             "scenarios": [{"naam": s.get("naam"), "koers": s.get("koers"), "kans": s.get("kans")} for s in a.get("scenarios", [])],
             "verkoopsignalen": r.get("verkoopsignalen", []), "agenda": agenda,
+            "kern": next((b.get("tekst") for b in r.get("wijzigingen", []) if b.get("tekst")), None),
             "rode_vlaggen": [{"ernst": v.get("ernst"), "regel": v.get("regel"), "titel": v.get("titel")} for v in r.get("rode_vlaggen", [])],
             "review": {k: r.get("review", {}).get(k) for k in ("feiten_gecontroleerd", "feiten_correct", "open_punten")},
             "html": f"{rel}/rapport.html", "pdf": f"{rel}/rapport.pdf" if pdf.exists() else None,
