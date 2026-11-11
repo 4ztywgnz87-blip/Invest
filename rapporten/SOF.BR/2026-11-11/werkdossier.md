@@ -77,6 +77,16 @@
 ### Blootstellingskaart (fase 6)
 | Blootstelling | Waarom relevant | Gezocht (zoektermen, talen) | Gevonden |
 |---------------|-----------------|-----------------------------|----------|
+| AI-/techwaarderingen (fondsen, ByteDance) | ±15–20% van portefeuille | Nasdaq sell-off, Anthropic IPO, SpaceX Q3, ByteDance valuation (EN) | Nasdaq −5,5% 5-11; Anthropic vork $70–78, S-1 H1 omzet $16,3 mld, verlies $80,7 mld (grotendeels niet-cash); SpaceX Q3 winst |
+| VS-politiek: AI/datacenters/chips | AI-belangen, Anthropic, ByteDance/China | midterms 2026 AI data center regulation chips China (EN) | Democraten winnen Huis + Senaat (CNBC 4-11); oproep moratorium datacenters (CNBC 5-11); chipexport: geen concreet beleid bevestigd |
+| Dollar (65% portefeuille) | ±10% = −694/+848 mln | ECB-referentiekoersen | EUR/USD 1,1394 (30-6) → 1,1127 (11-11) |
+| Rente en inflatie EU/VS | waarderingen, exits, rentekost | ECB/Fed/Eurostat persberichten | ECB +25 bp juni en sept. (2,50%), houdt 29-10; Fed 3,75–4,00%; inflatie eurozone 4,0% okt. |
+| Olie/Golfoorlog VS–Iran | inflatie, consumptiebedrijven, Cognita Midden-Oosten | oil Brent Iran Hormuz (EN) | Brent ≈$117 eind okt. → $91,49 op 10-11 (vredeshoop); onzeker |
+| China (ByteDance, Hypershell, Ji Xiang Ju, Petkit) | Azië 23% | ByteDance valuation, TikTok JV (EN) | $550 mld feb. 2026; TikTok VS-JV jan. 2026. Trump–Xi/chipexport: niet bevestigd via A/B |
+| UK onderwijs (Cognita) | top 10 Direct | Cognita 2026 (EN) | verkoopproces Jacobs vastgelopen 2025; btw op schoolgelden UK (secundair, niet in rapport als feit) |
+| India/Indonesië (INR €347 mln) | Lenskart, Pine Labs, FirstClub, Kopi Kenangan | — | niet apart onderzocht; klein |
+| Exits/verkopen | cash | Salto Inflexion, Kopi Kenangan (EN/ES) | Salto: Inflexion + Baskische families 33%, onder voorwaarden (Inflexion juli 2026); Kopi: enkel HJ26 |
+| Belgische fiscaliteit | netto rendement | meerwaardebelasting, TOB (NL) | FOD CAPTCHA; Bolero/KPMG (C) |
 
 ### Actualiteit
 
