@@ -30,7 +30,7 @@ Je werkt dus als een **team**: jij bent de hoofdanalist die onderzoekt en schrij
 - **Vier labels**: `feit` (bron verplicht), `berekening` (zelf berekend, toon hoe), `inschatting` (toekomst/speculatie, met reden), `mening` (jouw oordeel als analist).
 - **Onvoldoende info**: pas na **3 gedocumenteerde zoekrondes** (andere zoektermen, andere talen, andere bronnen) mag je "onvoldoende info" melden — en dan deel je wat je wél vond.
 - **Niet opnemen**: short-interest, analistenaanbevelingen/koersdoelen van banken, posities van grote fondsen, sociale-media-sentiment.
-- **Gewone taal.** Gebruik Nederlandse woorden waar het kan ("bestuur" i.p.v. "governance"). Leg **elke** vakterm uit de eerste keer dat hij voorkomt: `[[EBITDA|winst vóór rente, belastingen en afschrijvingen]]` — ook in de samenvatting en de rode vlaggen. Alle uitgelegde termen komen automatisch in een woordenlijst achteraan. Kort en direct. Eerlijk en hard mag, maar meningen altijd als `mening`.
+- **Gewone taal.** Gebruik Nederlandse woorden waar het kan ("bestuur" i.p.v. "governance"). Leg **elke** vakterm uit de eerste keer dat hij voorkomt: `[[EBITDA|winst vóór rente, belastingen en afschrijvingen]]` — ook in de samenvatting en de rode vlaggen. Alle uitgelegde termen komen automatisch in een woordenlijst achteraan. **Duidelijk en volledig in gewone zinnen** (geen telegramstijl): de lezer moet altijd weten waarover een blok gaat en waarom het ertoe doet. Eerlijk en hard mag, maar meningen altijd als `mening`. Volg de leesbaarheidsregels in `rapport-formaat.md`.
 - **Enkel op vraag.** Nooit uit jezelf opvolging, meldingen of screenings starten.
 
 ## Het werkdossier (verplicht — maakt hervatten mogelijk)

@@ -108,9 +108,20 @@ Elk tekstelement heeft een **label**: `feit` (bronnen verplicht), `berekening`, 
 ```
 
 ### Structuur binnen een sectie (vaste opbouw)
-1. **Kern** — 1–3 blokken met de conclusie van die sectie (wat moet de lezer onthouden?).
+1. **Inleiding** — 2–3 gewone zinnen: waarover gaat dit deel en waarom is het belangrijk voor de beslissing? Daarna de **kern**: de conclusie (wat moet de lezer onthouden?).
 2. **Tussentitels** (`kop`) per deelonderwerp, bv. in `cijfers`: *Omzet & groei*, *Winstgevendheid*, *Kasstroom*, *Schulden*, *Aandeelhouders­vergoeding*; in `actualiteit`: *Verleden*, *Nu*, *Komende 2 jaar*; in `keten`: één tussentitel per niveau-1-partij.
-3. Onder elke tussentitel: kerncijfers/grafiek/tabel eerst, dan de uitleg.
+3. **Onder elke tussentitel eerst een overgangszin** (wat volgt en hoe het samenhangt met het vorige), dan kerncijfers/grafiek/tabel, dan de uitleg.
+4. **Na elke tabel of grafiek** één zin: wat zie je hier en wat betekent het?
+5. **Nooit twee feiten-, tabel- of lijstblokken direct na elkaar** zonder verbindende uitleg.
+6. **Volledige zinnen**, geen opsommingen met puntkomma's of afkortingen. Kort mag in de samenvatting, niet in de uitleg.
+
+### Rode vlaggen (vaste opbouw)
+Elke rode vlag heeft in `uitleg` deze volgorde, telkens als apart blok met een vetgedrukte aanloop:
+1. **Wat is er aan de hand?** — 1–2 gewone zinnen, zonder cijferdetail.
+2. **Waarom is dat een probleem voor jou?** — het gevolg voor een kleine belegger.
+3. **Hoe erg is het?** — ernst en welke regel van het profiel (R1–R6).
+4. **De details** — cijfers, data en bronnen.
+Een `info`-vlag mag korter, maar begint altijd met stap 1.
 Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingeklapt).
 
 ### Grafiekregels
