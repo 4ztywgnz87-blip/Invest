@@ -26,6 +26,8 @@ B_DOMEINEN = BASIS_DOMEINEN + (
     "scmp.com", "aljazeera.com", "theguardian.com", "trends.knack.be", "knack.be", "vrt.be", "standaard.be", "rtbf.be",
     "techcrunch.com", "theinformation.com", "fiercepharma.com", "utilitydive.com", "offshore-energy.biz", "digitimes.com",
     "lloydslist.com", "spglobal.com",
+    "belganewsagency.eu", "businessam.be", "lalibre.be", "levif.be", "washingtonpost.com", "fortune.com", "axios.com", "semafor.com",
+    "euronews.com", "sifted.eu", "tech.eu", "abcnews.go.com", "abcnews.com", "nbcnews.com", "cbsnews.com",
 )
 D_DOMEINEN = (
     "wikipedia.org", "devdiscourse.com", "rttnews.com", "investinglive.com", "tradingeconomics.com", "tastytrade.com",
