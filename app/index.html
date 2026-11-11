@@ -72,18 +72,26 @@ a.kaart:hover { border-color: #b9c3d3; }
 .knop:hover { border-color: #b9c3d3; }
 .knop.hoofd { background: var(--accent); border-color: var(--accent); color: #fff; }
 .knop:disabled { opacity: .55; cursor: default; }
-.tabs { display: flex; gap: 4px; background: #e6e9ee; padding: 4px; border-radius: 10px; margin-bottom: 14px; }
-.tabs button { flex: 1; border: 0; background: transparent; padding: 8px 6px; border-radius: 7px; font-weight: 600; color: var(--inkt-2); cursor: pointer; }
-.tabs button[aria-selected="true"] { background: var(--vlak); color: var(--inkt); box-shadow: 0 1px 2px rgba(16,24,40,.08); }
 .status { font-size: 13px; color: var(--inkt-3); min-height: 1.2em; }
 .status.fout { color: var(--verkopen); }
 #rapport-host { display: block; min-width: 0; }
 
 /* Vragen */
-.chat { display: grid; gap: 12px; margin-top: 12px; }
+.vraagblok { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 10px; margin-bottom: 14px; }
+.vraagblok .invoer { margin: 0; }
+.vraagblok .status:empty { display: none; }
+.chat { display: grid; gap: 12px; }
+.chat:not(:empty) { margin-top: 10px; }
+.vraagblok .voorbeelden { flex-wrap: nowrap; overflow-x: auto; padding-top: 8px; scrollbar-width: none; }
+.vraagblok .voorbeelden:empty { display: none; }
+.vraagblok .voorbeelden button { white-space: nowrap; flex: none; }
+details.eerder { margin-top: 8px; font-size: 13.5px; }
+details.eerder summary { color: var(--accent); cursor: pointer; font-weight: 500; }
+details.eerder .paar { margin-top: 10px; }
+details.eerder .knop { margin-top: 8px; font-size: 13px; }
 .bericht { padding: 10px 14px; border-radius: 12px; max-width: 92%; overflow-wrap: anywhere; }
 .bericht.jij { background: var(--accent); color: #fff; justify-self: end; border-bottom-right-radius: 4px; }
-.bericht.claude { background: var(--vlak); border: 1px solid var(--rand); justify-self: start; border-bottom-left-radius: 4px; }
+.bericht.claude { background: var(--grond); border: 1px solid var(--rand); justify-self: start; border-bottom-left-radius: 4px; }
 .bericht.claude p { margin: 0 0 8px; } .bericht.claude p:last-child { margin: 0; }
 .bericht.claude ul { margin: 4px 0 8px; padding-left: 20px; }
 .voorbeelden { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -221,22 +229,11 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
         <button class="knop" id="pdf" type="button" ${r.pdf ? "" : "disabled"}>PDF downloaden</button>
       </div>
       <div class="status" id="pdf-status" role="status"></div>
-      <div class="tabs" role="tablist">
-        <button role="tab" id="t-rapport" aria-selected="true" type="button">Rapport</button>
-        <button role="tab" id="t-vragen" aria-selected="false" type="button">Vragen</button>
-      </div>
-      <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>
-      <section id="p-vragen" hidden></section>`;
-    const tabs = ["rapport", "vragen"];
-    const kies = t => {
-      for (const n of tabs) { $("#t-" + n).setAttribute("aria-selected", n === t); $("#p-" + n).hidden = n !== t; }
-      if (t === "vragen") bouwVragen(r);
-      try { sessionStorage.setItem("tab", t); } catch {}
-    };
-    for (const n of tabs) $("#t-" + n).addEventListener("click", () => kies(n));
+      <section id="p-vragen" class="vraagblok" aria-label="Vragen over dit rapport"></section>
+      <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>`;
     $("#pdf").addEventListener("click", () => downloadPdf(r));
+    bouwVragen(r);
     laadRapportHtml(r);
-    if (tab === "vragen") kies(tab);
   }
 
   async function laadRapportHtml(r) {
@@ -297,25 +294,27 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     const sleutel = "chat:" + r.id;
     let gesprek = opslag.lees(sleutel, []);
     p.innerHTML = `
-      <form class="invoer" id="vf"><label for="vraag" hidden>Je vraag</label><textarea id="vraag" rows="2" placeholder="Stel een vraag over dit rapport…"></textarea><button class="knop hoofd" type="submit" id="stuur">Vraag</button></form>
+      <form class="invoer" id="vf"><label for="vraag" hidden>Vraag over dit rapport</label><textarea id="vraag" rows="1" placeholder="Vraag iets over dit rapport…"></textarea><button class="knop hoofd" type="submit" id="stuur">Vraag</button></form>
       <div class="status" id="v-status" role="status"></div>
       <div class="voorbeelden" id="vb"></div>
       <div class="chat" id="chat" aria-live="polite"></div>
-      <p class="uitleg">Claude antwoordt op basis van dit rapport, het werkdossier en de teamreview. Voor nieuw onderzoek: vraag het in Claude Code (bv. "update ${esc(r.ticker)}").</p>
-      ${gesprek.length ? `<button class="knop" type="button" id="wis" style="margin-top:6px">Gesprek wissen</button>` : ""}`;
+      <div id="eerder"></div>`;
     const chat = $("#chat"), vb = $("#vb"), st = $("#v-status");
     const teken = () => {
-      // Nieuwste vraag + antwoord bovenaan.
+      // Nieuwste vraag + antwoord meteen zichtbaar; oudere ingeklapt.
       const paren = [];
       for (let i = 0; i < gesprek.length; i += 2) paren.push(gesprek.slice(i, i + 2));
-      chat.innerHTML = paren.reverse().map(pr => `<div class="paar">${pr.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("")}</div>`).join("");
+      paren.reverse();
+      const paarHtml = pr => `<div class="paar">${pr.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("")}</div>`;
+      chat.innerHTML = paren.length ? paarHtml(paren[0]) : "";
+      $("#eerder").innerHTML = paren.length > 1 || paren.length ? `<details class="eerder"><summary>${paren.length > 1 ? `Eerdere vragen (${paren.length - 1})` : "Opties"}</summary>${paren.slice(1).map(paarHtml).join("")}<button class="knop" type="button" id="wis">Vragen wissen</button></details>` : "";
+      $("#wis")?.addEventListener("click", () => { gesprek = []; opslag.schrijf(sleutel, gesprek); teken(); });
       vb.innerHTML = gesprek.length ? "" : VOORBEELDEN.map(v => `<button type="button">${esc(v)}</button>`).join("");
       vb.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { $("#vraag").value = b.textContent; vraag(); }));
     };
     const sample = await cap.sample;
     if (!sample) { st.textContent = "Vragen stellen kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; $("#stuur").disabled = true; }
     teken();
-    $("#wis")?.addEventListener("click", () => { gesprek = []; opslag.schrijf(sleutel, gesprek); p.dataset.klaar = ""; bouwVragen(r); });
     let bezig = false;
     async function vraag() {
       const t = $("#vraag").value.trim();
@@ -545,7 +544,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     const h = location.hash.slice(1);
     window.scrollTo(0, 0);
     if (h === "profiel") return toonProfiel();
-    if (h.startsWith("r-")) return toonRapport(h.slice(2), (() => { try { return sessionStorage.getItem("tab"); } catch { return null; } })());
+    if (h.startsWith("r-")) return toonRapport(h.slice(2));
     if (h.startsWith("v-")) return toonVergelijk(h.slice(2));
     return toonOverzicht();
   }
