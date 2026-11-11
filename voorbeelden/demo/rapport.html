@@ -305,6 +305,29 @@ ul.opbouw { list-style: disc; }
 }
 
 ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padding: 1px 5px; border-radius: 4px; }
+
+/* Aandeelhoudersbalk */
+.ah-balk { margin: 8px 0 12px; }
+.ah-spoor { position: relative; display: flex; height: 22px; border-radius: 6px; overflow: visible; background: var(--rand); margin-top: 22px; }
+.ah-spoor i { display: block; height: 100%; border-right: 2px solid var(--vlak); }
+.ah-spoor i:first-child { border-radius: 6px 0 0 6px; } .ah-spoor i:last-of-type { border-radius: 0 6px 6px 0; border-right: 0; }
+.ah-spoor i.top, .k.ah-top { background: var(--nogo); } .ah-spoor i.ander, .k.ah-ander { background: var(--houden); }
+.ah-spoor i.eigen, .k.ah-eigen { background: var(--inkt-3); } .ah-spoor i.vrij, .k.ah-vrij { background: #cfd4dc; }
+.k.ah-top, .k.ah-ander, .k.ah-eigen, .k.ah-vrij { width: 12px; height: 12px; border-radius: 3px; }
+.ah-grens { position: absolute; top: -6px; bottom: -6px; width: 2px; background: var(--inkt); }
+.ah-grens span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; white-space: nowrap; padding-bottom: 1px; }
+
+/* Ketenschema */
+.keten { margin: 6px 0 4px; }
+.kt-centrum { display: inline-block; background: var(--kop); color: #fff; font-weight: 700; padding: 7px 14px; border-radius: 10px; }
+.kt-takken { list-style: none; margin: 0 0 0 16px; padding: 10px 0 0 16px; border-left: 2px solid var(--rand); display: grid; gap: 10px; }
+.kt-takken > li { position: relative; }
+.kt-takken > li::before { content: ""; position: absolute; left: -16px; top: 18px; width: 14px; border-top: 2px solid var(--rand); }
+.kt-tak { border: 1px solid var(--rand); border-radius: 10px; padding: 8px 12px; background: var(--vlak); }
+.kt-gewicht { float: right; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--feit-bg); padding: 1px 8px; border-radius: 999px; }
+.kt-uitleg { font-size: 13px; color: var(--inkt-2); margin-top: 2px; }
+.kt-onder { list-style: none; margin: 6px 0 0 14px; padding: 0 0 0 12px; border-left: 2px dotted var(--rand); font-size: 13px; color: var(--inkt-2); display: grid; gap: 4px; }
+@media print { .ah-spoor i, .ah-grens, .kt-centrum, .kt-gewicht { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .keten { break-inside: avoid; } }
 </style>
 </head>
 <body><header class="kop"><div class="pagina">
@@ -313,7 +336,7 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
   <div class="sub">Rapport van 2026-11-08 · Nutsbedrijven · Defensief</div>
 </div></header>
 
-<main class="pagina"><section class="pdf-blok kort-oordeel">
+<main class="pagina"><section class="pdf-blok kort-oordeel" id="oordeel">
     <div class="ko-kop">
       <div class="oordeel Afwachten">Afwachten</div><div class="ko-score" aria-label="score 6 op 10"><b>6</b><small>/10</small></div>
     </div><div class="score" aria-hidden="true"><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
@@ -344,7 +367,7 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
     </div>
   </details>
 
-  <section class="pdf-blok kaart">
+  <section class="pdf-blok kaart" id="samenvatting">
     <div class="deel">Deel 1</div>
     <h2>Samenvatting</h2>
     <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p><p class="blok feit"><span class="lab feit">Feit</span>Omzet steeg in 2025 met 4,1% tot €1,2 mld.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Vrije kasstroom dekt het dividend 1,6 keer.</p><p class="blok mening"><span class="lab mening">Mening</span>Degelijk en defensief, maar het <span class="term" tabindex="0" role="button" aria-expanded="false">bestuur (governance)</span><span class="uitleg">de manier waarop een bedrijf geleid en gecontroleerd wordt: wie beslist, wie toezicht houdt en of kleine aandeelhouders eerlijk behandeld worden</span> is een probleem.</p>
@@ -355,7 +378,7 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
     <p class="blok feit"><span class="lab feit">Feit</span>Eerste rapport — nog niets te vergelijken.<a class="ref" href="#bron-1">1</a></p>
   </section>
 
-  <section class="advies">
+  <section class="advies" id="advies">
     <div class="vol">
       <div class="deel">Deel 3</div>
       <h2>Het advies in cijfers</h2>
@@ -449,7 +472,7 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
       </div>
   </section>
 
-  <nav class="pdf-blok kaart inhoudstafel">
+  <nav class="pdf-blok kaart inhoudstafel" id="details">
     <div class="deel">Deel 5</div>
     <h2>Details per thema</h2>
     <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
@@ -460,6 +483,10 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
     <summary><span><span class="nr">1.</span> Bestuur &amp; aandeelhouders<span class="kort">R1 geraakt</span></span></summary>
     <div class="inhoud">
         <div class="tabel-titel">Aandeelhoudersstructuur<a class="ref" href="#bron-1">1</a></div>
+        <div class="ah-balk" role="img" aria-label="Verdeling van de aandelen; de drie grootste aandeelhouders samen 52%">
+          <div class="ah-spoor"><i class="top" style="width: 52.0%" title="Familie Voorbeeld 52%"></i><i class="eigen" style="width: 3.1%" title="Eigen aandelen 3,10%"></i><i class="vrij" style="width: 44.9%" title="Vrij verhandelbaar 44,90%"></i><b class="ah-grens" style="left: 49%"><span>49%-grens</span></b></div>
+          <div class="pb-legende"><span><i class="k ah-top"></i>drie grootste aandeelhouders (52%)</span><span><i class="k ah-ander"></i>andere gemelde</span><span><i class="k ah-eigen"></i>eigen aandelen</span><span><i class="k ah-vrij"></i>vrij verhandelbaar</span></div>
+        </div>
         <div class="tabelwrap"><table>
           <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
           <tbody><tr><td>Familie Voorbeeld<div class="bijschrift">via Voorbeeld Holding SA</div></td><td>52</td><td>52</td></tr><tr><td>Eigen aandelen</td><td>3,10</td><td>0</td></tr><tr><td>Vrij verhandelbaar</td><td>44,90</td><td></td></tr></tbody>
@@ -567,7 +594,7 @@ ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padd
     </ol>
   </details>
 
-  <p class="voet">Gemaakt op 11-11-2026 10:15. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+  <p class="voet">Gemaakt op 11-11-2026 11:14. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
 <script>
 document.addEventListener("click", function (e) {

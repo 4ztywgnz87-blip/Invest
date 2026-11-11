@@ -314,6 +314,17 @@ def controleer(r: dict, definitief: bool = True, map_: Path | None = None) -> Co
     for o in r.get("onvoldoende_info", []):
         if len(o.get("zoekrondes", [])) < 3:
             c.fout(f"onvoldoende_info '{o.get('onderwerp')}': minstens 3 gedocumenteerde zoekrondes nodig")
+    ks = r.get("keten_schema")
+    if ks is not None:
+        if not ks.get("centrum") or not ks.get("takken"):
+            c.fout("keten_schema: 'centrum' en 'takken' zijn verplicht")
+        for t in ks.get("takken", []):
+            if not t.get("naam"):
+                c.fout("keten_schema: elke tak heeft een 'naam' nodig")
+            if len(t.get("onder", [])) > 5:
+                c.fout(f"keten_schema '{t.get('naam')}': maximaal 5 punten op niveau 2")
+    elif r.get("meta", {}).get("type") in ("aandeel", "ipo"):
+        c.let_op("geen keten_schema (schema van de keten bovenaan het hoofdstuk 'keten')")
     zonder_wat = 0
     for _, b in _blokken(r):
         if b.get("type") != "kerncijfers":
@@ -409,6 +420,14 @@ def structureer(r: dict) -> None:
         if k is None:
             k = 3 if len(u) > 3 else len(u)
         v["_kern"], v["_details"] = u[:k], u[k:]
+    # Aandeelhouders als één gestapelde balk: de drie grootste (R1) gekleurd, met de 49%-grens.
+    ah = (r.get("aandeelhouders") or {}).get("verdeling") or []
+    echte = sorted((x for x in ah if not x.get("eigen_aandelen") and not x.get("vrij_verhandelbaar")), key=lambda x: -(x.get("pct") or 0))
+    top3 = {id(x) for x in echte[:3]}
+    volg = echte + [x for x in ah if x.get("eigen_aandelen")] + [x for x in ah if x.get("vrij_verhandelbaar")]
+    r["_ah_balk"] = [{"naam": x.get("naam"), "pct": x.get("pct") or 0,
+                      "soort": "top" if id(x) in top3 else "eigen" if x.get("eigen_aandelen") else "vrij" if x.get("vrij_verhandelbaar") else "ander"}
+                     for x in volg if (x.get("pct") or 0) > 0]
     r["_vlaggen"] = [v for v in r.get("rode_vlaggen", []) if v.get("ernst") != "info"]
     r["_vlaggen_info"] = [v for v in r.get("rode_vlaggen", []) if v.get("ernst") == "info"]
     a = r.get("advies", {})

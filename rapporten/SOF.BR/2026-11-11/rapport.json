@@ -867,6 +867,49 @@
      ]
     },
     {
+     "type": "uitleg",
+     "tekst": "De grafiek toont per jaar of Sofina meer geld in kas had dan schulden (boven nul) of omgekeerd (onder nul)."
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Netto kas (+) of netto schuld (−), mln €",
+     "eenheid": "mln €",
+     "x": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "H1 2026"
+     ],
+     "reeksen": [
+      {
+       "naam": "Netto kas / schuld",
+       "waarden": [
+        319,
+        233,
+        197,
+        334,
+        430,
+        -219
+       ]
+      }
+     ],
+     "bronnen": [
+      8,
+      7,
+      6,
+      5,
+      3,
+      1
+     ]
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Wat zie je hier? Tot eind 2025 had Sofina meer geld in kas dan schulden. Midden 2026 is dat omgeslagen naar een kleine netto schuld."
+    },
+    {
      "type": "kop",
      "tekst": "Aandeelhoudersvergoeding"
     },
@@ -929,6 +972,46 @@
      "label": "berekening",
      "tekst": "Netto na 30% [[roerende voorheffing|Belgische belasting op dividenden, wordt automatisch ingehouden]]: €2,56 per aandeel.",
      "bronnen": []
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Hoe evolueerde dat dividend de voorbije jaren?"
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Dividend per aandeel (€, bruto)",
+     "eenheid": "€",
+     "x": [
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025"
+     ],
+     "reeksen": [
+      {
+       "naam": "Dividend",
+       "waarden": [
+        3.13,
+        3.24,
+        3.35,
+        3.5,
+        3.66
+       ]
+      }
+     ],
+     "bronnen": [
+      8,
+      7,
+      6,
+      5,
+      3
+     ]
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Wat zie je hier? Het dividend stijgt elk jaar een beetje, ook in 2022 en 2023, toen de waarde van Sofina daalde."
     }
    ]
   },
@@ -989,6 +1072,34 @@
        "11.831",
        "100%"
       ]
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Dezelfde verdeling in beeld:"
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Verdeling van de portefeuille op 30-6-2026 (%)",
+     "eenheid": "%",
+     "x": [
+      "Familiebedrijven",
+      "Groeibedrijven",
+      "Fondsen"
+     ],
+     "reeksen": [
+      {
+       "naam": "Aandeel",
+       "waarden": [
+        25,
+        25,
+        50
+       ]
+      }
      ],
      "bronnen": [
       1
@@ -1356,6 +1467,41 @@
       36
      ],
      "noot": "*Korting = koers t.o.v. laatst gepubliceerde intrinsieke waarde per aandeel op 30-6-2026 (Sofina 326,48; GBL 100,77; Brederode 154,6; Exor 157,9) — berekend en verouderd, dus een benadering. Rendementen zonder dividend. Bij AvH vond ik geen recente intrinsieke waarde. Investor AB (Zweden) en Eurazeo/Wendel liet ik weg: geen recente intrinsieke waarde met bron gevonden en minder gelijkend (weinig durfkapitaal)."
+    },
+    {
+     "type": "uitleg",
+     "tekst": "De kortingen uit de tabel in beeld. Hoe dieper de staaf, hoe groter de korting op de intrinsieke waarde. Voor Ackermans & van Haaren is geen korting beschikbaar."
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Korting t.o.v. de intrinsieke waarde (%)",
+     "eenheid": "%",
+     "x": [
+      "Sofina",
+      "GBL",
+      "Brederode",
+      "Exor"
+     ],
+     "reeksen": [
+      {
+       "naam": "Korting",
+       "waarden": [
+        -17,
+        -21,
+        -35,
+        -53
+       ]
+      }
+     ],
+     "bronnen": [
+      12,
+      25,
+      1,
+      22,
+      23,
+      36
+     ]
     },
     {
      "type": "uitleg",
@@ -3302,5 +3448,67 @@
     }
    ]
   }
- ]
+ ],
+ "keten_schema": {
+  "centrum": "Sofina",
+  "takken": [
+   {
+    "naam": "Fondsen van andere beheerders",
+    "gewicht": "50%",
+    "toelichting": "Meer dan 90 fondsen (Sequoia, Lightspeed, HongShan, Thrive, a16z …)",
+    "onder": [
+     {
+      "naam": "SpaceX",
+      "toelichting": "op de beurs sinds 12-6-2026"
+     },
+     {
+      "naam": "Anthropic",
+      "toelichting": "beursgang rond 19-11-2026"
+     },
+     {
+      "naam": "OpenAI",
+      "toelichting": "beursgang vertrouwelijk ingediend"
+     },
+     {
+      "naam": "Stripe, Databricks, Anduril, DoorDash, Ramp, Prometheus",
+      "toelichting": "de andere grote namen in de fondsen"
+     }
+    ]
+   },
+   {
+    "naam": "ByteDance",
+    "gewicht": "5–10%",
+    "toelichting": "Grootste rechtstreekse positie; moederbedrijf van TikTok",
+    "onder": [
+     {
+      "naam": "TikTok VS",
+      "toelichting": "sinds 1-2026 in een gezamenlijke onderneming; ByteDance houdt minder dan 20%"
+     },
+     {
+      "naam": "China",
+      "toelichting": "grootste markt en grootste onzekerheid"
+     }
+    ]
+   },
+   {
+    "naam": "Cognita",
+    "toelichting": "Scholengroep (VK); 6de grootste rechtstreekse positie",
+    "onder": [
+     {
+      "naam": "Britse btw op privéschoolgelden",
+      "toelichting": "verkoop mislukte in 2025, waardering verlaagd"
+     }
+    ]
+   },
+   {
+    "naam": "Nuxe, Drylock, Proeduca, Cambridge Associates",
+    "toelichting": "Familiebedrijven met een groot minderheidsbelang: het stabielste deel"
+   },
+   {
+    "naam": "Vinted, Mérieux NutriSciences, Cleo AI",
+    "toelichting": "Kleinere, bekende namen uit de top 10"
+   }
+  ],
+  "noot": "Niveau 1 (kaders) en niveau 2 (lijntjes eronder). Samen zijn de tien grootste rechtstreekse belangen 27% van de waarde. Cijfers en bronnen staan in de onderdelen hieronder."
+ }
 }

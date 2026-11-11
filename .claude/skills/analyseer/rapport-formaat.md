@@ -47,6 +47,13 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
     ],
     "bronnen": [1], "uitleg": "Hoe de controle in elkaar zit."
   },
+  "keten_schema": {                         // aandeel/ipo: schema bovenaan het hoofdstuk 'keten' (ETF: grootste posities/landen)
+    "centrum": "Sofina",
+    "takken": [                             // niveau 1: 4–8 takken, belangrijkste eerst
+      {"naam": "ByteDance", "gewicht": "5–10%", "toelichting": "grootste positie",
+       "onder": [{"naam": "TikTok VS", "toelichting": "joint venture sinds 1-2026"}]}   // niveau 2: max 5
+    ]
+  },                                        // enkel korte samenvatting van wat in de sectie met bron staat: geen nieuwe feiten
   "rode_vlaggen": [
     {"ernst": "nogo", "regel": "R1", "titel": "...", "uitleg": [ <blokken> ]}
     // ernst: nogo | hoog | middel | info ; regel: R1..R6 of weglaten
@@ -141,6 +148,11 @@ Elke rode vlag heeft in `uitleg` deze volgorde, telkens als apart blok met een v
 4. **De details** — cijfers, data en bronnen.
 Een `info`-vlag mag korter, maar begint altijd met stap 1.
 Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingeklapt).
+
+### Beeld vóór tekst
+- **Elke reeks van 3 of meer cijfers over tijd of over vergelijkbare partijen** (5-jaarcijfers, concurrenten, verdeling van omzet/portefeuille) krijgt ook een grafiek, niet enkel een tabel. Richtgetal: minstens één grafiek in `cijfers`, `investeringen`, `sector` en `techniek`.
+- De **aandeelhoudersbalk** (met de 49%-grens) maakt het sjabloon zelf uit `aandeelhouders.verdeling`.
+- Het **ketenschema** komt uit `keten_schema`.
 
 ### Grafiekregels
 - Eén y-as. Twee grootheden met een andere schaal (bv. omzet en marge %) → **twee grafieken**.

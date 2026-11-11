@@ -268,6 +268,12 @@
       {%- if s.id == 'bestuur' and r.aandeelhouders %}
         {%- set ah = r.aandeelhouders %}
         <div class="tabel-titel">Aandeelhoudersstructuur{{ ah.bronnen|refs }}</div>
+        {%- if r._ah_balk %}
+        <div class="ah-balk" role="img" aria-label="Verdeling van de aandelen; de drie grootste aandeelhouders samen {{ r._r1.top3|getal if r._r1 else '' }}%">
+          <div class="ah-spoor">{% for x in r._ah_balk %}<i class="{{ x.soort }}" style="width: {{ x.pct }}%" title="{{ x.naam }} {{ x.pct|getal }}%"></i>{% endfor %}<b class="ah-grens" style="left: 49%"><span>49%-grens</span></b></div>
+          <div class="pb-legende"><span><i class="k ah-top"></i>drie grootste aandeelhouders{% if r._r1 %} ({{ r._r1.top3|getal }}%){% endif %}</span><span><i class="k ah-ander"></i>andere gemelde</span><span><i class="k ah-eigen"></i>eigen aandelen</span><span><i class="k ah-vrij"></i>vrij verhandelbaar</span></div>
+        </div>
+        {%- endif %}
         <div class="tabelwrap"><table>
           <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
           <tbody>{% for x in ah.verdeling %}<tr><td>{{ x.naam }}{% if x.structuur %}<div class="bijschrift">{{ x.structuur }}</div>{% endif %}</td><td>{{ x.pct|getal }}</td><td>{{ (x.stemrecht_pct if x.stemrecht_pct is not none else x.pct)|getal }}</td></tr>{% endfor %}</tbody>
@@ -276,6 +282,21 @@
         {%- if ah.uitleg %}<p class="blok">{{ ah.uitleg|inline }}</p>{% endif %}
       {%- endif %}
       {%- for b in s._intro %}{{ blok(b) }}{% endfor %}
+      {%- if s.id == 'keten' and r.keten_schema %}
+        {%- set ks = r.keten_schema %}
+        <div class="tabel-titel">{{ ks.titel or 'De keten in één beeld' }}</div>
+        <div class="keten">
+          <div class="kt-centrum">{{ ks.centrum }}</div>
+          <ul class="kt-takken">
+            {%- for t in ks.takken %}
+            <li><div class="kt-tak"><strong>{{ t.naam }}</strong>{% if t.gewicht %}<span class="kt-gewicht">{{ t.gewicht }}</span>{% endif %}{% if t.toelichting %}<div class="kt-uitleg">{{ t.toelichting|inline }}</div>{% endif %}</div>
+              {%- if t.onder %}<ul class="kt-onder">{% for o in t.onder %}<li><strong>{{ o.naam }}</strong>{% if o.toelichting %} — {{ o.toelichting|inline }}{% endif %}</li>{% endfor %}</ul>{% endif %}
+            </li>
+            {%- endfor %}
+          </ul>
+        </div>
+        <div class="bijschrift">{{ ks.noot or 'Niveau 1 (kaders) en niveau 2 (lijntjes eronder). Dit is een samenvatting: cijfers en bronnen staan in de onderdelen hieronder.' }}</div>
+      {%- endif %}
       {%- for dl in s._delen %}
       <details class="uitklap onderdeel"><summary>{{ dl.titel }}</summary>{% for b in dl.blokken %}{{ blok(b) }}{% endfor %}</details>
       {%- endfor %}
