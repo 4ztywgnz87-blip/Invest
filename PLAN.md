@@ -1,6 +1,6 @@
 # Invest — Definitief plan (v1)
 
-> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **Fase 1 (fundament) gebouwd — volgende stap: eerste echte rapport (Sofina)**.
+> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **F1 klaar · eerste rapport (Sofina) klaar · F3 app gepubliceerd — volgende: rapporten iShares MSCI World en SoftBank (F2), dan terugkijktest (F4)**.
 
 ---
 

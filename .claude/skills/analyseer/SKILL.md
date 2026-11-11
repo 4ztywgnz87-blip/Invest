@@ -44,6 +44,7 @@ Het Claude Pro-abonnement heeft gebruikslimieten. Een analyse kan dus over **mee
 ## Fases
 
 ### Fase 0 — Identificatie & voorbereiding
+0. Haal openstaande feedback uit de app op en verwerk ze (zie `app/APP.md`).
 1. `python3 tools/koers.py zoek "<naam of ticker>"`. Kies de **primaire notering** (thuisbeurs). Bij twijfel (meerdere bedrijven, holding vs. dochter) → vraag de gebruiker kort welke.
 2. Bepaal het type: `aandeel`, `etf`, `fonds` of `ipo`. Noteer ISIN, beurs, valuta, sector, of het **defensief** is.
 3. Is er een vorig rapport in `rapporten/<TICKER>/`? Lees de samenvatting en het advies → je zal moeten melden **wat er veranderd is**.
@@ -164,9 +165,10 @@ Vul daarna de `review`-sectie in `rapport.json` in (zie `rapport-formaat.md`) me
 ### Fase 13 — Afronding
 1. Bronnengeheugen bijgewerkt? (`tools/bronnen.py lijst`)
 2. `git add` + commit + push.
-3. Stuur de PDF naar de gebruiker met de SendUserFile-tool (zodat hij ze op de gsm kan openen). Geef in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
-4. Vraag feedback: score 1–10, wat moet extra onderzocht worden, wat was nutteloos. Noteer in `profiel/feedback.md`. Leid je er een profielwijziging uit af → zet een voorstel in `profiel/voorstellen.md` en vraag akkoord. Wijzig `PROFIEL.md` **nooit** zonder akkoord.
-5. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json`, `werkdossier.md` en `review.md`, en zoek extra info als dat nodig is (met bron).
+3. Werk de app bij volgens `app/APP.md` (nieuw rapport zichtbaar, vragen stellen mogelijk).
+4. Stuur de PDF naar de gebruiker met de SendUserFile-tool (zodat hij ze op de gsm kan openen). Geef in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
+5. Vraag feedback (of laat de gebruiker die in de app geven): score 1–10, wat moet extra onderzocht worden, wat was nutteloos. Noteer in `profiel/feedback.md`. Leid je er een profielwijziging uit af → zet een voorstel in `profiel/voorstellen.md` en vraag akkoord. Wijzig `PROFIEL.md` **nooit** zonder akkoord.
+6. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json`, `werkdossier.md` en `review.md`, en zoek extra info als dat nodig is (met bron).
 
 ## Update van een bestaand rapport
 Zelfde fases (ook de teamreview), maar: start van het vorige werkdossier en `bronnen.json`, lees enkel nieuwe/gewijzigde bronnen, en vul de sectie **"Wat is er veranderd"** grondig in (cijfers, advies, score, rode vlaggen, actualiteit).

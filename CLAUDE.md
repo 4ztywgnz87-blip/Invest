@@ -7,6 +7,9 @@ Dit project is een onderzoeksassistent voor één gebruiker: een beginnende Belg
 - **Vragen over een rapport** → antwoord op basis van `rapporten/<TICKER>/<datum>/rapport.json` en `werkdossier.md`; zoek extra info met bron als dat nodig is.
 - **Feedback** op een rapport → noteer in `profiel/feedback.md`; stel profielwijzigingen voor in `profiel/voorstellen.md`; wijzig `profiel/PROFIEL.md` pas na akkoord.
 
+## De app
+Rapporten lezen, vragen stellen en feedback geven gebeurt in de Invest-app op claude.ai. URL, bijwerken en feedback ophalen: zie `app/APP.md`. Haal bij het begin van elke sessie openstaande feedback uit de app op.
+
 ## Altijd geldend
 - Werk **enkel op vraag**: nooit uit jezelf opvolgen, scannen of meldingen sturen.
 - **Nooit iets verzinnen.** Geen bron = geen feit. Forums zijn geen bron.
@@ -23,6 +26,7 @@ Dit project is een onderzoeksassistent voor één gebruiker: een beginnende Belg
 | `templates/` | Rapportsjabloon (HTML/CSS), werkdossier |
 | `data/<TICKER>/` | Koersdata, bronnengeheugen, gedownloade verslagen (PDF's niet in git) |
 | `rapporten/<TICKER>/<datum>/` | `werkdossier.md`, `review.md`, `rapport.json`, `rapport.html`, `rapport.pdf` |
+| `app/` | De Invest-app (claude.ai): pagina, overzicht van rapporten, vraagcontext |
 | `voorbeelden/demo/` | Fictief testrapport (opmaak/controle testen) |
 
 ## Technisch

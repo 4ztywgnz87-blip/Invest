@@ -1,0 +1,457 @@
+<title>Invest Rapporten</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<style>
+/* Layout: smalle leeskolom met vaste navigatiebalk; rapport in een eigen afgeschermde laag (shadow DOM). */
+:root {
+  color-scheme: light;
+  --grond: #f3f4f6;
+  --vlak: #ffffff;
+  --inkt: #111827;
+  --inkt-2: #4b5563;
+  --inkt-3: #6b7280;
+  --rand: #e3e6eb;
+  --nacht: #0b1f3a;
+  --accent: #1d4ed8;
+  --accent-zacht: #eaf0ff;
+  --kopen: #067647; --houden: #175cd3; --verkopen: #b42318; --afwachten: #93590a; --onvoldoende: #475467;
+  --nogo: #b42318; --hoog: #c4320a; --middel: #93590a; --info: #475467;
+  --f-tekst: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --f-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--grond); color: var(--inkt); font: 15px/1.5 var(--f-tekst); font-variant-numeric: tabular-nums; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--nacht); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.kolom { max-width: 940px; margin: 0 auto; }
+button, input, textarea { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Balk */
+.balk { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--nacht); color: #fff; }
+.balk .kolom { display: flex; align-items: center; gap: 16px; min-height: 52px; }
+.merk { font-weight: 700; letter-spacing: .02em; font-size: 17px; margin-right: auto; color: #fff; text-decoration: none; }
+.merk span { font-family: var(--f-data); font-weight: 500; font-size: 12px; opacity: .65; margin-left: 6px; }
+.nav a { color: #c9d4e6; text-decoration: none; font-weight: 500; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.nav a[aria-current="page"] { color: #fff; border-color: #fff; }
+.nav { display: flex; gap: 18px; }
+
+main { padding-block: 20px 48px; }
+h1 { font-size: 22px; margin: 0 0 4px; text-wrap: balance; }
+.sub { color: var(--inkt-3); font-size: 13.5px; margin: 0 0 16px; }
+
+/* Lijst rapporten */
+.lijst { display: grid; gap: 12px; }
+.kaart { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 14px 16px; }
+a.kaart { display: grid; grid-template-columns: 1fr auto; gap: 6px 14px; color: inherit; text-decoration: none; }
+a.kaart:hover { border-color: #b9c3d3; }
+.k-naam { font-weight: 650; font-size: 17px; min-width: 0; }
+.k-ticker { font-family: var(--f-data); font-size: 12px; color: var(--inkt-3); margin-left: 6px; }
+.k-meta { color: var(--inkt-3); font-size: 13px; grid-column: 1 / -1; }
+.k-reden { grid-column: 1 / -1; font-size: 14px; color: var(--inkt-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.k-onder { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.oordeel { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; border-radius: 8px; padding: 6px 12px; font-weight: 700; font-size: 14px; line-height: 1.2; align-self: start; }
+.oordeel small { font-weight: 500; font-size: 11px; opacity: .9; }
+.oordeel.Kopen { background: var(--kopen); } .oordeel.Houden { background: var(--houden); } .oordeel.Verkopen { background: var(--verkopen); }
+.oordeel.Afwachten { background: var(--afwachten); } .oordeel.Onvoldoende { background: var(--onvoldoende); }
+.chip { font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--grond); color: var(--inkt-2); border: 1px solid var(--rand); }
+.chip.nogo { background: #fef3f2; color: var(--nogo); border-color: #fecdca; }
+.chip.hoog { background: #fff6ed; color: var(--hoog); border-color: #fddcab; }
+.chip.middel { background: #fffaeb; color: var(--middel); border-color: #fedf89; }
+.chip.def { background: #ecfdf3; color: var(--kopen); border-color: #abefc6; }
+.leeg { text-align: center; color: var(--inkt-2); padding: 32px 16px; }
+.leeg code { font-family: var(--f-data); background: var(--vlak); border: 1px solid var(--rand); padding: 2px 6px; border-radius: 6px; }
+
+/* Rapportweergave */
+.rbalk { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-bottom: 12px; }
+.terug { color: var(--accent); text-decoration: none; font-weight: 500; margin-right: auto; }
+.knop { border: 1px solid var(--rand); background: var(--vlak); color: var(--inkt); border-radius: 8px; padding: 7px 12px; cursor: pointer; font-weight: 500; }
+.knop:hover { border-color: #b9c3d3; }
+.knop.hoofd { background: var(--accent); border-color: var(--accent); color: #fff; }
+.knop:disabled { opacity: .55; cursor: default; }
+.tabs { display: flex; gap: 4px; background: #e6e9ee; padding: 4px; border-radius: 10px; margin-bottom: 14px; }
+.tabs button { flex: 1; border: 0; background: transparent; padding: 8px 6px; border-radius: 7px; font-weight: 600; color: var(--inkt-2); cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--vlak); color: var(--inkt); box-shadow: 0 1px 2px rgba(16,24,40,.08); }
+.status { font-size: 13px; color: var(--inkt-3); min-height: 1.2em; }
+.status.fout { color: var(--verkopen); }
+#rapport-host { display: block; min-width: 0; }
+
+/* Vragen */
+.chat { display: grid; gap: 10px; }
+.bericht { padding: 10px 14px; border-radius: 12px; max-width: 92%; overflow-wrap: anywhere; }
+.bericht.jij { background: var(--accent); color: #fff; justify-self: end; border-bottom-right-radius: 4px; }
+.bericht.claude { background: var(--vlak); border: 1px solid var(--rand); justify-self: start; border-bottom-left-radius: 4px; }
+.bericht.claude p { margin: 0 0 8px; } .bericht.claude p:last-child { margin: 0; }
+.bericht.claude ul { margin: 4px 0 8px; padding-left: 20px; }
+.voorbeelden { display: flex; flex-wrap: wrap; gap: 6px; }
+.voorbeelden button { border: 1px solid var(--rand); background: var(--vlak); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; cursor: pointer; color: var(--inkt-2); text-align: left; }
+.invoer { display: flex; gap: 8px; margin-top: 12px; position: sticky; bottom: 0; background: var(--grond); padding-block: 8px calc(8px + env(safe-area-inset-bottom, 0px)); }
+.invoer textarea { flex: 1; min-width: 0; resize: none; border: 1px solid var(--rand); border-radius: 10px; padding: 10px 12px; background: var(--vlak); color: var(--inkt); min-height: 46px; max-height: 160px; }
+.uitleg { font-size: 13px; color: var(--inkt-3); }
+
+/* Feedback */
+form.fb { display: grid; gap: 14px; }
+form.fb label { font-weight: 600; font-size: 14px; display: block; margin-bottom: 6px; }
+form.fb textarea { width: 100%; border: 1px solid var(--rand); border-radius: 10px; padding: 10px 12px; min-height: 80px; background: var(--vlak); color: var(--inkt); }
+.scores { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; }
+.scores button { border: 1px solid var(--rand); background: var(--vlak); border-radius: 8px; padding: 8px 0; font-family: var(--f-data); cursor: pointer; color: var(--inkt); }
+.scores button[aria-pressed="true"] { background: var(--nacht); color: #fff; border-color: var(--nacht); }
+
+/* Vergelijken + profiel */
+.tabelwrap { overflow-x: auto; background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { padding: 9px 12px; border-bottom: 1px solid var(--rand); text-align: left; vertical-align: top; }
+th { font-size: 12.5px; color: var(--inkt-3); font-weight: 600; white-space: nowrap; }
+td.n { font-family: var(--f-data); white-space: nowrap; }
+.md { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 4px 18px 14px; overflow-wrap: anywhere; min-width: 0; }
+.md h1 { font-size: 20px; margin-top: 14px; } .md h2 { font-size: 17px; margin-top: 22px; } .md h3 { font-size: 15px; }
+.md table { font-size: 13.5px; } .md .tw { overflow-x: auto; }
+.md blockquote { margin: 10px 0; padding: 8px 12px; background: var(--accent-zacht); border-radius: 8px; color: var(--inkt-2); }
+.md code { font-family: var(--f-data); font-size: 12.5px; }
+.sectiekop { font-size: 15px; margin: 22px 0 8px; }
+.fbl { display: grid; gap: 8px; }
+.fbl .kaart { font-size: 14px; }
+@media (max-width: 560px) {
+  .merk span { display: none; }
+  h1 { font-size: 20px; }
+  .scores { grid-template-columns: repeat(5, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<header class="balk gutter">
+  <div class="kolom">
+    <a class="merk" href="#rapporten">Invest<span>onderzoek op vraag</span></a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="#rapporten" id="nav-rapporten">Rapporten</a>
+      <a href="#profiel" id="nav-profiel">Profiel</a>
+    </nav>
+  </div>
+</header>
+
+<main class="gutter"><div class="kolom" id="inhoud">
+  <p class="sub">Rapporten laden…</p>
+</div></main>
+
+<script>
+(() => {
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const vet = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\[\[(.+?)\|(.+?)\]\]/g, "$1");
+  const getal = (v, e = "") => v == null ? "–" : (Number.isInteger(v) ? v.toLocaleString("nl-BE") : v.toLocaleString("nl-BE", { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + (e ? " " + e : "");
+  const datum = d => { try { return new Date(d + "T12:00:00").toLocaleDateString("nl-BE", { day: "numeric", month: "long", year: "numeric" }); } catch { return d; } };
+  const opslag = {
+    lees(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+    schrijf(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+  };
+  const ERNST = { nogo: "No-go", hoog: "Hoog", middel: "Middel", info: "Info" };
+
+  let manifest = null;
+  const cap = {};
+  const kanUse = window.claude && typeof window.claude.use === "function";
+  for (const n of ["sample", "db", "downloads"]) cap[n] = kanUse ? window.claude.use(n).catch(() => null) : Promise.resolve(null);
+
+  async function laadManifest() {
+    if (manifest) return manifest;
+    const r = await fetch("manifest.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("manifest " + r.status);
+    manifest = await r.json();
+    return manifest;
+  }
+
+  function zetNav(naam) {
+    for (const id of ["rapporten", "profiel"]) {
+      const a = $("#nav-" + id);
+      if (id === naam) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    }
+  }
+
+  // ------------------------------------------------------------ overzicht
+  function oordeelHtml(i) {
+    const k = (i.oordeel || "").split(" ")[0];
+    return `<span class="oordeel ${esc(k)}">${esc(i.oordeel)}${i.score ? `<small>score ${i.score}/10</small>` : ""}</span>`;
+  }
+  async function toonOverzicht() {
+    zetNav("rapporten");
+    const el = $("#inhoud");
+    let m;
+    try { m = await laadManifest(); } catch (e) { el.innerHTML = `<p class="status fout">De rapportenlijst kon niet geladen worden. Herlaad de pagina.</p>`; return; }
+    const perTicker = {};
+    for (const r of m.rapporten) (perTicker[r.ticker] ||= []).push(r);
+    const groepen = Object.values(perTicker).map(l => l.sort((a, b) => b.datum.localeCompare(a.datum)));
+    groepen.sort((a, b) => b[0].datum.localeCompare(a[0].datum));
+    if (!groepen.length) {
+      el.innerHTML = `<h1>Rapporten</h1><div class="kaart leeg">Nog geen rapporten. Start in Claude Code een sessie in het Invest-project en typ <code>analyseer &lt;naam of ticker&gt;</code>.</div>`;
+      return;
+    }
+    el.innerHTML = `<h1>Rapporten</h1><p class="sub">${m.rapporten.length} rapport${m.rapporten.length === 1 ? "" : "en"} · nieuwste eerst</p><div class="lijst">` +
+      groepen.map(l => {
+        const i = l[0];
+        const vlaggen = i.rode_vlaggen.filter(v => v.ernst !== "info");
+        return `<a class="kaart" href="#r-${esc(i.id)}">
+          <div class="k-naam">${esc(i.naam)}<span class="k-ticker">${esc(i.ticker)}</span></div>
+          ${oordeelHtml(i)}
+          <div class="k-meta">${datum(i.datum)}${i.sector ? " · " + esc(i.sector) : ""}${l.length > 1 ? ` · ${l.length - 1} eerder rapport${l.length > 2 ? "en" : ""}` : ""}</div>
+          <div class="k-reden">${vet(i.reden)}</div>
+          <div class="k-onder">${i.defensief ? `<span class="chip def">Defensief</span>` : ""}${vlaggen.map(v => `<span class="chip ${esc(v.ernst)}">${esc(ERNST[v.ernst] || v.ernst)}${v.regel ? " · " + esc(v.regel) : ""}</span>`).join("")}${!vlaggen.length ? `<span class="chip">Geen rode vlaggen</span>` : ""}</div>
+        </a>`;
+      }).join("") + `</div>`;
+  }
+
+  // ------------------------------------------------------------ rapport
+  let actief = null;
+  async function toonRapport(id, tab) {
+    zetNav("rapporten");
+    const el = $("#inhoud");
+    let m;
+    try { m = await laadManifest(); } catch { el.innerHTML = `<p class="status fout">Kon de rapportenlijst niet laden.</p>`; return; }
+    const r = m.rapporten.find(x => x.id === id);
+    if (!r) { el.innerHTML = `<p class="status fout">Dit rapport bestaat niet (meer). <a href="#rapporten">Terug naar de lijst</a>.</p>`; return; }
+    const zelfde = m.rapporten.filter(x => x.ticker === r.ticker);
+    actief = r;
+    el.innerHTML = `
+      <div class="rbalk">
+        <a class="terug" href="#rapporten">← Rapporten</a>
+        ${zelfde.length > 1 ? `<a class="knop" href="#v-${esc(r.ticker.replace(/[^A-Za-z0-9-]/g, "-"))}">Vergelijk ${zelfde.length}</a>` : ""}
+        <button class="knop" id="pdf" type="button" ${r.pdf ? "" : "disabled"}>PDF downloaden</button>
+      </div>
+      <div class="status" id="pdf-status" role="status"></div>
+      <div class="tabs" role="tablist">
+        <button role="tab" id="t-rapport" aria-selected="true" type="button">Rapport</button>
+        <button role="tab" id="t-vragen" aria-selected="false" type="button">Vragen</button>
+        <button role="tab" id="t-feedback" aria-selected="false" type="button">Feedback</button>
+      </div>
+      <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>
+      <section id="p-vragen" hidden></section>
+      <section id="p-feedback" hidden></section>`;
+    const tabs = ["rapport", "vragen", "feedback"];
+    const kies = t => {
+      for (const n of tabs) { $("#t-" + n).setAttribute("aria-selected", n === t); $("#p-" + n).hidden = n !== t; }
+      if (t === "vragen") bouwVragen(r); if (t === "feedback") bouwFeedback(r);
+      try { sessionStorage.setItem("tab", t); } catch {}
+    };
+    for (const n of tabs) $("#t-" + n).addEventListener("click", () => kies(n));
+    $("#pdf").addEventListener("click", () => downloadPdf(r));
+    laadRapportHtml(r);
+    if (tab && tab !== "rapport") kies(tab);
+  }
+
+  async function laadRapportHtml(r) {
+    const host = $("#rapport-host"), st = $("#r-status");
+    try {
+      const res = await fetch(r.html);
+      if (!res.ok) throw new Error(res.status);
+      const doc = new DOMParser().parseFromString(await res.text(), "text/html");
+      const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("\n")
+        .replace(/:root/g, ":host").replace(/(^|[\s,}])html\s*\{/g, "$1.rb {").replace(/(^|[\s,}])body\s*\{/g, "$1.rb {");
+      const schaduw = host.shadowRoot || host.attachShadow({ mode: "open" });
+      schaduw.innerHTML = `<style>${css}\n:host{display:block}.rb{background:transparent}.kop{border-radius:12px}.pagina{padding-left:0;padding-right:0}.kop .pagina{padding-left:16px;padding-right:16px}</style><div class="rb">${doc.body.innerHTML}</div>`;
+      // Interne links (#bron-3, #cijfers) binnen het rapport afhandelen; de adresbalk-hash blijft voor de app.
+      schaduw.addEventListener("click", e => {
+        const a = e.target.closest("a[href^='#']");
+        if (!a) return;
+        e.preventDefault();
+        const doel = schaduw.getElementById(a.getAttribute("href").slice(1));
+        if (!doel) return;
+        if (doel.tagName === "DETAILS") doel.open = true;
+        doel.closest("details")?.setAttribute("open", "");
+        doel.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      st.textContent = "";
+    } catch (e) {
+      st.textContent = "Het rapport kon niet geladen worden. Herlaad de pagina.";
+      st.classList.add("fout");
+    }
+  }
+
+  async function downloadPdf(r) {
+    const st = $("#pdf-status");
+    const dl = await cap.downloads;
+    if (!dl) { st.textContent = "Downloaden kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; return; }
+    try {
+      st.textContent = "PDF ophalen…";
+      const blob = await (await fetch(r.pdf)).blob();
+      await dl.save({ filename: `${r.naam.replace(/[^A-Za-z0-9 ._-]/g, "")} ${r.datum}.pdf`, data: blob });
+      st.textContent = "PDF bewaard.";
+    } catch (e) {
+      st.textContent = e?.code === "declined" ? "Download geannuleerd." : "Downloaden lukte niet. Probeer opnieuw.";
+    }
+  }
+
+  // ------------------------------------------------------------ vragen
+  const VOORBEELDEN = [
+    "Waarom is de score niet hoger?",
+    "Leg de rode vlaggen eenvoudig uit.",
+    "Wat moet er gebeuren voor dit een koopadvies wordt?",
+    "Wanneer zou ik moeten verkopen als ik het bezit?",
+  ];
+  const context = {};
+  async function bouwVragen(r) {
+    const p = $("#p-vragen");
+    if (p.dataset.klaar === r.id) return;
+    p.dataset.klaar = r.id;
+    const sleutel = "chat:" + r.id;
+    let gesprek = opslag.lees(sleutel, []);
+    p.innerHTML = `
+      <p class="uitleg">Claude antwoordt op basis van dit rapport, het werkdossier en de teamreview. Voor nieuw onderzoek: vraag het in Claude Code (bv. "update ${esc(r.ticker)}").</p>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <div class="voorbeelden" id="vb"></div>
+      <form class="invoer" id="vf"><label for="vraag" hidden>Je vraag</label><textarea id="vraag" rows="1" placeholder="Stel een vraag over dit rapport…"></textarea><button class="knop hoofd" type="submit" id="stuur">Vraag</button></form>
+      <div class="status" id="v-status" role="status"></div>
+      ${gesprek.length ? `<button class="knop" type="button" id="wis" style="margin-top:6px">Gesprek wissen</button>` : ""}`;
+    const chat = $("#chat"), vb = $("#vb"), st = $("#v-status");
+    const teken = () => {
+      chat.innerHTML = gesprek.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("");
+      vb.innerHTML = gesprek.length ? "" : VOORBEELDEN.map(v => `<button type="button">${esc(v)}</button>`).join("");
+      vb.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { $("#vraag").value = b.textContent; vraag(); }));
+    };
+    const sample = await cap.sample;
+    if (!sample) { st.textContent = "Vragen stellen kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; $("#stuur").disabled = true; }
+    teken();
+    $("#wis")?.addEventListener("click", () => { gesprek = []; opslag.schrijf(sleutel, gesprek); p.dataset.klaar = ""; bouwVragen(r); });
+    let bezig = false;
+    async function vraag() {
+      const t = $("#vraag").value.trim();
+      if (!t || bezig || !sample) return;
+      bezig = true; $("#stuur").disabled = true; $("#vraag").value = "";
+      gesprek.push({ role: "user", content: t });
+      teken();
+      const bubbel = document.createElement("div");
+      bubbel.className = "bericht claude"; bubbel.textContent = "Even nadenken…";
+      chat.appendChild(bubbel);
+      st.textContent = ""; st.classList.remove("fout");
+      try {
+        if (!context[r.id]) context[r.id] = await (await fetch(r.vraag)).text();
+        const instructie = `Je bent de hoofdanalist van een klein team dat beleggingsrapporten maakt voor één persoon: een beginnende Belgische belegger. Antwoord in het Nederlands, kort en direct, in gewone taal (leg vaktermen uit). Baseer je ENKEL op het rapport, het werkdossier en de teamreview hieronder. Verzin niets. Staat het antwoord er niet in, zeg dat eerlijk en stel voor om in Claude Code "update ${r.ticker}" of een gerichte onderzoeksvraag te stellen. Verwijs naar bronnen als [n], met n het volgnummer van de bron in de lijst "bronnen" van het rapport (eerste = 1). Maak duidelijk wat een feit is en wat een mening of inschatting. Dit is geen gereglementeerd financieel advies.\n\nRAPPORT, WERKDOSSIER EN REVIEW (JSON):\n${context[r.id]}`;
+        const berichten = gesprek.map((b, i) => i === 0 ? { role: "user", content: instructie + "\n\nEERSTE VRAAG: " + b.content } : b);
+        const { text, truncated } = await sample(berichten, { cache: false, onText: ({ text }) => { bubbel.innerHTML = opmaak(text); } });
+        gesprek.push({ role: "assistant", content: text + (truncated ? "\n\n(Antwoord afgebroken — vraag gerust verder.)" : "") });
+        opslag.schrijf(sleutel, gesprek);
+      } catch (e) {
+        gesprek.pop();
+        $("#vraag").value = t;
+        st.classList.add("fout");
+        st.textContent = e?.code === "not_granted" ? "Je gaf geen toestemming om Claude te gebruiken op deze pagina." :
+          e?.code === "rate_limited" ? "Je gebruikslimiet is (even) bereikt. Probeer later opnieuw." : "Er ging iets mis. Probeer opnieuw.";
+      }
+      bezig = false; $("#stuur").disabled = !sample;
+      teken();
+    }
+    $("#vf").addEventListener("submit", e => { e.preventDefault(); vraag(); });
+    $("#vraag").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); vraag(); } });
+  }
+  function opmaak(t) {
+    try { return window.marked ? window.marked.parse(esc(t).replace(/&gt;/g, ">")) : esc(t).replace(/\n/g, "<br>"); }
+    catch { return esc(t).replace(/\n/g, "<br>"); }
+  }
+
+  // ------------------------------------------------------------ feedback
+  async function bouwFeedback(r) {
+    const p = $("#p-feedback");
+    if (p.dataset.klaar === r.id) return;
+    p.dataset.klaar = r.id;
+    p.innerHTML = `
+      <form class="fb kaart" id="fbf">
+        <p class="uitleg" style="margin:0">Je feedback wordt bewaard. Claude leest ze bij de volgende sessie, noteert ze en stelt waar nodig een aanpassing van je profiel voor.</p>
+        <div><label id="sc-l">Score voor dit rapport (1–10)</label><div class="scores" role="group" aria-labelledby="sc-l">${Array.from({ length: 10 }, (_, i) => `<button type="button" aria-pressed="false" data-s="${i + 1}">${i + 1}</button>`).join("")}</div></div>
+        <div><label for="fb-extra">Wat moet extra onderzocht worden?</label><textarea id="fb-extra" placeholder="Bv. meer over de grootste deelnemingen…"></textarea></div>
+        <div><label for="fb-nutteloos">Wat was nutteloos?</label><textarea id="fb-nutteloos"></textarea></div>
+        <div><label for="fb-opm">Andere opmerkingen</label><textarea id="fb-opm"></textarea></div>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="knop hoofd" type="submit" id="fb-ok">Feedback bewaren</button><span class="status" id="fb-status" role="status"></span></div>
+      </form>`;
+    let score = null;
+    const zetScore = s => { score = s; p.querySelectorAll(".scores button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.s === s))); };
+    p.querySelectorAll(".scores button").forEach(b => b.addEventListener("click", () => zetScore(+b.dataset.s)));
+    const st = $("#fb-status");
+    const db = await cap.db;
+    if (!db) { st.textContent = "Bewaren kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; $("#fb-ok").disabled = true; return; }
+    const ref = db.doc("feedback/" + r.id);
+    try {
+      const snap = await ref.get();
+      if (snap.exists) {
+        const d = snap.data();
+        if (d.score) zetScore(d.score);
+        $("#fb-extra").value = d.extra || ""; $("#fb-nutteloos").value = d.nutteloos || ""; $("#fb-opm").value = d.opmerking || "";
+        st.textContent = d.verwerkt ? "Eerdere feedback is al verwerkt door Claude." : "Je eerdere feedback is geladen.";
+      }
+    } catch { st.textContent = "Eerdere feedback kon niet geladen worden."; }
+    $("#fbf").addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!score) { st.textContent = "Kies eerst een score."; return; }
+      $("#fb-ok").disabled = true; st.textContent = "Bewaren…";
+      try {
+        await ref.set({ rapport: r.id, ticker: r.ticker, naam: r.naam, datum: r.datum, score,
+          extra: $("#fb-extra").value.trim(), nutteloos: $("#fb-nutteloos").value.trim(), opmerking: $("#fb-opm").value.trim(),
+          bijgewerkt: new Date().toISOString(), verwerkt: false });
+        st.textContent = "Bewaard. Claude verwerkt dit bij de volgende sessie.";
+      } catch (e) { st.textContent = "Bewaren lukte niet. Probeer opnieuw."; }
+      $("#fb-ok").disabled = false;
+    });
+  }
+
+  // ------------------------------------------------------------ vergelijken
+  async function toonVergelijk(tk) {
+    zetNav("rapporten");
+    const el = $("#inhoud");
+    const m = await laadManifest();
+    const l = m.rapporten.filter(x => x.ticker.replace(/[^A-Za-z0-9-]/g, "-") === tk).sort((a, b) => b.datum.localeCompare(a.datum));
+    if (!l.length) { el.innerHTML = `<p class="status fout">Geen rapporten gevonden. <a href="#rapporten">Terug</a>.</p>`; return; }
+    const v = l[0].valuta || "";
+    const rij = (n, f, cls = "") => `<tr><th>${n}</th>${l.map(i => `<td class="${cls}">${f(i)}</td>`).join("")}</tr>`;
+    el.innerHTML = `<div class="rbalk"><a class="terug" href="#r-${esc(l[0].id)}">← ${esc(l[0].naam)}</a></div>
+      <h1>${esc(l[0].naam)}: rapporten vergelijken</h1><p class="sub">${l.length} rapporten, nieuwste links</p>
+      <div class="tabelwrap"><table><tbody>
+      ${rij("Datum", i => `<a href="#r-${esc(i.id)}">${datum(i.datum)}</a>`)}
+      ${rij("Oordeel", i => oordeelHtml(i))}
+      ${rij("Koers", i => getal(i.koers_nu, v), "n")}
+      ${rij("Koopzone", i => i.koopzone ? `${getal(i.koopzone.van)} – ${getal(i.koopzone.tot, v)}` : "–", "n")}
+      ${rij("Koersdoel", i => getal(i.koersdoel, v), "n")}
+      ${rij("Intrinsieke waarde", i => getal(i.intrinsieke_waarde, v), "n")}
+      ${rij("Rode vlaggen", i => i.rode_vlaggen.filter(x => x.ernst !== "info").map(x => esc(x.titel)).join("<br>") || "–")}
+      ${rij("Reden", i => vet(i.reden))}
+      </tbody></table></div>`;
+  }
+
+  // ------------------------------------------------------------ profiel
+  async function toonProfiel() {
+    zetNav("profiel");
+    const el = $("#inhoud");
+    el.innerHTML = `<h1>Profiel</h1><p class="sub">Zo kent het team je. Wijzigingen stelt Claude eerst voor; jij beslist.</p>
+      <h2 class="sectiekop">Openstaande voorstellen</h2><div class="md" id="md-v">Laden…</div>
+      <h2 class="sectiekop">Feedback die nog verwerkt moet worden</h2><div class="fbl" id="fb-lijst"><p class="status">Laden…</p></div>
+      <h2 class="sectiekop">Je profiel</h2><div class="md" id="md-p">Laden…</div>`;
+    const md = async (pad, doel) => {
+      try {
+        const t = await (await fetch(pad, { cache: "no-store" })).text();
+        $(doel).innerHTML = window.marked ? window.marked.parse(t) : `<pre>${esc(t)}</pre>`;
+        $(doel).querySelectorAll("table").forEach(tb => { const w = document.createElement("div"); w.className = "tw"; tb.replaceWith(w); w.appendChild(tb); });
+      } catch { $(doel).textContent = "Kon niet geladen worden."; }
+    };
+    md("profiel/voorstellen.md", "#md-v");
+    md("profiel/PROFIEL.md", "#md-p");
+    const db = await cap.db, lijst = $("#fb-lijst");
+    if (!db) { lijst.innerHTML = `<p class="status">Niet beschikbaar in deze weergave.</p>`; return; }
+    try {
+      const q = await db.collection("feedback").where("verwerkt", "==", false).get();
+      const docs = q.docs.map(d => d.data());
+      lijst.innerHTML = docs.length ? docs.map(d => `<div class="kaart"><strong>${esc(d.naam)}</strong> · ${datum(d.datum)} · score ${d.score}/10${d.extra ? `<br>Extra: ${esc(d.extra)}` : ""}${d.nutteloos ? `<br>Nutteloos: ${esc(d.nutteloos)}` : ""}${d.opmerking ? `<br>${esc(d.opmerking)}` : ""}</div>`).join("")
+        : `<p class="status">Geen openstaande feedback.</p>`;
+    } catch { lijst.innerHTML = `<p class="status">Kon niet geladen worden.</p>`; }
+  }
+
+  // ------------------------------------------------------------ routering
+  function route() {
+    const h = location.hash.slice(1);
+    window.scrollTo(0, 0);
+    if (h === "profiel") return toonProfiel();
+    if (h.startsWith("r-")) return toonRapport(h.slice(2), (() => { try { return sessionStorage.getItem("tab"); } catch { return null; } })());
+    if (h.startsWith("v-")) return toonVergelijk(h.slice(2));
+    return toonOverzicht();
+  }
+  window.addEventListener("hashchange", route);
+  route();
+})();
+</script>

@@ -1,0 +1,60 @@
+{
+ "rapporten": [
+  {
+   "id": "SOF-BR-2026-11-08",
+   "ticker": "SOF.BR",
+   "naam": "Sofina",
+   "type": "aandeel",
+   "datum": "2026-11-08",
+   "sector": "Investeringsholding (durf- en groeikapitaal)",
+   "defensief": false,
+   "valuta": "EUR",
+   "oordeel": "Afwachten",
+   "score": 4,
+   "reden": "Regel **R1 is geraakt**: een consortium van drie vennootschappen rond de familie Boël heeft samen **54,6%**. De rest is degelijk maar niet uitzonderlijk: verwacht rendement ±2% per jaar, 92% van de portefeuille is niet-beursgenoteerd en de AI-uitverkoop van 5 november raakt de waarde nog met vertraging.",
+   "koers_nu": 267.6,
+   "koersdoel": 290,
+   "koopzone": {
+    "van": 220,
+    "tot": 240
+   },
+   "intrinsieke_waarde": 326,
+   "rode_vlaggen": [
+    {
+     "ernst": "nogo",
+     "regel": "R1",
+     "titel": "Consortium rond de familie Boël controleert 54,6%"
+    },
+    {
+     "ernst": "middel",
+     "regel": "R6",
+     "titel": "Kapitaalverhoging onder de intrinsieke waarde (okt 2025)"
+    },
+    {
+     "ernst": "info",
+     "regel": "R5",
+     "titel": "Insiders: kleine aankopen bestuurders; CEO en leiders verkopen optie-aandelen"
+    },
+    {
+     "ernst": "info",
+     "regel": "R4",
+     "titel": "Geen rechtszaken tegen Sofina gevonden"
+    }
+   ],
+   "review": {
+    "feiten_gecontroleerd": 158,
+    "feiten_correct": 135,
+    "open_punten": [
+     "Alle fouten uit de controle (23 van 158 feiten) zijn verbeterd; geen kritieke opmerkingen meer.",
+     "De uitslag van de AVA van 13-5-2026 (nieuwe bestuurders) is niet gevonden; benoemingen staan als 'voorgedragen'.",
+     "Mogelijke renteverhoging door de Amerikaanse centrale bank in december: enkel via secundaire bronnen gevonden, niet opgenomen.",
+     "Enkele feiten steunen op secundaire bronnen (Wikipedia voor de SpaceX-beursgang, VZ VermögensZentrum voor Exor).",
+     "De kritische belegger vindt de AI-gevoeligheid nog licht onderschat (Sofina publiceert geen waarde per bedrijf), maar houdt het bij score 4/10."
+    ]
+   },
+   "html": "rapporten/SOF.BR/2026-11-08/rapport.html",
+   "pdf": "rapporten/SOF.BR/2026-11-08/rapport.pdf",
+   "vraag": "vraag/SOF-BR-2026-11-08.json"
+  }
+ ]
+}
