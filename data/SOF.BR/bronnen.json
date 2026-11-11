@@ -1,5 +1,25 @@
 [
   {
+    "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html",
+    "titel": "Anthropic sets IPO price range of 70 to 78 dollar",
+    "uitgever": "CNBC",
+    "datum": "2026-11-10",
+    "type": "nieuws",
+    "samenvatting": "Prijsvork 70-78 dollar, 825 mln aandelen, tot 1,405 biljoen (fully diluted); pricing 18-11, handel 19-11 (bronnen); omzet 9m 33,24 mld.",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.devdiscourse.com/article/international/4002927-us-stocks-nasdaq-rebounds-as-chip-stocks-recover-from-steep-losses",
+    "titel": "Nasdaq rebounds as chip stocks recover (Reuters)",
+    "uitgever": "Devdiscourse/Reuters",
+    "datum": "2026-11-06",
+    "type": "nieuws",
+    "samenvatting": "Herstel 6-11; uitverkoop 5-11 na overwinning Democraten midterms (datacenters, AI-regels); 78% kans Fed-verhoging december.",
+    "hash": "506d47d2224bdc5b",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://tastytrade.com/learn/markets/industry/anthropic-ipo",
     "titel": "Anthropic IPO 2026: date, valuation & timeline",
     "uitgever": "tastytrade",
