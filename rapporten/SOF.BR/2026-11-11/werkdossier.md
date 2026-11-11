@@ -181,3 +181,32 @@
 | Lancksweert, Tombeur, Van Waeyenberge, Lagache, Koopman schreven in op claimemissie à €223 (sept. 2025) | nrs 33, 16, 27, 12, 23 | ✅ |
 | 5-10-2026: UFB kocht buiten de beurs 480.653 aandelen van SPI en 201.099 van MIC à €250,51 (samen ≈ €170,8 mln); interne verschuiving binnen het consortium, totaal consortium ongewijzigd | nrs 46, 47, 50, 55 | ✅ |
 | Transparantie 28-9-2026 (sofinagroup.com): een vermogensbeheerder overschreed 3% (2,24% aandelen + 0,77% instrumenten); noemer 36.696.428 → **niet in rapport** (profiel §6: geen posities van grote fondsen); wel bevestiging dat noemer ongewijzigd 36.696.428 | transp_2026-09-28 p.1 | — | ✅ |
+
+### Feitenlog D — rendement, korting, actualiteit, keten, concurrenten
+| Feit | Citaat / tabelregel | Bron (rang) | Status |
+|---|---|---|---|
+| Gemiddeld jaarrendement NAV (div. herbelegd) t/m 2025: 1j −0,8% · 3j 4,2% · 4j −1,4% · 5j 4,1% · 7j 7,9% · 10j 8,4%; MSCI ACWI (EUR) 7,9/16,8/8,5/12,1/13,5/10,8; Euro Stoxx 50 21,2/18,0/10,4/12,9/12,5/8,5 | grafiek "Average annual return" (visueel nagekeken) | JV25 p.38 (A) | ✅ |
+| Korting/premie op jaareinde (koers vs NAV): 2021 +28% · 2022 −26% · 2023 −18% · 2024 −30% · 2025 −19% · 30-6-2026 −32% | grafiek "Sofina Price & NAV per share" | pres HJ26 p.6 (A) + eigen berekening slotkoersen Yahoo | ✅ |
+| Slotkoers per jaar: 2021 432,0 · 2022 205,6 · 2023 225,4 · 2024 218,4 · 2025 247,0; 10-11-2026 270,40; 30-6-2026 222,6 | koers.json; HJ26 p.10 (222,6) | Yahoo (C) + HJ26 (A) | ✅ |
+| PB HJ26: NAV +6,8% in 6 mnd; "2026 ons meest actieve jaar ooit voor Sofina Private Funds"; "macro-economische omgeving voor meer mature ondernemingen blijft uitdagend" | citaten | PB 2-9-2026 NL p.1–2 (A) | ✅ |
+| Persbericht 26-3-2026: Lancksweert met pensioen (leeftijdsgrens) na AV 13-5-2026; Strömberg voorzitter; Soubie vicevoorzitter; Nicolas Boël ontslag om gezondheidsredenen | citaat | PB 26-3-2026 (A) | ✅ |
+| Art. 15: 36.696.428 stemrechten (7-10-2025), geen converteerbare instrumenten | citaat | PB 7-10-2025 (A) | ✅ |
+| Inkoopprogramma aangekondigd 3-4-2026 (voorwaarden niet gevonden); programma okt. 2025 max €26,1 mln om opties te dekken | MarketScreener-overnames persberichten | MarketScreener (C) — origineel sofinagroup.com 404 | ⚠️ enkel C |
+| Anthropic: prijsvork $70–78, 825 mln aandelen, prijszetting 18-11, handel 19-11-2026 (Nasdaq: ANT), tot $1,4 bln volledig verwaterd | CNBC 10-11-2026 | CNBC (B), TechCrunch (C) | ✅ |
+| SpaceX (genoteerd sinds juni 2026): Q3 omzet ≈$14,6 mld, nettowinst $4,4 mld, eerste operationele winst | CNBC/Fortune 20-10-2026 | CNBC (B), Fortune (B) | ✅ |
+| Nasdaq −5,5% op 5-11-2026 (slechtste dag in ~19 maanden), correctie; aanleiding: Democratische winst midterms, vrees voor rem op AI-datacenters | CNBC 5-11-2026 | CNBC (B), Axios (B) | ✅ |
+| ByteDance: General Atlantic verkoopt deel aan $550 mld (feb. 2026, Reuters via SCMP); buyback 2025 >$330 mld; TikTok-VS-joint-venture sinds 22-1-2026 (Oracle, Silver Lake, MGX elk 15%, ByteDance 19,9%) | SCMP/CNBC | SCMP (B: Reuters overgenomen), CNBC (B) | ✅ |
+| Vinted 2025: omzet €1,1 mld (+38%), nettowinst €62 mln (−19%), vrije kasstroom €137 mln; secundaire transactie 27-4-2026 aan €8 mld waardering | persberichten Vinted | company.vinted.com (A) | ✅ |
+| Cognita: verkoop van belang Jacobs aan Blackstone/CVC (€6 mld) liep vast in 2025; Sofina ~13,4% belang, £270 mln geïnvesteerd in 2019 (volgens MandA) | MandA.be | MandA (C) — FT-origineel niet toegankelijk | ⚠️ C, als context |
+| ECB 29-10-2026: depositorente 2,50% ongewijzigd (verhoging +25 bp sept. 2026) | persbericht ECB | ECB (A) | ✅ |
+| Fed 28-10-2026: 3,75–4,00% ongewijzigd (verhoging sept.), 2 tegenstemmen voor verhoging | FOMC-statement | federalreserve.gov (A) | ✅ |
+| Inflatie eurozone okt. 2026 flash 4,0% (sept. 3,8%), energie +20,8%, België 5,2% | Eurostat 4-11-2026 | Eurostat (A) | ✅ |
+| EUR/USD ECB-referentie: 31-12-2024 1,0389 · 31-12-2025 1,1750 · 30-6-2026 1,1394 · 11-11-2026 1,1127 | eurofxref-hist | ECB (A) | ✅ |
+| Olie: Brent tot ≈$117 eind oktober door aanvallen op schepen in Hormuz (oorlog VS–Iran) | CNBC 30-10-2026 | CNBC (B), Euronews (B) | ✅ |
+| GBL 30-9-2026: NAV €99,21/aandeel, koers €71,10, korting 28,3%; LTV 4,1% | p.6/9 | gbl.com Q3 (A) | ✅ |
+| Brederode 30-6-2026: eigen vermogen €154,64/aandeel (+9,2% na uitkering), koers €104,60 | p.1–2 | brederode.eu (A) | ✅ |
+| Exor 30-6-2026: NAV/aandeel €157,9 (−3,9%), korting 57,6%, inkoop tot €500 mln | p.2/5 | exor.com (A) | ✅ |
+| Investor AB 30-9-2026: aangepaste NAV SEK 411/aandeel, schuldgraad 1,8% | rapportpagina | investorab.com (A, via zoekfragment) | ✅ |
+| Koersen 10-11-2026 (Yahoo): GBL 79,45 · Brederode 100,80 · Exor 74,30 · Investor B SEK 431,05 | Yahoo chart API | Yahoo (C) | ✅ |
+| Fiscaliteit: netto dividend €2,562 op €3,66 bruto (30% roerende voorheffing) | JV25 p.149 | JV25 (A) | ✅ |
+| Meerwaardebelasting 10% vanaf 1-1-2026, vrijstelling €10.000/jaar, fotomoment 31-12-2025 | FOD-pagina geblokkeerd (CAPTCHA); Bolero/Belfius FAQ | Bolero (C), Belfius (C) | ⚠️ C (FOD ❌) |
