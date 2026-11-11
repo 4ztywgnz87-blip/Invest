@@ -16,6 +16,25 @@
 
 **Algemene volgorde als iets geblokkeerd is**: (1) directe download met `tools/pdf.py`/`curl`, (2) de `web-fetch` agent, (3) dezelfde info bij een andere (officiële) bron, (4) WebSearch-snippets enkel als laatste redmiddel en altijd met de originele bron-URL. Noteer blokkades in het werkdossier en vul deze tabel aan.
 
+## Rangorde van bronnen (verplicht)
+`python3 tools/bronrang.py <url>` geeft de rang; `tools/bronnen.py voegtoe` en `tools/rapport.py controleer` tonen ze ook.
+
+| Rang | Wat | Gebruik |
+|---|---|---|
+| **A primair** | Het bedrijf zelf (verslagen, persberichten), toezichthouders, overheden, centrale banken, statistiekbureaus, beurzen, kredietbeoordelaars | Eerste keuze voor elk cijfer en elke officiële gebeurtenis |
+| **B kwaliteit** | Persagentschappen en kwaliteitspers (De Tijd, L'Echo, Reuters, AP, FT, Bloomberg, WSJ, CNBC, …) en erkende vakpers | Nieuws, context, citaten |
+| **C overig** | Andere media, brokers/banken (analyse), dataportalen, overgenomen artikels | Mag, maar zoek voor kerncijfers een A- of B-bron erbij |
+| **D zwak** | Wikipedia, doorgeef- en samenvattingssites (Devdiscourse, RTTNews, investingLive, Trading Economics, MSN, …) | **Enkel als aanwijzing.** Zoek het origineel. Lukt dat na 3 pogingen niet: label het als `inschatting` of laat het weg, en noteer het in de dekkingslijst |
+
+Vuistregels:
+- **Ga altijd één stap terug naar de oorsprong.** Citeert een site Reuters of AP → zoek het artikel bij Reuters/AP zelf (of bij een B-uitgever die het overnam). Citeert een artikel een persbericht of verslag → gebruik dat persbericht of verslag.
+- **Macrocijfers rechtstreeks bij de bron**: rente bij ECB/Fed, inflatie bij Eurostat/Statbel/BLS, wisselkoers bij de ECB-referentiekoers. Niet via een nieuwssite of Trading Economics.
+- **Basis voor nieuws = De Tijd/L'Echo en Reuters.** Elke analyse zoekt daar uitdrukkelijk (`site:tijd.be <bedrijf>`, `site:lecho.be`, `site:reuters.com`). Betaalmuur: titel + inleiding volstaan om het feit te vinden; bevestig het detail bij een andere A/B-bron.
+- De controle waarschuwt bij elke D-bron en bij feiten die enkel op een D-bron steunen. Een definitief rapport heeft er geen, of de reden staat in het werkdossier.
+
+## Dekkingslijst (verplicht)
+`python3 tools/dekking.py lijst --type <type> --regio <BE|NL|FR|DE|UK|US|JP> [--snel]` geeft de lijst met bronnen die voor dit type en land **zeker** nagekeken moeten worden. Plak ze in het werkdossier en vul per rij in: ✅ nagekeken (wat gevonden) · ➖ niets gevonden / niet van toepassing (reden, zoektermen, talen) · ❌ geblokkeerd (welk alternatief gebruikt). `python3 tools/dekking.py controleer <werkdossier.md>` en `tools/rapport.py controleer` geven een fout zolang er een ⬜ staat of een notitie ontbreekt. Voeg zelf rijen toe voor bronnen die specifiek zijn voor dit bedrijf (sectorregulator, belangrijke deelneming, …).
+
 ## Primaire bronnen per regio
 **België**
 - Jaarverslagen/persberichten: investor-relationssite van het bedrijf.
@@ -33,6 +52,15 @@
 - API: `https://data.sec.gov/submissions/CIK##########.json`, `https://data.sec.gov/api/xbrl/companyfacts/CIK##########.json` (gestructureerde cijfers!).
 
 **Japan** — EDINET (yuho = jaarverslag), TDnet (persberichten), IR-site (vaak Engelse vertalingen).
+
+## Vaak vergeten (staan in de dekkingslijst)
+- **Verslag van de commissaris** (in het jaarverslag): voorbehoud of toelichtende paragraaf, kernpunten van de controle, wissel van revisor. Een voorbehoud of onverwachte wissel is een rode vlag.
+- **Kredietbeoordeling**: persberichten van S&P, Moody's, Fitch (rating, vooruitzicht, reden van wijziging).
+- **Gestructureerde jaarcijfers**: Europese bedrijven leggen hun jaarverslag neer in ESEF/XBRL-formaat (via de toezichthouder of filings.xbrl.org); VS via de SEC companyfacts-API. Handig om 5-jaarcijfers te controleren.
+- **Verslagen van de concurrenten zelf** voor de vergelijkingstabel (niet de cijfers van een dataportaal overnemen).
+- **Short-seller-onderzoek** (Hindenburg, Muddy Waters, Viceroy, Gotham, …): nooit een bron, wel een aanwijzing voor R2/R4. Zoek "<bedrijf> short seller report"; staat er iets, controleer de beweringen in primaire bronnen en vermeld het antwoord van het bedrijf. (Short-posities zelf blijven uitgesloten.)
+- **Sancties en regelgeving**: EU-sanctiekaart (sanctionsmap.eu), OFAC (VS), en de sectorregulator (CREG, EMA/FDA, ECB-bankentoezicht, …).
+- **Beleggersverenigingen**: VFB (België), VEB (Nederland) voor geschillen met aandeelhouders en vragen op de algemene vergadering.
 
 ## Koers & markt
 - Yahoo Finance via `tools/koers.py` (vermeld als bron "Yahoo Finance koersdata").

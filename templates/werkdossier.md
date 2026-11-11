@@ -26,9 +26,12 @@
 
 ## Identificatie
 - Ticker / beurs / ISIN / valuta:
-- Type:
+- Type / soort (eerste rapport · volledige update · snelle update):
 - Sector / defensief:
 - Vorig rapport:
+
+## Dekkingslijst
+<!-- plak hier de uitvoer van: python3 tools/dekking.py lijst --type <type> --regio <land> [--snel] -->
 
 ## Gelezen documenten
 | Document | Pagina's gelezen | Waar opgeslagen |
@@ -55,8 +58,8 @@
 
 ### Waardering (aannames)
 
-## Fact-check log
-| Feit | Bron 1 | Bron 2 | Status |
-|------|--------|--------|--------|
+## Feitenlog (vul aan tijdens het lezen; basis voor de fact-check)
+| Feit (zoals in het rapport) | Letterlijk citaat / tabelregel | Bron + pagina of URL + datum | Rang | 2e bron | Status |
+|------|------|------|------|------|------|
 
 ## Open vragen / blokkades

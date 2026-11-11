@@ -21,6 +21,8 @@ from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+import bronrang
+import dekking
 import grafiek
 from common import ROOT
 
@@ -91,12 +93,16 @@ def controleer_review(r: dict, c: "Controle", definitief: bool) -> None:
     if rv.get("status") != "afgerond":
         meld("review is nog niet afgerond (status ≠ 'afgerond')")
         return
-    if len(rondes) < 2:
-        c.fout("review: minstens 2 rondes nodig (onafhankelijk + samen opnieuw bekijken)")
+    snel = r.get("meta", {}).get("soort") == "snelle_update"
+    if not rondes or (len(rondes) < 2 and not snel):
+        c.fout("review: minstens 2 rondes nodig (onafhankelijk + samen opnieuw bekijken); 1 ronde mag enkel bij een snelle update")
         return
     laatste = rondes[-1].get("oordelen", {})
     ontbrekend = [n for n in REVIEWERS if n not in laatste]
-    if ontbrekend:
+    if snel:
+        if not laatste:
+            c.fout("review: een snelle update heeft minstens één reviewer nodig")
+    elif ontbrekend:
         c.fout(f"review: in de laatste ronde ontbreken {ontbrekend}")
     if "niet goedgekeurd" in laatste.values() and not rv.get("open_punten"):
         c.fout("review: een reviewer keurt niet goed, maar er staan geen open punten in het rapport")
@@ -147,7 +153,61 @@ def controleer_scoreopbouw(r: dict, c: "Controle", definitief: bool) -> None:
         c.fout("R1 geraakt maar score_opbouw heeft geen correctie met 'R1' in de naam")
 
 
-def controleer(r: dict, definitief: bool = True) -> Controle:
+def controleer_bronrang(r: dict, c: "Controle") -> None:
+    """Waarschuwt voor zwakke bronnen en voor nieuws zonder de afgesproken basis (De Tijd/L'Echo, Reuters)."""
+    bronnen = r.get("bronnen", [])
+    rangen = {b.get("id"): bronrang.rang(b) for b in bronnen}
+    for b in bronnen:
+        b["_rang"] = rangen[b.get("id")][0]
+    zwak = [b for b in bronnen if b["_rang"] == "D"]
+    for b in zwak:
+        c.let_op(f"zwakke bron [{b.get('id')}] {b.get('uitgever')}: {rangen[b.get('id')][1]} — zoek het origineel of een primaire bron")
+    enkel_zwak = []
+    for waar, b in _blokken(r):
+        for it in _items(b):
+            ids = it.get("bronnen") or []
+            if it.get("label") == "feit" and ids and all(rangen.get(i, ("C",))[0] == "D" for i in ids):
+                enkel_zwak.append(waar)
+    if enkel_zwak:
+        c.let_op(f"{len(enkel_zwak)} feit(en) steunen enkel op een zwakke bron: {', '.join(enkel_zwak[:6])}{' …' if len(enkel_zwak) > 6 else ''}")
+    nieuws = [b for b in bronnen if b.get("type") == "nieuws"]
+    if nieuws and not any(bronrang.is_basis(b) for b in bronnen):
+        c.let_op("geen enkele bron van De Tijd, L'Echo of Reuters (de afgesproken basis voor nieuws)")
+
+
+def controleer_soort(r: dict, c: "Controle") -> None:
+    m = r.get("meta", {})
+    soort = m.get("soort")
+    if soort not in (None, "volledig", "snelle_update"):
+        c.fout(f"meta.soort '{soort}' ongeldig (volledig | snelle_update)")
+    if soort != "snelle_update":
+        return
+    if not m.get("vorig_rapport"):
+        c.fout("snelle update zonder meta.vorig_rapport")
+    else:
+        try:
+            dagen = (dt.date.fromisoformat(m["datum"]) - dt.date.fromisoformat(m.get("basis_rapport") or m["vorig_rapport"])).days
+            if dagen > 90:
+                c.fout(f"snelle update: het laatste volledige rapport is {dagen} dagen oud (max 90) — maak een volledige update")
+        except (ValueError, KeyError):
+            c.fout("snelle update: meta.datum / meta.vorig_rapport / meta.basis_rapport moeten JJJJ-MM-DD zijn")
+    if not r.get("wijzigingen"):
+        c.fout("snelle update zonder 'wijzigingen' (wat is er veranderd?)")
+
+
+def controleer_dekking(map_: Path | None, c: "Controle", definitief: bool) -> None:
+    wd = map_ / "werkdossier.md" if map_ else None
+    if not wd or not wd.exists():
+        return
+    fouten, info = dekking.controleer(wd.read_text(encoding="utf-8"))
+    if fouten and "geen '## Dekkingslijst'" in fouten[0]:
+        c.let_op(fouten[0])
+        return
+    for f in fouten:
+        (c.fout if definitief else c.let_op)(f)
+
+
+def controleer(r: dict, definitief: bool = True, map_: Path | None = None) -> Controle:
     c = Controle()
     meta = r.get("meta", {})
     for k in ("ticker", "naam", "type", "datum"):
@@ -269,6 +329,9 @@ def controleer(r: dict, definitief: bool = True) -> Controle:
         c.let_op(f"{zonder_wat} kerncijfer(s) zonder 'wat' (uitleg onder de knop: wat is dit cijfer?)")
     if not r.get("bronnen"):
         c.fout("geen bronnen")
+    controleer_bronrang(r, c)
+    controleer_soort(r, c)
+    controleer_dekking(map_, c, definitief)
     controleer_review(r, c, definitief)
     return c
 
@@ -402,7 +465,7 @@ def main(argv=None):
     a = ap.parse_args(argv)
     pad = Path(a.json)
     r = json.loads(pad.read_text(encoding="utf-8"))
-    c = controleer(r, definitief=not a.concept)
+    c = controleer(r, definitief=not a.concept, map_=pad.parent)
     r["_concept"] = a.concept
     for w in c.waarsch:
         print(f"⚠️  {w}")

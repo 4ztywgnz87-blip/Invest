@@ -10,7 +10,9 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
     "ticker": "SOF.BR", "naam": "Sofina", "type": "aandeel",   // aandeel | etf | fonds | ipo
     "datum": "2026-11-08", "beurs": "Euronext Brussel", "isin": "BE0003717312",
     "valuta": "EUR", "sector": "Investeringsholding", "defensief": false,
-    "vorig_rapport": "2026-05-02"          // optioneel
+    "vorig_rapport": "2026-05-02",         // optioneel
+    "soort": "volledig",                   // volledig (standaard) | snelle_update (zie SKILL.md; dan ook:)
+    "basis_rapport": "2026-05-02"          // datum van het laatste volledige rapport (max 90 dagen oud)
   },
   "advies": {
     "oordeel": "Houden",                    // Kopen | Houden | Verkopen | Afwachten | Onvoldoende info
@@ -192,4 +194,6 @@ Schrijf de inhoud zo dat elk deel op zichzelf leesbaar is: een update wordt vaak
 Per onderdeel: punten zijn een `mening`, maar de uitleg verwijst naar de feiten in de secties. De scoreopbouw verschijnt automatisch onder het advies.
 
 ## Wat de controle afdwingt
-Scoreopbouw aanwezig en score klopt met de berekening; R1-correctie als R1 geraakt · Teamreview: ≥ 2 rondes, alle 3 reviewers in de laatste ronde, feiten_gecontroleerd ingevuld, open punten als een reviewer niet goedkeurt (anders enkel `bouw --concept`, met CONCEPT-markering) · Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.
+**Fouten** — Dekkingslijst in het werkdossier onvolledig (⬜ of notitie ontbreekt) · snelle update zonder vorig rapport, ouder dan 90 dagen of zonder `wijzigingen` · snelle update: minstens 1 reviewer in 1 ronde · kerncijfer met ongeldige `beoordeling` of zonder `beoordeling_uitleg`.
+**Waarschuwingen (wegwerken of reden noteren)** — bron van rang D · feit dat enkel op een D-bron steunt · geen enkele bron van De Tijd/L'Echo/Reuters · kerncijfer zonder `wat` · werkdossier zonder dekkingslijst.
+Verder: Scoreopbouw aanwezig en score klopt met de berekening; R1-correctie als R1 geraakt · Teamreview: ≥ 2 rondes, alle 3 reviewers in de laatste ronde, feiten_gecontroleerd ingevuld, open punten als een reviewer niet goedkeurt (anders enkel `bouw --concept`, met CONCEPT-markering) · Feit zonder bron · onbestaande bron-id · forum als bron · ontbrekende verplichte secties · scenario's niet Slecht/Normaal/Goed · score buiten 1–10 · R1 geraakt zonder rode vlag `R1` · aandeelhoudersverdeling ontbreekt · "onvoldoende info" met minder dan 3 zoekrondes · grafiek/tabel met verkeerd aantal waarden.

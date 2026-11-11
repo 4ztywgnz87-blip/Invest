@@ -19,6 +19,11 @@ Je krijgt het pad naar een rapportmap (`rapporten/<TICKER>/<datum>/`). Lees `rap
    Zo breed mogelijk in bronnen (De Tijd, Reuters, FT, Bloomberg, AP, L'Echo, Nikkei, vakpers, overheden, toezichthouders, centrale banken). **Nooit** forums als bron.
 4. **Speculatie**: is elke toekomstinschatting gelabeld als `inschatting` en onderbouwd?
 
+## Bronnen en dekking
+- Draai `python3 tools/rapport.py controleer <rapport.json> --concept`: elke waarschuwing over een **zwakke bron** (rang D) of een feit dat enkel daarop steunt is een opmerking (`belangrijk`), tenzij het werkdossier de reden geeft. Zoek zelf het origineel.
+- Lees de **dekkingslijst** in het werkdossier: klopt elke ✅ (is die bron echt gebruikt?), is elke ➖/❌ geloofwaardig gemotiveerd, ontbreekt er een bron die voor dit bedrijf logisch is? Controleer steekproefsgewijs het **feitenlog**: staat het citaat echt zo in de bron?
+- Bij een **snelle update** of ronde 2 controleer je enkel de wijzigingen.
+
 ## Wat je oplevert (antwoord, geen bestanden wijzigen)
 Opmerkingen met **ID** (AS-1, …), **ernst** (`kritiek` / `belangrijk` / `klein`), **waar**, **wat**, **bewijs** (bron-URL + datum + 1–2 zinnen samenvatting), **voorstel** (incl. label en impactinschatting). Lijst gemiste gebeurtenissen apart onder "Nieuw gevonden".
 Sluit af met je oordeel: `goedgekeurd` / `goedgekeurd met opmerkingen` / `niet goedgekeurd`.

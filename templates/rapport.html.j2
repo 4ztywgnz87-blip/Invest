@@ -69,7 +69,7 @@
   <div class="ticker">{{ r.meta.ticker }}{% if r.meta.beurs %} · {{ r.meta.beurs }}{% endif %}{% if r.meta.isin %} · {{ r.meta.isin }}{% endif %} · {{ r.meta.type|upper }}</div>
   {%- if r._concept %}<div style="display:inline-block;background:#fec84b;color:#101828;font-weight:700;font-size:12px;padding:2px 8px;border-radius:4px;margin:6px 0 2px">CONCEPT — nog niet volledig gereviewd</div>{% endif %}
   <h1>{{ r.meta.naam }}</h1>
-  <div class="sub">Rapport van {{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
+  <div class="sub">{{ 'Snelle update' if r.meta.soort == 'snelle_update' else 'Rapport' }} van {{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
 </div></header>
 
 <main class="pagina">
@@ -297,6 +297,7 @@
   <section class="pdf-blok kaart">
     <h2>Kwaliteitscontrole</h2>
     <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p>
+    {%- if r.meta.soort == 'snelle_update' %}<div class="kader info"><div class="t">Dit is een snelle update</div>Enkel koers, nieuws en officiële meldingen sinds het vorige rapport zijn nagekeken, met één controleronde. De volledige analyse staat in het rapport van {{ r.meta.basis_rapport or r.meta.vorig_rapport }}.</div>{% endif %}
     <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
     {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}
     {%- set ns = namespace(o=0, v=0, w=0) %}{% for rd in rv.rondes %}{% set ns.o = ns.o + (rd.opmerkingen or 0) %}{% set ns.v = ns.v + (rd.verwerkt or 0) %}{% set ns.w = ns.w + (rd.verworpen or 0) %}{% endfor %}
@@ -314,7 +315,7 @@
     <summary><h2>Bronnen <small>({{ r.bronnen|length }})</small></h2></summary>
     <ol class="bronnen">
       {%- for b in r.bronnen %}
-      <li id="bron-{{ b.id }}"><span class="type">{{ b.type or '' }}</span> {{ b.uitgever }} — {% if b.url %}<a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.titel }}</a>{% else %}{{ b.titel }}{% endif %}{% if b.document %} ({{ b.document }}){% endif %}{% if b.datum %}, {{ b.datum }}{% endif %}</li>
+      <li id="bron-{{ b.id }}"><span class="type">{{ b.type or '' }}</span>{% if b._rang == 'D' %} <span class="type zwak">zwakke bron</span>{% endif %} {{ b.uitgever }} — {% if b.url %}<a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.titel }}</a>{% else %}{{ b.titel }}{% endif %}{% if b.document %} ({{ b.document }}){% endif %}{% if b.datum %}, {{ b.datum }}{% endif %}</li>
       {%- endfor %}
     </ol>
   </details>

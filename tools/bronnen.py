@@ -21,6 +21,7 @@ import hashlib
 import re
 import sys
 
+import bronrang
 from common import read_json, session, ticker_dir, write_json
 
 TYPES = ("primair", "nieuws", "data", "analyse", "overig")
@@ -95,6 +96,10 @@ def voegtoe(ticker, url, titel, uitgever, datum, type_, samenvatting, inhoud_bes
     lijst.sort(key=lambda b: (b.get("datum") or ""), reverse=True)
     write_json(pad(ticker), lijst)
     print(("Bijgewerkt" if bestaand else "Toegevoegd") + f": {titel} ({u})")
+    r, reden = bronrang.rang(item)
+    print(f"Rang {r} — {reden}")
+    if r == "D":
+        print("⚠️  Zwakke bron: gebruik ze enkel als aanwijzing. Zoek het originele artikel of een primaire bron voor je dit als feit opneemt.")
 
 
 def main(argv=None):
@@ -122,7 +127,7 @@ def main(argv=None):
                 continue
             if q and q not in (b["titel"] + " " + b["samenvatting"]).lower():
                 continue
-            print(f'{b.get("datum") or "?":<10} [{b["type"]}] {b["uitgever"]}: {b["titel"]}\n    {b["samenvatting"]}\n    {b["url"]}')
+            print(f'{b.get("datum") or "?":<10} [{b["type"]} · {bronrang.rang(b)[0]}] {b["uitgever"]}: {b["titel"]}\n    {b["samenvatting"]}\n    {b["url"]}')
 
 
 if __name__ == "__main__":

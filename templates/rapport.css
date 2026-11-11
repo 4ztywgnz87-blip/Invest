@@ -297,3 +297,5 @@ ul.opbouw { list-style: disc; }
   .kort-oordeel, .prijzen, details.tegel[open] { border-color: #d0d5dd; }
   .oordeel, .pb-spoor, .pb-zone, .pb-streep, .pb-nu, .pb-bol, .k, .beoordeling i, .ko-vlag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padding: 1px 5px; border-radius: 4px; }

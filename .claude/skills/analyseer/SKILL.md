@@ -22,6 +22,9 @@ Pas als **alle** onderstaande punten waar zijn:
 4. Alle opmerkingen zijn verwerkt of gemotiveerd verworpen, en het team heeft het herwerkte rapport **samen opnieuw** kritisch bekeken.
 5. `tools/rapport.py controleer` geeft geen fouten.
 
+6. De **dekkingslijst** in het werkdossier is volledig en er steunt geen feit enkel op een zwakke bron (rang D).
+(Bij een **snelle update** gelden punt 3–4 in lichte vorm: één reviewer, één ronde, enkel de wijzigingen — zie onderaan.)
+
 Je werkt dus als een **team**: jij bent de hoofdanalist die onderzoekt en schrijft; drie onafhankelijke reviewers (`.claude/agents/`) controleren je werk.
 
 ## Gouden regels
@@ -31,6 +34,9 @@ Je werkt dus als een **team**: jij bent de hoofdanalist die onderzoekt en schrij
 - **Onvoldoende info**: pas na **3 gedocumenteerde zoekrondes** (andere zoektermen, andere talen, andere bronnen) mag je "onvoldoende info" melden — en dan deel je wat je wél vond.
 - **Niet opnemen**: short-interest, analistenaanbevelingen/koersdoelen van banken, posities van grote fondsen, sociale-media-sentiment.
 - **Gewone taal.** Gebruik Nederlandse woorden waar het kan ("bestuur" i.p.v. "governance"). Leg **elke** vakterm uit de eerste keer dat hij voorkomt: `[[EBITDA|winst vóór rente, belastingen en afschrijvingen]]` — ook in de samenvatting en de rode vlaggen. Alle uitgelegde termen komen automatisch in een woordenlijst achteraan. **Duidelijk en volledig in gewone zinnen** (geen telegramstijl): de lezer moet altijd weten waarover een blok gaat en waarom het ertoe doet. Eerlijk en hard mag, maar meningen altijd als `mening`. Volg de leesbaarheidsregels in `rapport-formaat.md`.
+- **Bronnenrangorde.** Gebruik de sterkste bron die bestaat (A primair > B kwaliteitspers > C overig; D zwak is enkel een aanwijzing). Ga altijd terug naar het origineel. Zie `bronnen.md`.
+- **Citaat bij elk feit.** Noteer bij het lezen meteen het letterlijke citaat of de tabelregel met document + pagina (of URL + datum) in het feitenlog van het werkdossier. Een feit zonder citaat in het log gaat niet in het rapport.
+- **Rechtstreeks in `rapport.json` werken.** Geen losse patch-scripts: pas het bestand zelf aan en laat git de geschiedenis bijhouden.
 - **Enkel op vraag.** Nooit uit jezelf opvolging, meldingen of screenings starten.
 
 ## Het werkdossier (verplicht — maakt hervatten mogelijk)
@@ -49,7 +55,8 @@ Het Claude Pro-abonnement heeft gebruikslimieten. Een analyse kan dus over **mee
 2. Bepaal het type: `aandeel`, `etf`, `fonds` of `ipo`. Noteer ISIN, beurs, valuta, sector, of het **defensief** is.
 3. Is er een vorig rapport in `rapporten/<TICKER>/`? Lees de samenvatting en het advies → je zal moeten melden **wat er veranderd is**.
 4. `python3 tools/bronnen.py lijst <TICKER>` → wat is al gelezen? Hergebruik die samenvattingen; lees enkel opnieuw wat `GEWIJZIGD` is of nieuw.
-5. Maak het werkdossier.
+5. Kies de **soort**: eerste rapport of volledige update (alle fases), of **snelle update** (zie onderaan: enkel als aan alle voorwaarden voldaan is).
+6. Maak het werkdossier en plak er de **dekkingslijst** in: `python3 tools/dekking.py lijst --type <type> --regio <land> [--snel]`. Vul ze aan met bronnen die specifiek zijn voor dit bedrijf. Werk ze na elke fase bij.
 
 ### Fase 1 — Koers & techniek
 `python3 tools/koers.py analyse <TICKER> [--aankoop <prijs>]` (vraag de aankoopprijs alleen als de gebruiker het aandeel bezit en die wil delen; anders t.o.v. huidige koers). Gebruik `grafiek_blok` uit `data/<TICKER>/koers.json` direct in de sectie `techniek`. Beschrijf: trend, cycliciteit (slotkoers per jaar), steunniveaus, volatiliteit, grootste daling, stop-loss −20% én technisch voorstel.
@@ -61,7 +68,9 @@ Zoek en lees, **meest recent eerst**:
 - **Investeerderspresentatie** en (indien er een is) **transcript van de earnings call**.
 - Jaarverslagen van de 4 jaar daarvoor (enkel voor de 5-jaarstrend: kerncijfertabellen).
 
-Werkwijze per PDF: `tools/pdf.py download` → `inhoud` → `zoek` naar de termen hieronder → `pagina` om de relevante pagina's echt te lezen. Noteer **altijd document + pagina**.
+Werkwijze per PDF: `tools/pdf.py download` → `inhoud` → `zoek` naar de termen hieronder → `pagina` om de relevante pagina's echt te lezen. Noteer **altijd document + pagina én het letterlijke citaat** (of de tabelregel) in het feitenlog van het werkdossier: dat maakt de fact-check later mechanisch en snel.
+
+Lees ook het **verslag van de commissaris** (oordeel, kernpunten van de controle, wissel van revisor) en zoek de **kredietbeoordeling** op als het bedrijf er een heeft.
 
 Haal minstens dit eruit (5 jaar waar het kan):
 | Thema | Zoektermen (NL/EN/FR) |
@@ -116,7 +125,7 @@ Dit is het moeilijkste deel: de gebruiker mist hier zelf snel dingen. Werk **sys
    - *Toekomst (2 jaar)*: geplande verkiezingen, deadlines van regelgeving, contracten die aflopen, patentverlies, capaciteit die online komt, geopolitieke spanningen.
 3. Per gebeurtenis: wat, wanneer, bron, **richting** (+/−), **grootte** (ruw: klein/middel/groot met reden), label (`feit` of `inschatting`).
 4. **Vertaal alles naar impact** (vaste opbouw van de sectie `actualiteit`, zie `rapport-formaat.md`): een **besluit** bovenaan, een **impacttabel** per onderwerp, na elk tijdsblok een **"Wat betekent dit?"** en onderaan **"Waar moet je op letten?"** met data. Een lijst nieuwsfeiten zonder gevolg voor het bedrijf is niet genoeg.
-5. Zo breed mogelijk in bronnen: De Tijd, L'Echo, Reuters, FT, Bloomberg, WSJ, AP, Nikkei, vakpers per sector, persberichten van bedrijf, overheden, toezichthouders, centrale banken, IEA/EIA. Bij betaalmuren: zoek dezelfde info bij een andere bron.
+5. **Begin bij de basis**: zoek uitdrukkelijk bij De Tijd/L'Echo en Reuters (`site:tijd.be`, `site:lecho.be`, `site:reuters.com`), en haal macrocijfers (rente, inflatie, wisselkoers) rechtstreeks bij ECB, Fed, Eurostat of Statbel. Vind je iets op een doorgeefsite (rang D), zoek dan het origineel. Daarna zo breed mogelijk: De Tijd, L'Echo, Reuters, FT, Bloomberg, WSJ, AP, Nikkei, vakpers per sector, persberichten van bedrijf, overheden, toezichthouders, centrale banken, IEA/EIA. Bij betaalmuren: zoek dezelfde info bij een andere bron.
 6. Registreer elke gelezen bron: `python3 tools/bronnen.py voegtoe …` (met samenvatting van 1–3 zinnen).
 
 ### Fase 7 — Earnings call
@@ -138,12 +147,13 @@ Alles als `mening` of `inschatting`.
 
 ### Fase 10 — Fact-check (verplicht, apart van het schrijven)
 Loop **elk** `feit` in je concept na:
-1. Staat het écht zo in de bron (juiste getal, eenheid, periode, valuta)? Heropen de pagina als je twijfelt.
+1. Leg het feit naast het **citaat in het feitenlog**: juiste getal, eenheid, periode, valuta? Geen citaat → heropen de bron en vul het log aan, of schrap het feit.
 2. Belangrijke cijfers (omzet, winst, schuld, aandeelhouders %, rechtszaken): bevestigen met een **tweede bron** waar mogelijk. Tegenstrijdig → vermelden.
 3. Is de bron recent genoeg? Is er een nieuwer cijfer?
 4. Klopt elke `berekening` (herreken)?
 5. Is niets uit een forum of uit je geheugen zonder bron?
-Noteer in het werkdossier welke feiten gecontroleerd zijn. Daarna: `python3 tools/rapport.py controleer <rapport.json>` — alle fouten oplossen. Dit is jouw eigen controle; de onafhankelijke controle volgt in fase 11.
+6. Steunt een feit enkel op een bron van rang D? Zoek het origineel, of maak er een `inschatting` van, of schrap het.
+Noteer in het werkdossier welke feiten gecontroleerd zijn. Daarna: `python3 tools/rapport.py controleer <rapport.json>` — alle fouten oplossen en elke waarschuwing over zwakke bronnen of de dekkingslijst wegwerken (of de reden noteren in het werkdossier). Dit is jouw eigen controle; de onafhankelijke controle volgt in fase 11.
 
 ### Fase 11 — Teamreview (minstens 2 rondes)
 Schrijf eerst een volledig concept-`rapport.json` dat door `tools/rapport.py controleer` geraakt (de `review`-sectie mag nog op `"status": "bezig"` staan). Commit + push.
@@ -152,7 +162,7 @@ Schrijf eerst een volledig concept-`rapport.json` dat door `tools/rapport.py con
 
 **Verwerken.** Maak/werk `review.md` in de rapportmap bij (sjabloon: `templates/review.md`): per opmerking ID, ernst, samenvatting, en wat je ermee deed — `verwerkt` (wat aangepast) of `verworpen` (met reden). Kritieke opmerkingen mag je enkel verwerpen met bewijs. Doe extra onderzoek waar de reviewers gaten vonden (nieuwe bronnen → `tools/bronnen.py voegtoe`). Pas `rapport.json` aan. Commit + push.
 
-**Ronde 2 — samen opnieuw kritisch bekijken.** Start de drie reviewers opnieuw, nu met de opdracht: (a) controleer of jouw vorige opmerkingen correct verwerkt zijn, (b) lees `review.md` met de opmerkingen van de **andere** reviewers en reageer waar je het oneens bent of iets wil toevoegen, (c) beoordeel het herwerkte rapport als geheel. Verwerk opnieuw.
+**Ronde 2 — samen opnieuw kritisch bekijken.** Start de drie reviewers opnieuw, nu met de opdracht: (a) controleer of jouw vorige opmerkingen correct verwerkt zijn, (b) lees `review.md` met de opmerkingen van de **andere** reviewers en reageer waar je het oneens bent of iets wil toevoegen, (c) beoordeel **wat veranderd is** sinds ronde 1 (geef hen `git diff <commit ronde 1> -- <rapport.json>` mee) en of het advies nog klopt. Ze herlezen dus niet het hele rapport en controleren geen feiten opnieuw die in ronde 1 juist waren. Verwerk opnieuw.
 
 **Ronde 3** (enkel als er na ronde 2 nog `kritiek`-opmerkingen of een `niet goedgekeurd` is). Na ronde 3 stop je: overblijvende meningsverschillen komen als **open punten** in het rapport, zodat de gebruiker ze ziet.
 
@@ -164,7 +174,7 @@ Vul daarna de `review`-sectie in `rapport.json` in (zie `rapport-formaat.md`) me
 3. Controleer visueel (Playwright-screenshot op 390 px breed) of grafieken en tabellen leesbaar zijn.
 
 ### Fase 13 — Afronding
-1. Bronnengeheugen bijgewerkt? (`tools/bronnen.py lijst`)
+1. Bronnengeheugen bijgewerkt? (`tools/bronnen.py lijst`) Dekkingslijst volledig? (`python3 tools/dekking.py controleer <werkdossier.md>`)
 2. `git add` + commit + push.
 3. Werk de app bij volgens `app/APP.md` (nieuw rapport zichtbaar, vragen stellen mogelijk).
 4. Stuur de PDF naar de gebruiker met de SendUserFile-tool (zodat hij ze op de gsm kan openen). Geef in de chat: oordeel + score + 3–5 belangrijkste punten + rode vlaggen + open punten uit de teamreview + pad naar het rapport. Kort, gsm-vriendelijk.
@@ -172,4 +182,22 @@ Vul daarna de `review`-sectie in `rapport.json` in (zie `rapport-formaat.md`) me
 6. De gebruiker kan daarna vragen stellen over het rapport: antwoord op basis van `rapport.json`, `werkdossier.md` en `review.md`, en zoek extra info als dat nodig is (met bron).
 
 ## Update van een bestaand rapport
+Er zijn twee soorten. Kies in fase 0 en zeg de gebruiker in één regel welke je doet en waarom.
+
+### Volledige update
 Zelfde fases (ook de teamreview), maar: start van het vorige werkdossier en `bronnen.json`, lees enkel nieuwe/gewijzigde bronnen, en vul de sectie **"Wat is er veranderd"** grondig in (cijfers, advies, score, rode vlaggen, actualiteit).
+
+### Snelle update (`meta.soort: "snelle_update"`)
+Bedoeld voor "is er iets veranderd?" kort na een volledig rapport. **Enkel toegelaten als alles hieronder waar is**; zodra één punt niet klopt, schakel je over op een volledige update en zeg je dat:
+- het laatste **volledige** rapport is hoogstens 90 dagen oud (`meta.basis_rapport` = datum daarvan);
+- er is sindsdien **geen** nieuw jaar-, halfjaar- of kwartaalverslag en geen nieuwe earnings call;
+- er is geen nieuwe of verzwaarde rode vlag en de aandeelhoudersstructuur (R1) is niet gewijzigd;
+- het oordeel blijft gelijk en de score verschuift hoogstens 1 punt.
+
+Wat je doet:
+1. Fase 0 en 1 (koers, techniek, korting/waardering herberekenen met de nieuwe koers).
+2. Dekkingslijst `--snel`: persberichten van het bedrijf, meldingen bij de toezichthouder (R1, R5), corporate actions (R6), basisnieuws (De Tijd/L'Echo, Reuters), macro rechtstreeks bij de bron.
+3. Neem het vorige `rapport.json` over en pas enkel aan wat veranderd is: koers en afgeleide cijfers, sectie `actualiteit`, `wijzigingen` (eerste blok = kernboodschap), en waar nodig scenario's en score. De rest blijft ongewijzigd staan.
+4. Eigen fact-check van de **nieuwe** feiten (fase 10) en **één reviewronde met één reviewer**: de actua-specialist als het nieuws de aanleiding is, anders de financieel analist. Die controleert enkel de wijzigingen.
+5. Bouwen, app bijwerken, afronden zoals fase 12–13.
+Het rapport toont bovenaan "Snelle update" en in de kwaliteitscontrole dat enkel de wijzigingen nagekeken zijn.
