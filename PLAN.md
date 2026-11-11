@@ -1,6 +1,6 @@
 # Invest — Definitief plan (v1)
 
-> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **F1 klaar · eerste rapport (Sofina) klaar · F3 app gepubliceerd — volgende: rapporten iShares MSCI World en SoftBank (F2), dan terugkijktest (F4)**.
+> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **F1 klaar · eerste rapport (Sofina) klaar · F3 app gepubliceerd — F4 terugkijktest gestart (Ørsted peildatum 15-02-2021, daarna DEME ± november 2024)**.
 
 ---
 

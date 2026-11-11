@@ -13,6 +13,7 @@ Lees vóór je begint, in deze volgorde:
 3. `.claude/skills/analyseer/bronnen.md` — waar je wat vindt en hoe je geblokkeerde sites omzeilt.
 4. `.claude/skills/analyseer/rapport-formaat.md` — het formaat van `rapport.json`.
 5. Bij een ETF/fonds: ook `.claude/skills/analyseer/etf.md`.
+6. Bij een **terugkijktest** (rapport "zoals op een datum in het verleden" om de werkwijze te toetsen): ook `.claude/skills/analyseer/terugkijk.md` — die regels gaan voor.
 
 ## Wanneer is een rapport af?
 Pas als **alle** onderstaande punten waar zijn:

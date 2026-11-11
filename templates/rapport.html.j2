@@ -69,7 +69,7 @@
   <div class="ticker">{{ r.meta.ticker }}{% if r.meta.beurs %} · {{ r.meta.beurs }}{% endif %}{% if r.meta.isin %} · {{ r.meta.isin }}{% endif %} · {{ r.meta.type|upper }}</div>
   {%- if r._concept %}<div style="display:inline-block;background:#fec84b;color:#101828;font-weight:700;font-size:12px;padding:2px 8px;border-radius:4px;margin:6px 0 2px">CONCEPT — nog niet volledig gereviewd</div>{% endif %}
   <h1>{{ r.meta.naam }}</h1>
-  <div class="sub">{{ 'Snelle update' if r.meta.soort == 'snelle_update' else 'Rapport' }} van {{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
+  <div class="sub">{{ 'Snelle update' if r.meta.soort == 'snelle_update' else ('Terugkijktest — zoals op ' ~ r.meta.peildatum ~ ', geschreven op' if r.meta.soort == 'terugkijk' else 'Rapport') }} {{ 'van ' if r.meta.soort != 'terugkijk' }}{{ r.meta.datum }}{% if r.meta.sector %} · {{ r.meta.sector }}{% endif %}{% if r.meta.defensief %} · Defensief{% endif %}{% if r.meta.vorig_rapport %} · vorig rapport: {{ r.meta.vorig_rapport }}{% endif %}</div>
 </div></header>
 
 <main class="pagina">
@@ -318,6 +318,7 @@
   <section class="pdf-blok kaart">
     <h2>Kwaliteitscontrole</h2>
     <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p>
+    {%- if r.meta.soort == 'terugkijk' %}<div class="kader info"><div class="t">Dit is een terugkijktest</div>Dit rapport is geschreven alsof het {{ r.meta.peildatum }} is: enkel bronnen en koersen van vóór die datum. Het dient om onze werkwijze te toetsen aan wat er nadien echt gebeurde — geen advies voor vandaag.</div>{% endif %}
     {%- if r.meta.soort == 'snelle_update' %}<div class="kader info"><div class="t">Dit is een snelle update</div>Enkel koers, nieuws en officiële meldingen sinds het vorige rapport zijn nagekeken, met één controleronde. De volledige analyse staat in het rapport van {{ r.meta.basis_rapport or r.meta.vorig_rapport }}.</div>{% endif %}
     <p class="blok" style="font-size:14px">{{ rv.rondes|length }} reviewronde(s) door financieel analist, actua-specialist en kritische belegger.
     {%- if rv.feiten_gecontroleerd %} {{ rv.feiten_gecontroleerd }} feiten naast de bron gelegd{% if rv.feiten_correct is not none %}, {{ rv.feiten_correct }} meteen correct{% endif %}.{% endif %}

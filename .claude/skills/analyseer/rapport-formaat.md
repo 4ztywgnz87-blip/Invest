@@ -11,8 +11,9 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
     "datum": "2026-11-08", "beurs": "Euronext Brussel", "isin": "BE0003717312",
     "valuta": "EUR", "sector": "Investeringsholding", "defensief": false,
     "vorig_rapport": "2026-05-02",         // optioneel
-    "soort": "volledig",                   // volledig (standaard) | snelle_update (zie SKILL.md; dan ook:)
+    "soort": "volledig",                   // volledig (standaard) | snelle_update (zie SKILL.md; dan ook:) | terugkijk
     "basis_rapport": "2026-05-02"          // datum van het laatste volledige rapport (max 90 dagen oud)
+    // terugkijktest (zie terugkijk.md): "soort": "terugkijk", "peildatum": "2021-02-15" — elke bron heeft dan een datum ≤ peildatum
   },
   "advies": {
     "oordeel": "Houden",                    // Kopen | Houden | Verkopen | Afwachten | Onvoldoende info

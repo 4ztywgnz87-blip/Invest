@@ -4,6 +4,7 @@ Dit project is een onderzoeksassistent voor één gebruiker: een beginnende Belg
 
 ## Wat de gebruiker kan vragen
 - **"Analyseer <ticker/naam>"** of **"update <ticker>"** → gebruik de skill `analyseer` (`.claude/skills/analyseer/SKILL.md`) en volg die werkwijze volledig. Bij een update kiest de skill tussen een **snelle update** (kort na een volledig rapport, geen nieuwe verslagen) en een volledige update.
+- **"Terugkijktest <ticker> op <datum>"** → rapport zoals het toen geschreven zou zijn, daarna vergelijken met wat echt gebeurde, om de werkwijze te toetsen: skill `analyseer` + `terugkijk.md`. Resultaten in `terugkijk/`.
 - **Vragen over een rapport** → antwoord op basis van `rapporten/<TICKER>/<datum>/rapport.json` en `werkdossier.md`; zoek extra info met bron als dat nodig is.
 - **Feedback** op een rapport → noteer in `profiel/feedback.md`; stel profielwijzigingen voor in `profiel/voorstellen.md`; wijzig `profiel/PROFIEL.md` pas na akkoord.
 
@@ -22,11 +23,12 @@ Rapporten lezen, vragen stellen en feedback geven gebeurt in de Invest-app op cl
 | `profiel/` | Profiel, feedback, voorstellen tot wijziging |
 | `.claude/skills/analyseer/` | Werkwijze, rapportformaat, bronnen, ETF-variant |
 | `.claude/agents/` | Analyseteam (reviewers): financieel-analist, actua-specialist, kritische-belegger |
-| `tools/` | `koers.py` (koers + techniek), `pdf.py` (verslagen lezen), `bronnen.py` (bronnengeheugen), `bronrang.py` (rangorde van bronnen), `dekking.py` (dekkingslijst: welke bronnen zeker nakijken), `rapport.py` (controle + HTML/PDF) |
+| `tools/` | `koers.py` (koers + techniek), `pdf.py` (verslagen lezen), `bronnen.py` (bronnengeheugen), `bronrang.py` (rangorde van bronnen), `dekking.py` (dekkingslijst: welke bronnen zeker nakijken), `terugkijk.py` (uitkomst na de peildatum), `rapport.py` (controle + HTML/PDF) |
 | `templates/` | Rapportsjabloon (HTML/CSS), werkdossier |
 | `data/<TICKER>/` | Koersdata, bronnengeheugen, gedownloade verslagen (PDF's niet in git) |
 | `rapporten/<TICKER>/<datum>/` | `werkdossier.md`, `review.md`, `rapport.json`, `rapport.html`, `rapport.pdf` |
 | `app/` | De Invest-app (claude.ai): pagina, overzicht van rapporten, vraagcontext |
+| `terugkijk/<TICKER>/<peildatum>/` | Terugkijktests: rapport zoals toen + `evaluatie.md` (niet in de app) |
 | `voorbeelden/demo/` | Fictief testrapport (opmaak/controle testen) |
 
 ## Technisch

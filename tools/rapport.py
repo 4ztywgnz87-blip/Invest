@@ -175,11 +175,42 @@ def controleer_bronrang(r: dict, c: "Controle") -> None:
         c.let_op("geen enkel bericht van De Tijd, L'Echo, Reuters of AP (ook niet overgenomen door een andere uitgever) — de afgesproken basis voor nieuws")
 
 
+def controleer_terugkijk(r: dict, c: "Controle") -> None:
+    """Terugkijktest: het rapport mag niets weten van na de peildatum (zie skill: terugkijk.md)."""
+    m = r.get("meta", {})
+    try:
+        peil = dt.date.fromisoformat(m.get("peildatum") or "")
+    except ValueError:
+        c.fout("terugkijkrapport: meta.peildatum (JJJJ-MM-DD) ontbreekt of is ongeldig")
+        return
+    for b in r.get("bronnen", []):
+        d = b.get("datum")
+        if b.get("type") == "data" and "peildatum" in (b.get("titel", "") + b.get("document", "")):
+            continue  # koersdata afgekapt op de peildatum (tools/koers.py --tot)
+        try:
+            bd = dt.date.fromisoformat((d or "")[:10])
+        except ValueError:
+            c.fout(f"terugkijkrapport: bron {b.get('id')} heeft geen publicatiedatum (JJJJ-MM-DD) — verplicht om na te gaan dat ze vóór de peildatum ligt")
+            continue
+        if bd > peil:
+            c.fout(f"terugkijkrapport: bron {b.get('id')} ({d}) is van NA de peildatum {peil} — kennis van achteraf")
+    kd = (r.get("advies", {}).get("koers_datum") or "")
+    try:
+        kdd = dt.datetime.strptime(kd, "%d-%m-%Y").date() if "-" in kd and len(kd.split("-")[0]) <= 2 else dt.date.fromisoformat(kd)
+        if kdd > peil:
+            c.fout(f"terugkijkrapport: advies.koers_datum {kd} ligt na de peildatum")
+    except ValueError:
+        c.let_op("terugkijkrapport: advies.koers_datum niet leesbaar")
+
+
 def controleer_soort(r: dict, c: "Controle") -> None:
     m = r.get("meta", {})
     soort = m.get("soort")
-    if soort not in (None, "volledig", "snelle_update"):
-        c.fout(f"meta.soort '{soort}' ongeldig (volledig | snelle_update)")
+    if soort not in (None, "volledig", "snelle_update", "terugkijk"):
+        c.fout(f"meta.soort '{soort}' ongeldig (volledig | snelle_update | terugkijk)")
+    if soort == "terugkijk":
+        controleer_terugkijk(r, c)
+        return
     if soort != "snelle_update":
         return
     if not m.get("vorig_rapport"):

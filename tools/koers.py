@@ -4,6 +4,7 @@ Gebruik:
   python3 tools/koers.py zoek "sofina"          # ticker opzoeken (beurs, naam, type)
   python3 tools/koers.py analyse SOF.BR          # koershistoriek + technische kerncijfers
   python3 tools/koers.py analyse SOF.BR --aankoop 250   # stop-loss t.o.v. aankoopkoers
+  python3 tools/koers.py analyse ORSTED.CO --tot 2021-02-15   # terugkijktest: enkel data tot de peildatum
 
 Schrijft data/<TICKER>/koers.json (incl. kant-en-klare grafiekblokken voor het rapport).
 Bron: Yahoo Finance (onofficiële publieke endpoints). Vermeld als bron in het rapport.
@@ -36,8 +37,15 @@ def zoek(q: str) -> list[dict]:
     return out
 
 
-def historiek(symbool: str, bereik: str = "10y", interval: str = "1d") -> dict:
-    r = session().get(f"{YQ}/v8/finance/chart/{symbool}", params={"range": bereik, "interval": interval, "events": "div,splits"}, timeout=30)
+def historiek(symbool: str, bereik: str = "10y", interval: str = "1d", tot: str | None = None) -> dict:
+    """tot (JJJJ-MM-DD): enkel data tot en met die datum (terugkijktest), met 10 jaar historiek ervoor."""
+    params = {"interval": interval, "events": "div,splits"}
+    if tot:
+        eind = dt.datetime.fromisoformat(tot).replace(tzinfo=dt.UTC) + dt.timedelta(days=1)
+        params.update(period1=int((eind - dt.timedelta(days=3653)).timestamp()), period2=int(eind.timestamp()))
+    else:
+        params["range"] = bereik
+    r = session().get(f"{YQ}/v8/finance/chart/{symbool}", params=params, timeout=30)
     r.raise_for_status()
     res = r.json()["chart"]["result"][0]
     q = res["indicators"]["quote"][0]
@@ -53,6 +61,8 @@ def historiek(symbool: str, bereik: str = "10y", interval: str = "1d") -> dict:
             "hoog": q["high"][i], "laag": q["low"][i], "volume": q["volume"][i],
             "slot_aangepast": round(adj[i], 4) if adj and adj[i] is not None else None,
         })
+    if tot:
+        rijen = [x for x in rijen if x["datum"] <= tot]
     ev = res.get("events", {})
     dividenden = sorted(
         ({"datum": dt.datetime.fromtimestamp(int(k), dt.UTC).date().isoformat(), "bedrag": v["amount"]} for k, v in ev.get("dividends", {}).items()),
@@ -60,6 +70,9 @@ def historiek(symbool: str, bereik: str = "10y", interval: str = "1d") -> dict:
     splits = sorted(
         ({"datum": dt.datetime.fromtimestamp(int(k), dt.UTC).date().isoformat(), "verhouding": f'{v["numerator"]}:{v["denominator"]}'} for k, v in ev.get("splits", {}).items()),
         key=lambda d: d["datum"])
+    if tot:
+        dividenden = [d for d in dividenden if d["datum"] <= tot]
+        splits = [d for d in splits if d["datum"] <= tot]
     return {"meta": res["meta"], "rijen": rijen, "dividenden": dividenden, "splits": splits}
 
 
@@ -103,8 +116,8 @@ def rendement(rijen: list[dict], dagen: int) -> float | None:
     return round((b / a - 1) * 100, 1)
 
 
-def analyse(symbool: str, aankoop: float | None = None) -> dict:
-    h = historiek(symbool)
+def analyse(symbool: str, aankoop: float | None = None, tot: str | None = None) -> dict:
+    h = historiek(symbool, tot=tot)
     rijen = h["rijen"]
     slot = [r["slot"] for r in rijen]
     nu = slot[-1]
@@ -136,6 +149,8 @@ def analyse(symbool: str, aankoop: float | None = None) -> dict:
 
     m = h["meta"]
     bron = f"Yahoo Finance koersdata {symbool}, opgehaald {dt.date.today().isoformat()}"
+    if tot:
+        bron += f", afgekapt op peildatum {tot}"
     resultaat = {
         "symbool": symbool,
         "naam": m.get("longName") or m.get("shortName"),
@@ -145,6 +160,7 @@ def analyse(symbool: str, aankoop: float | None = None) -> dict:
         "opgehaald": dt.datetime.now(dt.UTC).isoformat(timespec="seconds"),
         "bron": bron,
         "laatste_datum": rijen[-1]["datum"],
+        "peildatum": tot,
         "koers": nu,
         "hoog_52w": round(max(jaar), 2), "laag_52w": round(min(jaar), 2),
         "sma50": s50, "sma200": s200, "trend": trend,
@@ -177,14 +193,15 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     z = sub.add_parser("zoek"); z.add_argument("q")
     a = sub.add_parser("analyse"); a.add_argument("symbool"); a.add_argument("--aankoop", type=float)
+    a.add_argument("--tot", help="peildatum JJJJ-MM-DD (terugkijktest): geen data van daarna")
     args = ap.parse_args(argv)
     import json
     if args.cmd == "zoek":
         for x in zoek(args.q):
             print(f'{x["symbool"]:<12} {str(x["beurs"]):<12} {str(x["type"]):<10} {x["naam"]}')
         return
-    res = analyse(args.symbool, args.aankoop)
-    pad = ticker_dir(args.symbool) / "koers.json"
+    res = analyse(args.symbool, args.aankoop, args.tot)
+    pad = ticker_dir(args.symbool) / (f"koers_{args.tot}.json" if args.tot else "koers.json")
     write_json(pad, res)
     kort = {k: v for k, v in res.items() if k not in ("grafiek_blok", "slot_per_jaar", "dividenden")}
     print(json.dumps(kort, ensure_ascii=False, indent=1))
