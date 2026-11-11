@@ -161,6 +161,11 @@
 ## Waardering (aannames)
 Zie sectie `waardering`: CE 110 → ±200 mld (2025), ROCE 10%, belasting 22%, WACC 5,5%, groei 2%. WACC is een inschatting (ECB AAA 10j −0,42% op 12-2-2021, VS 10j 1,20%; kost van de schuld ±2,8% volgens presentatie; projectrisico). Gevoeligheid in rapport: 3,5–6,5%, break-even ±3,9%; Ørsted publiceert geen WACC in het jaarverslag.
 
+### Scenario-ankers (ronde 1)
+- EBITDA 2023: doel Ørsted 25–26 mld uit draaiende parken (AR p.17, 33) + Markets & Bioenergy ±1,2 mld − overige/ontwikkelkosten ±2,3 mld (AR p.15, 43) → groep ±24 mld bij doel. Slecht 21, goed 25.
+- Schuld 2023 (netto + hybride + minderheden): nu 28,2 mld. 2021–2023: investeringen ±100 mld (32–34/jaar) + dividend ±16 mld − operationele kasstroom ±55 mld − verkopen van belangen ±25 mld → +36 mld → ±60 mld (inschatting; goed scenario 55).
+- Multiple nu op dezelfde basis: (445 + 60) / 24 ≈ 21×.
+
 ## Besmetting (voor de evaluatie)
 - Het profiel (`profiel/PROFIEL.md` §1) vermeldt dat Ørsted (2021) de slechtste belegging van de gebruiker was. De hoofdanalist heeft dat gelezen vóór het schrijven (bij het opstarten van de taak). Dit rapport is dus **niet blind** geschreven; te vermelden in de besmettingscheck van de evaluatie (review KB-3). Volgende terugkijktests: profiel zonder ervaringen van na de peildatum aan reviewers geven.
 
