@@ -115,8 +115,9 @@ Dit is het moeilijkste deel: de gebruiker mist hier zelf snel dingen. Werk **sys
    - *Nu*: wat speelt er de laatste 3–6 maanden?
    - *Toekomst (2 jaar)*: geplande verkiezingen, deadlines van regelgeving, contracten die aflopen, patentverlies, capaciteit die online komt, geopolitieke spanningen.
 3. Per gebeurtenis: wat, wanneer, bron, **richting** (+/−), **grootte** (ruw: klein/middel/groot met reden), label (`feit` of `inschatting`).
-4. Zo breed mogelijk in bronnen: De Tijd, L'Echo, Reuters, FT, Bloomberg, WSJ, AP, Nikkei, vakpers per sector, persberichten van bedrijf, overheden, toezichthouders, centrale banken, IEA/EIA. Bij betaalmuren: zoek dezelfde info bij een andere bron.
-5. Registreer elke gelezen bron: `python3 tools/bronnen.py voegtoe …` (met samenvatting van 1–3 zinnen).
+4. **Vertaal alles naar impact** (vaste opbouw van de sectie `actualiteit`, zie `rapport-formaat.md`): een **besluit** bovenaan, een **impacttabel** per onderwerp, na elk tijdsblok een **"Wat betekent dit?"** en onderaan **"Waar moet je op letten?"** met data. Een lijst nieuwsfeiten zonder gevolg voor het bedrijf is niet genoeg.
+5. Zo breed mogelijk in bronnen: De Tijd, L'Echo, Reuters, FT, Bloomberg, WSJ, AP, Nikkei, vakpers per sector, persberichten van bedrijf, overheden, toezichthouders, centrale banken, IEA/EIA. Bij betaalmuren: zoek dezelfde info bij een andere bron.
+6. Registreer elke gelezen bron: `python3 tools/bronnen.py voegtoe …` (met samenvatting van 1–3 zinnen).
 
 ### Fase 7 — Earnings call
 Laatste call (transcript, webcast-samenvatting of presentatie + Q&A-verslag in pers). Vat samen: kernboodschap, guidance, moeilijke vragen en hoe management antwoordde. Geef een `mening` over toon en zelfzekerheid (ontwijkend? consistent met vorige call?). De gebruiker oordeelt zelf.
