@@ -1,7 +1,7 @@
 # Beleggersprofiel
 
 > Dit profiel stuurt elke analyse. Wijzigingen worden **eerst voorgesteld** in `profiel/voorstellen.md` en pas na akkoord van de gebruiker hier doorgevoerd.
-> Laatste wijziging: 2026-11-08 (versie 1, op basis van de intake in `ANTWOORDEN.md`).
+> Laatste wijziging: 2026-11-11 (versie 2: toon en leesbaarheid, voorstel V1).
 
 ## 1. Wie
 - Beginnende belegger (±1 jaar), geen financiële achtergrond → **gewone taal, vaktermen kort uitleggen** (eerste keer dat een term voorkomt).
@@ -49,7 +49,7 @@
 - Sentiment op sociale media.
 
 ## 7. Rapportvoorkeuren
-- Taal: **Nederlands**. Toon: **kort en direct**, eerlijk en hard mag — maar **meningen altijd als mening markeren**.
+- Taal: **Nederlands**. Toon: **duidelijk en volledig in gewone zinnen**, eerlijk en hard mag — maar **meningen altijd als mening markeren**. Liever een zin meer uitleg dan een opsomming van feiten zonder context. Kort mag in de samenvatting, niet in de uitleg. *(gewijzigd 2026-11-11, voorstel V1)*
 - Advies = combinatie: oordeel (Kopen/Houden/Verkopen/Afwachten) + score 1–10 + koopzone + koersdoel + 3 scenario's.
 - Eerst 1 scherm samenvatting, daarna inklapbare details. Grafieken. Bronnen bij elk feit.
 - Keten: **2 niveaus** diep. Concurrenten: de **dichtste**.

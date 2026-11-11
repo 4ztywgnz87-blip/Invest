@@ -19,6 +19,8 @@
       <li class="blok {{ it.label }}">{{ lab(it.label) }}{{ it.tekst|inline }}{{ it.bronnen|refs }}</li>
     {%- endfor %}
     </ul>
+  {%- elif b.type == 'uitleg' -%}
+    <p class="leestekst">{{ b.tekst|inline }}</p>
   {%- elif b.type == 'kop' -%}
     <h3 class="tussentitel pdf-blok pdf-klein">{{ b.tekst }}</h3>
   {%- elif b.type == 'kader' -%}

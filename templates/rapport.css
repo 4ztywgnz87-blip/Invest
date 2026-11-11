@@ -154,3 +154,6 @@ details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-ri
 dl.woorden { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13.5px; }
 dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt-2); }
 @media (max-width: 600px) { dl.woorden { grid-template-columns: 1fr; } dl.woorden dd { margin-bottom: 6px; } }
+
+/* uitleg: inleiding/overgang zonder label */
+.leestekst { margin: 8px 0 10px; line-height: 1.55; }

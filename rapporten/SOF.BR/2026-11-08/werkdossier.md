@@ -143,4 +143,5 @@ Bronnen: JV2022 p.? (kerncijfers 2021/22, jv2022.txt r.263–291), JV2023 kernci
 - Concept rapport.json + review.md aangemaakt.
 
 ## Reproduceren
-rapport.json werd opgebouwd met `maak_rapport/maak.py` + `patch1.py` (ronde 1) + `patch2.py` (ronde 2) in deze map.
+rapport.json werd opgebouwd met `maak_rapport/maak.py` + `patch1.py` (ronde 1) + `patch2.py` (ronde 2) + `patch3.py` (leesbaarheid, feedback 2026-11-11) in deze map.
+- 2026-11-11: herschreven in nieuwe stijl (inleidingen, overgangszinnen, rode vlaggen in vaste opbouw) na feedback gebruiker. Inhoud, cijfers en advies ongewijzigd.
