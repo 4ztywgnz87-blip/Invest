@@ -80,7 +80,7 @@ a.kaart:hover { border-color: #b9c3d3; }
 #rapport-host { display: block; min-width: 0; }
 
 /* Vragen */
-.chat { display: grid; gap: 10px; }
+.chat { display: grid; gap: 12px; margin-top: 12px; }
 .bericht { padding: 10px 14px; border-radius: 12px; max-width: 92%; overflow-wrap: anywhere; }
 .bericht.jij { background: var(--accent); color: #fff; justify-self: end; border-bottom-right-radius: 4px; }
 .bericht.claude { background: var(--vlak); border: 1px solid var(--rand); justify-self: start; border-bottom-left-radius: 4px; }
@@ -88,7 +88,9 @@ a.kaart:hover { border-color: #b9c3d3; }
 .bericht.claude ul { margin: 4px 0 8px; padding-left: 20px; }
 .voorbeelden { display: flex; flex-wrap: wrap; gap: 6px; }
 .voorbeelden button { border: 1px solid var(--rand); background: var(--vlak); border-radius: 999px; padding: 6px 12px; font-size: 13.5px; cursor: pointer; color: var(--inkt-2); text-align: left; }
-.invoer { display: flex; gap: 8px; margin-top: 12px; position: sticky; bottom: 0; background: var(--grond); padding-block: 8px calc(8px + env(safe-area-inset-bottom, 0px)); }
+.invoer { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 8px; }
+.paar { display: grid; gap: 8px; padding-bottom: 12px; border-bottom: 1px solid var(--rand); }
+.paar:last-child { border-bottom: 0; }
 .invoer textarea { flex: 1; min-width: 0; resize: none; border: 1px solid var(--rand); border-radius: 10px; padding: 10px 12px; background: var(--vlak); color: var(--inkt); min-height: 46px; max-height: 160px; }
 .uitleg { font-size: 13px; color: var(--inkt-3); }
 
@@ -222,21 +224,19 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       <div class="tabs" role="tablist">
         <button role="tab" id="t-rapport" aria-selected="true" type="button">Rapport</button>
         <button role="tab" id="t-vragen" aria-selected="false" type="button">Vragen</button>
-        <button role="tab" id="t-feedback" aria-selected="false" type="button">Feedback</button>
       </div>
       <section id="p-rapport"><div id="rapport-host"></div><p class="status" id="r-status">Rapport laden…</p></section>
-      <section id="p-vragen" hidden></section>
-      <section id="p-feedback" hidden></section>`;
-    const tabs = ["rapport", "vragen", "feedback"];
+      <section id="p-vragen" hidden></section>`;
+    const tabs = ["rapport", "vragen"];
     const kies = t => {
       for (const n of tabs) { $("#t-" + n).setAttribute("aria-selected", n === t); $("#p-" + n).hidden = n !== t; }
-      if (t === "vragen") bouwVragen(r); if (t === "feedback") bouwFeedback(r);
+      if (t === "vragen") bouwVragen(r);
       try { sessionStorage.setItem("tab", t); } catch {}
     };
     for (const n of tabs) $("#t-" + n).addEventListener("click", () => kies(n));
     $("#pdf").addEventListener("click", () => downloadPdf(r));
     laadRapportHtml(r);
-    if (tab && tab !== "rapport") kies(tab);
+    if (tab === "vragen") kies(tab);
   }
 
   async function laadRapportHtml(r) {
@@ -248,7 +248,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("\n")
         .replace(/:root/g, ":host").replace(/(^|[\s,}])html\s*\{/g, "$1.rb {").replace(/(^|[\s,}])body\s*\{/g, "$1.rb {");
       const schaduw = host.shadowRoot || host.attachShadow({ mode: "open" });
-      schaduw.innerHTML = `<style>${css}\n:host{display:block}.rb{background:transparent}.kop{border-radius:12px}.pagina{padding-left:0;padding-right:0}.kop .pagina{padding-left:16px;padding-right:16px}</style><div class="rb">${doc.body.innerHTML}</div>`;
+      schaduw.innerHTML = `<style>${css}\n${FB_CSS}\n:host{display:block}.rb{background:transparent}.kop{border-radius:12px}.pagina{padding-left:0;padding-right:0}.kop .pagina{padding-left:16px;padding-right:16px}</style><div class="rb">${doc.body.innerHTML}</div>`;
       // Interne links (#bron-3, #cijfers) binnen het rapport afhandelen; de adresbalk-hash blijft voor de app.
       schaduw.addEventListener("click", e => {
         const a = e.target.closest("a[href^='#']");
@@ -261,6 +261,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
         doel.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       st.textContent = "";
+      voegFeedbackToe(r, schaduw);
     } catch (e) {
       st.textContent = "Het rapport kon niet geladen worden. Herlaad de pagina.";
       st.classList.add("fout");
@@ -296,15 +297,18 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     const sleutel = "chat:" + r.id;
     let gesprek = opslag.lees(sleutel, []);
     p.innerHTML = `
-      <p class="uitleg">Claude antwoordt op basis van dit rapport, het werkdossier en de teamreview. Voor nieuw onderzoek: vraag het in Claude Code (bv. "update ${esc(r.ticker)}").</p>
-      <div class="chat" id="chat" aria-live="polite"></div>
-      <div class="voorbeelden" id="vb"></div>
-      <form class="invoer" id="vf"><label for="vraag" hidden>Je vraag</label><textarea id="vraag" rows="1" placeholder="Stel een vraag over dit rapport…"></textarea><button class="knop hoofd" type="submit" id="stuur">Vraag</button></form>
+      <form class="invoer" id="vf"><label for="vraag" hidden>Je vraag</label><textarea id="vraag" rows="2" placeholder="Stel een vraag over dit rapport…"></textarea><button class="knop hoofd" type="submit" id="stuur">Vraag</button></form>
       <div class="status" id="v-status" role="status"></div>
+      <div class="voorbeelden" id="vb"></div>
+      <div class="chat" id="chat" aria-live="polite"></div>
+      <p class="uitleg">Claude antwoordt op basis van dit rapport, het werkdossier en de teamreview. Voor nieuw onderzoek: vraag het in Claude Code (bv. "update ${esc(r.ticker)}").</p>
       ${gesprek.length ? `<button class="knop" type="button" id="wis" style="margin-top:6px">Gesprek wissen</button>` : ""}`;
     const chat = $("#chat"), vb = $("#vb"), st = $("#v-status");
     const teken = () => {
-      chat.innerHTML = gesprek.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("");
+      // Nieuwste vraag + antwoord bovenaan.
+      const paren = [];
+      for (let i = 0; i < gesprek.length; i += 2) paren.push(gesprek.slice(i, i + 2));
+      chat.innerHTML = paren.reverse().map(pr => `<div class="paar">${pr.map(b => `<div class="bericht ${b.role === "user" ? "jij" : "claude"}">${b.role === "user" ? esc(b.content) : opmaak(b.content)}</div>`).join("")}</div>`).join("");
       vb.innerHTML = gesprek.length ? "" : VOORBEELDEN.map(v => `<button type="button">${esc(v)}</button>`).join("");
       vb.querySelectorAll("button").forEach(b => b.addEventListener("click", () => { $("#vraag").value = b.textContent; vraag(); }));
     };
@@ -321,7 +325,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       teken();
       const bubbel = document.createElement("div");
       bubbel.className = "bericht claude"; bubbel.textContent = "Even nadenken…";
-      chat.appendChild(bubbel);
+      chat.firstElementChild ? chat.firstElementChild.appendChild(bubbel) : chat.appendChild(bubbel);
       st.textContent = ""; st.classList.remove("fout");
       try {
         if (!context[r.id]) context[r.id] = await (await fetch(r.vraag)).text();
@@ -348,48 +352,142 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     catch { return esc(t).replace(/\n/g, "<br>"); }
   }
 
-  // ------------------------------------------------------------ feedback
-  async function bouwFeedback(r) {
-    const p = $("#p-feedback");
-    if (p.dataset.klaar === r.id) return;
-    p.dataset.klaar = r.id;
-    p.innerHTML = `
-      <form class="fb kaart" id="fbf">
-        <p class="uitleg" style="margin:0">Je feedback wordt bewaard. Claude leest ze bij de volgende sessie, noteert ze en stelt waar nodig een aanpassing van je profiel voor.</p>
-        <div><label id="sc-l">Score voor dit rapport (1–10)</label><div class="scores" role="group" aria-labelledby="sc-l">${Array.from({ length: 10 }, (_, i) => `<button type="button" aria-pressed="false" data-s="${i + 1}">${i + 1}</button>`).join("")}</div></div>
-        <div><label for="fb-extra">Wat moet extra onderzocht worden?</label><textarea id="fb-extra" placeholder="Bv. meer over de grootste deelnemingen…"></textarea></div>
-        <div><label for="fb-nutteloos">Wat was nutteloos?</label><textarea id="fb-nutteloos"></textarea></div>
-        <div><label for="fb-opm">Andere opmerkingen</label><textarea id="fb-opm"></textarea></div>
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="knop hoofd" type="submit" id="fb-ok">Feedback bewaren</button><span class="status" id="fb-status" role="status"></span></div>
-      </form>`;
-    let score = null;
-    const zetScore = s => { score = s; p.querySelectorAll(".scores button").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.s === s))); };
-    p.querySelectorAll(".scores button").forEach(b => b.addEventListener("click", () => zetScore(+b.dataset.s)));
-    const st = $("#fb-status");
+  // ------------------------------------------------------------ feedback in het document
+  const FB_CSS = `
+.fbw [hidden] { display: none !important; }
+.fbw { margin-top: 12px; border-top: 1px dashed #d0d5dd; padding-top: 8px; font-family: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+.fbw > button.open { background: none; border: 0; padding: 4px 0; color: #1d4ed8; font: inherit; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.fbw .samen { color: #4b5563; font-weight: 500; margin-left: 6px; }
+.fbw .paneel { display: grid; gap: 8px; margin-top: 6px; }
+.fbw .sc { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.fbw .sc button { border: 1px solid #e3e6eb; background: #fff; border-radius: 7px; padding: 6px 0; font: 500 13px "IBM Plex Mono", ui-monospace, monospace; cursor: pointer; color: #111827; }
+.fbw .sc button[aria-pressed="true"] { background: #0b1f3a; border-color: #0b1f3a; color: #fff; }
+.fbw label { font-size: 13px; font-weight: 600; color: #4b5563; }
+.fbw textarea { width: 100%; box-sizing: border-box; border: 1px solid #e3e6eb; border-radius: 8px; padding: 8px 10px; font: inherit; font-size: 14px; min-height: 64px; background: #fff; color: #111827; }
+.fbw .rij { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.fbw .bewaar { background: #1d4ed8; color: #fff; border: 0; border-radius: 8px; padding: 7px 14px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.fbw .bewaar:disabled { opacity: .55; }
+.fbw .st { font-size: 12.5px; color: #6b7280; }
+.fbw button:focus-visible, .fbw textarea:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }
+.fbtotaal { background: #fff; border: 2px solid #0b1f3a; border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.fbtotaal h2 { margin: 0 0 4px; font-size: 17px; }
+.fbtotaal p { margin: 0 0 8px; font-size: 13.5px; color: #4b5563; }
+@media (max-width: 420px) { .fbw .sc { grid-template-columns: repeat(5, minmax(0, 1fr)); } }`;
+
+  const fb = { ref: null, data: null, rij: Promise.resolve(), r: null };
+  async function laadFb(r) {
     const db = await cap.db;
-    if (!db) { st.textContent = "Bewaren kan niet in deze weergave. Open de app in claude.ai of de Claude-app."; $("#fb-ok").disabled = true; return; }
-    const ref = db.doc("feedback/" + r.id);
-    try {
-      const snap = await ref.get();
-      if (snap.exists) {
-        const d = snap.data();
-        if (d.score) zetScore(d.score);
-        $("#fb-extra").value = d.extra || ""; $("#fb-nutteloos").value = d.nutteloos || ""; $("#fb-opm").value = d.opmerking || "";
-        st.textContent = d.verwerkt ? "Eerdere feedback is al verwerkt door Claude." : "Je eerdere feedback is geladen.";
-      }
-    } catch { st.textContent = "Eerdere feedback kon niet geladen worden."; }
-    $("#fbf").addEventListener("submit", async e => {
-      e.preventDefault();
-      if (!score) { st.textContent = "Kies eerst een score."; return; }
-      $("#fb-ok").disabled = true; st.textContent = "Bewaren…";
-      try {
-        await ref.set({ rapport: r.id, ticker: r.ticker, naam: r.naam, datum: r.datum, score,
-          extra: $("#fb-extra").value.trim(), nutteloos: $("#fb-nutteloos").value.trim(), opmerking: $("#fb-opm").value.trim(),
-          bijgewerkt: new Date().toISOString(), verwerkt: false });
-        st.textContent = "Bewaard. Claude verwerkt dit bij de volgende sessie.";
-      } catch (e) { st.textContent = "Bewaren lukte niet. Probeer opnieuw."; }
-      $("#fb-ok").disabled = false;
+    if (!db) return false;
+    fb.r = r; fb.ref = db.doc("feedback/" + r.id);
+    try { const s = await fb.ref.get(); fb.data = s.exists ? s.data() : {}; } catch { fb.data = {}; }
+    fb.data.secties ||= {};
+    return true;
+  }
+  function bewaarFb(patch) {
+    // Eén schrijfactie tegelijk op dit document.
+    fb.rij = fb.rij.then(async () => {
+      const r = fb.r;
+      fb.data = { ...fb.data, ...patch, rapport: r.id, ticker: r.ticker, naam: r.naam, datum: r.datum,
+                  bijgewerkt: new Date().toISOString(), verwerkt: false };
+      await fb.ref.set(fb.data);
     });
+    return fb.rij;
+  }
+
+  function scoreKnoppen(huidig) {
+    return `<div class="sc" role="group" aria-label="Score 1 tot 10">${Array.from({ length: 10 }, (_, i) =>
+      `<button type="button" data-s="${i + 1}" aria-pressed="${huidig === i + 1}">${i + 1}</button>`).join("")}</div>`;
+  }
+
+  function maakWidget(sid, titel) {
+    const w = document.createElement("div");
+    w.className = "fbw";
+    const teken = () => {
+      const d = fb.data.secties[sid] || {};
+      const samen = d.score || d.opmerking ? `<span class="samen">· jouw score ${d.score ? d.score + "/10" : "–"}${d.opmerking ? " · commentaar gegeven" : ""}</span>` : "";
+      w.innerHTML = `<button type="button" class="open" aria-expanded="false">Geef feedback op dit deel</button>${samen}
+        <div class="paneel" hidden>
+          ${scoreKnoppen(d.score)}
+          <label for="fb-${sid}">Commentaar (wat mist, wat klopt niet, wat is nutteloos?)</label>
+          <textarea id="fb-${sid}">${esc(d.opmerking || "")}</textarea>
+          <div class="rij"><button type="button" class="bewaar">Bewaren</button><span class="st" role="status"></span></div>
+        </div>`;
+      let score = d.score || null;
+      const paneel = w.querySelector(".paneel"), open = w.querySelector(".open");
+      open.addEventListener("click", () => { paneel.hidden = !paneel.hidden; open.setAttribute("aria-expanded", String(!paneel.hidden)); });
+      w.querySelectorAll(".sc button").forEach(b => b.addEventListener("click", () => {
+        score = +b.dataset.s; w.querySelectorAll(".sc button").forEach(x => x.setAttribute("aria-pressed", String(+x.dataset.s === score)));
+      }));
+      w.querySelector(".bewaar").addEventListener("click", async e => {
+        const st = w.querySelector(".st"), opm = w.querySelector("textarea").value.trim();
+        if (!score && !opm) { st.textContent = "Geef een score of commentaar."; return; }
+        e.target.disabled = true; st.textContent = "Bewaren…";
+        try {
+          await bewaarFb({ secties: { ...fb.data.secties, [sid]: { titel, score, opmerking: opm } } });
+          teken();
+          w.querySelector(".paneel").insertAdjacentHTML("beforebegin", `<span class="samen">· bewaard</span>`);
+        } catch { st.textContent = "Bewaren lukte niet. Probeer opnieuw."; e.target.disabled = false; }
+      });
+    };
+    teken();
+    return w;
+  }
+
+  function maakTotaal() {
+    const w = document.createElement("section");
+    w.className = "fbtotaal";
+    const d = fb.data;
+    w.innerHTML = `<h2>Jouw beoordeling van het hele rapport</h2>
+      <p>Claude leest je feedback bij de volgende sessie, noteert ze en stelt waar nodig een aanpassing van je profiel voor.</p>
+      <div class="fbw" style="border:0;margin:0;padding:0"><div class="paneel">
+        ${scoreKnoppen(d.score)}
+        <label for="fbt-extra">Wat moet extra onderzocht worden?</label><textarea id="fbt-extra">${esc(d.extra || "")}</textarea>
+        <label for="fbt-nut">Wat was nutteloos?</label><textarea id="fbt-nut">${esc(d.nutteloos || "")}</textarea>
+        <label for="fbt-opm">Andere opmerkingen</label><textarea id="fbt-opm">${esc(d.opmerking || "")}</textarea>
+        <div class="rij"><button type="button" class="bewaar">Feedback bewaren</button><span class="st" role="status">${d.verwerkt ? "Eerdere feedback is al verwerkt door Claude." : ""}</span></div>
+      </div></div>`;
+    let score = d.score || null;
+    w.querySelectorAll(".sc button").forEach(b => b.addEventListener("click", () => {
+      score = +b.dataset.s; w.querySelectorAll(".sc button").forEach(x => x.setAttribute("aria-pressed", String(+x.dataset.s === score)));
+    }));
+    w.querySelector(".bewaar").addEventListener("click", async e => {
+      const st = w.querySelector(".st");
+      if (!score) { st.textContent = "Kies eerst een score."; return; }
+      e.target.disabled = true; st.textContent = "Bewaren…";
+      try {
+        await bewaarFb({ score, extra: w.querySelector("#fbt-extra").value.trim(), nutteloos: w.querySelector("#fbt-nut").value.trim(), opmerking: w.querySelector("#fbt-opm").value.trim() });
+        st.textContent = "Bewaard. Claude verwerkt dit bij de volgende sessie.";
+      } catch { st.textContent = "Bewaren lukte niet. Probeer opnieuw."; }
+      e.target.disabled = false;
+    });
+    return w;
+  }
+
+  async function voegFeedbackToe(r, schaduw) {
+    if (!(await laadFb(r))) {
+      const n = document.createElement("p"); n.className = "status";
+      n.textContent = "Feedback geven kan niet in deze weergave. Open de app in claude.ai of de Claude-app.";
+      $("#p-rapport").appendChild(n); return;
+    }
+    const slug = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    // Adviesblok
+    const advies = schaduw.querySelector(".advies");
+    if (advies) { const w = maakWidget("advies", "Advies en scenario's"); w.style.gridColumn = "1 / -1"; advies.appendChild(w); }
+    // Kaarten (rode vlaggen, samenvatting, teamreview, …) behalve bronnen/legende/inhoud
+    schaduw.querySelectorAll("section.kaart").forEach(k => {
+      const t = k.querySelector("h2")?.textContent.trim() || "";
+      if (/^(Bronnen|Hoe lees|Woordenlijst)/.test(t)) return;
+      k.appendChild(maakWidget(slug(t.replace(/^\W+/, "")) || "kaart", t.replace(/^\W+/, "")));
+    });
+    // Hoofdstukken
+    schaduw.querySelectorAll("details.sectie").forEach(d => {
+      const t = d.querySelector("summary")?.innerText.split("\n")[0].replace(/^\d+\.\s*/, "").trim() || d.id;
+      d.querySelector(".inhoud")?.appendChild(maakWidget(d.id, t));
+    });
+    // Totaal onderaan het rapport (vóór de voetnoot)
+    const main = schaduw.querySelector("main");
+    const bronnen = [...schaduw.querySelectorAll("section.kaart")].find(k => /^Bronnen/.test(k.querySelector("h2")?.textContent.trim() || ""));
+    (bronnen ? bronnen.parentNode.insertBefore(maakTotaal(), bronnen) : main?.appendChild(maakTotaal()));
   }
 
   // ------------------------------------------------------------ vergelijken
@@ -437,7 +535,7 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
     try {
       const q = await db.collection("feedback").where("verwerkt", "==", false).get();
       const docs = q.docs.map(d => d.data());
-      lijst.innerHTML = docs.length ? docs.map(d => `<div class="kaart"><strong>${esc(d.naam)}</strong> · ${datum(d.datum)} · score ${d.score}/10${d.extra ? `<br>Extra: ${esc(d.extra)}` : ""}${d.nutteloos ? `<br>Nutteloos: ${esc(d.nutteloos)}` : ""}${d.opmerking ? `<br>${esc(d.opmerking)}` : ""}</div>`).join("")
+      lijst.innerHTML = docs.length ? docs.map(d => `<div class="kaart"><strong>${esc(d.naam)}</strong> · ${datum(d.datum)} · ${d.score ? "score " + d.score + "/10" : "geen totaalscore"}${d.extra ? `<br>Extra: ${esc(d.extra)}` : ""}${d.nutteloos ? `<br>Nutteloos: ${esc(d.nutteloos)}` : ""}${d.opmerking ? `<br>${esc(d.opmerking)}` : ""}${Object.values(d.secties || {}).map(x => `<br>· <em>${esc(x.titel)}</em>${x.score ? ` (${x.score}/10)` : ""}${x.opmerking ? ": " + esc(x.opmerking) : ""}`).join("")}</div>`).join("")
         : `<p class="status">Geen openstaande feedback.</p>`;
     } catch { lijst.innerHTML = `<p class="status">Kon niet geladen worden.</p>`; }
   }
