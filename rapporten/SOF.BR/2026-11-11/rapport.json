@@ -14,7 +14,7 @@
  "advies": {
   "oordeel": "Afwachten",
   "score": 4,
-  "reden": "Regel **R1 is geraakt**: een consortium van drie vennootschappen rond de familie Boël heeft samen **54,6%**. De rest is degelijk maar niet uitzonderlijk: verwacht rendement ±1,5% per jaar, 92% van de portefeuille is niet-beursgenoteerd, en de AI-waarderingen schommelen sterk (uitverkoop op 5-11, Anthropic-beursgang rond 19-11).",
+  "reden": "Regel **R1 is geraakt**: een consortium van drie vennootschappen rond de familie Boël heeft samen **54,6%**. De rest is degelijk maar niet uitzonderlijk: verwacht rendement ±1,6% per jaar, 92% van de bezittingen heeft geen beurskoers (de waarde is dus een schatting), en de waarderingen van AI-bedrijven schommelen sterk.",
   "koers_nu": 270.4,
   "koers_datum": "09-11-2026",
   "koopzone": {
@@ -25,7 +25,7 @@
   "koersdoel_uitleg": "normaal scenario, eind 2028: intrinsieke waarde ±€360 (+4%/jaar) met 20% korting",
   "stop_loss": {
    "waarde": 184,
-   "uitleg": "Bij aankoop in de koopzone (€220–240): −20% = €176–192 (midden €184); technisch net onder de steun van €212 → ±€205. Wie toch nu koopt aan €270,4: −20% = €216."
+   "uitleg": "Verkoop als de koers 20% onder je aankoopprijs zakt. Koop je in de koopzone (€220–240), dan is dat €176–192. Koop je toch nu aan €270,4, dan is dat €216."
   },
   "intrinsieke_waarde": 326,
   "scenarios": [
@@ -33,7 +33,7 @@
     "naam": "Slecht",
     "koers": 180,
     "kans": "30%",
-    "uitleg": "Bredere techcorrectie (zoals begonnen op 5-11-2026) en zwakkere dollar: intrinsieke waarde −14% naar ±€280 en de korting loopt op tot 35% (zoals 2022–2024). Staartrisico: een herhaling van 2022 (waarde −25%, korting 40%) geeft ±€147 — kans ±10% (mening), zit hier in."
+    "uitleg": "Bredere techcorrectie (zoals begonnen op 5-11-2026) en zwakkere dollar: intrinsieke waarde −14% naar ±€280 en de korting loopt op tot 35% (zoals 2022–2024). [[Staartrisico|klein maar ernstig risico op een extreme daling]]: een herhaling van 2022 (waarde −25%, korting 40%) geeft ±€147 — kans ±10% (mening), zit hier in."
    },
    {
     "naam": "Normaal",
@@ -73,13 +73,13 @@
      "naam": "Waardering (prijs nu)",
      "gewicht": 20,
      "punten": 4,
-     "uitleg": "17% korting ligt binnen Sofina's normale bereik; vergelijkbare holdings zijn goedkoper. Verwacht rendement hooguit ±1,5% per jaar."
+     "uitleg": "17% korting ligt binnen Sofina's normale bereik; vergelijkbare holdings zijn goedkoper. Verwacht rendement hooguit ±1,6% per jaar."
     },
     {
      "naam": "Risico's & actualiteit",
      "gewicht": 15,
      "punten": 3,
-     "uitleg": "92% niet-beursgenoteerd (waarde is een schatting), ±65% in dollar, grote gevoeligheid voor AI- en techwaarderingen; de uitverkoop van 5 november zit nog niet in de cijfers."
+     "uitleg": "92% van de bezittingen heeft geen beurskoers (de waarde is een schatting), ±65% in dollar, grote gevoeligheid voor AI- en techwaarderingen; de uitverkoop van 5 november zit nog niet in de cijfers."
     },
     {
      "naam": "Past bij jouw profiel",
@@ -326,13 +326,13 @@
   {
    "type": "tekst",
    "label": "berekening",
-   "tekst": "[[Verwacht rendement|gemiddelde van de drie scenario's, gewogen met hun kans]] over 2 jaar: hooguit ±**1,5% per jaar** (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%). De AI-uitverkoop van 5-11 en de Anthropic-beursgang (rond 19-11) zitten nog niet in de cijfers.",
+   "tekst": "[[Verwacht rendement|gemiddelde van de drie scenario's, gewogen met hun kans]] over 2 jaar: hooguit ±**1,6% per jaar** (koers + dividend), met ±30% kans op een daling naar ±€180 (−33%). De recente schommelingen bij AI-bedrijven zitten nog niet in Sofina's cijfers.",
    "bronnen": []
   },
   {
    "type": "tekst",
    "label": "mening",
-   "tekst": "Positief: lage schuld, een stabiele familie-aandeelhouder en topfondsen. Negatief: 92% van de portefeuille is niet-beursgenoteerd (je kan de waarde niet zelf nagaan), 65% in dollar, veel gevoeligheid voor AI- en techwaarderingen, en geen [[defensief|bedrijf in een sector die weinig last heeft van een slechte economie]] profiel.",
+   "tekst": "Positief: lage schuld, een stabiele familie-aandeelhouder en topfondsen. Negatief: 92% van de bezittingen heeft geen beurskoers (je kan de waarde niet zelf nagaan), 65% in dollar, veel gevoeligheid voor AI- en techwaarderingen, en geen [[defensief|bedrijf in een sector die weinig last heeft van een slechte economie]] profiel.",
    "bronnen": []
   },
   {
@@ -1137,9 +1137,11 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Niveau 2 — SpaceX ging op 12-6-2026 naar de Nasdaq aan $135 per aandeel ($1,77 biljoen) en zakte binnen een maand onder die introductieprijs. Andere vroege beleggers zitten gespreid tot 180 dagen vast ([[lock-up|periode waarin bestaande aandeelhouders niet mogen verkopen]]).",
+     "tekst": "Niveau 2 — SpaceX ging op 12-6-2026 naar de Nasdaq aan $135 per aandeel ($1,77 biljoen) en zakte in juli onder die introductieprijs. Op 20-10 meldde SpaceX zijn eerste winst sinds de beursgang (omzet ±$14,6 mld in het derde kwartaal) en het aandeel noteerde weer boven $135. Vroege beleggers mogen gespreid verkopen ([[lock-up|periode waarin bestaande aandeelhouders niet mogen verkopen]]); de laatste grote vrijgave valt rond 180 dagen na de beursgang, begin december.",
      "bronnen": [
-      15
+      15,
+      39,
+      40
      ]
     },
     {
@@ -1154,7 +1156,7 @@
     {
      "type": "tekst",
      "label": "inschatting",
-     "tekst": "Gaat Anthropic naar de beurs aan $1,3–1,4 biljoen, dan is dat ±40% boven de ronde van mei. Sofina houdt Anthropic enkel via fondsen en publiceert geen bedrag; als Anthropic 1–2% van de portefeuille zou zijn, gaat het om ±0,4–0,8% extra intrinsieke waarde — positief maar klein, en pas zichtbaar als de fondsen herwaarderen.",
+     "tekst": "Gaat Anthropic naar de beurs aan $1,26–1,4 biljoen, dan is dat ±31–45% boven de ronde van mei. Sofina houdt Anthropic enkel via fondsen en publiceert geen bedrag; als Anthropic 1–2% van de portefeuille zou zijn, gaat het om ±0,3–0,9% extra intrinsieke waarde — positief maar klein, en pas zichtbaar als de fondsen herwaarderen.",
      "bronnen": []
     },
     {
@@ -1185,7 +1187,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Belang ±14,06% (economisch, 'fully diluted'; 18,96% van de tussenholding Lernen Midco 1) sinds 2019. Eind 2025 de 2de grootste rechtstreekse positie, midden 2026 de 6de. Een verkoop van een meerderheidsbelang (biedingen tot €6 mld) mislukte in 2025, o.a. door de btw op Britse privéschoolgelden; de waardering werd verlaagd. CEO: Cognita 'had het moeilijker om te groeien'.",
+     "tekst": "Belang ±14,06% ([[economisch belang|jouw deel van de winst en waarde, los van stemrecht]], met alle toekomstige aandelen meegeteld; 18,96% van de tussenholding Lernen Midco 1) sinds 2019. Eind 2025 de 2de grootste rechtstreekse positie, midden 2026 de 6de. Een verkoop van een meerderheidsbelang (biedingen tot €6 mld) mislukte in 2025, o.a. door de btw op Britse privéschoolgelden; de waardering werd verlaagd. CEO: Cognita 'had het moeilijker om te groeien'.",
      "bronnen": [
       3,
       1,
@@ -1204,7 +1206,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Nuxe (natuurcosmetica, FR) 49%; Drylock (luiers/hygiëne, BE) 25%; Proeduca (online hoger onderwijs, ES) 17,22% sinds 2025; Cambridge Associates (vermogensbeheer, VS) 21,40% (economisch belang, 30-6-2026).",
+     "tekst": "Nuxe (natuurcosmetica, FR) 49%; Drylock (luiers/hygiëne, BE) 25%; Proeduca (online hoger onderwijs, ES) 17,22% sinds 2025; Cambridge Associates (vermogensbeheer, VS) 21,40% (economisch belang, alle toekomstige aandelen meegeteld, 30-6-2026).",
      "bronnen": [
       1
      ]
@@ -1355,7 +1357,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "CEO: steeds meer transacties, maar minder 'liquiditeit in het systeem' voor verkopen; inflatie door de oorlog in de Golf drukt de waarderingsmultiples; softwarebedrijven herstelden maar zitten nog onder vorig jaar.",
+     "tekst": "CEO: steeds meer transacties, maar minder 'liquiditeit in het systeem' voor verkopen; inflatie door de oorlog in de Golf drukt de [[waarderingsmultiples|hoeveel keer de winst of omzet beleggers voor een bedrijf betalen]]; softwarebedrijven herstelden maar zitten nog onder vorig jaar.",
      "bronnen": [
       13
      ]
@@ -1433,7 +1435,7 @@
       },
       {
        "label": "feit",
-       "tekst": "Februari 2026: secundaire verkoop ByteDance-aandelen aan een waardering tot $550 mld (Reuters).",
+       "tekst": "Februari 2026: [[secundaire verkoop|bestaande aandeelhouders verkopen aandelen aan anderen, zonder nieuw geld voor het bedrijf]] van ByteDance-aandelen aan een waardering tot $550 mld (Reuters).",
        "bronnen": [
         32
        ]
@@ -1453,9 +1455,11 @@
      "items": [
       {
        "label": "feit",
-       "tekst": "Juni 2026: SpaceX naar de beurs aan $1,77 biljoen; binnen een maand onder de introductieprijs.",
+       "tekst": "Juni 2026: SpaceX naar de beurs aan $1,77 biljoen; in juli onder de introductieprijs, na de eerste winst (20-10) weer erboven.",
        "bronnen": [
-        15
+        15,
+        39,
+        40
        ]
       },
       {
@@ -1468,7 +1472,7 @@
       },
       {
        "label": "feit",
-       "tekst": "ECB: rente naar 2,5% in september, behouden op 29-10. Inflatie eurozone oktober **4,0%** (hoogste in 3 jaar); de markt rekent op een verhoging op 17-12.",
+       "tekst": "[[ECB|Europese Centrale Bank, bepaalt de rente in de eurozone]]: rente naar 2,5% in september, behouden op 29-10. Inflatie eurozone oktober **4,0%** (hoogste in 3 jaar); de markt houdt rekening met een verhoging op 17-12, al besliste de ECB op 29-10 nog unaniem om niet te verhogen.",
        "bronnen": [
         20,
         19,
@@ -1477,7 +1481,7 @@
       },
       {
        "label": "feit",
-       "tekst": "EUR/USD rond 1,13 begin november (30-6: 1,139). Een euro die 10% stijgt, kost Sofina ±€694 mln (±6% van de waarde).",
+       "tekst": "[[EUR/USD|hoeveel dollar je krijgt voor één euro]] rond 1,13 begin november (30-6: 1,139). Een euro die 10% stijgt, kost Sofina ±€694 mln (±6% van de waarde).",
        "bronnen": [
         21,
         1
@@ -1499,7 +1503,7 @@
       },
       {
        "label": "feit",
-       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — [[Nasdaq|Amerikaanse technologiebeurs]] 100 −6,4%, slechtste dag sinds 2020; chipbedrijven tot −12%. Aanleiding: de overwinning van de Democraten bij de tussentijdse verkiezingen (ook in staten met veel datacenters), met vrees voor een tragere uitbouw van AI-datacenters en strengere AI-regels.",
+       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — [[Nasdaq|Amerikaanse technologiebeurs]] 100 −6,4%, slechtste dag sinds 2020; chipbedrijven tot −12%. Aanleiding volgens Reuters: de overwinning van de Democraten bij de tussentijdse verkiezingen (ook in staten met veel datacenters), met vrees voor een tragere uitbouw van AI-datacenters en strengere AI-regels.",
        "bronnen": [
         27,
         38
@@ -1512,7 +1516,7 @@
       },
       {
        "label": "feit",
-       "tekst": "6-11-2026: gedeeltelijk herstel; chipbedrijven stegen in de loop van de dag ±4%. Door sterke banencijfers rekenden beleggers op ±78% kans op een Amerikaanse renteverhoging in december.",
+       "tekst": "6-11-2026: gedeeltelijk herstel; chipbedrijven stegen in de loop van de dag ±4%. Door sterke banencijfers zagen beleggers volgens Reuters toen ±78% kans op een Amerikaanse renteverhoging in december (een momentopname).",
        "bronnen": [
         38
        ]
@@ -1544,7 +1548,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "Afloop van de gespreide lock-ups bij SpaceX (tot 180 dagen na 12-6-2026, dus rond december 2026): mogelijk verkoopdruk.",
+       "tekst": "Laatste grote vrijgave van SpaceX-aandelen voor vroege beleggers rond begin december 2026 (180 dagen na de beursgang): mogelijk verkoopdruk.",
        "bronnen": []
       },
       {
@@ -1554,12 +1558,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "December 2026: mogelijke renteverhogingen door zowel de ECB (17-12) als de Amerikaanse centrale bank; hogere rente drukt de waardering van groeibedrijven.",
-       "bronnen": []
-      },
-      {
-       "label": "inschatting",
-       "tekst": "17-12-2026: ECB-vergadering; een renteverhoging drukt de waardering van groeibedrijven.",
+       "tekst": "December 2026: mogelijke renteverhogingen door zowel de ECB (vergadering 17-12) als de Amerikaanse centrale bank; hogere rente drukt de waardering van groeibedrijven.",
        "bronnen": []
       },
       {
@@ -1628,7 +1627,7 @@
       },
       {
        "label": "feit",
-       "tekst": "Fondsen deden het goed; rechtstreekse portefeuille 'praktisch vlak' door Cognita en lagere softwaremultiples.",
+       "tekst": "Fondsen deden het goed; rechtstreekse portefeuille 'praktisch vlak' door Cognita en lagere waarderingen van softwarebedrijven.",
        "bronnen": [
         13
        ]
@@ -1747,7 +1746,7 @@
     {
      "type": "tekst",
      "label": "inschatting",
-     "tekst": "Sinds 30-6: SpaceX lager, euro iets sterker, Sofina betaalde ±€130 mln dividend in mei (al verwerkt), op 5-11 een scherpe AI-uitverkoop met gedeeltelijk herstel, en Anthropic mikt op een beurswaardering tot $1,4 biljoen (boven de ronde van mei). Die effecten heffen elkaar deels op; ik reken met **€326**, met een neerwaarts risico van enkele procenten.",
+     "tekst": "Sinds 30-6: SpaceX eerst lager en nu weer boven zijn introductieprijs, euro iets sterker, Sofina betaalde ±€130 mln dividend in mei (al verwerkt), op 5-11 een scherpe AI-uitverkoop met gedeeltelijk herstel, en Anthropic mikt op een beurswaardering tot $1,4 biljoen (boven de ronde van mei). Die effecten heffen elkaar deels op; ik reken met **€326**, met een neerwaarts risico van enkele procenten.",
      "bronnen": []
     },
     {
@@ -1802,7 +1801,7 @@
       ]
      ],
      "bron_tekst": "Eigen berekening (inschatting; kansen = mening) op basis van halfjaarverslag 2026",
-     "noot": "Startpunt: intrinsieke waarde €326 (30-6-2026). Als de AI-uitverkoop die met 5% verlaagt (±€310), wordt dit ±€173 / €274 / €334 en is het verwacht rendement ±0% per jaar."
+     "noot": "Startpunt: intrinsieke waarde €326 (30-6-2026). Als die nu al 5% lager ligt (±€310), worden de scenario's ±€173 / €274 / €334 en is het verwachte rendement licht negatief."
     },
     {
      "type": "uitleg",
@@ -1811,7 +1810,7 @@
     {
      "type": "tekst",
      "label": "berekening",
-     "tekst": "Verwachte koers (gewogen): 0,30×180 + 0,45×290 + 0,25×350 ≈ **€272** (+0,6% t.o.v. €270,4), plus ±€7,3 bruto dividend over 2 jaar → ±3% in 2 jaar = **±1,5% per jaar** vóór belastingen. Mager voor het risico. Dit is eerder een bovengrens: bij een startwaarde 5% lager wordt het negatief.",
+     "tekst": "Verwachte koers (gewogen): 0,30×180 + 0,45×290 + 0,25×350 ≈ **€272** (+0,6% t.o.v. €270,4), plus ±€7,3 bruto dividend over 2 jaar → ±3,3% in 2 jaar = **±1,6% per jaar** vóór belastingen. Mager voor het risico. Dit is eerder een bovengrens: als de intrinsieke waarde nu al 5% lager ligt (en alle scenario's dus ook), kom je op ±−2% in 2 jaar.",
      "bronnen": []
     },
     {
@@ -1845,7 +1844,7 @@
     {
      "type": "kader",
      "stijl": "mening",
-     "tekst": "**Afwachten (niet kopen: R1) — 4/10.** Zonder R1 komt Sofina op een gewogen gemiddelde van ±4,8/10: degelijk bestuur en weinig schuld (+), maar geen defensief profiel, een waarde die je niet zelf kan controleren, AI-gevoeligheid en een verwacht rendement van hooguit ±1,5% per jaar. R1 kost nog een punt en maakt het een NO-GO, tenzij de rest uitzonderlijk is — dat is hier niet zo. De volledige scoreopbouw staat bovenaan bij het advies. De koopzone geldt enkel voor wie R1 bewust aanvaardt.",
+     "tekst": "**Afwachten (niet kopen: R1) — 4/10.** Zonder R1 komt Sofina op een gewogen gemiddelde van ±4,8/10: degelijk bestuur en weinig schuld (+), maar geen defensief profiel, een waarde die je niet zelf kan controleren, AI-gevoeligheid en een verwacht rendement van hooguit ±1,6% per jaar. R1 kost nog een punt en maakt het een NO-GO, tenzij de rest uitzonderlijk is — dat is hier niet zo. De volledige scoreopbouw staat bovenaan bij het advies. De koopzone geldt enkel voor wie R1 bewust aanvaardt.",
      "titel": "Oordeel"
     }
    ]
@@ -3045,50 +3044,67 @@
    "type": "nieuws",
    "url": "https://www.devdiscourse.com/article/international/4002927-us-stocks-nasdaq-rebounds-as-chip-stocks-recover-from-steep-losses",
    "datum": "2026-11-06"
+  },
+  {
+   "id": 39,
+   "titel": "SpaceX turns a profit after a string of losses as its satellite and computer leasing businesses soar",
+   "uitgever": "AP (via Spectrum News 13)",
+   "type": "nieuws",
+   "url": "https://mynews13.com/fl/orlando/ap-top-news/2026/10/20/spacex-turns-a-profit-after-a-string-of-losses-as-its-satellite-and-computer-leasing-businesses-soar",
+   "datum": "2026-10-20"
+  },
+  {
+   "id": 40,
+   "titel": "SpaceX shares climb as Q3 turns to profit",
+   "uitgever": "RTTNews",
+   "type": "nieuws",
+   "url": "https://www.rttnews.com/3700949/spacex-shares-climb-as-q3-turns-to-profit-on-connectivity-si-strength.aspx",
+   "datum": "2026-10-21"
   }
  ],
  "wijzigingen": [
   {
    "type": "uitleg",
-   "tekst": "Dit is een update van het rapport van 8 november 2026. Er zijn geen nieuwe cijfers van Sofina zelf (de volgende komen op 24-3-2027); wel bewoog de markt en kwam er belangrijk nieuws over Anthropic."
+   "tekst": "Dit is een update van het rapport van 8 november 2026. Het belangrijkste eerst: **het advies blijft Afwachten (niet kopen), 4/10.** Het goede en het slechte nieuws van de voorbije dagen heffen elkaar ongeveer op, en het advies hangt vooral aan regel R1 (54,6% bij het consortium rond de familie Boël) — en dat is niet veranderd. Sofina publiceerde zelf geen nieuwe cijfers; die komen pas op 24-3-2027."
   },
   {
    "type": "lijst",
    "items": [
     {
-     "label": "mening",
-     "tekst": "**Advies en score ongewijzigd**: Afwachten (niet kopen: R1), 4/10. De scoreopbouw blijft gelijk.",
-     "bronnen": []
-    },
-    {
      "label": "berekening",
-     "tekst": "**Koers** van €267,6 (6-11) naar **€270,4** (9-11); de korting op de intrinsieke waarde (van 30-6) kromp van 18% naar **17%**.",
+     "tekst": "**Koers** van €267,6 (6-11) naar **€270,4** (9-11, laatste beschikbare slotkoers). De korting op de intrinsieke waarde kromp van 18% naar **17%** — maar die waarde dateert van 30-6, dus de korting is in werkelijkheid onzeker.",
      "bronnen": [
       12
      ]
     },
     {
      "label": "berekening",
-     "tekst": "**Verwacht rendement** daalt licht naar ±1,5% per jaar, omdat de koers iets hoger staat terwijl de scenario's gelijk blijven.",
+     "tekst": "**Verwacht rendement** daalt van ±2% naar **±1,6% per jaar**: de koers staat iets hoger, terwijl de scenario's gelijk blijven.",
      "bronnen": []
     },
     {
      "label": "feit",
-     "tekst": "**Anthropic** legde op 10-11 een prijsvork vast van $70–78 per aandeel, goed voor een waardering tot $1,405 biljoen (volledig verwaterd), tegenover $965 mld in mei. Notering naar verluidt op 19-11.",
+     "tekst": "**Anthropic** (maker van de AI-assistent Claude; Sofina bezit het enkel onrechtstreeks via fondsen) gaat naar de beurs. De verwachte prijs ($70–78 per aandeel) komt neer op een bedrijfswaarde van ±$1,26 tot $1,405 biljoen, tegenover $965 mld bij de geldronde van mei. Beleggers hadden eerder op meer gehoopt. Notering naar verluidt op 19-11.",
      "bronnen": [
-      37
+      37,
+      16
      ]
     },
     {
+     "label": "inschatting",
+     "tekst": "Gevolg voor Sofina: klein en pas later zichtbaar, naar schatting enkele tienden van een procent extra waarde (Sofina publiceert geen bedrag per bedrijf).",
+     "bronnen": []
+    },
+    {
      "label": "feit",
-     "tekst": "**Markt**: na de AI-uitverkoop van 5-11 herstelden chipbedrijven deels op 6-11; aanleiding van de daling was de overwinning van de Democraten bij de tussentijdse verkiezingen, met vrees voor tragere bouw van datacenters en strengere AI-regels. Beleggers rekenen op ±78% kans op een Amerikaanse renteverhoging in december.",
+     "tekst": "**Markt**: op 5-11 zakten technologie- en chipaandelen fors. Volgens Reuters vreesden beleggers na de overwinning van de Democraten bij de [[tussentijdse verkiezingen|Amerikaanse verkiezingen halverwege de ambtstermijn van de president]] voor strengere AI-regels en een tragere bouw van datacenters. Op 6-11 herstelden ze deels. Door sterke banencijfers zagen beleggers toen ±78% kans op een Amerikaanse renteverhoging in december — en hogere rente drukt de waarde van groeibedrijven, waarvan Sofina er veel bezit.",
      "bronnen": [
       38
      ]
     },
     {
      "label": "feit",
-     "tekst": "**Rode vlaggen**: geen nieuwe FSMA-meldingen van leidinggevenden en geen nieuwe transparantiemeldingen sinds het vorige rapport.",
+     "tekst": "**Rode vlaggen**: ongewijzigd. Bij de toezichthouder FSMA en op de website van Sofina vond ik (gecontroleerd op 11-11) geen nieuwe meldingen van aan- of verkopen door bestuurders en geen nieuwe meldingen van grote aandeelhouders.",
      "bronnen": [
       11,
       9

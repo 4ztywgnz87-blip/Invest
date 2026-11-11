@@ -31,3 +31,8 @@
 
 ## Reproduceren
 `rapport.json` = definitief rapport 2026-11-08 + `maak_rapport/patch5.py`.
+
+## Teamreview ronde 1 (verwerkt met patch6.py)
+- Extra bronnen: AP 20-10-2026 (SpaceX eerste winst, omzet Q3 ±$14,6 mld), RTTNews 21-10 (aandeel stijgt).
+- Blootstellingskaart aangevuld: SpaceX-lock-ups (laatste grote vrijgave ±begin december), Anthropic-IPO (herwaardering fondsen), Fed december (78% volgens Reuters 6-11), ECB 17-12.
+- Verworpen: Brent $98,29 / tankeraanvallen 5-11 (zwakke bron).
