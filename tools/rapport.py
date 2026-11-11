@@ -172,7 +172,7 @@ def controleer_bronrang(r: dict, c: "Controle") -> None:
         c.let_op(f"{len(enkel_zwak)} feit(en) steunen enkel op een zwakke bron: {', '.join(enkel_zwak[:6])}{' …' if len(enkel_zwak) > 6 else ''}")
     nieuws = [b for b in bronnen if b.get("type") == "nieuws"]
     if nieuws and not any(bronrang.is_basis(b) for b in bronnen):
-        c.let_op("geen enkele bron van De Tijd, L'Echo of Reuters (de afgesproken basis voor nieuws)")
+        c.let_op("geen enkel bericht van De Tijd, L'Echo, Reuters of AP (ook niet overgenomen door een andere uitgever) — de afgesproken basis voor nieuws")
 
 
 def controleer_soort(r: dict, c: "Controle") -> None:

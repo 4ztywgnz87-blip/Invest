@@ -73,4 +73,12 @@ Geen kritieke opmerkingen of "niet goedgekeurd" → geen ronde 3.
 | AS3-7 | klein | "dubbel zo hard" → ±3× | verwerkt |
 | AS3-8 | klein | Ontbrekend: stemming/korting | verwerkt (rij "Stemming rond Sofina"); AI-regels zitten bij AI-rij en tijdlijn |
 
+## Broncontrole 11-11-2026 (na de teamreview) — enkel de wijzigingen, financieel analist
+Oordeel: goedgekeurd met opmerkingen. ±22 feiten/berekeningen gecontroleerd, 20 meteen correct.
+
+| ID | Ernst | Opmerking | Wat gedaan |
+|---|---|---|---|
+| FA4-1 | klein | 'waardering': "vergelijkbare holdings 22–35%" naast "GBL/Brederode (20–35%)" | verwerkt: 20–35% |
+| FA4-2 | klein | Blootstellingskaart: "180 dagen na de beursgang" klinkt als feit | verwerkt: als aanname geformuleerd, zoals in Keten |
+
 ## Open punten / meningsverschillen

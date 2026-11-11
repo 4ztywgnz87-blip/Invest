@@ -10,6 +10,16 @@
     "gelezen_op": "2026-11-11"
   },
   {
+    "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml",
+    "titel": "ECB referentiekoersen EUR/USD",
+    "uitgever": "Europese Centrale Bank",
+    "datum": "2026-11-10",
+    "type": "primair",
+    "samenvatting": "EUR/USD 1,1267 op 4-11-2026, 1,1165 op 6-11, 1,1214 op 10-11.",
+    "hash": "3c31be957dbf1ec6",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.devdiscourse.com/article/international/4002927-us-stocks-nasdaq-rebounds-as-chip-stocks-recover-from-steep-losses",
     "titel": "Nasdaq rebounds as chip stocks recover (Reuters)",
     "uitgever": "Devdiscourse/Reuters",
@@ -17,6 +27,16 @@
     "type": "nieuws",
     "samenvatting": "Herstel 6-11; uitverkoop 5-11 na overwinning Democraten midterms (datacenters, AI-regels); 78% kans Fed-verhoging december.",
     "hash": "506d47d2224bdc5b",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://gvwire.com/2026/11/06/nasdaq-rebounds-as-chips-stocks-recover-from-steep-losses",
+    "titel": "Nasdaq rebounds as chips stocks recover from steep losses",
+    "uitgever": "Reuters (overgenomen door GV Wire)",
+    "datum": "2026-11-06",
+    "type": "nieuws",
+    "samenvatting": "5-11: grootste dagverlies Nasdaq in 19 maanden, correctie, chips -12%; aanleiding Democraten en AI-regels; 6-11 herstel; 78% kans Fed-verhoging december (was 70%).",
+    "hash": "ea385b55b7efac65",
     "gelezen_op": "2026-11-11"
   },
   {
@@ -40,6 +60,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.gbl.com/en/media/4401/results-sept-2026-en.pdf",
+    "titel": "GBL results as of September 30, 2026",
+    "uitgever": "GBL",
+    "datum": "2026-11-05",
+    "type": "primair",
+    "samenvatting": "NAV per aandeel 99,21 euro op 30-9-2026 (105,37 eind 2025); korting 28,3% bij koers 71,10.",
+    "hash": "06916fd29f6f83a5",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://tradingeconomics.com/euro-area/currency/news/598161",
     "titel": "Euro hits 4-week high",
     "uitgever": "Trading Economics",
@@ -58,6 +88,16 @@
     "samenvatting": "Inflatie eurozone oktober 2026 4,0% (flash).",
     "hash": "95f59e6e1347b00b",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap",
+    "titel": "Euro area annual inflation up to 4.0%",
+    "uitgever": "Eurostat",
+    "datum": "2026-11-04",
+    "type": "primair",
+    "samenvatting": "Flash: inflatie eurozone oktober 2026 4,0% (september 3,8%); energie +20,8%.",
+    "hash": "7a37d0de4f1242ac",
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://www.deaandeelhouder.be/nieuws/2026/11/03/beursupdate-sofina-onderaan-in-rode-bel20",
@@ -90,6 +130,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp261029~9a493adf17.en.html",
+    "titel": "Monetary policy decisions 29-10-2026",
+    "uitgever": "Europese Centrale Bank",
+    "datum": "2026-10-29",
+    "type": "primair",
+    "samenvatting": "Rente ongewijzigd: depositorente 2,50%, herfinanciering 2,65%, marginale lening 2,90%.",
+    "hash": "ba2cb98511e9283f",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.opb.org/article/2026/10/26/ai-giant-anthropic-files-for-an-ipo-that-could-break-records",
     "titel": "Anthropic files for an IPO",
     "uitgever": "OPB/NPR",
@@ -117,6 +167,16 @@
     "type": "nieuws",
     "samenvatting": "SpaceX eerste winst sinds beursgang; omzet Q3 2026 ca. 14,6 mld dollar.",
     "hash": "b6340a854e42c22d",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
+    "titel": "SpaceX Q3 2026 earnings live updates",
+    "uitgever": "CNBC",
+    "datum": "2026-10-20",
+    "type": "nieuws",
+    "samenvatting": "Q3: omzet 14,58 mld, nettowinst 4,4 mld; +8% na beurstijd, slot 147,50; eerste lock-up begin augustus (meer dan 911 mln aandelen).",
+    "hash": "8fdf899382c90cad",
     "gelezen_op": "2026-11-11"
   },
   {
@@ -150,6 +210,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.exor.com/sites/default/files/press-releases/2026-09/Exor%20Press%20Release%20-%201H2026%20Results.pdf",
+    "titel": "Exor first-half 2026 results",
+    "uitgever": "Exor",
+    "datum": "2026-09-22",
+    "type": "primair",
+    "samenvatting": "NAV per aandeel 157,9 euro op 30-6-2026 (-3,9%); korting 57,6%.",
+    "hash": "778379c670cacf1c",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.cnbc.com/2026/09/10/ecb-interest-rate-hike-lagarde-iran.html",
     "titel": "ECB hikes interest rates to 2.5%",
     "uitgever": "CNBC",
@@ -158,6 +228,16 @@
     "samenvatting": "ECB verhoogt rente door gevolgen VS-Iranoorlog; olie boven $100.",
     "hash": null,
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://brederode.eu/wp-content/uploads/2026/09/20260910_BRE_Communique_Semestriel_2026_NL_DEF.pdf",
+    "titel": "Brederode halfjaarlijks persbericht 2026",
+    "uitgever": "Brederode",
+    "datum": "2026-09-10",
+    "type": "primair",
+    "samenvatting": "Eigen vermogen per aandeel 154,64 euro op 30-6-2026.",
+    "hash": "23e3adcaed59ae2e",
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-sofina-h1-2025-nav-rises-as-stock-gains-39-93CH-4887840",
@@ -228,6 +308,36 @@
     "samenvatting": "GBL NAV per aandeel H1 2026 -4,4% tot €100,77.",
     "hash": "5816438c436c0f6d",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.cnbc.com/2026/07/15/spacex-spcx-stock-ipo-price.html",
+    "titel": "SpaceX stock sinks below 135 IPO price for the first time",
+    "uitgever": "CNBC",
+    "datum": "2026-07-15",
+    "type": "nieuws",
+    "samenvatting": "15-7-2026 voor het eerst even onder 135 dollar; slot 135,27.",
+    "hash": "1d2b87f9baf97dec",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Pricing-of-Initial-Public-Offering/default.aspx",
+    "titel": "SpaceX: pricing of IPO",
+    "uitgever": "SpaceX",
+    "datum": "2026-06-11",
+    "type": "primair",
+    "samenvatting": "Beursgang 555.555.555 aandelen aan 135 dollar; handel vanaf 12-6-2026 op Nasdaq (SPCX).",
+    "hash": "898a4da5b9842e1a",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html",
+    "titel": "SpaceX raises 75 billion in record-setting IPO",
+    "uitgever": "CNBC",
+    "datum": "2026-06-11",
+    "type": "nieuws",
+    "samenvatting": "75 mld dollar opgehaald aan 135 dollar; waardering 1,77 biljoen dollar.",
+    "hash": "9fbad369453d6377",
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo",

@@ -799,6 +799,24 @@
      "bronnen": []
     },
     {
+     "type": "uitleg",
+     "tekst": "Wie controleert die cijfers? Elk jaar kijkt een onafhankelijke revisor de jaarrekening na."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De [[commissaris|onafhankelijke revisor die de jaarrekening controleert]] (EY) keurde de jaarrekening 2025 goed zonder voorbehoud. Als belangrijkste aandachtspunt van de controle noemt EY de waardering van de niet-beursgenoteerde beleggingen.",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Dat aandachtspunt is logisch: het gaat om het deel van Sofina (92%) waarvan je als belegger de waarde niet zelf kan nagaan. Een goedkeuring zonder voorbehoud is geruststellend, maar geen garantie dat die waarden bij een verkoop ook gehaald worden.",
+     "bronnen": []
+    },
+    {
      "type": "kop",
      "tekst": "Waar komt het rendement vandaan?"
     },
@@ -1264,24 +1282,27 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Niveau 2 — SpaceX ging op 12-6-2026 naar de Nasdaq aan $135 per aandeel ($1,77 biljoen) en zakte binnen een maand onder die introductieprijs. Andere vroege beleggers mogen pas na een gespreide [[lock-up|periode waarin bestaande aandeelhouders niet mogen verkopen]] van tot 180 dagen verkopen.",
+     "tekst": "Niveau 2 — SpaceX ging op 12-6-2026 naar de Nasdaq aan $135 per aandeel (een waardering van $1,77 biljoen). Op 15-7-2026 zakte de koers voor het eerst even onder die introductieprijs. Bestaande aandeelhouders mogen hun aandelen pas later en gespreid verkopen ([[lock-up|periode waarin bestaande aandeelhouders niet mogen verkopen]]); een eerste blok van meer dan 911 miljoen aandelen kwam begin augustus 2026 vrij.",
      "bronnen": [
-      15
+      43,
+      44,
+      45,
+      46
      ]
     },
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Op 20-10-2026 meldde SpaceX winst na een reeks verliezen, met een omzet van ±$14,6 mld in het derde kwartaal; op 21-10 noteerde het aandeel ±$161 in de handel buiten de beursuren, boven de introductieprijs. Een recentere koers (na de uitverkoop van 5-11) vond ik niet.",
+     "tekst": "Op 20-10-2026 meldde SpaceX voor het derde kwartaal een omzet van $14,58 mld en een nettowinst van $4,4 mld, na een reeks verliezen. Het aandeel sloot die dag op $147,50 (boven de introductieprijs) en steeg daarna nog ±8% in de handel na beurstijd. Een betrouwbare recentere koers (na de uitverkoop van 5-11) vond ik niet.",
      "bronnen": [
-      39,
-      40
+      46,
+      39
      ]
     },
     {
      "type": "tekst",
      "label": "inschatting",
-     "tekst": "180 dagen na de beursgang is ±9 december 2026: dan kunnen meer vroege beleggers verkopen, wat de koers kan drukken.",
+     "tekst": "Het volledige schema van die lock-ups vond ik niet in een betrouwbare bron. Bij een gebruikelijke termijn van 180 dagen zou het laatste blok rond 9 december 2026 vrijkomen. Dan kunnen meer vroege beleggers verkopen, wat de koers kan drukken.",
      "bronnen": []
     },
     {
@@ -1424,7 +1445,7 @@
       [
        "GBL",
        "€79,70",
-       "−21%",
+       "−20%",
        "+14%",
        "+3%",
        "6,4%",
@@ -1462,11 +1483,14 @@
       12,
       25,
       1,
+      49,
+      50,
+      51,
       22,
       23,
       36
      ],
-     "noot": "*Korting = koers t.o.v. laatst gepubliceerde intrinsieke waarde per aandeel op 30-6-2026 (Sofina 326,48; GBL 100,77; Brederode 154,6; Exor 157,9) — berekend en verouderd, dus een benadering. Rendementen zonder dividend. Bij AvH vond ik geen recente intrinsieke waarde. Investor AB (Zweden) en Eurazeo/Wendel liet ik weg: geen recente intrinsieke waarde met bron gevonden en minder gelijkend (weinig durfkapitaal)."
+     "noot": "*Korting = koers t.o.v. laatst gepubliceerde intrinsieke waarde per aandeel (Sofina 326,48 op 30-6-2026; GBL 99,21 op 30-9-2026; Brederode 154,64 en Exor 157,9 op 30-6-2026) — berekend en verouderd, dus een benadering. Rendementen zonder dividend. Bij AvH vond ik geen recente intrinsieke waarde. Investor AB (Zweden) en Eurazeo/Wendel liet ik weg: geen recente intrinsieke waarde met bron gevonden en minder gelijkend (weinig durfkapitaal)."
     },
     {
      "type": "uitleg",
@@ -1488,7 +1512,7 @@
        "naam": "Korting",
        "waarden": [
         -17,
-        -21,
+        -20,
         -35,
         -53
        ]
@@ -1498,6 +1522,9 @@
       12,
       25,
       1,
+      49,
+      50,
+      51,
       22,
       23,
       36
@@ -1576,8 +1603,7 @@
        "label": "inschatting",
        "tekst": "**AI- en techbedrijven — ▼ middel tot groot (2–5%).** Uitverkoop op 5-11. De tien grootste bedrijven in de fondsen (veel AI) zijn ±10% van Sofina: −20% daar kost ±2%; zakken alle fondsen 10%, dan ±5%.",
        "bronnen": [
-        27,
-        38,
+        47,
         1
        ]
       },
@@ -1586,7 +1612,7 @@
        "tekst": "**Dollar — ▼▲ groot (±3% per 5% koersbeweging).** ±65% van het bezit is in dollar. Een sterkere euro kost geld, een zwakkere levert op. In 2025 kostte de dollar €925 mln.",
        "bronnen": [
         1,
-        21,
+        42,
         4
        ]
       },
@@ -1594,7 +1620,8 @@
        "label": "inschatting",
        "tekst": "**Rente (Europa en VS) — ▼ middel.** Inflatie in de eurozone 4,0%, verhogingen in december mogelijk. Hogere rente drukt de waarde van groeibedrijven; de nieuwe lening om de obligatie van 2028 af te lossen kost ±€19 mln per jaar extra (klein).",
        "bronnen": [
-        30,
+        41,
+        48,
         19,
         20
        ]
@@ -1624,9 +1651,9 @@
       },
       {
        "label": "inschatting",
-       "tekst": "**Overige: SpaceX, Cognita, olie — ▼ klein.** SpaceX: meer aandelen vrij rond 9-12. Cognita: verkoop mislukt in 2025. Olie: blijft hoog door de oorlog in de Golf en houdt zo de inflatie en de rente hoog.",
+       "tekst": "**Overige: SpaceX, Cognita, olie — ▼ klein.** SpaceX: mogelijk komen rond 9-12 nog aandelen vrij. Cognita: verkoop mislukt in 2025. Olie: blijft hoog door de oorlog in de Golf en houdt zo de inflatie en de rente hoog.",
        "bronnen": [
-        15,
+        43,
         39,
         31,
         33
@@ -1716,11 +1743,12 @@
      "items": [
       {
        "label": "feit",
-       "tekst": "Juni 2026: SpaceX naar de beurs aan $1,77 biljoen; binnen een maand onder de introductieprijs, op 21-10 (na winstcijfers) weer erboven.",
+       "tekst": "Juni 2026: SpaceX naar de beurs aan $1,77 biljoen; half juli voor het eerst onder de introductieprijs, op 20-10 (na winstcijfers) weer ruim erboven.",
        "bronnen": [
-        15,
-        39,
-        40
+        43,
+        44,
+        45,
+        46
        ]
       },
       {
@@ -1735,16 +1763,17 @@
        "label": "feit",
        "tekst": "[[ECB|Europese Centrale Bank, bepaalt de rente in de eurozone]]: rente naar 2,5% in september, behouden op 29-10. Inflatie eurozone oktober **4,0%** (hoogste in 3 jaar); de markt houdt rekening met een verhoging op 17-12, al besliste de ECB op 29-10 nog unaniem om niet te verhogen.",
        "bronnen": [
+        48,
         20,
         19,
-        30
+        41
        ]
       },
       {
        "label": "feit",
-       "tekst": "[[EUR/USD|hoeveel dollar je krijgt voor één euro]] rond 1,13 begin november (30-6: 1,139). Een euro die 10% stijgt, kost Sofina ±€694 mln (±6% van de waarde).",
+       "tekst": "[[EUR/USD|hoeveel dollar je krijgt voor één euro]] rond 1,12–1,13 begin november (officiële koers van de ECB: 1,1267 op 4-11 en 1,1214 op 10-11; op 30-6 was dat 1,139). Een euro die 10% stijgt, kost Sofina ±€694 mln (±6% van de waarde).",
        "bronnen": [
-        21,
+        42,
         1
        ]
       },
@@ -1757,10 +1786,9 @@
       },
       {
        "label": "feit",
-       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — [[Nasdaq|Amerikaanse technologiebeurs]] 100 −6,4%, slechtste dag sinds 2020; chipbedrijven tot −12%. Aanleiding volgens Reuters: de overwinning van de Democraten bij de tussentijdse verkiezingen (ook in staten met veel datacenters), met vrees voor een tragere uitbouw van AI-datacenters en strengere AI-regels.",
+       "tekst": "**5-11-2026: AI- en chipuitverkoop in de VS** — de [[Nasdaq|Amerikaanse technologiebeurs]] kende haar grootste dagverlies in 19 maanden en kwam daarmee in een 'correctie' terecht (meer dan 10% onder haar piek); de index van chipbedrijven verloor meer dan 12%. Aanleiding volgens Reuters: de overwinning van de Democraten bij de tussentijdse verkiezingen (ook in staten met veel datacenters), met vrees voor strengere AI-regels.",
        "bronnen": [
-        27,
-        38
+        47
        ]
       },
       {
@@ -1770,9 +1798,9 @@
       },
       {
        "label": "feit",
-       "tekst": "6-11-2026: gedeeltelijk herstel van de chipbedrijven. Door sterke Amerikaanse banencijfers werd een renteverhoging in december waarschijnlijker.",
+       "tekst": "6-11-2026: gedeeltelijk herstel van de chipbedrijven (chipindex +4,6% in de ochtend). De Amerikaanse banencijfers van oktober waren sterker dan verwacht; beleggers zagen daarna 78% kans op een renteverhoging in december, tegen 70% ervoor.",
        "bronnen": [
-        38
+        47
        ]
       },
       {
@@ -1808,7 +1836,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "Rond 9 december 2026 (180 dagen na de beursgang) mogen meer vroege SpaceX-beleggers verkopen: mogelijk verkoopdruk.",
+       "tekst": "Rond 9 december 2026 (bij een gebruikelijke lock-up van 180 dagen; het exacte schema vond ik niet) zouden meer vroege SpaceX-beleggers mogen verkopen: mogelijk verkoopdruk.",
        "bronnen": []
       },
       {
@@ -1868,7 +1896,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "**Rond 9-12-2026 — SpaceX-aandelen vrij voor vroege beleggers.** Kijk of de koers van SpaceX daarna sterk zakt.",
+       "tekst": "**Rond 9-12-2026 — mogelijk meer SpaceX-aandelen vrij voor vroege beleggers.** Kijk of de koers van SpaceX daarna sterk zakt.",
        "bronnen": []
       },
       {
@@ -2057,7 +2085,7 @@
     {
      "type": "tekst",
      "label": "berekening",
-     "tekst": "Historisch 15–20% (CEO); 2022–2025 meestal 18–32%; vergelijkbare holdings 22–35%. Met R1 en 92% niet-genoteerde activa is **20%** een redelijk midden → faire koers nu ±€261 (326 × 0,8). Met de korting van GBL/Brederode (22–35%) zou dat €212–254 zijn.",
+     "tekst": "Historisch 15–20% (CEO); 2022–2025 meestal 18–32%; vergelijkbare holdings 20–35%. Met R1 en 92% niet-genoteerde activa is **20%** een redelijk midden → faire koers nu ±€261 (326 × 0,8). Met de korting van GBL/Brederode (20–35%) zou dat €212–261 zijn.",
      "bronnen": []
     },
     {
@@ -3078,7 +3106,9 @@
    "Deze update bouwt verder op het volledig gecontroleerde rapport van 8-11-2026; de open punten van dat rapport blijven gelden (o.a. uitslag AVA mei 2026 niet gevonden).",
    "De koers van SpaceX na de uitverkoop van 5-11 en de exacte data van de SpaceX-lock-ups zijn niet met een primaire bron bevestigd.",
    "Of er tussen 8 en 11 november geen nieuwe meldingen van insiders waren, is niet sluitend te bewijzen (de FSMA-lijst is niet chronologisch); er werd niets gevonden.",
-   "De kritische belegger zou de kans op het slechte scenario eerder op 30–35% zetten; dat verandert de score niet."
+   "De kritische belegger zou de kans op het slechte scenario eerder op 30–35% zetten; dat verandert de score niet.",
+   "Na de teamreview (11-11) zijn zes zwakke bronnen vervangen door de oorspronkelijke bron en vier details rechtgezet (zie 'Wat is er veranderd'). De financieel analist heeft enkel die wijzigingen nagekeken: 22 feiten, 20 meteen correct, 2 kleine opmerkingen verwerkt.",
+   "De Tijd, L'Echo, Reuters, AP, FT en WSJ laten Claude niet toe op hun site. Nieuws komt daarom uit persberichten, CNBC en Reuters/AP-berichten die een andere uitgever overnam."
   ]
  },
  "bronnen": [
@@ -3206,14 +3236,6 @@
    "datum": "2026-01-23"
   },
   {
-   "id": 15,
-   "titel": "Initial public offering of SpaceX",
-   "uitgever": "Wikipedia",
-   "type": "overig",
-   "url": "https://en.wikipedia.org/wiki/Initial_public_offering_of_SpaceX",
-   "datum": "2026-07"
-  },
-  {
    "id": 16,
    "titel": "Anthropic vaults to a $965 billion valuation with new funding",
    "uitgever": "AP / ABC News",
@@ -3244,14 +3266,6 @@
    "type": "nieuws",
    "url": "https://www.cnbc.com/2026/09/10/ecb-interest-rate-hike-lagarde-iran.html",
    "datum": "2026-09-10"
-  },
-  {
-   "id": 21,
-   "titel": "Euro hits 4-week high",
-   "uitgever": "Trading Economics",
-   "type": "data",
-   "url": "https://tradingeconomics.com/euro-area/currency/news/598161",
-   "datum": "2026-11-04"
   },
   {
    "id": 22,
@@ -3286,14 +3300,6 @@
    "datum": "2026-09-28"
   },
   {
-   "id": 27,
-   "titel": "Nasdaq 100 suffers worst day since 2020",
-   "uitgever": "investingLive",
-   "type": "nieuws",
-   "url": "https://investinglive.com/stocks/nasdaq-100-suffers-worst-day-since-2020/",
-   "datum": "2026-11-05"
-  },
-  {
    "id": 28,
    "titel": "AI giant Anthropic files for an IPO that could break records",
    "uitgever": "OPB / NPR",
@@ -3308,14 +3314,6 @@
    "type": "nieuws",
    "url": "https://techcrunch.com/2026/06/08/following-anthropic-openai-files-confidentially-for-ipo/",
    "datum": "2026-06-08"
-  },
-  {
-   "id": 30,
-   "titel": "Eurozone inflation hits fresh three-year high",
-   "uitgever": "Trading Economics",
-   "type": "data",
-   "url": "https://tradingeconomics.com/euro-area/inflation-cpi/news/598103",
-   "datum": "2026-11-04"
   },
   {
    "id": 31,
@@ -3374,14 +3372,6 @@
    "datum": "2026-11-10"
   },
   {
-   "id": 38,
-   "titel": "US STOCKS-Nasdaq rebounds as chip stocks recover from steep losses (Reuters)",
-   "uitgever": "Devdiscourse / Reuters",
-   "type": "nieuws",
-   "url": "https://www.devdiscourse.com/article/international/4002927-us-stocks-nasdaq-rebounds-as-chip-stocks-recover-from-steep-losses",
-   "datum": "2026-11-06"
-  },
-  {
    "id": 39,
    "titel": "SpaceX turns a profit after a string of losses as its satellite and computer leasing businesses soar",
    "uitgever": "AP (via Spectrum News 13)",
@@ -3390,12 +3380,92 @@
    "datum": "2026-10-20"
   },
   {
-   "id": 40,
-   "titel": "SpaceX shares climb as Q3 turns to profit",
-   "uitgever": "RTTNews",
+   "id": 41,
+   "titel": "Euro area annual inflation up to 4.0% (flash estimate oktober 2026)",
+   "uitgever": "Eurostat",
+   "type": "primair",
+   "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap",
+   "datum": "2026-11-04"
+  },
+  {
+   "id": 42,
+   "titel": "Euro foreign exchange reference rates: Amerikaanse dollar (dagkoersen)",
+   "uitgever": "Europese Centrale Bank",
+   "type": "primair",
+   "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml",
+   "datum": "2026-11-10"
+  },
+  {
+   "id": 43,
+   "titel": "Space Exploration Technologies Corp. Announces Pricing of Initial Public Offering",
+   "uitgever": "SpaceX",
+   "type": "primair",
+   "url": "https://ir.spacex.com/updates/releases-details/2026/Space-Exploration-Technologies-Corp--Announces-Pricing-of-Initial-Public-Offering/default.aspx",
+   "datum": "2026-06-11"
+  },
+  {
+   "id": 44,
+   "titel": "SpaceX raises $75 billion in record-setting IPO ahead of Nasdaq debut",
+   "uitgever": "CNBC",
    "type": "nieuws",
-   "url": "https://www.rttnews.com/3700949/spacex-shares-climb-as-q3-turns-to-profit-on-connectivity-si-strength.aspx",
-   "datum": "2026-10-21"
+   "url": "https://www.cnbc.com/2026/06/11/spacex-raises-75-billion-in-record-setting-ipo-ahead-of-nasdaq-debut.html",
+   "datum": "2026-06-11"
+  },
+  {
+   "id": 45,
+   "titel": "SpaceX stock sinks below $135 IPO price for the first time",
+   "uitgever": "CNBC",
+   "type": "nieuws",
+   "url": "https://www.cnbc.com/2026/07/15/spacex-spcx-stock-ipo-price.html",
+   "datum": "2026-07-15"
+  },
+  {
+   "id": 46,
+   "titel": "SpaceX (SPCX) Q3 2026 earnings report: live updates",
+   "uitgever": "CNBC",
+   "type": "nieuws",
+   "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
+   "datum": "2026-10-20"
+  },
+  {
+   "id": 47,
+   "titel": "Nasdaq rebounds as chips stocks recover from steep losses",
+   "uitgever": "Reuters (overgenomen door GV Wire)",
+   "type": "nieuws",
+   "url": "https://gvwire.com/2026/11/06/nasdaq-rebounds-as-chips-stocks-recover-from-steep-losses/",
+   "datum": "2026-11-06"
+  },
+  {
+   "id": 48,
+   "titel": "Monetary policy decisions (29-10-2026)",
+   "uitgever": "Europese Centrale Bank",
+   "type": "primair",
+   "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp261029~9a493adf17.en.html",
+   "datum": "2026-10-29"
+  },
+  {
+   "id": 49,
+   "titel": "Results as of September 30, 2026",
+   "uitgever": "GBL",
+   "type": "primair",
+   "url": "https://www.gbl.com/en/media/4401/results-sept-2026-en.pdf",
+   "datum": "2026-11-05"
+  },
+  {
+   "id": 50,
+   "titel": "Halfjaarlijks persbericht 2026",
+   "uitgever": "Brederode",
+   "type": "primair",
+   "url": "https://brederode.eu/wp-content/uploads/2026/09/20260910_BRE_Communique_Semestriel_2026_NL_DEF.pdf",
+   "datum": "2026-09-10"
+  },
+  {
+   "id": 51,
+   "titel": "Press release: first-half 2026 results",
+   "uitgever": "Exor",
+   "type": "primair",
+   "url": "https://www.exor.com/sites/default/files/press-releases/2026-09/Exor%20Press%20Release%20-%201H2026%20Results.pdf",
+   "datum": "2026-09-22"
   }
  ],
  "wijzigingen": [
@@ -3435,7 +3505,7 @@
      "label": "feit",
      "tekst": "**Markt**: op 5-11 zakten technologie- en chipaandelen fors. Volgens Reuters vreesden beleggers na de overwinning van de Democraten bij de [[tussentijdse verkiezingen|Amerikaanse verkiezingen halverwege de ambtstermijn van de president]] voor strengere AI-regels en een tragere bouw van datacenters. Op 6-11 herstelden ze deels. Door sterke banencijfers zagen beleggers toen ±78% kans op een Amerikaanse renteverhoging in december — en hogere rente drukt de waarde van groeibedrijven, waarvan Sofina er veel bezit.",
      "bronnen": [
-      38
+      47
      ]
     },
     {
@@ -3447,6 +3517,12 @@
      ]
     }
    ]
+  },
+  {
+   "type": "kader",
+   "stijl": "info",
+   "titel": "Verbeterd na een extra broncontrole (11-11-2026)",
+   "tekst": "Zes zwakke bronnen (doorgeefsites en Wikipedia) zijn vervangen door de oorspronkelijke bron: Eurostat, de ECB, SpaceX zelf, CNBC en Reuters. Daarbij zijn vier details rechtgezet. (1) SpaceX zakte niet binnen een maand maar half juli voor het eerst onder zijn introductieprijs. (2) De koers van $161 na de kwartaalcijfers is vervangen door wat de bron echt zegt: slot $147,50 en daarna ±8% hoger. (3) Het cijfer 'Nasdaq 100 −6,4%, slechtste dag sinds 2020' kon ik niet bevestigen in een betrouwbare bron; Reuters spreekt van het grootste dagverlies in 19 maanden. (4) De korting van GBL is herberekend met de intrinsieke waarde van 30-9-2026 (€99,21): 20% in plaats van 21%. Het advies en de score veranderen hierdoor niet."
   }
  ],
  "keten_schema": {

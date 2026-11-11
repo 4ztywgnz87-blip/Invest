@@ -6,7 +6,9 @@
 | Yahoo Finance (koersen, ticker zoeken) | ✅ | `tools/koers.py` |
 | SEC EDGAR API (`data.sec.gov`, `efts.sec.gov`) | ✅ met beschrijvende User-Agent | `common.SEC_UA`; `www.sec.gov` website gaf 403 → gebruik de API-endpoints |
 | De Tijd (tijd.be) | ✅ (betaalmuur op artikels) | WebSearch voor de kern, WebFetch voor vrije delen |
-| Reuters | ❌ direct (401) | WebSearch-resultaten + andere bronnen; web-fetch agent proberen |
+| Reuters, AP, FT, WSJ, De Tijd, L'Echo, MarketWatch, Barron's | ❌ **laten Claude niet toe** (getest 2026-11-11: niet doorzoekbaar en niet op te halen; dit is een keuze van die sites, niet omzeilen) | Zoek hetzelfde bericht bij een uitgever die het persagentschap **volledig overneemt met naamsvermelding** (bv. een regionale krant met "By Reuters", CNBC, Yahoo Finance) en vermeld de uitgever als "Reuters (overgenomen door …)". Voor Belgisch nieuws: persberichten van het bedrijf, Bolero/KBC, La Libre, Test-Aankoop, VFB. Zet in de dekkingslijst ❌ met het gebruikte alternatief. De gebruiker heeft een abonnement op De Tijd: vraagt hij om een artikel mee te nemen, dan kan hij de tekst zelf plakken. |
+| CNBC, Bloomberg (koppen), Yahoo Finance, nasdaq.com | ✅ WebSearch; pagina via web-fetch agent | CNBC is de bruikbaarste B-bron voor Amerikaans marktnieuws |
+| Eurostat, ECB (persberichten, `eurofxref-hist-90d.xml` voor dagkoersen), news.belgium.be, gbl.com, brederode.eu, exor.com, ir.spacex.com | ✅ | WebSearch met `allowed_domains`, daarna web-fetch agent of `curl` |
 | sofina.be | ❌ direct (certificaatprobleem op de site) | web-fetch agent, of het verslag bij een andere bron (FSMA, Euronext, NBB) |
 | sofinagroup.com (nieuwe Sofina-site) | ✅ direct (getest 2026-11-08) | `tools/pdf.py download` met `https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/...`; PDF-links staan in de HTML van /en/investors/reports-and-publications |
 | FSMA transacties leidinggevenden | ✅ direct | `https://www.fsma.be/en/manager-transaction/<bedrijf>-<nr>` (nummer ophogen) |
@@ -29,7 +31,7 @@
 Vuistregels:
 - **Ga altijd één stap terug naar de oorsprong.** Citeert een site Reuters of AP → zoek het artikel bij Reuters/AP zelf (of bij een B-uitgever die het overnam). Citeert een artikel een persbericht of verslag → gebruik dat persbericht of verslag.
 - **Macrocijfers rechtstreeks bij de bron**: rente bij ECB/Fed, inflatie bij Eurostat/Statbel/BLS, wisselkoers bij de ECB-referentiekoers. Niet via een nieuwssite of Trading Economics.
-- **Basis voor nieuws = De Tijd/L'Echo en Reuters.** Elke analyse zoekt daar uitdrukkelijk (`site:tijd.be <bedrijf>`, `site:lecho.be`, `site:reuters.com`). Betaalmuur: titel + inleiding volstaan om het feit te vinden; bevestig het detail bij een andere A/B-bron.
+- **Basis voor nieuws = De Tijd/L'Echo en Reuters, maar die sites laten Claude niet toe** (zie de toegangstabel). Zoek daarom voor elk belangrijk nieuwsfeit een Reuters- of AP-bericht dat een andere uitgever volledig overnam, of een B-bron zoals CNBC, en gebruik voor Belgisch nieuws de persberichten van het bedrijf en Belgische alternatieven. Noteer dit telkens in de dekkingslijst (❌ + alternatief).
 - De controle waarschuwt bij elke D-bron en bij feiten die enkel op een D-bron steunen. Een definitief rapport heeft er geen, of de reden staat in het werkdossier.
 
 ## Dekkingslijst (verplicht)

@@ -61,7 +61,8 @@ def rang(bron: dict) -> tuple[str, str]:
 
 
 def is_basis(bron: dict) -> bool:
-    return _in(domein(bron.get("url")), BASIS_DOMEINEN)
+    """De Tijd/L'Echo/Reuters zelf, of een persagentschap (Reuters, AP, Belga) dat een andere uitgever volledig overnam."""
+    return _in(domein(bron.get("url")), BASIS_DOMEINEN) or bool(re.search(r"\b(reuters|associated press|ap|belga)\b", bron.get("uitgever") or "", re.I))
 
 
 if __name__ == "__main__":
