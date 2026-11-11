@@ -10,15 +10,15 @@
 |------|--------|-----------|
 | 0 Identificatie & voorbereiding | ✅ | peildatum 15-02-2021 (12 dagen na jaarverslag 2020 van 3-2-2021) |
 | 1 Koers & techniek | ✅ | `data/ORSTED.CO/koers_2021-02-15.json` (afgekapt) |
-| 2 Verslagen | 🔄 | jaarverslag 2020 gelezen: p.12-17, 29, 33, 43, 70-75 |
-| 3 Bestuur & rode vlaggen | ⬜ | |
-| 4 Keten (2 niveaus) | ⬜ | |
-| 5 Sector & concurrenten | ⬜ | |
-| 6 Actualiteit | ⬜ | |
-| 7 Earnings call | ⬜ | |
-| 8 Waardering & advies | ⬜ | |
-| 9 Kritische expertblik | ⬜ | |
-| 10 Fact-check | ⬜ | |
+| 2 Verslagen | ✅ | jaarverslag 2020 + presentatie 3-2-2021 |
+| 3 Bestuur & rode vlaggen | ✅ | R1 geraakt; R5 onvolledig |
+| 4 Keten (2 niveaus) | ✅ | niveau 2 dun (beperking) |
+| 5 Sector & concurrenten | ✅ | geen concurrentverslagen (beperking) |
+| 6 Actualiteit | ✅ | rente, fondsinstroom, BOEM, Round 4 |
+| 7 Earnings call | ✅ | enkel presentatie |
+| 8 Waardering & advies | ✅ | Afwachten 4/10; IW ±475 |
+| 9 Kritische expertblik | ✅ |  |
+| 10 Fact-check | ✅ | zie hieronder |
 | 11 Teamreview ronde 1 | ⬜ | |
 | 11 Teamreview ronde 2 (+3) | ⬜ | |
 | 12 Rapport bouwen | ⬜ | |
@@ -37,29 +37,29 @@
 
 | Bron | Waarvoor | Status | Wat gevonden / waarom niet (zoektermen, talen, datum) |
 |---|---|---|---|
-| Laatste jaarverslag + kerncijfers 4 jaar ervoor | cijfers, trend | ⬜ | |
-| Laatste halfjaar-/kwartaalverslag + persbericht | recentste cijfers | ⬜ | |
-| Investeerderspresentatie | strategie, vooruitzichten | ⬜ | |
-| Earnings call (transcript of verslag) | toon management | ⬜ | |
-| Verslag van de commissaris (oordeel, kernpunten, wissel revisor) | betrouwbaarheid cijfers | ⬜ | |
-| Remuneratieverslag | R2, R3 | ⬜ | |
-| Aandeelhouders: nationale toezichthouder (aandeelhouders) | R1 | ⬜ | |
-| Insiders: nationale toezichthouder (insiders) | R5 | ⬜ | |
-| Corporate actions: beurs / officieel publicatieblad + persberichten bedrijf | R6 | ⬜ | |
-| Rechtszaken: jaarverslag + zoekronde nieuws (NL/EN/FR/lokaal) + mededingingsautoriteit/EC | R4 | ⬜ | |
-| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ⬜ | |
-| Persberichten van het bedrijf (laatste 12 maanden; snelle update: sinds vorig rapport) | actualiteit | ⬜ | |
-| Basisnieuws: De Tijd / L'Echo | actualiteit | ⬜ | |
-| Basisnieuws: Reuters (originele URL) | actualiteit | ⬜ | |
-| Internationale kwaliteitspers (FT, Bloomberg, WSJ, AP) | actualiteit | ⬜ | |
-| Vakpers van de sector | sector, keten | ⬜ | |
-| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ⬜ | |
-| Verslagen van de 3–5 dichtste concurrenten | vergelijking | ⬜ | |
-| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ⬜ | |
-| Short-seller-onderzoek (enkel aanwijzing, nooit bron) | R2, R4 | ⬜ | |
-| Sancties en sectorregelgeving (EU-sanctielijst, sectorregulator) | risico | ⬜ | |
-| Fiscaliteit België (FOD Financiën) | netto rendement | ⬜ | |
-| Koersdata (tools/koers.py) | techniek, waardering | ⬜ | |
+| Laatste jaarverslag + kerncijfers 4 jaar ervoor | cijfers, trend | ✅ | Annual report 2020 (3-2-2021); 5-jaarstabel p.43 dekt 2016–2020 |
+| Laatste halfjaar-/kwartaalverslag + persbericht | recentste cijfers | ✅ | Q4 2020 zit in jaarverslag (p.44) en presentatie 3-2-2021 |
+| Investeerderspresentatie | strategie, vooruitzichten | ✅ | Investor presentation Q4/FY2020 (3-2-2021), kopie energiesdelamer.eu; orsted.com gaf 403 |
+| Earnings call (transcript of verslag) | toon management | ❌ | transcript achter login (GuruFocus, roic.ai); alternatief: presentatie van de call gelezen |
+| Verslag van de commissaris (oordeel, kernpunten, wissel revisor) | betrouwbaarheid cijfers | ✅ | AR2020 p.187–188: PwC sinds 2010, zonder voorbehoud, kernpunten farm-downs en belastingen |
+| Remuneratieverslag | R2, R3 | ✅ | vergoedingstabel AR2020 p.104 (afzonderlijk remuneratieverslag niet gelezen) |
+| Aandeelhouders: nationale toezichthouder (aandeelhouders) | R1 | ✅ | AR2020 p.74–75 (Staat 50,1%, Andel 5,01%, Capital Group 5–10%); Finanstilsynet/OAM niet apart bevraagd |
+| Insiders: nationale toezichthouder (insiders) | R5 | ❌ | orsted.com-meldingen laden enkel met JavaScript, GlobeNewswire 403; enkel titels gevonden (3 rondes, zie onvoldoende_info) |
+| Corporate actions: beurs / officieel publicatieblad + persberichten bedrijf | R6 | ✅ | AR2020 p.74 (aandelenkapitaal ongewijzigd, verkoop RBC/LNG) |
+| Rechtszaken: jaarverslag + zoekronde nieuws (NL/EN/FR/lokaal) + mededingingsautoriteit/EC | R4 | ✅ | AR2020 p.11, 113, 126–127 (Elsam-claim, belastinggeschil, naamgeschil); nieuwsronde EN: niets nieuws |
+| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ✅ | AR2020 p.17: rating in lijn met beleid min. BBB+/Baa1; geen persbericht van ratingbureau gelezen |
+| Persberichten van het bedrijf (laatste 12 maanden; snelle update: sinds vorig rapport) | actualiteit | ✅ | selectie bedrijfsmeldingen 2020 in AR2020 p.74 |
+| Basisnieuws: De Tijd / L'Echo | actualiteit | ❌ | sites laten Claude niet toe; Belgische pers weinig over Ørsted; alternatief Bloomberg/Reuters overgenomen |
+| Basisnieuws: Reuters (originele URL) | actualiteit | ❌ | reuters.com geblokkeerd; Reuters-bericht 3-2-2021 via OE Digital (bron 9) |
+| Internationale kwaliteitspers (FT, Bloomberg, WSJ, AP) | actualiteit | ✅ | Bloomberg 26-1-2021 via WealthManagement (bron 8) |
+| Vakpers van de sector | sector, keten | ✅ | WindEurope 8-2-2021 (bron 7) |
+| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ✅ | FRED: VS 10j (DGS10), Duitsland 10j (OECD) |
+| Verslagen van de 3–5 dichtste concurrenten | vergelijking | ➖ | bewuste beperking van deze terugkijktest (tijd); enkel sectorindex uit AR2020 p.74 en Bloomberg; genoteerd voor evaluatie |
+| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ➖ | Siemens Gamesa/Eversource niet gelezen (beperking, genoteerd voor evaluatie); BOEM-bron wel |
+| Short-seller-onderzoek (enkel aanwijzing, nooit bron) | R2, R4 | ➖ | zoekronde 'Orsted short seller report' vóór 2021: niets gevonden |
+| Sancties en sectorregelgeving (EU-sanctielijst, sectorregulator) | risico | ➖ | geen sanctierisico; sectorregels (CfD, BOEM) in keten verwerkt |
+| Fiscaliteit België (FOD Financiën) | netto rendement | ➖ | niet nagekeken in officiële bron; in rapport als mening met waarschuwing |
+| Koersdata (tools/koers.py) | techniek, waardering | ✅ | koers.py --tot 2021-02-15 |
 
 
 ## Gelezen documenten
@@ -138,5 +138,16 @@
 | 2021 plannen: farm-down 50% Borssele 1&2, sluiten Changhua 1; CMD 2-6-2021 | p.15, p.17 | AR2020 | A | | |
 | Schuld excl. hybriden DKK 37,1 mld, >51% groen; hybride kapitaal 13,2 mld | p.29, p.43 | AR2020 | A | | |
 | Rating-beleid min. Baa1/BBB+/BBB+ | p.17 | AR2020 | A | | |
+
+## Fact-check (fase 10)
+- Alle cijfers uit AR2020 nagekeken tegen het feitenlog (p.12, 15, 17, 29, 43, 63, 74–75, 104, 113).
+- Herberekend: beurswaarde 420,07 × 1.058 = 444,4 mld; EV 472,6 mld; EV/EBITDA 2021 (15,5) = 30,5×; winst zonder meerwaarde 16.727 − 10.831 = 5.896 mln → 14,0/aandeel → K/W 75; FCF zonder verkopen 16,5 − 27,0 = −10,5; uitkering 4,8/5,9 = 81%; daling vanaf top 1.355 → 1.058 = −21,9%.
+- DCF: 20 × 0,78 = 15,6; herinvestering 2/7,8 = 25,6%; FCF 11,6; /3,5% = 331; /1,055^5 = 253; −26 = 227; −28,2 = 199 → 473/aandeel. Gevoeligheid 6,5% → ±320/aandeel (−33%).
+- Scenario's herrekend: slecht (13×20−50)/420 = 500; normaal (20×22−50)/420 = 929 → koersdoel aangepast van 900 naar 930; goed (28×24−45)/420 = 1.493.
+- Winnaars Round 4 nagekeken in WindEurope-bericht (bron 7).
+- Alle bronnen hebben een datum ≤ 15-02-2021 (gecontroleerd door tools/rapport.py).
+
+## Waardering (aannames)
+Zie sectie `waardering`: CE 110 → ±200 mld (2025), ROCE 10%, belasting 22%, WACC 5,5%, groei 2%. WACC is een inschatting (Bund 10j −0,45%, VS 10j 1,20%; projectrisico); Ørsted publiceert geen WACC in het jaarverslag.
 
 ## Open vragen / blokkades

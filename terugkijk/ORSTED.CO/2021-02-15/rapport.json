@@ -1,0 +1,2306 @@
+{
+ "meta": {
+  "ticker": "ORSTED.CO",
+  "naam": "Ørsted",
+  "type": "aandeel",
+  "datum": "2026-11-11",
+  "peildatum": "2021-02-15",
+  "soort": "terugkijk",
+  "beurs": "Nasdaq Copenhagen",
+  "isin": "DK0060094928",
+  "valuta": "DKK",
+  "sector": "Hernieuwbare energie (windparken op zee)",
+  "defensief": false
+ },
+ "advies": {
+  "oordeel": "Afwachten",
+  "score": 4,
+  "reden": "Regel **R1 is geraakt**: de Deense Staat bezit **50,1%**. Daarbovenop is het aandeel **erg duur**: de koers rekent op blijvend lage rente en vlekkeloze groei, terwijl Ørsted zelf **rente en inflatie** als grootste risico noemt. Sterk bedrijf, maar te dure prijs en een NO-GO-regel.",
+  "koers_nu": 1058.0,
+  "koers_datum": "15-02-2021",
+  "koopzone": {
+   "van": 600,
+   "tot": 700
+  },
+  "koersdoel": 930,
+  "koersdoel_uitleg": "normaal scenario, begin 2023: ±20× de verwachte EBITDA van 2023 min de grotere schuld",
+  "stop_loss": {
+   "waarde": 846.4,
+   "uitleg": "−20% t.o.v. de koers van 15-02-2021 (1.058). Technisch: net onder het steunniveau van 931 (29-10-2020) → 913."
+  },
+  "intrinsieke_waarde": 475,
+  "score_opbouw": {
+   "uitleg": "Een sterk en goed bestuurd bedrijf met gezonde schulden en veel herinvestering, maar de prijs is erg hoog en R1 is geraakt (Deense Staat 50,1%).",
+   "onderdelen": [
+    {
+     "naam": "Bestuur & aandeelhouders (zonder R1)",
+     "gewicht": 15,
+     "punten": 6,
+     "uitleg": "Onafhankelijke raad, redelijke verloning (CEO-pakket ±DKK 22 mln), geen uitkoop van de vertrokken CEO. Wel een nieuwe CEO sinds januari 2021 en lopende belastinggeschillen."
+    },
+    {
+     "naam": "Financiële gezondheid",
+     "gewicht": 20,
+     "punten": 7,
+     "uitleg": "Netto schuld slechts DKK 12,3 mld, kasstroom ruim boven het eigen doel (FFO/schuld 48% vs. doel 30%). Maar de vrije kasstroom is enkel positief dankzij verkopen; zonder verkopen is ze sterk negatief door de bouwprojecten."
+    },
+    {
+     "naam": "Groei & herinvestering",
+     "gewicht": 15,
+     "punten": 8,
+     "uitleg": "Bijna alle kasstroom gaat naar nieuwe parken (DKK 200 mld plan tot 2025); EBITDA uit draaiende parken groeide 26%/jaar sinds 2017. Dat past bij jouw voorkeur voor herinvestering."
+    },
+    {
+     "naam": "Waardering (prijs nu)",
+     "gewicht": 20,
+     "punten": 2,
+     "uitleg": "Ondernemingswaarde ±30× de verwachte EBITDA van 2021 en ±75× de winst zonder eenmalige meerwaarde; dividendrendement 1,1%. Onze waardering (±DKK 475) ligt ver onder de koers; enkel bij een rente van ±4,5% of minder is 1.058 te verdedigen."
+    },
+    {
+     "naam": "Risico's & actualiteit",
+     "gewicht": 15,
+     "punten": 4,
+     "uitleg": "Rente en inflatie zijn volgens Ørsted zelf het grootste risico, en de Amerikaanse lange rente steeg al van 0,52% naar 1,20%. VS-projecten vertraagd door vergunningen, zwaardere concurrentie (oliemaatschappijen) in veilingen, en een koers die mee gedragen werd door geld dat in groene fondsen stroomde."
+    },
+    {
+     "naam": "Past bij jouw profiel",
+     "gewicht": 15,
+     "punten": 4,
+     "uitleg": "Herinvestering en (deels) gereguleerde inkomsten passen bij je profiel; maar de koers heeft trekjes van een hype (verdrievoudigd in 3 jaar bij beperkte winstgroei) en R1 is geraakt."
+    }
+   ],
+   "correcties": [
+    {
+     "naam": "R1 geraakt: Deense Staat 50,1%",
+     "punten": -1,
+     "uitleg": "Volgens jouw harde regel een NO-GO, tenzij de rest uitzonderlijk positief is. Dat is hier niet zo: vooral de prijs is het probleem."
+    }
+   ]
+  },
+  "scenarios": [
+   {
+    "naam": "Slecht",
+    "koers": 500,
+    "kans": "30%",
+    "uitleg": "De rente stijgt verder (zoals sinds augustus 2020 al gebeurt) en/of VS-projecten lopen vertraging of kostenoverschrijdingen op. De EBITDA groeit trager (±20 mld in 2023) en beleggers betalen nog maar ±13× EBITDA, dichter bij gewone nutsbedrijven: (13 × 20 mld − ±50 mld schuld) / 420 mln aandelen ≈ DKK 500."
+   },
+   {
+    "naam": "Normaal",
+    "koers": 930,
+    "kans": "50%",
+    "uitleg": "Projecten worden opgeleverd zoals gepland (Hornsea 2 en Changhua 1&2a in 2022) en de EBITDA groeit naar ±22 mld in 2023, maar de uitzonderlijk hoge waardering zakt deels terug naar ±20×: (20 × 22 − 50) / 420 ≈ DKK 930."
+   },
+   {
+    "naam": "Goed",
+    "koers": 1490,
+    "kans": "20%",
+    "uitleg": "De rente blijft rond nul, het geld blijft naar groene fondsen stromen en Ørsted wint veel van de ±25 GW aan veilingen in 2021. De markt blijft ±28× EBITDA betalen: (28 × 24 − 45) / 420 ≈ DKK 1.490."
+   }
+  ]
+ },
+ "aandeelhouders": {
+  "verdeling": [
+   {
+    "naam": "Deense Staat (Ministerie van Financiën)",
+    "pct": 50.1,
+    "stemrecht_pct": 50.1,
+    "structuur": "rechtstreeks; meerderheidsaandeelhouder sinds de beursgang (2016)"
+   },
+   {
+    "naam": "Andel A.M.B.A. (Deense coöperatie, ex-SEAS-NVE)",
+    "pct": 5.01,
+    "stemrecht_pct": 5.01,
+    "structuur": "rechtstreeks"
+   },
+   {
+    "naam": "The Capital Group (VS, vermogensbeheerder)",
+    "pct": 5.0,
+    "structuur": "5–10% volgens het jaarverslag (exact cijfer niet vermeld); hier ondergrens 5%"
+   },
+   {
+    "naam": "Eigen aandelen",
+    "pct": 0.07,
+    "eigen_aandelen": true
+   },
+   {
+    "naam": "Vrij verhandelbaar (overige)",
+    "pct": 39.82,
+    "vrij_verhandelbaar": true
+   }
+  ],
+  "bronnen": [
+   1
+  ],
+  "uitleg": "De Deense Staat heeft 50,1% en daarmee alleen de meerderheid op de algemene vergadering. Elke wijziging van de statuten vereist bovendien dat de Staat aanwezig is en akkoord gaat. Andel en The Capital Group hebben elk minstens 5%. Alle aandelen hebben gelijk stemrecht (één aandeel, één stem)."
+ },
+ "keten_schema": {
+  "centrum": "Ørsted",
+  "takken": [
+   {
+    "naam": "Windparken op zee in bedrijf",
+    "gewicht": "±81% van EBITDA",
+    "toelichting": "VK, Duitsland, Denemarken, Nederland",
+    "onder": [
+     {
+      "naam": "Britse CfD-regeling",
+      "toelichting": "vaste prijs per MWh"
+     },
+     {
+      "naam": "Hornsea 1, Walney, Borssele 1&2",
+      "toelichting": "grootste parken"
+     }
+    ]
+   },
+   {
+    "naam": "Bouwprogramma",
+    "gewicht": "DKK 32–34 mld in 2021",
+    "toelichting": "Hornsea 2 en Greater Changhua 1&2a (2022)",
+    "onder": [
+     {
+      "naam": "Siemens Gamesa",
+      "toelichting": "turbineleverancier"
+     }
+    ]
+   },
+   {
+    "naam": "VS-projecten op zee",
+    "gewicht": "toekomst",
+    "toelichting": "Ocean Wind, Sunrise, Revolution, South Fork, Skipjack",
+    "onder": [
+     {
+      "naam": "BOEM (federale vergunningen)",
+      "toelichting": "vertraging"
+     },
+     {
+      "naam": "Partners Eversource en PSEG",
+      "toelichting": "mede-eigenaars"
+     }
+    ]
+   },
+   {
+    "naam": "Partners die 50% overnemen (farm-down)",
+    "gewicht": "kern van het model",
+    "toelichting": "bv. CDPQ en Cathay PE in Changhua 1",
+    "onder": [
+     {
+      "naam": "Rente",
+      "toelichting": "lagere rente = hogere verkoopprijs"
+     }
+    ]
+   },
+   {
+    "naam": "Grote afnemers",
+    "gewicht": "langlopende contracten",
+    "toelichting": "TSMC (20 jaar), Amazon (10 jaar)"
+   },
+   {
+    "naam": "Wind op land en zon (VS)",
+    "gewicht": "±6% van EBITDA",
+    "toelichting": "Texas, Nebraska, Alabama"
+   }
+  ]
+ },
+ "rode_vlaggen": [
+  {
+   "ernst": "nogo",
+   "regel": "R1",
+   "titel": "De Deense Staat bezit 50,1%",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** De Deense Staat is meerderheidsaandeelhouder van Ørsted met 50,1% van de aandelen en de stemmen.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "**Waarom is dat een probleem voor jou?** Wie meer dan de helft heeft, beslist alleen over het bestuur, het dividend en nieuwe aandelen. Een overheid kan andere doelen hebben dan winst voor aandeelhouders, zoals energiebeleid of werkgelegenheid. Als kleine aandeelhouder kan je niets afdwingen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Hoe erg is het?** Jouw regel R1 is geraakt: een NO-GO, tenzij al de rest uitzonderlijk positief is. Dat is niet zo, vooral omdat het aandeel erg duur is. Tegenover het risico staat wel dat de Staat zich tot nu toe als een rustige, professionele eigenaar gedraagt."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**De details:** de Staat oefent zijn rechten uit op de algemene vergadering en benoemt professionele bestuurders. Een wijziging van de statuten of de ontbinding van het bedrijf vereist dat de Staat aanwezig is en akkoord gaat. Andel heeft 5,01% en The Capital Group 5–10%; samen met de Staat is dat minstens 60%.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Sommige vergunningen en leningen bevatten een clausule voor het geval de Staat onder 50% zakt (change of control). De Staat heeft dus ook een praktische reden om zijn meerderheid te houden.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "ernst": "middel",
+   "regel": "R4",
+   "titel": "Belastinggeschil en oude schadeclaim (Elsam)",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** Ørsted heeft twee lopende geschillen die geld kunnen kosten: de Deense belastingdienst vindt dat Ørsted te weinig belasting betaalde op twee Britse windparken, en een oude schadeclaim over te hoge stroomprijzen (2003–2006) loopt nog in beroep.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "**Waarom is dat een probleem voor jou?** Een verloren zaak betekent een eenmalige kost, geen verandering van het bedrijf zelf."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Hoe erg is het?** Middelmatig. De schadeclaim is groot (±DKK 4,4 mld plus interesten, ±1% van de beurswaarde), maar Ørsted won in maart 2020 in eerste aanleg. Voor het belastinggeschil is een voorziening aangelegd."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**De details:** de belastingdienst besliste dat Ørsted Wind Power de vergoedingen voor technische diensten aan Walney Extension en Hornsea 1 niet tegen marktvoorwaarden aanrekende; Ørsted ging op 1-12-2020 in beroep. De Elsam-claim (ingediend in 2007 bij de rechtbank van Kopenhagen) ligt nu bij het Hof van West-Denemarken. Ørsted verwacht dat geen enkele zaak, alleen of samen, de financiële positie wezenlijk raakt.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R3",
+   "titel": "CEO-wissel zonder uitkooppremie",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** CEO Henrik Poulsen nam ontslag (aangekondigd 15-6-2020); Mads Nipper is CEO sinds januari 2021. Poulsen verloor zijn aandelentoekenningen van 2018–2020, wat de kost met DKK 4,6 mln verlaagde. In 2019 kregen twee vertrokken directieleden samen DKK 11,6 mln loon tijdens de opzegperiode en DKK 4,5 mln vertrekvergoeding.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Geen buitensporige uitkoop: dit zijn gewone contractuele bedragen."
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R6",
+   "titel": "Verkoop Deense netten en klantenbestand (2020)",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** Ørsted verkocht in 2020 zijn Deense elektriciteitsnet, particuliere klanten en straatverlichting aan SEAS-NVE (nu Andel) voor DKK 20,5 mld, met een meerwaarde van DKK 10,9 mld. Reden: geld vrijmaken voor de bouw van wind- en zonneparken. Het aantal aandelen bleef ongewijzigd.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R5",
+   "titel": "Insidertransacties: geen volledig beeld",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** Ørsted publiceerde in januari en februari 2020 meldingen van aandelentransacties door directieleden (Henriette Fenger Ellekrog, Declan Flanagan, Morten Hultberg Buchgreitz). De bedragen staan in bijlagen die we niet konden openen.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Niets wijst op opvallende verkopen, maar we konden het niet volledig nakijken (zie 'Onvoldoende info')."
+    }
+   ]
+  }
+ ],
+ "samenvatting": [
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "Ørsted is de grootste bouwer van [[windparken op zee|grote windturbines in zee, ver van de kust]] ter wereld (voorheen DONG Energy). In 2020 kwam **81% van de [[EBITDA|winst vóór rente, belastingen en afschrijvingen]]** (DKK 18,1 mld) uit die parken. Het bedrijf wil DKK 200 mld investeren tussen 2019 en 2025.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "**R1 geraakt — [[NO-GO|volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is]]:** de Deense Staat bezit 50,1%.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "berekening",
+   "tekst": "**Erg duur:** bij DKK 1.058 betaal je ±30× de verwachte EBITDA van 2021 en ±75× de winst van 2020 zonder de eenmalige meerwaarde. Het dividend levert 1,1% op. De koers verdrievoudigde in drie jaar, terwijl de EBITDA in die periode niet steeg (18,1 mld in 2020 tegenover 22,5 mld in 2017).",
+   "bronnen": [
+    1,
+    3
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "**De grootste risico's volgens Ørsted zelf:** 1) rente en inflatie, 2) valuta en energieprijzen, 3) zwaardere concurrentie in veilingen, 4) bouw en vergunningen in de VS, 5) cyberaanvallen.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "berekening",
+   "tekst": "**De rente steeg al:** de Amerikaanse 10-jaarsrente ging van 0,52% (augustus 2020) naar 1,20% (12-2-2021). Onze eigen waardering geeft ±DKK 475 per aandeel; de koers van 1.058 houdt pas stand bij een vereist rendement van ±4,5% of minder.",
+   "bronnen": [
+    4
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "mening",
+   "tekst": "**Wat vinden we ervan?** Uitstekend bedrijf, verkeerde prijs. Afwachten: 4/10. Pas interessant rond DKK 600–700, en ook dan blijft R1 gelden."
+  }
+ ],
+ "verkoopsignalen": [
+  "Amerikaanse 10-jaarsrente boven **2%** of Duitse boven **0,5%** → de waardering staat onder druk (rente is volgens Ørsted zelf risico nummer 1). *Controle: FRED / ECB, maandelijks.*",
+  "Nieuwe **vertraging of kostenoverschrijding** bij de VS-projecten (Ocean Wind, Sunrise, Revolution) of een bijzondere waardevermindering. *Controle: kwartaalverslag (29-4, 12-8, 3-11-2021).*",
+  "**ROCE onder 8%** of een verlaagde EBITDA-verwachting → de belofte van ±10% rendement op het kapitaal klopt niet meer. *Controle: kwartaalverslag.*",
+  "Ørsted **verliest het grootste deel** van de ±25 GW veilingen van 2021, of wint enkel met lagere rendementen dan eerder gemeld. *Controle: persberichten bij elke veiling.*",
+  "**FFO/aangepaste netto schuld onder 30%** of een lagere kredietrating dan BBB+/Baa1. *Controle: jaarverslag en persberichten van Moody's/S&P.*"
+ ],
+ "onvoldoende_info": [
+  {
+   "onderwerp": "Insidertransacties 2020–2021 (bedragen)",
+   "wat_wel": "Meldingen bestaan voor jan.–feb. 2020 (drie directieleden), maar de PDF-bijlagen waren niet op te halen.",
+   "zoekrondes": [
+    "ronde 1: orsted.com company announcements (pagina laadt enkel met JavaScript)",
+    "ronde 2: GlobeNewswire-archief (geweigerd, 403)",
+    "ronde 3: WebSearch op naam + 'manager's transaction' (enkel titels, geen bedragen)"
+   ]
+  },
+  {
+   "onderwerp": "Transcript van de analistencall van 3-2-2021",
+   "wat_wel": "De presentatie van de call is gelezen; het volledige transcript staat achter een betaalmuur (GuruFocus, roic.ai).",
+   "zoekrondes": [
+    "ronde 1: orsted.com IR (niet bereikbaar)",
+    "ronde 2: gurufocus/roic.ai (login vereist)",
+    "ronde 3: pers over de call (geen bruikbaar verslag gevonden met datum vóór de peildatum)"
+   ]
+  },
+  {
+   "onderwerp": "Exacte cijfers van concurrenten",
+   "wat_wel": "Ørsted zelf vergelijkt met de MSCI Europe Utilities-index (−5% in 2020 tegenover Ørsted +80%). Verslagen van RWE, Iberdrola, EDPR en SSE zijn voor deze terugkijktest niet gelezen.",
+   "zoekrondes": [
+    "ronde 1: jaarverslag Ørsted p.74",
+    "ronde 2: Bloomberg 26-1-2021 (sector op recordwaardering)",
+    "ronde 3: niet verder gezocht — bewuste beperking van deze terugkijktest, genoteerd voor de evaluatie"
+   ]
+  }
+ ],
+ "secties": [
+  {
+   "id": "bestuur",
+   "titel": "Bestuur & aandeelhouders",
+   "kort": "R1 geraakt (Deense Staat 50,1%); onafhankelijke raad; redelijke verloning; nieuwe CEO",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel gaat over wie Ørsted controleert en wie het bedrijf leidt. Dat bepaalt of kleine aandeelhouders eerlijk behandeld worden (jouw regels R1 tot R6)."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** professioneel bestuurd bedrijf met een meerderheid voor de Deense Staat. Geen tekenen van zelfverrijking; wel een nieuwe CEO die nog moet tonen wat hij wil."
+    },
+    {
+     "type": "kop",
+     "tekst": "Aandeelhouders (R1)"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Eerst wie de baas is. De Staat heeft net meer dan de helft, en de statuten geven hem bovendien een vetorecht op statutenwijzigingen."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De Deense Staat bezit 50,1%, Andel 5,01% (na een verkoop van 2,27% in januari 2020) en The Capital Group 5–10%. Particuliere beleggers hebben ±2%; 63% van de aandelen is in Deense handen. Er is één soort aandeel met gelijk stemrecht.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Wijziging van de statuten of ontbinding vereist dat de Staat deelneemt aan de algemene vergadering en akkoord gaat. De Staat werkt volgens het Deense eigendomsbeleid van 2015 en benoemt professionele bestuurders.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Raad van bestuur en directie"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Naast de aandeelhouders: wie controleert het management, en wie leidt het?"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De raad telt negen leden: zes gekozen door de algemene vergadering en drie door de werknemers, onder voorzitter Thomas Thune Andersen. Geen enkel directielid zit in de raad. Mads Nipper volgde Henrik Poulsen op als CEO (aangesteld 9-9-2020, gestart in januari 2021).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Verloning (R2, R3)"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Verdient de leiding buitensporig veel? Dat is de vraag achter jouw regels R2 en R3."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De directie (Executive Board) kreeg in 2020 samen DKK 22,0 mln (2019: 26,0 mln); de raad van bestuur DKK 4,6 mln. Bestuurders krijgen enkel een vaste vergoeding. Een ander directielid kreeg DKK 9,8 mln als afhankelijke koopprijs van de overname van Lincoln Clean Energy (zijn vroegere bedrijf).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Voor een bedrijf van deze omvang (beurswaarde ±DKK 445 mld) is dit gematigd. Geen R2-vlag."
+    },
+    {
+     "type": "kop",
+     "tekst": "Commissaris"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "PwC is commissaris sinds 2010 en werd in maart 2020 na een aanbesteding herbenoemd. Het oordeel is zonder voorbehoud. De kernpunten van de controle zijn de boekhouding van de verkopen van 50%-belangen in windparken en de belastingen (onzekere posities en geschillen).",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cijfers",
+   "titel": "Cijfers",
+   "kort": "EBITDA 18,1 mld (+4%), 81% uit wind op zee; winst gedragen door eenmalige verkoop; lage schuld",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel toont hoe Ørsted financieel draait: hoeveel het verdient, waar dat vandaan komt en hoe zwaar de schulden wegen. Let op: veel cijfers van Ørsted schommelen door verkopen van belangen in windparken (eenmalige winsten)."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de terugkerende winst uit draaiende parken groeit stevig, maar de totale winst is grillig en steunt sterk op verkopen. De schuld is laag dankzij de verkoop van de Deense netten."
+    },
+    {
+     "type": "kop",
+     "tekst": "Winst over 5 jaar"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Eerst de EBITDA: dat is de winst uit de activiteiten vóór rente, belastingen en afschrijvingen. 2018 springt eruit door de verkoop van 50% van Hornsea 1."
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "EBITDA en winst (mld DKK)",
+     "eenheid": "mld DKK",
+     "x": [
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020"
+     ],
+     "reeksen": [
+      {
+       "naam": "EBITDA",
+       "waarden": [
+        19.1,
+        22.5,
+        30.0,
+        17.5,
+        18.1
+       ]
+      },
+      {
+       "naam": "Winst (voortgezette activiteiten)",
+       "waarden": [
+        12.2,
+        13.3,
+        19.5,
+        6.1,
+        16.7
+       ]
+      }
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Wat zie je hier? De EBITDA steeg in 2020 met 4% tot DKK 18,1 mld. De winst van 16,7 mld bevat een eenmalige meerwaarde van 10,9 mld op de verkoop van de Deense netten; zonder die meerwaarde blijft ±5,9 mld over.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "EBITDA 2020",
+       "waarde": "DKK 18,1 mld",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "+4%",
+       "bronnen": [
+        1
+       ],
+       "wat": "Winst uit de activiteiten vóór rente, belastingen en afschrijvingen.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Licht hoger dan 2019, maar lager dan 2017 en 2018 (toen grote verkoopwinsten)."
+      },
+      {
+       "naam": "Waarvan wind op zee",
+       "waarde": "DKK 14,75 mld",
+       "trend": "neer",
+       "label": "feit",
+       "toelichting": "81% van het totaal",
+       "bronnen": [
+        1
+       ],
+       "wat": "Winst uit de windparken op zee: verkoop van stroom, onderhoud en bouwcontracten voor partners.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "De draaiende parken verdienden meer (15,5 mld), maar er waren minder eenmalige verkoopwinsten."
+      },
+      {
+       "naam": "Verwachting EBITDA 2021",
+       "waarde": "DKK 15–16 mld",
+       "trend": "neer",
+       "label": "feit",
+       "toelichting": "zonder nieuwe verkopen",
+       "bronnen": [
+        1
+       ],
+       "wat": "Wat Ørsted zelf verwacht voor 2021, zonder winst uit nieuwe verkopen van belangen.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Lager dan 2020: Deense netten verkocht, geen winst uit bestaande partnerships meer, normaal windjaar verwacht."
+      },
+      {
+       "naam": "Winst zonder meerwaarde",
+       "waarde": "±DKK 5,9 mld",
+       "trend": "gelijk",
+       "label": "berekening",
+       "toelichting": "16,7 − 10,8",
+       "bronnen": [
+        1
+       ],
+       "wat": "Nettowinst 2020 zonder de eenmalige meerwaarde op de verkoop van de Deense netten.",
+       "hoe": "Winst voortgezette activiteiten 16.727 min 'gain on divestment of enterprises' 10.831 (mln DKK).",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Vergelijkbaar met 2019 (6,1 mld)."
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Kasstroom en investeringen"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Een bouwer van windparken geeft eerst veel geld uit en verdient het pas jaren later terug. Daarom is de kasstroom belangrijk."
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Kasstroom (mld DKK)",
+     "eenheid": "mld DKK",
+     "x": [
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020"
+     ],
+     "reeksen": [
+      {
+       "naam": "Operationele kasstroom",
+       "waarden": [
+        11.3,
+        1.0,
+        10.3,
+        13.1,
+        16.5
+       ]
+      },
+      {
+       "naam": "Bruto-investeringen",
+       "waarden": [
+        15.0,
+        17.7,
+        24.5,
+        23.3,
+        27.0
+       ]
+      },
+      {
+       "naam": "Verkopen (desinvesteringen)",
+       "waarden": [
+        9.1,
+        17.0,
+        20.0,
+        3.3,
+        19.0
+       ]
+      }
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Wat zie je hier? Elk jaar investeert Ørsted meer dan de activiteiten opbrengen. Het tekort wordt gedekt door belangen te verkopen. In 2020: 16,5 mld kasstroom − 27,0 mld investeringen + 19,0 mld verkopen = 8,5 mld vrije kasstroom; zonder verkopen −10,5 mld.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Schulden"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Hoe zwaar wegen de schulden? Ørsted heeft een eigen doel en een minimale kredietrating vastgelegd."
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Netto rentedragende schuld",
+       "waarde": "DKK 12,3 mld",
+       "trend": "neer",
+       "label": "feit",
+       "toelichting": "2019: 17,2 mld",
+       "bronnen": [
+        1
+       ],
+       "wat": "Leningen min kaspositie.",
+       "beoordeling": "goed",
+       "beoordeling_uitleg": "Laag tegenover een EBITDA van 18,1 mld (±0,7×)."
+      },
+      {
+       "naam": "FFO / aangepaste netto schuld",
+       "waarde": "48%",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "doel ±30%",
+       "bronnen": [
+        1
+       ],
+       "wat": "Kasstroom uit de activiteiten gedeeld door de schuld (inclusief de helft van het hybride kapitaal). Hoe hoger, hoe veiliger.",
+       "beoordeling": "goed",
+       "beoordeling_uitleg": "Ruim boven het eigen doel; er is ruimte voor meer schuld om de bouw te betalen."
+      },
+      {
+       "naam": "Hybride kapitaal",
+       "waarde": "DKK 13,2 mld",
+       "trend": "gelijk",
+       "label": "feit",
+       "bronnen": [
+        1
+       ],
+       "wat": "Een soort eeuwigdurende lening die half als eigen vermogen telt bij de kredietbeoordelaars.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Stabiel sinds 2016."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted wil minstens een rating BBB+/Baa1 behouden; dat komt eerst in de volgorde van kapitaalgebruik, vóór het dividend en vóór groei. De schuld zonder hybride kapitaal was 37,1 mld, waarvan meer dan de helft als 'groene' obligaties.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Rendement op kapitaal en dividend"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Het rendement op het geïnvesteerde kapitaal ([[ROCE|winst vóór rente en belastingen gedeeld door het gemiddelde geïnvesteerde kapitaal]]) was 9,7% in 2020, in lijn met het doel van gemiddeld ±10% voor 2019–2025. Het dividend stijgt met 9,5% tot DKK 11,5 per aandeel (4,8 mld); Ørsted wil het tot 2025 jaarlijks met een hoog enkelcijferig percentage verhogen.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Dividendrendement bij DKK 1.058: 11,5 / 1.058 = **1,1%**. Uitkering: 4,8 mld op een winst zonder meerwaarde van ±5,9 mld (±80%).",
+     "bronnen": [
+      1,
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "id": "investeringen",
+   "titel": "Waarin investeren ze?",
+   "kort": "DKK 200 mld plan 2019–2025; 32–34 mld in 2021; verkoop van 50%-belangen als financieringsmodel",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel gaat over waar het geld naartoe gaat. Bij Ørsted is dat de kern van het verhaal: bijna alles gaat naar nieuwe wind- en zonneparken."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** veel herinvestering, wat bij jouw profiel past. Maar het model hangt af van één ding: partners (vooral pensioenfondsen) die graag 50% van een park kopen. Dat lukt het best als de rente laag is."
+    },
+    {
+     "type": "kop",
+     "tekst": "Het investeringsplan"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted investeert DKK 200 mld tussen 2019 en 2025, voor meer dan 95% in wind op zee, wind op land en zon. In 2019–2020 ging al 50 mld uit (35 mld op zee, 13 mld op land). Voor 2021 verwacht Ørsted 32–34 mld. Doel: meer dan 30 GW groene capaciteit in 2030 (11,3 GW eind 2020, 4,0 GW in aanbouw, 5,0 GW toegekend).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Geïnstalleerde groene capaciteit (GW)",
+     "eenheid": "GW",
+     "x": [
+      "2018",
+      "2019",
+      "2020"
+     ],
+     "reeksen": [
+      {
+       "naam": "Capaciteit",
+       "waarden": [
+        8.3,
+        9.9,
+        11.3
+       ]
+      }
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Wat zie je hier? De capaciteit groeit met 14–20% per jaar; het doel van 30 GW in 2030 vraagt bijna een verdrievoudiging."
+    },
+    {
+     "type": "kop",
+     "tekst": "Het financieringsmodel: farm-downs"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted bouwt een park, verkoopt 50% aan een partner (bv. Changhua 1 aan het Canadese pensioenfonds CDPQ en Cathay PE in december 2020; 25% van Ocean Wind aan PSEG) en bouwt het park daarna voor die partner af. De winst daarop heet 'partnerships' en is moeilijk te voorspellen; Ørsted rekent ze daarom niet in zijn verwachtingen.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted schrijft zelf dat dit model gevoelig is voor de rente: windparken zijn aantrekkelijker voor kopers als de rente laag is in vergelijking met andere beleggingen met een vergelijkbaar risico.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Dit is een belangrijk punt voor de waardering: als de rente stijgt, dalen zowel de verkoopprijzen van belangen als de waarde van de toekomstige kasstromen."
+    },
+    {
+     "type": "kop",
+     "tekst": "Grootste bouwprojecten"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Hornsea 2 (1.386 MW, VK) en Greater Changhua 1&2a (900 MW, Taiwan) moeten in 2022 klaar zijn; volgens de presentatie lopen alle projecten volgens plan. In de VS zijn vijf parken op zee in ontwikkeling; de start van de bouw van vier ervan schuift waarschijnlijk op na 2023/2024 door wachten op de federale vergunningsdienst BOEM.",
+     "bronnen": [
+      1,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keten",
+   "titel": "De keten (2 niveaus)",
+   "kort": "Afhankelijk van overheidscontracten (CfD), turbineleverancier Siemens Gamesa, VS-vergunningen en kopers van belangen",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel kijkt naar de partijen waarvan Ørsted afhankelijk is: wie koopt de stroom, wie levert de turbines, wie keurt projecten goed en wie koopt belangen in de parken."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de inkomsten zijn grotendeels vastgelegd (vaste prijzen of subsidies). De grote afhankelijkheden zitten aan de kant van de kosten en de vergunningen: turbines, schepen, bouwhavens en overheden."
+    },
+    {
+     "type": "kop",
+     "tekst": "1. Overheden en contracten (vaste prijzen)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De parken op zee hebben grotendeels gereguleerde prijzen: een vaste prijs per MWh voor de meeste parken in Denemarken, Duitsland en Nederland en de Britse CfD-parken. Ørsted verwacht dat gemiddeld ±90% van de EBITDA in 2019–2025 uit langlopende contracten of gereguleerde activiteiten komt. De VS-parken krijgen ±20 jaar een vaste prijs.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Keerzijde: vaste nominale prijzen verliezen reële waarde als de inflatie stijgt. Ørsted dekt dat deels af met leningen aan vaste rente in dezelfde munt.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "2. Turbineleverancier Siemens Gamesa"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Siemens Gamesa levert de 8 MW-turbines voor o.a. Borssele 1&2 en is voorkeursleverancier (11 MW-turbines) voor Borkum Riffgrund 3 en Gode Wind 3.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Niveau 2: een probleem bij Siemens Gamesa (kwaliteit, levertijden of prijzen) raakt de bouwplanning van Ørsted rechtstreeks. We hebben de cijfers van Siemens Gamesa niet gelezen; dat is een beperking van deze analyse."
+    },
+    {
+     "type": "kop",
+     "tekst": "3. VS: vergunningen en partners"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "De VS-projecten (Revolution Wind, Ocean Wind 1, Skipjack, Sunrise Wind en South Fork) hangen af van de federale dienst BOEM. Ørsted noemt de bouw in de VS het vierde grootste risico: onrijpe markt, lokale-inhoudvereisten, beperkte havens en schepen. Partners: Eversource (Revolution, Sunrise, South Fork) en PSEG (25% Ocean Wind 1).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Op 3-2-2021 kondigde BOEM aan dat het de milieubeoordeling van Vineyard Wind (een ander project) hervat, 'ter ondersteuning van het doel van de regering-Biden'. Dat wijst op een snellere vergunningsprocedure onder de nieuwe regering.",
+     "bronnen": [
+      6,
+      9
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "4. Kopers van belangen en grote afnemers"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Kopers van 50%-belangen zijn vooral pensioenfondsen en infrastructuurbeleggers (CDPQ, Cathay PE, PSEG). Grote afnemers met langlopende contracten zijn TSMC (20 jaar vaste prijs voor Changhua 2b&4, 920 MW, vanaf 2025/26) en Amazon (10 jaar, 250 MW van Borkum Riffgrund 3).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? De klanten zijn sterk, maar het model heeft een gemeenschappelijke zwakke plek: alles is gebouwd op goedkoop geld. Stijgt de rente, dan betalen partners minder en wordt de bouw duurder om te financieren."
+    }
+   ]
+  },
+  {
+   "id": "sector",
+   "titel": "Sector & concurrenten",
+   "kort": "Snel groeiende markt (±25 GW veilingen in 2021) maar zwaardere concurrentie (oliemaatschappijen); sector op recordwaardering",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel kijkt naar de markt voor windenergie op zee en naar de concurrenten. Belangrijk, omdat de rendementen van Ørsted afhangen van hoeveel concurrenten meebieden."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de markt groeit snel, maar de concurrentie wordt harder. Nieuwe spelers zoals oliemaatschappijen betalen hoge prijzen voor zeebodem en contracten, wat de rendementen drukt."
+    },
+    {
+     "type": "kop",
+     "tekst": "Groeimarkt"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted verwacht in 2021 veilingen en aanbestedingen voor ±25 GW, waaronder de Britse Round 4, New Jersey 2, de eerste Japanse ronde en een Pools programma van 5,9 GW. De VK wil naar 40 GW wind op zee in 2030.",
+     "bronnen": [
+      2,
+      7
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Zwaardere concurrentie"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ørsted schrijft dat de prijsdruk in veilingen groter is dan de kostendaling kan verklaren, en heeft concurrentie daarom opgewaardeerd tot zijn derde grootste risico. Het verwacht oliemaatschappijen, nutsbedrijven, institutionele beleggers en regionale ontwikkelaars als concurrenten.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Op 8-2-2021 maakte de Britse Crown Estate de resultaten van Round 4 bekend (bijna 8 GW). Bieders moesten voor het eerst een jaarlijkse 'option fee' bieden voor het recht om te ontwikkelen; brancheorganisatie WindEurope waarschuwde dat zeer hoge biedingen de kosten van wind op zee verhogen.",
+     "bronnen": [
+      7
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "Ørsted stond niet tussen de winnaars: RWE (2 × 1.500 MW), EnBW met BP (2 × 1.500 MW), Total met Green Investment Group (1.500 MW) en Offshore Wind Limited (480 MW). In de dagen na de bekendmaking daalde de koers met 4,3% (8-2) en 4,6% (9-2). Dat die daling met Round 4 te maken heeft, is onze inschatting.",
+     "bronnen": [
+      3,
+      7
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Waardering van de sector"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Bloomberg schreef op 26-1-2021 dat een recordinstroom van geld in groene fondsen (ESG-ETF's) de koersen van groene aandelen opdreef. De MSCI Global Environment-index steeg 93% in 2020. Ørsted, EDP Renováveis en Verbund stegen elk meer dan 40% in het vierde kwartaal, samen met een verviervoudiging van de instroom in het iShares Global Clean Energy-fonds.",
+     "bronnen": [
+      8
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ter vergelijking: de Europese nutsbedrijven (MSCI Europe Utilities) daalden 5% in 2020, de Deense C25-index steeg 34%, Ørsted zelf 80%.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? Een deel van de koersstijging komt niet van betere resultaten, maar van geld dat in fondsen stroomt die Ørsted 'moeten' kopen. Dat geld kan even snel weer wegvloeien."
+    }
+   ]
+  },
+  {
+   "id": "actualiteit",
+   "titel": "Actualiteit",
+   "kort": "Rente stijgt, groene aandelen op recordwaardering, VS-vergunningen gaan sneller, zwaardere veilingen",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel gaat over wat er rond Ørsted gebeurde en speelt tot 15-2-2021, en wat eraan komt. Belangrijk: alles is beoordeeld met de kennis van die datum."
+    },
+    {
+     "type": "kader",
+     "stijl": "mening",
+     "titel": "Besluit: wat betekent de actualiteit voor Ørsted?",
+     "tekst": "De drie belangrijkste drijvers:\n1. **De rente stijgt** (VS 10 jaar: 0,52% → 1,20%). Voor Ørsted is dat risico nummer 1: het drukt de waarde van vaste toekomstige inkomsten én de prijs die partners betalen.\n2. **Groene aandelen zijn duur geworden door geld dat in fondsen stroomde**, niet enkel door betere resultaten.\n3. **Concurrentie in veilingen wordt harder** (Round 4: zeer hoge biedingen, Ørsted niet bij de winnaars).\nTegenwicht: de regering-Biden versnelt de VS-vergunningen, en de groeimarkt is enorm (±25 GW veilingen in 2021).\nNetto: negatief voor de koers op korte termijn, neutraal tot positief voor het bedrijf op lange termijn. **Gevolg voor het advies: Afwachten, 4/10** — niet omdat het bedrijf slecht is, maar omdat de prijs weinig ruimte laat voor tegenvallers."
+    },
+    {
+     "type": "kop",
+     "tekst": "Impact per onderwerp"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Schaal: klein (<1% van de waarde), middel (1–3%), groot (>3%). ▲ positief, ▼ negatief."
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "**Stijgende rente — ▼ groot.** Elke stijging van het vereist rendement met 1 procentpunt verlaagt onze waardering met grofweg een derde; ook de verkoopprijs van 50%-belangen daalt.",
+       "bronnen": [
+        1,
+        4
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Instroom in groene fondsen — ▼▲ groot.** Duwde de koers omhoog (+80% in 2020); als de instroom stopt, kan het omgekeerde gebeuren.",
+       "bronnen": [
+        8,
+        1
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**VS-vergunningen onder Biden — ▲ middel.** Snellere procedures verkleinen het risico op vertraging van ±5 GW aan projecten.",
+       "bronnen": [
+        6,
+        1
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Round 4 en hoge biedingen — ▼ middel.** Toont dat nieuwe spelers hogere prijzen betalen; lagere rendementen op nieuwe projecten.",
+       "bronnen": [
+        7
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Lagere winst in 2021 — ▼ klein.** De verwachting (15–16 mld) is lager dan 2020, maar vooral door eenmalige effecten.",
+       "bronnen": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat zie je hier? De grote factoren (rente en geldstromen) liggen buiten de controle van Ørsted, en de koers is daar erg gevoelig voor."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat gebeurde er? (2020)"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "Ørsted verkocht zijn Deense netten en klanten (DKK 20,5 mld) en zijn LNG-activiteiten, en tekende het grootste groene stroomcontract ooit met TSMC.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "COVID-19 vertraagde de bouw van Hornsea 2 en drukte de Britse stroomprijzen, maar de winst lag boven de verwachting door sterke wind (9,7 m/s tegenover normaal 9,3).",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "CEO Henrik Poulsen vertrok; Mads Nipper werd CEO.",
+       "bronnen": [
+        1
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? 2020 was een sterk jaar, maar met hulp van de wind en eenmalige verkopen."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat speelt er nu? (november 2020 – februari 2021)"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "De Amerikaanse 10-jaarsrente steeg van 0,93% (eind 2020) naar 1,20% (12-2-2021); de Duitse bleef negatief (−0,45% gemiddeld in februari).",
+       "bronnen": [
+        4,
+        5
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "De koers bereikte 1.355 op 7-1-2021 en zakte daarna 22% tot 1.058 op 15-2-2021.",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "BOEM hervatte op 3-2-2021 de beoordeling van Vineyard Wind.",
+       "bronnen": [
+        6
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Britse Round 4 (8-2-2021): bijna 8 GW, met hoge 'option fees'.",
+       "bronnen": [
+        7
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? De koers corrigeert al, maar staat nog altijd ver boven onze waardering."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat komt eraan? (2021–2022)"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "Capital Markets Day op 2-6-2021 met een update van de langetermijnstrategie en doelen.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Verkoop van 50% van Borssele 1&2 rond de zomer van 2021; mogelijk ook van de zonneportefeuille.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Oplevering van Hornsea 2 en Greater Changhua 1&2a in 2022.",
+       "bronnen": [
+        1,
+        2
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Veilingen voor ±25 GW in 2021 (VK, VS, Japan, Polen, Nederland, Denemarken).",
+       "bronnen": [
+        2
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? 2021 wordt een jaar van veilingen en verkopen; daar zal blijken of de rendementen houden."
+    },
+    {
+     "type": "kop",
+     "tekst": "Waar moet je op letten?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "**1-3-2021 — Algemene vergadering.** Dividend DKK 11,5.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**29-4-2021 — Eerste kwartaal.** Goed nieuws: verwachting bevestigd en Borssele-verkoop aan een goede prijs. Slecht: vertraging in de bouw of lagere verwachting.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**2-6-2021 — Capital Markets Day.** Let op het beloofde rendement op nieuwe projecten: daalt het, dan bevestigt dat de druk van concurrentie.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**12-8-2021 — Halfjaar.** Rente en verkoopprijzen van belangen.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**3-11-2021 — Negen maanden.** Stand van de VS-vergunningen.",
+       "bronnen": [
+        1
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "earnings_call",
+   "titel": "Analistencall (3-2-2021)",
+   "kort": "Presentatie gelezen; transcript niet beschikbaar; toon: zelfzeker over groei",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel vat de presentatie samen waarmee het management op 3-2-2021 de jaarcijfers aan analisten toelichtte. Het volledige transcript konden we niet lezen (betaalmuur)."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Kernboodschap: 'zeer sterke resultaten, zowel operationeel als financieel'. EBITDA uit draaiende wind- en zonneparken +14% tot DKK 16,9 mld; ROCE 10%; dividend +9,5%. Alle zeven bouwprojecten lopen volgens plan. Ørsted verwacht ±25 GW aan veilingen in 2021.",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Verwachting 2021: EBITDA 15–16 mld zonder nieuwe partnerships (2020: 18,1 mld), investeringen 32–34 mld. De daling komt van de verkochte Deense netten (−0,9 mld), het wegvallen van winst uit bestaande partnerships (−1,6 mld) en een normaal windjaar.",
+     "bronnen": [
+      2,
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Toon: zelfzeker en gericht op groei. Het nieuwe management (CEO Nipper was op dat moment ±5 weken in functie) stelt de echte strategie pas voor op de Capital Markets Day van juni. Het jaarverslag benoemt de risico's (rente, concurrentie, VS) wel duidelijk; in de presentatie krijgen ze weinig plaats."
+    }
+   ]
+  },
+  {
+   "id": "waardering",
+   "titel": "Waardering & advies",
+   "kort": "±30× EBITDA 2021; eigen waardering ±DKK 475; koers vraagt een rente van ±4,5% of minder",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel beantwoordt de vraag: is DKK 1.058 een redelijke prijs voor wat Ørsted verdient en zal verdienen? We doen dat op twee manieren: met vergelijkende verhoudingen en met een eigen berekening."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de koers is enkel te verdedigen als de rente laag blijft én Ørsted jarenlang meer verdient dan zijn kapitaal kost. Bij een normale vereiste opbrengst is het aandeel ±55% te duur."
+    },
+    {
+     "type": "kop",
+     "tekst": "Verhoudingen"
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Beurswaarde",
+       "waarde": "DKK ±445 mld",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        3
+       ],
+       "wat": "Alle aandelen samen aan de koers van 15-2-2021.",
+       "hoe": "420,07 mln aandelen × 1.058."
+      },
+      {
+       "naam": "Ondernemingswaarde / EBITDA 2021",
+       "waarde": "±30×",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        3
+       ],
+       "wat": "Wat je betaalt voor het hele bedrijf (aandelen + schuld) gedeeld door één jaar bedrijfswinst.",
+       "hoe": "(445 + 12,3 schuld + 13,2 hybride + 2,7 minderheden) / 15,5 (midden verwachting 2021).",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Gewone nutsbedrijven noteren doorgaans rond 8–12×; zelfs met sterke groei is 30× zeer hoog (mening)."
+      },
+      {
+       "naam": "Koers / winst zonder meerwaarde",
+       "waarde": "±75×",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        3
+       ],
+       "wat": "Hoeveel jaar winst je betaalt.",
+       "hoe": "1.058 / (5.896 mln / 420,07 mln aandelen = DKK 14,0).",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Ook met de eenmalige meerwaarde (winst per aandeel 38,8) is het 27×."
+      },
+      {
+       "naam": "Dividendrendement",
+       "waarde": "1,1%",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        3
+       ],
+       "wat": "Dividend gedeeld door de koers.",
+       "hoe": "11,5 / 1.058.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Laag voor een nutsbedrijf."
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Eigen berekening"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "We rekenen met de eigen doelen van Ørsted: ±10% rendement op het kapitaal en het investeringsplan tot 2025. Alle aannames zijn zichtbaar, zodat je ze zelf kan aanpassen."
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "Geïnvesteerd kapitaal groeit van DKK 110 mld (2020) naar ±200 mld in 2025 (150 mld investeringen, deels terugverdiend door verkopen van belangen).",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "ROCE ±10% (doel Ørsted) → bedrijfswinst ±20 mld in 2025; na 22% belasting ±15,6 mld.",
+       "bronnen": [
+        1
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "Vereist rendement (kost van het kapitaal) 5,5%: hoger dan de rente op staatsobligaties, omdat bouw, valuta en veilingen risico's meebrengen. Groei na 2025: 2% per jaar.",
+       "bronnen": [
+        4,
+        5
+       ]
+      },
+      {
+       "label": "berekening",
+       "tekst": "Waarde in 2025: 15,6 × (1 − 2/7,8) / (5,5% − 2%) ≈ 331 mld; teruggerekend naar vandaag ≈ 253 mld. Min het geld dat tot 2025 meer geïnvesteerd wordt dan verdiend (±26 mld) ≈ 227 mld. Min schuld, hybride kapitaal en minderheden (28 mld) ≈ 199 mld, of **±DKK 475 per aandeel**."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Gevoeligheid: met een vereist rendement van 4,5%, 2,5% groei, ROCE 11% en meer investeringen komt de waarde rond DKK 1.140. De koers van 1.058 rekent dus op een zeer lage kost van het kapitaal en blijvend hoge rendementen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Daarom is de rente zo belangrijk: een kleine verschuiving in het vereiste rendement verandert de waarde met honderden kronen per aandeel."
+    },
+    {
+     "type": "kop",
+     "tekst": "Koopzone, koersdoel en stop-loss"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Koopzone **DKK 600–700**: daar is een deel van het renterisico al in de prijs verrekend. Koersdoel **DKK 930** (normaal scenario, begin 2023). Stop-loss −20% op 846 of technisch 913. Let op: ook in de koopzone blijft R1 (Deense Staat 50,1%) gelden."
+    }
+   ]
+  },
+  {
+   "id": "techniek",
+   "titel": "Koers & techniek",
+   "kort": "Na een verdrievoudiging in 3 jaar 22% onder de top; korte trend daalt, lange trend stijgt",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel kijkt naar de koers zelf: de trend, de schommelingen en waar steun ligt. Dat helpt vooral om een stop-loss te kiezen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de lange trend is nog stijgend, maar sinds de top van januari daalt de koers. De schommelingen zijn groot voor een nutsbedrijf."
+    },
+    {
+     "type": "grafiek",
+     "soort": "lijn",
+     "titel": "Koers Ørsted (ORSTED.CO) – juni 2016 tot 15-02-2021",
+     "eenheid": "DKK",
+     "x": [
+      "2016-06-09",
+      "2016-06-15",
+      "2016-06-21",
+      "2016-06-27",
+      "2016-07-01",
+      "2016-07-07",
+      "2016-07-13",
+      "2016-07-19",
+      "2016-07-25",
+      "2016-07-29",
+      "2016-08-04",
+      "2016-08-10",
+      "2016-08-16",
+      "2016-08-22",
+      "2016-08-26",
+      "2016-09-01",
+      "2016-09-07",
+      "2016-09-13",
+      "2016-09-19",
+      "2016-09-23",
+      "2016-09-29",
+      "2016-10-05",
+      "2016-10-11",
+      "2016-10-17",
+      "2016-10-21",
+      "2016-10-27",
+      "2016-11-02",
+      "2016-11-08",
+      "2016-11-14",
+      "2016-11-18",
+      "2016-11-24",
+      "2016-11-30",
+      "2016-12-06",
+      "2016-12-12",
+      "2016-12-16",
+      "2016-12-22",
+      "2016-12-29",
+      "2017-01-04",
+      "2017-01-10",
+      "2017-01-16",
+      "2017-01-20",
+      "2017-01-26",
+      "2017-02-01",
+      "2017-02-07",
+      "2017-02-13",
+      "2017-02-17",
+      "2017-02-23",
+      "2017-03-01",
+      "2017-03-07",
+      "2017-03-13",
+      "2017-03-17",
+      "2017-03-23",
+      "2017-03-29",
+      "2017-04-04",
+      "2017-04-10",
+      "2017-04-19",
+      "2017-04-25",
+      "2017-05-01",
+      "2017-05-05",
+      "2017-05-11",
+      "2017-05-18",
+      "2017-05-24",
+      "2017-06-01",
+      "2017-06-08",
+      "2017-06-14",
+      "2017-06-20",
+      "2017-06-26",
+      "2017-06-30",
+      "2017-07-06",
+      "2017-07-12",
+      "2017-07-18",
+      "2017-07-24",
+      "2017-07-28",
+      "2017-08-03",
+      "2017-08-09",
+      "2017-08-15",
+      "2017-08-21",
+      "2017-08-25",
+      "2017-08-31",
+      "2017-09-06",
+      "2017-09-12",
+      "2017-09-18",
+      "2017-09-22",
+      "2017-09-28",
+      "2017-10-04",
+      "2017-10-10",
+      "2017-10-16",
+      "2017-10-20",
+      "2017-10-26",
+      "2017-11-01",
+      "2017-11-07",
+      "2017-11-13",
+      "2017-11-17",
+      "2017-11-23",
+      "2017-11-29",
+      "2017-12-05",
+      "2017-12-11",
+      "2017-12-15",
+      "2017-12-21",
+      "2017-12-29",
+      "2018-01-05",
+      "2018-01-11",
+      "2018-01-17",
+      "2018-01-23",
+      "2018-01-29",
+      "2018-02-02",
+      "2018-02-08",
+      "2018-02-14",
+      "2018-02-20",
+      "2018-02-26",
+      "2018-03-02",
+      "2018-03-08",
+      "2018-03-14",
+      "2018-03-20",
+      "2018-03-26",
+      "2018-04-04",
+      "2018-04-10",
+      "2018-04-16",
+      "2018-04-20",
+      "2018-04-26",
+      "2018-05-03",
+      "2018-05-09",
+      "2018-05-17",
+      "2018-05-24",
+      "2018-05-30",
+      "2018-06-06",
+      "2018-06-12",
+      "2018-06-18",
+      "2018-06-22",
+      "2018-06-28",
+      "2018-07-04",
+      "2018-07-10",
+      "2018-07-16",
+      "2018-07-20",
+      "2018-07-26",
+      "2018-08-01",
+      "2018-08-07",
+      "2018-08-13",
+      "2018-08-17",
+      "2018-08-23",
+      "2018-08-29",
+      "2018-09-04",
+      "2018-09-10",
+      "2018-09-14",
+      "2018-09-20",
+      "2018-09-26",
+      "2018-10-02",
+      "2018-10-08",
+      "2018-10-12",
+      "2018-10-18",
+      "2018-10-24",
+      "2018-10-30",
+      "2018-11-05",
+      "2018-11-09",
+      "2018-11-15",
+      "2018-11-21",
+      "2018-11-27",
+      "2018-12-03",
+      "2018-12-07",
+      "2018-12-13",
+      "2018-12-19",
+      "2018-12-28",
+      "2019-01-07",
+      "2019-01-11",
+      "2019-01-17",
+      "2019-01-23",
+      "2019-01-29",
+      "2019-02-04",
+      "2019-02-08",
+      "2019-02-14",
+      "2019-02-20",
+      "2019-02-26",
+      "2019-03-04",
+      "2019-03-08",
+      "2019-03-14",
+      "2019-03-20",
+      "2019-03-26",
+      "2019-04-01",
+      "2019-04-05",
+      "2019-04-11",
+      "2019-04-17",
+      "2019-04-26",
+      "2019-05-02",
+      "2019-05-08",
+      "2019-05-14",
+      "2019-05-21",
+      "2019-05-27",
+      "2019-06-04",
+      "2019-06-12",
+      "2019-06-18",
+      "2019-06-24",
+      "2019-06-28",
+      "2019-07-04",
+      "2019-07-10",
+      "2019-07-16",
+      "2019-07-22",
+      "2019-07-26",
+      "2019-08-01",
+      "2019-08-07",
+      "2019-08-13",
+      "2019-08-19",
+      "2019-08-23",
+      "2019-08-29",
+      "2019-09-04",
+      "2019-09-10",
+      "2019-09-16",
+      "2019-09-20",
+      "2019-09-26",
+      "2019-10-02",
+      "2019-10-08",
+      "2019-10-14",
+      "2019-10-18",
+      "2019-10-24",
+      "2019-10-30",
+      "2019-11-05",
+      "2019-11-11",
+      "2019-11-15",
+      "2019-11-21",
+      "2019-11-27",
+      "2019-12-03",
+      "2019-12-09",
+      "2019-12-13",
+      "2019-12-19",
+      "2019-12-30",
+      "2020-01-07",
+      "2020-01-13",
+      "2020-01-17",
+      "2020-01-23",
+      "2020-01-29",
+      "2020-02-04",
+      "2020-02-10",
+      "2020-02-14",
+      "2020-02-20",
+      "2020-02-26",
+      "2020-03-03",
+      "2020-03-09",
+      "2020-03-13",
+      "2020-03-19",
+      "2020-03-25",
+      "2020-03-31",
+      "2020-04-06",
+      "2020-04-15",
+      "2020-04-21",
+      "2020-04-27",
+      "2020-05-01",
+      "2020-05-07",
+      "2020-05-14",
+      "2020-05-20",
+      "2020-05-28",
+      "2020-06-04",
+      "2020-06-11",
+      "2020-06-17",
+      "2020-06-23",
+      "2020-06-29",
+      "2020-07-03",
+      "2020-07-09",
+      "2020-07-15",
+      "2020-07-21",
+      "2020-07-27",
+      "2020-07-31",
+      "2020-08-06",
+      "2020-08-12",
+      "2020-08-18",
+      "2020-08-24",
+      "2020-08-28",
+      "2020-09-03",
+      "2020-09-09",
+      "2020-09-15",
+      "2020-09-21",
+      "2020-09-25",
+      "2020-10-01",
+      "2020-10-07",
+      "2020-10-13",
+      "2020-10-19",
+      "2020-10-23",
+      "2020-10-29",
+      "2020-11-04",
+      "2020-11-10",
+      "2020-11-16",
+      "2020-11-20",
+      "2020-11-26",
+      "2020-12-02",
+      "2020-12-08",
+      "2020-12-14",
+      "2020-12-18",
+      "2020-12-28",
+      "2021-01-05",
+      "2021-01-11",
+      "2021-01-15",
+      "2021-01-21",
+      "2021-01-27",
+      "2021-02-02",
+      "2021-02-08",
+      "2021-02-12",
+      "2021-02-15"
+     ],
+     "reeksen": [
+      {
+       "naam": "Slotkoers",
+       "waarden": [
+        258.0,
+        253.5,
+        257.3,
+        236.0,
+        241.0,
+        246.9,
+        252.0,
+        253.9,
+        265.0,
+        271.0,
+        279.4,
+        273.0,
+        267.3,
+        270.6,
+        274.6,
+        265.0,
+        273.0,
+        267.0,
+        269.5,
+        268.0,
+        273.4,
+        277.7,
+        263.8,
+        265.3,
+        269.3,
+        268.1,
+        255.8,
+        256.0,
+        247.9,
+        250.2,
+        244.1,
+        239.5,
+        242.0,
+        242.8,
+        246.0,
+        265.6,
+        267.6,
+        260.8,
+        256.0,
+        262.6,
+        260.5,
+        259.1,
+        260.6,
+        258.9,
+        262.0,
+        257.3,
+        256.2,
+        257.4,
+        249.7,
+        253.1,
+        257.9,
+        259.0,
+        261.6,
+        268.1,
+        274.6,
+        275.1,
+        268.6,
+        270.5,
+        273.1,
+        281.2,
+        275.0,
+        282.8,
+        292.4,
+        297.2,
+        301.6,
+        307.8,
+        302.7,
+        293.9,
+        289.8,
+        298.7,
+        299.1,
+        299.6,
+        297.4,
+        303.0,
+        312.4,
+        317.7,
+        322.6,
+        327.9,
+        325.2,
+        327.4,
+        334.0,
+        332.1,
+        345.4,
+        358.7,
+        365.3,
+        378.8,
+        371.3,
+        373.0,
+        366.5,
+        360.6,
+        340.4,
+        339.1,
+        343.4,
+        341.1,
+        355.7,
+        352.1,
+        347.5,
+        346.8,
+        340.5,
+        338.7,
+        340.8,
+        349.4,
+        353.5,
+        351.5,
+        350.0,
+        353.1,
+        344.8,
+        364.0,
+        366.1,
+        381.7,
+        367.6,
+        388.0,
+        386.2,
+        385.6,
+        377.5,
+        391.9,
+        390.8,
+        389.9,
+        386.8,
+        411.1,
+        413.0,
+        400.8,
+        411.7,
+        389.1,
+        383.1,
+        377.0,
+        370.0,
+        374.0,
+        380.9,
+        385.4,
+        394.0,
+        407.9,
+        412.9,
+        404.5,
+        395.9,
+        388.0,
+        385.0,
+        408.0,
+        407.0,
+        405.3,
+        409.1,
+        402.2,
+        405.2,
+        406.0,
+        412.0,
+        421.3,
+        438.2,
+        420.6,
+        406.1,
+        415.4,
+        417.9,
+        417.0,
+        428.1,
+        455.3,
+        454.2,
+        436.5,
+        457.5,
+        425.6,
+        441.0,
+        458.6,
+        456.8,
+        435.7,
+        439.9,
+        445.0,
+        444.8,
+        460.0,
+        465.1,
+        480.1,
+        477.0,
+        478.5,
+        478.5,
+        482.7,
+        487.1,
+        502.2,
+        513.6,
+        511.8,
+        506.8,
+        504.2,
+        518.2,
+        506.4,
+        496.5,
+        508.4,
+        503.2,
+        509.4,
+        518.8,
+        534.8,
+        540.4,
+        532.2,
+        567.0,
+        569.0,
+        579.0,
+        567.6,
+        600.6,
+        612.6,
+        615.0,
+        634.4,
+        620.8,
+        626.4,
+        642.4,
+        660.4,
+        678.0,
+        653.6,
+        646.0,
+        668.8,
+        645.6,
+        643.4,
+        622.2,
+        635.0,
+        617.2,
+        622.2,
+        628.4,
+        622.8,
+        624.2,
+        593.0,
+        568.4,
+        605.2,
+        605.6,
+        610.0,
+        621.8,
+        613.8,
+        630.2,
+        653.8,
+        665.8,
+        689.0,
+        662.0,
+        659.6,
+        695.4,
+        729.4,
+        748.0,
+        719.0,
+        729.2,
+        743.0,
+        761.0,
+        732.0,
+        718.0,
+        682.0,
+        592.0,
+        574.4,
+        670.8,
+        666.4,
+        641.2,
+        680.0,
+        690.4,
+        708.2,
+        685.0,
+        696.0,
+        716.0,
+        741.6,
+        761.2,
+        777.6,
+        746.0,
+        745.2,
+        776.2,
+        770.4,
+        796.8,
+        842.0,
+        881.6,
+        900.6,
+        901.4,
+        901.0,
+        884.0,
+        887.8,
+        880.0,
+        905.0,
+        884.0,
+        884.6,
+        868.0,
+        856.2,
+        854.8,
+        880.0,
+        930.0,
+        985.2,
+        1026.5,
+        1021.0,
+        974.4,
+        973.0,
+        1048.0,
+        1079.5,
+        1095.0,
+        1136.0,
+        1099.5,
+        1064.0,
+        1048.0,
+        1076.0,
+        1110.5,
+        1271.0,
+        1294.5,
+        1295.0,
+        1171.5,
+        1242.0,
+        1160.0,
+        1194.0,
+        1098.0,
+        1042.0,
+        1058.0
+       ]
+      }
+     ],
+     "lijnen": [
+      {
+       "naam": "Stop-loss −20%",
+       "waarde": 846.4
+      },
+      {
+       "naam": "Gemiddelde 200 dagen",
+       "waarde": 955.9455
+      }
+     ],
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Wat zie je hier? Van DKK 268 eind 2016 naar 1.244 eind 2020 en een top van 1.355 op 7-1-2021. Op 15-2-2021: 1.058, onder het gemiddelde van 50 dagen (1.163) maar boven dat van 200 dagen (956).",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Rendement 3 jaar",
+       "waarde": "+205%",
+       "trend": "op",
+       "label": "berekening",
+       "bronnen": [
+        3
+       ],
+       "wat": "Koersstijging over 3 jaar inclusief dividend.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Uitzonderlijk hoog voor een nutsbedrijf; de winst steeg niet in die mate."
+      },
+      {
+       "naam": "Beweeglijkheid (volatiliteit)",
+       "waarde": "36,5% per jaar",
+       "trend": "op",
+       "label": "berekening",
+       "bronnen": [
+        3
+       ],
+       "wat": "Hoe sterk de koers schommelt; 36% betekent dat een jaarbeweging van ±36% normaal is.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Dubbel zo hoog als bij een typisch nutsbedrijf (mening)."
+      },
+      {
+       "naam": "Laagste en hoogste koers 1 jaar",
+       "waarde": "574 – 1.355",
+       "trend": "gelijk",
+       "label": "feit",
+       "bronnen": [
+        3
+       ],
+       "wat": "De laagste koers (maart 2020, COVID) en de hoogste (januari 2021) van het voorbije jaar."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Steunniveaus (eerdere dieptepunten): 1.026 (4-12-2020), 931 (29-10-2020), 842 (12-8-2020), 727 (15-6-2020).",
+     "bronnen": [
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? De koers kan ver zakken voor hij op een sterk steunniveau botst; de −20%-stop (846) valt samen met het steunniveau van augustus 2020."
+    }
+   ]
+  },
+  {
+   "id": "expert",
+   "titel": "Kritische expertblik",
+   "kort": "Pre-mortem: rente + duurdere bouw + lagere rendementen in veilingen",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Hier kijken we als sceptische belegger: wat kan er misgaan, en wat ziet de markt mogelijk over het hoofd?"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Pre-mortem — stel dat Ørsted over twee jaar 50% lager staat. Wat is de meest waarschijnlijke reden?** Een stijgende rente die de waardering van alle groene aandelen terugzet naar die van gewone nutsbedrijven, samen met duurdere bouw en lagere rendementen op nieuwe projecten door zwaardere concurrentie. Ørsted noemt die risico's zelf als nummer 1, 3 en 4."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Wat de markt mogelijk over het hoofd ziet (negatief):** de winst steeg de voorbije jaren niet, maar de koers verdrievoudigde. Een deel komt van geld dat in groene fondsen stroomt. Bovendien zijn de VS-parken nieuw terrein voor Ørsted (geen havens, schepen of ervaring met de lokale regels) en hebben ze een vaste prijs voor 20 jaar: hogere kosten kan Ørsted niet doorrekenen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Wat de markt mogelijk over het hoofd ziet (positief):** Ørsted is wereldleider met een bewezen staat van dienst (projecten op tijd en binnen budget, zoals Borssele 1&2), een sterke balans en enorme groeimogelijkheden. Bij blijvend lage rente kan de koers nog veel verder stijgen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Waar we het minst zeker van zijn:** het juiste vereiste rendement. Tussen 4,5% en 5,5% ligt het verschil tussen 'correct gewaardeerd' en 'meer dan de helft te duur'."
+    }
+   ]
+  },
+  {
+   "id": "profiel",
+   "titel": "Toets aan jouw profiel",
+   "kort": "Herinvestering ✓, deels gereguleerd ✓; R1 ✗, hype-trekken in de koers ✗",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Hoe past Ørsted bij wat jij belangrijk vindt?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "mening",
+       "tekst": "**Herinvestering (positief):** bijna alle kasstroom gaat naar nieuwe parken: langetermijnvisie."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Defensief?** Deels: veel vaste prijzen (±90% van de EBITDA uit contracten of regulering), maar met grote bouwprojecten, valuta- en renterisico. Geen klassiek defensief aandeel."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Hype (negatief):** het bedrijf zelf is geen hype (echte winsten en kasstromen), maar de koers heeft hypetrekken: verdrievoudigd bij een vlakke winst, gedreven door fondsinstroom."
+      },
+      {
+       "label": "mening",
+       "tekst": "**R1 (negatief):** Deense Staat 50,1% → NO-GO volgens jouw regels."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Fiscaliteit:** Deens dividend: 27% Deense bronheffing (deels terug te vragen) plus Belgische roerende voorheffing; beurstaks. Laat dit nakijken bij je broker; dit is niet nagekeken in een officiële bron voor deze terugkijktest."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Besluit: past op twee punten goed, maar R1 en de prijs wegen zwaarder. Afwachten."
+    }
+   ]
+  }
+ ],
+ "bronnen": [
+  {
+   "id": 1,
+   "titel": "Annual report 2020",
+   "uitgever": "Ørsted A/S",
+   "type": "primair",
+   "url": "https://orsted.com/annualreport2020",
+   "document": "Annual report 2020 (gepubliceerd 3-2-2021)",
+   "datum": "2021-02-03"
+  },
+  {
+   "id": 2,
+   "titel": "Investor presentation Q4 and full-year 2020",
+   "uitgever": "Ørsted A/S",
+   "type": "primair",
+   "url": "https://www.energiesdelamer.eu/wp-content/uploads/2021/02/04-02-021-Orsted-annual-report-2020-investor-presentation.pdf",
+   "document": "Investeerderspresentatie 3-2-2021 (kopie op energiesdelamer.eu, origineel op orsted.com niet bereikbaar)",
+   "datum": "2021-02-03"
+  },
+  {
+   "id": 3,
+   "titel": "Koersdata ORSTED.CO, afgekapt op peildatum 15-02-2021",
+   "uitgever": "Yahoo Finance",
+   "type": "data",
+   "url": "https://finance.yahoo.com/quote/ORSTED.CO",
+   "document": "tools/koers.py --tot 2021-02-15 (peildatum)",
+   "datum": "2021-02-15"
+  },
+  {
+   "id": 4,
+   "titel": "10-Year Treasury Constant Maturity Rate (DGS10)",
+   "uitgever": "Federal Reserve Board via FRED",
+   "type": "data",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "document": "dagwaarden 4-8-2020, 31-12-2020, 12-2-2021",
+   "datum": "2021-02-12"
+  },
+  {
+   "id": 5,
+   "titel": "Long-term government bond yields: 10-year, Germany (IRLTLT01DEM156N)",
+   "uitgever": "OECD via FRED",
+   "type": "data",
+   "url": "https://fred.stlouisfed.org/series/IRLTLT01DEM156N",
+   "document": "maandgemiddelden tot februari 2021",
+   "datum": "2021-02-01"
+  },
+  {
+   "id": 6,
+   "titel": "BOEM to Resume Environmental Review of Vineyard Wind's Proposed Project",
+   "uitgever": "Bureau of Ocean Energy Management (VS)",
+   "type": "primair",
+   "url": "https://www.boem.gov/newsroom/press-releases/boem-resume-environmental-review-vineyard-winds-proposed-project",
+   "datum": "2021-02-03"
+  },
+  {
+   "id": 7,
+   "titel": "Latest UK seabed leasing risks raising costs of offshore wind",
+   "uitgever": "WindEurope",
+   "type": "analyse",
+   "url": "https://windeurope.org/news/latest-uk-seabed-leasing-risks-raising-costs-of-offshore-wind/",
+   "datum": "2021-02-08"
+  },
+  {
+   "id": 8,
+   "titel": "Dot-com Era Stock Valuations Bring Bubble Fears to ESG Funds",
+   "uitgever": "Bloomberg (overgenomen door WealthManagement.com)",
+   "type": "nieuws",
+   "url": "https://www.wealthmanagement.com/etfs/dot-com-era-stock-valuations-bring-bubble-fears-to-esg-funds",
+   "datum": "2021-01-26"
+  },
+  {
+   "id": 9,
+   "titel": "BOEM to restart permitting for major US offshore wind project",
+   "uitgever": "Reuters (Nichola Groom, overgenomen door OE Digital)",
+   "type": "nieuws",
+   "url": "https://www.oedigital.com/news/485058-boem-to-restart-permitting-for-major-us-offshore-wind-project",
+   "datum": "2021-02-03"
+  }
+ ],
+ "review": {
+  "status": "bezig",
+  "rondes": []
+ }
+}
