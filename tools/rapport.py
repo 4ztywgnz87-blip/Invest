@@ -266,7 +266,7 @@ def inline(tekst: str, bron_nr: dict) -> str:
     t = html.escape(tekst or "")
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
     t = re.sub(r"\[\[(.+?)\|(.+?)\]\]", r'<span class="term">\1</span> <span class="uitleg">(\2)</span>', t)
-    return t
+    return t.replace("\n", "<br>")
 
 
 def bron_refs(ids, bron_nr):

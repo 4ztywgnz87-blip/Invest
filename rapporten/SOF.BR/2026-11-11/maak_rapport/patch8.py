@@ -54,3 +54,64 @@ s["inhoud"]=[
   I("**24-3-2027 — jaarcijfers 2026 van Sofina.** De eerste intrinsieke waarde na de AI-correctie van november: dan zie je of de korting echt zo klein is.","feit",[35])]}]
 json.dump(r,open(P,'w'),ensure_ascii=False,indent=1)
 print('patch8 ok')
+
+# ---- review KB3/AS3 verwerken
+r=json.load(open(P))
+s=[x for x in r["secties"] if x["id"]=="actualiteit"][0]
+inh=s["inhoud"]
+for i,b in enumerate(inh):
+    if b["type"]=="kader":
+        inh[i]=KD("mening","""Drie dingen wegen het zwaarst:
+1. **AI- en techbedrijven** zakten begin november fors. Sofina ziet dat pas later in haar cijfers, omdat de [[fondsen|beleggingsfondsen van andere beheerders waarin Sofina geld steekt]] hun waarde maar om de paar maanden doorgeven.
+2. **De rente** stijgt mogelijk in Europa en de VS. Hogere rente maakt groeibedrijven minder waard.
+3. **De dollar**: twee derde van Sofina's bezit is in dollar. Die kan de waarde fors doen schommelen, in beide richtingen.
+Daartegenover staan de **beursgang van Anthropic** en hogere prijzen voor **ByteDance**: positief, maar klein of onzeker. **Netto: licht negatief.** Bovendien steeg de koers sinds 30-6 met ±21% (van €222,6 naar €270,4), terwijl die klappen nog niet in de cijfers zitten: de korting is waarschijnlijk kleiner dan ze lijkt.
+**Gevolg voor het advies: het blijft Afwachten (niet kopen: R1), 4/10.** Wie R1 bewust aanvaardt, wacht op de koopzone (€220–240) of op de jaarcijfers van 24-3-2027.""","Besluit: wat betekent de actualiteit voor Sofina?")
+    if b["type"]=="uitleg" and b["tekst"].startswith("De tabel zet"):
+        b["tekst"]="De tabel toont per onderwerp of het goed (▲) of slecht (▼) is voor Sofina, hoe groot de impact kan zijn, en waarom. Grootte: **klein** = minder dan 1% van de [[intrinsieke waarde|wat alle bezittingen min de schulden waard zijn, volgens Sofina zelf]], **middel** = 1 tot 3%, **groot** = meer dan 3%. Het zijn inschattingen, onderbouwd met de cijfers uit dit rapport; wat er precies gebeurde, lees je in de tijdlijn verderop."
+    if b["type"]=="tabel" and b["titel"].startswith("Wat betekent de actualiteit"):
+        b["kolommen"]=["Onderwerp","Effect","Waarom?"]
+        b["rijen"]=[
+         ["AI- en techbedrijven","▼ middel tot groot (2–5%)","Uitverkoop op 5-11. De tien grootste bedrijven in de fondsen (veel AI) zijn ±10% van Sofina: −20% daar kost ±2%; zakken alle fondsen 10%, dan ±5%."],
+         ["Dollar","▼▲ groot (±3% per 5% koersbeweging)","±65% van het bezit is in dollar. Een sterkere euro kost geld, een zwakkere levert op. In 2025 kostte de dollar €925 mln."],
+         ["Rente (Europa en VS)","▼ middel","Inflatie in de eurozone 4,0%, verhogingen in december mogelijk. Hogere rente drukt de waarde van groeibedrijven; de nieuwe lening om de obligatie van 2028 af te lossen kost ±€19 mln per jaar extra (klein)."],
+         ["Stemming rond Sofina","▼▲ groot (voor de koers)","Zakt de korting terug van 17% naar 25%, dan daalt de koers ±10% zonder dat de waarde verandert (de CEO noemde een korting 'in de twintig' in september)."],
+         ["ByteDance (TikTok)","▼▲ middel","Grootste positie (5–10%). Minder politiek risico in de VS en in februari een aandelenverkoop tot $550 mld (uitkomst niet bevestigd), maar ook geraakt door de techdaling: −30% kost 1,5–3%."],
+         ["Beursgang Anthropic","▲ klein (geschat 0,3–0,9%)","Prijsvork $70–78, notering gepland rond 19-11. Sofina bezit Anthropic enkel via fondsen; het effect is klein en pas later zichtbaar."],
+         ["Overige: SpaceX, Cognita, olie","▼ klein","SpaceX: meer aandelen vrij rond 9-12. Cognita: verkoop mislukt in 2025. Olie: blijft hoog door de oorlog in de Golf en houdt zo de inflatie en de rente hoog."]]
+        b["bronnen"]=[27,38,1,21,4,30,19,20,13,14,32,37,15,39,31,33]
+        b["noot"]="▲ = goed voor Sofina, ▼ = slecht, ▼▲ = kan beide kanten op. Percentages = deel van de intrinsieke waarde, tenzij anders vermeld; inschattingen."
+    if b.get("label")=="mening" and b.get("tekst","").startswith("Wat zie je hier? De meeste pijlen"):
+        b["tekst"]="Wat zie je hier? Meer pijlen naar beneden dan naar boven, en de grootste onzekerheden (dollar, stemming rond Sofina) kunnen beide kanten op. **Netto: licht negatief — geen reden om het advies te wijzigen.**"
+    if b.get("label")=="mening" and b.get("tekst","").startswith("**Wat betekent dit?** Sofina is sterk afhankelijk"):
+        b["tekst"]="**Wat betekent dit?** Sofina is sterk afhankelijk van de stemming rond technologie: in 2021 betaalde de beurs te veel, in 2022 zakte de koers drie keer zo hard als de waarde (−52% tegenover −16,5%). Wie nu instapt, moet zulke schommelingen kunnen dragen."
+    if b.get("label")=="mening" and b.get("tekst","").startswith("**Wat betekent dit?** De AI-markt"):
+        b["tekst"]="**Wat betekent dit?** De markt voor AI-bedrijven is zenuwachtig geworden, net nu Anthropic naar de beurs gaat, en de rente stijgt mogelijk. Die klappen zitten nog niet in Sofina's cijfers."
+    if b.get("label")=="mening" and b.get("tekst","").startswith("**Wat betekent dit?** De komende weken"):
+        b["tekst"]="**Wat betekent dit?** Aan Sofina's eigen cijfers verandert er niets tot maart 2027; de komende weken zijn vooral momenten die de stemming bepalen. Dat is een reden om af te wachten, niet om je te haasten."
+# Nu-lijst: overbodige details eruit
+for b in inh:
+    if b["type"]=="lijst":
+        b["items"]=[it for it in b["items"] if not it["tekst"].startswith("5-10-2026: herschikking binnen het consortium")]
+        for it in b["items"]:
+            if it["tekst"].startswith("6-11-2026: gedeeltelijk herstel"):
+                it["tekst"]="6-11-2026: gedeeltelijk herstel van de chipbedrijven. Door sterke Amerikaanse banencijfers werd een renteverhoging in december waarschijnlijker."
+            if it["tekst"].startswith("26-10-2026: Anthropic maakte"):
+                it["tekst"]="26-10-2026: Anthropic maakte zijn [[prospectus|officieel document met alle info over een beursgang]] publiek."
+            if it["tekst"].startswith("10-11-2026: Anthropic legde"):
+                it["tekst"]="10-11-2026: Anthropic legde de [[prijsvork|bandbreedte waarbinnen de beursprijs vastgelegd wordt]] vast: $70–78 per aandeel, een bedrijfswaarde tot $1,405 biljoen; handel naar verluidt vanaf 19-11."
+json.dump(r,open(P,'w'),ensure_ascii=False,indent=1)
+print('patch8 review ok')
+
+# ---- tabel → lijst (leesbaar op gsm)
+r=json.load(open(P))
+s=[x for x in r["secties"] if x["id"]=="actualiteit"][0]
+bronmap={"AI- en techbedrijven":[27,38,1],"Dollar":[1,21,4],"Rente (Europa en VS)":[30,19,20],"Stemming rond Sofina":[13],"ByteDance (TikTok)":[14,32,13],"Beursgang Anthropic":[37],"Overige: SpaceX, Cognita, olie":[15,39,31,33]}
+for i,b in enumerate(s["inhoud"]):
+    if b["type"]=="tabel" and b["titel"].startswith("Wat betekent de actualiteit"):
+        s["inhoud"][i]={"type":"lijst","titel":"▲ = goed voor Sofina · ▼ = slecht · ▼▲ = beide mogelijk",
+          "items":[I(f"**{o} — {e}.** {w}","inschatting",bronmap[o]) for o,e,w in b["rijen"]]}
+    if b["type"]=="uitleg" and b["tekst"].startswith("De tabel toont"):
+        b["tekst"]=b["tekst"].replace("De tabel toont per onderwerp","Hieronder per onderwerp")
+json.dump(r,open(P,'w'),ensure_ascii=False,indent=1)
+print('lijst ok')

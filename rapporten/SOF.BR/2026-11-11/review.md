@@ -52,4 +52,25 @@ Reviewers: financieel-analist (FA), actua-specialist (AS), kritische-belegger (K
 
 Geen kritieke opmerkingen of "niet goedgekeurd" → geen ronde 3.
 
+## Ronde 3 — herwerkt actualiteitsdeel (feedback gebruiker 11-11)
+**Oordelen:** AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen
+
+| ID | Ernst | Opmerking | Afhandeling |
+|----|-------|-----------|-------------|
+| KB3-1 | belangrijk | Besluit noemt het advies niet; te lang | verwerkt: genummerd, eindigt met "Afwachten, 4/10" |
+| KB3-2 | belangrijk | Tabel met 5 kolommen onleesbaar op gsm | verwerkt: lijst met één item per onderwerp (ook als vaste regel) |
+| KB3-3 / AS3-3 | belangrijk | Inconsistenties besluit/tabel (ByteDance, dollar tweezijdig, rente) | verwerkt |
+| KB3-4 | belangrijk | 'Wat betekent dit?' ongelijk | verwerkt; ±21% koersstijging nu met berekening (222,6 → 270,4) in besluit |
+| KB3-5 | belangrijk | Vaktermen | verwerkt (fondsen, intrinsieke waarde, prospectus, prijsvork; 'herfinanciering' in gewone woorden) |
+| KB3-6 | klein | Overbodige details | verwerkt (herschikking consortium en 78% uit dit deel; staan in bestuur/wijzigingen) |
+| KB3-7 | klein | Kleine rijen samenvoegen | verwerkt ("Overige") |
+| KB3-8 | klein | Netto-oordeel onder tabel | verwerkt |
+| AS3-1 | belangrijk | ByteDance ▲ te stellig | verwerkt: ▼▲ middel, "niet bevestigd", gevoeligheid 1,5–3% |
+| AS3-2 | belangrijk | AI-impact onderschat; schaal | verwerkt: 2–5%, schaal 1–3% |
+| AS3-4 | klein | Anthropic: prijsvork, inschatting | verwerkt |
+| AS3-5 | klein | Rente mengt twee effecten | verwerkt (herfinanciering apart als 'klein') |
+| AS3-6 | klein | SpaceX richting | verwerkt (onder Overige, zonder stellige koersrichting) |
+| AS3-7 | klein | "dubbel zo hard" → ±3× | verwerkt |
+| AS3-8 | klein | Ontbrekend: stemming/korting | verwerkt (rij "Stemming rond Sofina"); AI-regels zitten bij AI-rij en tijdlijn |
+
 ## Open punten / meningsverschillen

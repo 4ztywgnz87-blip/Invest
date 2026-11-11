@@ -148,8 +148,8 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 
 ## Sectie `actualiteit` (vaste opbouw)
 1. `uitleg`: waarover gaat dit deel.
-2. `kader` (stijl `mening`) met titel **"Besluit: wat betekent de actualiteit voor <bedrijf>?"** — 3–5 zinnen: netto richting, de 2–3 belangrijkste drijvers, gevolg voor het advies.
-3. `kop` "Impact per onderwerp" + `tabel` met kolommen *Onderwerp · Wat gebeurt er? · Effect (▲/▼/▼▲) · Hoe groot? (klein <1% / middel 1–5% / groot >5% van de waarde of winst) · Waarom?* — grootte onderbouwd met cijfers uit het rapport; daarna één zin "Wat zie je hier?".
+2. `kader` (stijl `mening`) met titel **"Besluit: wat betekent de actualiteit voor <bedrijf>?"** — de 2–3 belangrijkste drijvers als genummerde regels (nieuwe regel met `\n`), daarna de positieve tegenwichten, het netto-effect en altijd **het gevolg voor het advies** (oordeel + score).
+3. `kop` "Impact per onderwerp" + `uitleg` met de schaal (klein <1% / middel 1–3% / groot >3% van de waarde of winst) + een **`lijst`** (geen brede tabel: onleesbaar op gsm) met per onderwerp één item, label `inschatting`, in de vorm `**Onderwerp — ▲/▼/▼▲ grootte (cijfer).** Waarom, met cijfers uit het rapport.` Daarna één `mening`-zin "Wat zie je hier?" met het netto-effect.
 4. Tijdlijn: `kop` + lijst voor *Wat gebeurde er?*, *Wat speelt er nu?*, *Wat komt eraan?*, elk afgesloten met een `tekst` (label `mening`) **"Wat betekent dit?"**.
 5. `kop` "Waar moet je op letten?" + lijst met concrete data en wat goed/slecht nieuws zou zijn.
 
