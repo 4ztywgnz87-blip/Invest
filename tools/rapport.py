@@ -254,6 +254,19 @@ def controleer(r: dict, definitief: bool = True) -> Controle:
     for o in r.get("onvoldoende_info", []):
         if len(o.get("zoekrondes", [])) < 3:
             c.fout(f"onvoldoende_info '{o.get('onderwerp')}': minstens 3 gedocumenteerde zoekrondes nodig")
+    zonder_wat = 0
+    for _, b in _blokken(r):
+        if b.get("type") != "kerncijfers":
+            continue
+        for it in b.get("items", []):
+            if it.get("beoordeling") not in (None, "goed", "normaal", "zwak"):
+                c.fout(f"kerncijfer '{it.get('naam')}': beoordeling moet goed, normaal of zwak zijn")
+            if it.get("beoordeling") and not it.get("beoordeling_uitleg"):
+                c.fout(f"kerncijfer '{it.get('naam')}': beoordeling zonder beoordeling_uitleg")
+            if not it.get("wat"):
+                zonder_wat += 1
+    if zonder_wat:
+        c.let_op(f"{zonder_wat} kerncijfer(s) zonder 'wat' (uitleg onder de knop: wat is dit cijfer?)")
     if not r.get("bronnen"):
         c.fout("geen bronnen")
     controleer_review(r, c, definitief)
@@ -262,10 +275,12 @@ def controleer(r: dict, definitief: bool = True) -> Controle:
 
 # ---------------------------------------------------------------- weergave
 def inline(tekst: str, bron_nr: dict) -> str:
-    """Beperkte opmaak: **vet**, [[term|uitleg]], [n] bronverwijzing."""
+    """Beperkte opmaak: **vet**, *cursief*, [[term|uitleg]] (term = knop, uitleg klapt open)."""
     t = html.escape(tekst or "")
     t = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", t)
-    t = re.sub(r"\[\[(.+?)\|(.+?)\]\]", r'<span class="term">\1</span> <span class="uitleg">(\2)</span>', t)
+    t = re.sub(r"(?<![\*\w])\*(?!\s)([^*\n]+?)(?<!\s)\*(?![\*\w])", r"<em>\1</em>", t)
+    t = re.sub(r"\[\[(.+?)\|(.+?)\]\]",
+               r'<span class="term" tabindex="0" role="button" aria-expanded="false">\1</span><span class="uitleg">\2</span>', t)
     return t.replace("\n", "<br>")
 
 
@@ -275,7 +290,77 @@ def bron_refs(ids, bron_nr):
     return "".join(f'<a class="ref" href="#bron-{i}">{bron_nr.get(i, "?")}</a>' for i in ids)
 
 
+def _pct(v, nu):
+    if not nu or v is None:
+        return ""
+    d = (v / nu - 1) * 100
+    if abs(d) < 0.5:
+        return ""
+    return f"{'+' if d > 0 else '−'}{abs(d):.0f}%"
+
+
+def prijsbalk(r: dict):
+    """Alle prijzen van het advies op één schaal (posities in % van de balk)."""
+    a = r.get("advies", {})
+    nu = a.get("koers_nu")
+    punten = []  # (soort, naam, waarde)
+    if a.get("stop_loss"):
+        punten.append(("stop", "Stop-loss", a["stop_loss"].get("waarde")))
+    if a.get("koersdoel") is not None:
+        punten.append(("doel", "Koersdoel", a["koersdoel"]))
+    if a.get("intrinsieke_waarde"):
+        punten.append(("iw", "Intrinsieke waarde", a["intrinsieke_waarde"]))
+    for sc in a.get("scenarios", []):
+        punten.append(("sc " + sc["naam"], sc["naam"], sc.get("koers")))
+    kz = a.get("koopzone") or {}
+    waarden = [w for _, _, w in punten if isinstance(w, (int, float))]
+    waarden += [w for w in (nu, kz.get("van"), kz.get("tot")) if isinstance(w, (int, float))]
+    if nu is None or len(waarden) < 3:
+        return None
+    lo, hi = min(waarden), max(waarden)
+    marge = (hi - lo) * 0.06 or 1
+    lo, hi = lo - marge, hi + marge
+    pos = lambda w: round((w - lo) / (hi - lo) * 100, 1)
+    return {
+        "min": min(waarden), "max": max(waarden), "nu": pos(nu),
+        "zone": {"links": pos(kz["van"]), "breedte": round(pos(kz["tot"]) - pos(kz["van"]), 1)} if kz.get("van") and kz.get("tot") else None,
+        "punten": [{"soort": s, "naam": n, "pos": pos(w)} for s, n, w in punten if isinstance(w, (int, float))],
+    }
+
+
+def structureer(r: dict) -> None:
+    """Weergavestructuur: hoofdstukken in uitklapbare delen, vlaggen met details apart, prijsbalk."""
+    for s in r.get("secties", []):
+        intro, delen = [], []
+        for b in s.get("inhoud", []):
+            if b.get("type") == "kop":
+                delen.append({"titel": b.get("tekst", ""), "blokken": []})
+            elif delen:
+                delen[-1]["blokken"].append(b)
+            else:
+                intro.append(b)
+        s["_intro"], s["_delen"] = intro, delen
+    for v in r.get("rode_vlaggen", []):
+        u = v.get("uitleg", [])
+        k = next((i for i, b in enumerate(u) if (b.get("tekst") or "").lstrip("*").lower().startswith("de details")), None)
+        if k is None:
+            k = 3 if len(u) > 3 else len(u)
+        v["_kern"], v["_details"] = u[:k], u[k:]
+    r["_vlaggen"] = [v for v in r.get("rode_vlaggen", []) if v.get("ernst") != "info"]
+    r["_vlaggen_info"] = [v for v in r.get("rode_vlaggen", []) if v.get("ernst") == "info"]
+    a = r.get("advies", {})
+    nu = a.get("koers_nu")
+    r["_prijsbalk"] = prijsbalk(r)
+    r["_pct"] = {
+        "koopzone": " tot ".join(x for x in (_pct((a.get("koopzone") or {}).get("van"), nu), _pct((a.get("koopzone") or {}).get("tot"), nu)) if x),
+        "koersdoel": _pct(a.get("koersdoel"), nu),
+        "iw": _pct(a.get("intrinsieke_waarde"), nu),
+        "scenarios": [_pct(sc.get("koers"), nu) for sc in a.get("scenarios", [])],
+    }
+
+
 def bouw_html(r: dict) -> str:
+    structureer(r)
     env = Environment(loader=FileSystemLoader(ROOT / "templates"), autoescape=select_autoescape(["html", "j2"]))
     bron_nr = {b["id"]: n for n, b in enumerate(r.get("bronnen", []), 1)}
     from markupsafe import Markup

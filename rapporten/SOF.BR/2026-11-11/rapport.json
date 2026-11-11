@@ -500,7 +500,10 @@
        "toelichting": "2024: €1,98 mln; 70% variabel",
        "bronnen": [
         3
-       ]
+       ],
+       "wat": "Alles wat de CEO over dat jaar kreeg: het vaste loon en het deel dat afhangt van de prestaties.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Voor een investeringsbedrijf van deze grootte is dat niet overdreven, en het grootste deel hangt af van de prestaties. Regel R2 (zelfverrijking) is hier niet geraakt."
       },
       {
        "naam": "5 andere leiders samen",
@@ -510,7 +513,8 @@
        "toelichting": "2024: €7,6 mln",
        "bronnen": [
         3
-       ]
+       ],
+       "wat": "Het loon van de vijf andere leden van de directie, opgeteld."
       },
       {
        "naam": "Bestuurders",
@@ -520,7 +524,8 @@
        "toelichting": "vast sinds 2011; voorzitter +€150.000",
        "bronnen": [
         3
-       ]
+       ],
+       "wat": "De vergoeding van de bestuurders (de raad die toezicht houdt op de directie). Die is geen vast bedrag, maar een vast percentage van het uitgekeerde dividend."
       },
       {
        "naam": "Loonkloof",
@@ -530,7 +535,8 @@
        "toelichting": "hoogste vs laagste loon",
        "bronnen": [
         3
-       ]
+       ],
+       "wat": "De verhouding tussen het hoogste en het laagste loon in het bedrijf: de best betaalde verdient 20 keer zoveel als de minst betaalde."
       }
      ]
     },
@@ -879,21 +885,28 @@
        "toelichting": "+4,6%; stijgt elk jaar",
        "bronnen": [
         4
-       ]
+       ],
+       "wat": "Het bedrag dat je per aandeel uitbetaald krijgt, vóór belasting. Na 30% Belgische roerende voorheffing blijft €2,56 per aandeel over."
       },
       {
        "naam": "Dividendrendement",
        "waarde": "1,4%",
        "trend": "gelijk",
        "label": "berekening",
-       "toelichting": "€3,66 / €270,4"
+       "toelichting": "€3,66 / €270,4",
+       "wat": "Hoeveel procent van je inleg je per jaar als dividend terugkrijgt, vóór belasting.",
+       "hoe": "Het dividend (€3,66) gedeeld door de koers (€270,4).",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Laag, maar dat is hier bewust: Sofina belegt het grootste deel opnieuw, en dat past bij jouw voorkeur voor bedrijven die hun winst herinvesteren. Wie een inkomen uit dividend zoekt, vindt hier weinig."
       },
       {
        "naam": "Uitkering t.o.v. waarde",
        "waarde": "±1,1%",
        "trend": "gelijk",
        "label": "berekening",
-       "toelichting": "±€130 mln dividend / €11,5 mld"
+       "toelichting": "±€130 mln dividend / €11,5 mld",
+       "wat": "Welk deel van al haar bezittingen Sofina per jaar aan de aandeelhouders uitkeert. De rest blijft belegd.",
+       "hoe": "±€130 mln dividend gedeeld door ±€11,5 mld bezittingen."
       },
       {
        "naam": "Aandelen uitstaand",
@@ -904,7 +917,10 @@
        "bronnen": [
         1,
         3
-       ]
+       ],
+       "wat": "Het totale aantal aandelen van Sofina. Komen er nieuwe aandelen bij, dan wordt jouw deel van het bedrijf kleiner.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "De 7,1% nieuwe aandelen in 2025 werden uitgegeven onder de intrinsieke waarde. Dat staat als rode vlag (regel R6, ernst middel) in dit rapport."
       }
      ]
     },
@@ -2673,7 +2689,8 @@
        "label": "feit",
        "bronnen": [
         12
-       ]
+       ],
+       "wat": "Hoeveel je de laatste 12 maanden verdiende of verloor met dit aandeel: koersverandering en dividend samen."
       },
       {
        "naam": "Rendement 5 jaar",
@@ -2682,17 +2699,21 @@
        "label": "feit",
        "bronnen": [
         12
-       ]
+       ],
+       "wat": "Hoeveel je de laatste vijf jaar verdiende of verloor met dit aandeel: koersverandering en dividend samen.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Wie vijf jaar geleden kocht, staat nog altijd op verlies. De koers piekte eind 2021 op €432 en herstelde sindsdien maar gedeeltelijk."
       },
       {
        "naam": "Volatiliteit",
        "waarde": "21,3%/jaar",
        "trend": "gelijk",
        "label": "feit",
-       "toelichting": "[[volatiliteit|hoe sterk de koers schommelt]]",
        "bronnen": [
         12
-       ]
+       ],
+       "wat": "Hoe sterk de koers schommelt. Hoe hoger het getal, hoe groter de uitschieters naar boven én naar beneden.",
+       "hoe": "De spreiding van de dagelijkse koersveranderingen van het laatste jaar, omgerekend naar een jaar."
       },
       {
        "naam": "Grootste daling 5 j",
@@ -2702,7 +2723,10 @@
        "toelichting": "van €432 (eind 2021)",
        "bronnen": [
         12
-       ]
+       ],
+       "wat": "De grootste val van een top naar de bodem erna in de laatste vijf jaar. Het toont hoeveel je in het slechtste geval tijdelijk kon verliezen.",
+       "beoordeling": "zwak",
+       "beoordeling_uitleg": "Een val van meer dan de helft is fors en gaat veel verder dan je stop-loss van −20%. Dit is geen defensief aandeel."
       }
      ]
     },

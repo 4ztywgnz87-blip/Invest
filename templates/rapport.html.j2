@@ -28,11 +28,24 @@
   {%- elif b.type == 'kerncijfers' -%}
     <div class="kerncijfers">
     {%- for it in b['items'] %}
-      <div class="tegel">
+      {%- set kop_tegel %}
         <div class="n">{{ it.naam }}</div>
         <div class="w">{{ it.waarde }}{% if it.trend %} <span class="trend {{ it.trend }}">{{ {'op':'▲','neer':'▼','gelijk':'▬'}[it.trend] }}</span>{% endif %}{{ it.bronnen|refs }}</div>
         {%- if it.toelichting %}<div class="t">{{ lab(it.label) }}{{ it.toelichting|inline }}</div>{% endif %}
-      </div>
+        {%- if it.beoordeling %}<div class="beoordeling {{ it.beoordeling }}"><i></i>{{ it.beoordeling }}</div>{% endif %}
+      {%- endset %}
+      {%- if it.wat or it.hoe or it.beoordeling_uitleg %}
+      <details class="tegel meer">
+        <summary>{{ kop_tegel }}<span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud">
+          {%- if it.wat %}<p><strong>Wat is dit?</strong> {{ it.wat|inline }}</p>{% endif %}
+          {%- if it.hoe %}<p><strong>Hoe berekend?</strong> {{ it.hoe|inline }}</p>{% endif %}
+          {%- if it.beoordeling_uitleg %}<p><strong>Goed of slecht?</strong> {{ lab('mening') }}{{ it.beoordeling_uitleg|inline }}</p>{% endif %}
+        </div>
+      </details>
+      {%- else %}
+      <div class="tegel">{{ kop_tegel }}</div>
+      {%- endif %}
     {%- endfor %}
     </div>
   {%- elif b.type == 'tabel' -%}
@@ -64,9 +77,24 @@
   {%- if r.wijzigingen %}{% set d.wijz = 2 %}{% set d.adv = 3 %}{% set d.vlag = 4 %}{% set d.det = 5 %}{% set d.ach = 6 %}{% endif %}
   {%- set vl = r.meta.valuta or '' -%}
 
-  <section class="pdf-blok kaart leeswijzer">
-    <h2>Hoe lees je dit rapport?</h2>
+  <section class="pdf-blok kort-oordeel">
+    <div class="ko-kop">
+      <div class="oordeel {{ a.oordeel.split(' ')[0] }}">{{ a.oordeel }}</div>
+      {%- if a.score %}<div class="ko-score" aria-label="score {{ a.score }} op 10"><b>{{ a.score }}</b><small>/10</small></div>{% endif %}
+    </div>
+    {%- if a.score %}<div class="score" aria-hidden="true">{% for i in range(1, 11) %}<i class="{{ 'aan' if i <= a.score }}"></i>{% endfor %}</div>{% endif %}
+    <div class="reden">{{ a.reden|inline }}</div>
+    {%- if r._vlaggen %}<div class="ko-vlaggen">{% for v in r._vlaggen %}<a class="ko-vlag {{ v.ernst }}" href="#vlaggen">🚩 {{ {'nogo':'No-go','hoog':'Hoog','middel':'Middel'}[v.ernst] }}{% if v.regel %} · {{ v.regel }}{% endif %}</a>{% endfor %}</div>{% endif %}
+  </section>
+
+  <details class="pdf-blok kaart leeswijzer uitklap">
+    <summary><h2>Hoe lees je dit rapport?</h2></summary>
     <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ul class="opbouw">
+      <li><strong>Onderlijnd woord</strong> — tik erop en je krijgt de uitleg van die vakterm.</li>
+      <li><strong>Vakje met "Uitleg"</strong> — tik op een cijfer om te lezen wat het is, hoe het berekend is en of het goed of slecht is.</li>
+      <li><strong>Titel met een +</strong> — tik om dat stuk open te klappen.</li>
+    </ul>
     <ol class="opbouw">
       <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li>
       {%- if r.wijzigingen %}<li><strong>Wat is er veranderd</strong> — het verschil met het vorige rapport.</li>{% endif %}
@@ -82,7 +110,7 @@
       <span>{{ lab('inschatting') }}verwachting, kan anders uitdraaien</span>
       <span>{{ lab('mening') }}oordeel van de analist</span>
     </div>
-  </section>
+  </details>
 
   <section class="pdf-blok kaart">
     <div class="deel">Deel {{ d.sam }}</div>
@@ -95,7 +123,10 @@
   <section class="pdf-blok kaart">
     <div class="deel">Deel {{ d.wijz }}</div>
     <h2>Wat is er veranderd sinds het vorige rapport?</h2>
-    {%- for b in r.wijzigingen %}{{ blok(b) }}{% endfor %}
+    {{ blok(r.wijzigingen[0]) }}
+    {%- if r.wijzigingen|length > 1 %}
+    <details class="uitklap onderdeel"><summary>Alle wijzigingen in detail</summary>{% for b in r.wijzigingen[1:] %}{{ blok(b) }}{% endfor %}</details>
+    {%- endif %}
   </section>
   {%- endif %}
 
@@ -103,44 +134,66 @@
     <div class="vol">
       <div class="deel">Deel {{ d.adv }}</div>
       <h2>Het advies in cijfers</h2>
-      <p class="deel-intro">Ons oordeel, de prijzen om in de gaten te houden, en wat de koers de komende twee jaar zou kunnen doen.</p>
-    </div>
-    <div class="oordeel {{ a.oordeel.split(' ')[0] }}">{{ a.oordeel }}{% if a.score %}<small>score {{ a.score }}/10</small>{% endif %}</div>
-    <div>
-      <div class="reden">{{ a.reden|inline }}</div>
-      {%- if a.score %}<div class="score" aria-label="score {{ a.score }} op 10">{% for i in range(1, 11) %}<i class="{{ 'aan' if i <= a.score }}"></i>{% endfor %}</div>{% endif %}
+      <p class="deel-intro">De prijzen om in de gaten te houden, wat de koers de komende twee jaar zou kunnen doen, wanneer je verkoopt en hoe de score is opgebouwd.</p>
     </div>
     <div class="vol">
       <div class="sub-titel">Belangrijke prijzen</div>
-      <p class="deel-intro">De <strong>koopzone</strong> is de prijs waarbij kopen aantrekkelijk wordt, het <strong>koersdoel</strong> is waar de koers volgens het normale scenario binnen twee jaar zou staan, en de <strong>stop-loss</strong> is de koers waarop je verkoopt om grotere verliezen te vermijden.</p>
+      <p class="deel-intro">Alle prijzen op één lijn, van laag naar hoog. Tik op een prijs voor de uitleg.</p>
     </div>
-    <div class="cijferrij">
-      {%- set vl = r.meta.valuta or '' -%}
-      {%- if a.koers_nu is not none %}<div class="tegel"><div class="n">Koers nu</div><div class="w">{{ a.koers_nu|getal(vl) }}</div>{% if a.koers_datum %}<div class="t">{{ a.koers_datum }}</div>{% endif %}</div>{% endif %}
-      {%- if a.koopzone %}<div class="tegel"><div class="n">Koopzone</div><div class="w">{{ a.koopzone.van|getal }} – {{ a.koopzone.tot|getal(vl) }}</div></div>{% endif %}
-      {%- if a.koersdoel is not none %}<div class="tegel"><div class="n">Koersdoel (2 j)</div><div class="w">{{ a.koersdoel|getal(vl) }}</div>{% if a.koersdoel_uitleg %}<div class="t">{{ a.koersdoel_uitleg }}</div>{% endif %}</div>{% endif %}
-      {%- if a.stop_loss %}<div class="tegel"><div class="n">Stop-loss</div><div class="w">{{ a.stop_loss.waarde|getal(vl) }}</div><div class="t">{{ a.stop_loss.uitleg }}</div></div>{% endif %}
-      {%- if a.intrinsieke_waarde %}<div class="tegel"><div class="n">Intrinsieke waarde</div><div class="w">{{ a.intrinsieke_waarde|getal(vl) }}</div><div class="t">schatting, zie Waardering</div></div>{% endif %}
+    {%- set pb = r._prijsbalk %}
+    {%- if pb %}
+    <div class="vol prijsbalk" role="img" aria-label="Prijzen op een schaal van {{ pb.min|getal }} tot {{ pb.max|getal(vl) }}">
+      <div class="pb-boven"><span class="pb-nu-label" style="left: {{ pb.nu }}%">koers nu</span></div>
+      <div class="pb-spoor">
+        {%- if pb.zone %}<i class="pb-zone" style="left: {{ pb.zone.links }}%; width: {{ pb.zone.breedte }}%"></i>{% endif %}
+        {%- for x in pb.punten if not x.soort.startswith('sc') %}<i class="pb-streep {{ x.soort }}" style="left: {{ x.pos }}%"></i>{% endfor %}
+        <i class="pb-nu" style="left: {{ pb.nu }}%"></i>
+      </div>
+      <div class="pb-onder">{% for x in pb.punten if x.soort.startswith('sc') %}<i class="pb-bol {{ x.naam }}" style="left: {{ x.pos }}%"></i>{% endfor %}</div>
+      <div class="pb-as"><span>{{ pb.min|getal(vl) }}</span><span>{{ pb.max|getal(vl) }}</span></div>
+      <div class="pb-legende"><span><i class="k zone"></i>koopzone</span><span><i class="k stop"></i>stop-loss</span><span><i class="k doel"></i>koersdoel</span><span><i class="k iw"></i>intrinsieke waarde</span><span><i class="k bol"></i>scenario's</span></div>
+    </div>
+    {%- endif %}
+    <div class="vol prijzen">
+      {%- if a.koers_nu is not none %}
+      <div class="prijs"><div class="p-rij"><i class="k nu"></i><span class="p-naam">Koers nu{% if a.koers_datum %} <small>{{ a.koers_datum }}</small>{% endif %}</span><span class="p-w">{{ a.koers_nu|getal(vl) }}</span></div></div>
+      {%- endif %}
+      {%- if a.koopzone %}
+      <details class="prijs"><summary class="p-rij"><i class="k zone"></i><span class="p-naam">Koopzone{% if r._pct.koopzone %} <small>{{ r._pct.koopzone }} t.o.v. nu</small>{% endif %}</span><span class="p-w">{{ a.koopzone.van|getal }} – {{ a.koopzone.tot|getal(vl) }}</span></summary>
+        <p>De prijs waarbij kopen aantrekkelijk wordt: het mogelijke rendement weegt dan op tegen het risico. Staat de koers erboven, dan betaal je meer dan wij verantwoord vinden.</p></details>
+      {%- endif %}
+      {%- if a.koersdoel is not none %}
+      <details class="prijs"><summary class="p-rij"><i class="k doel"></i><span class="p-naam">Koersdoel (2 jaar){% if r._pct.koersdoel %} <small>{{ r._pct.koersdoel }} t.o.v. nu</small>{% endif %}</span><span class="p-w">{{ a.koersdoel|getal(vl) }}</span></summary>
+        <p>Waar de koers volgens het normale scenario binnen twee jaar zou staan. Het is een inschatting, geen belofte.{% if a.koersdoel_uitleg %} Onderbouwing: {{ a.koersdoel_uitleg|inline }}.{% endif %}</p></details>
+      {%- endif %}
+      {%- if a.stop_loss %}
+      <details class="prijs"><summary class="p-rij"><i class="k stop"></i><span class="p-naam">Stop-loss <small>−20% onder je aankoopprijs</small></span><span class="p-w">{{ a.stop_loss.waarde|getal(vl) }}</span></summary>
+        <p>De koers waarop je verkoopt om een groter verlies te vermijden. Die hangt af van de prijs waartegen jij koopt. {{ a.stop_loss.uitleg|inline }}</p></details>
+      {%- endif %}
+      {%- if a.intrinsieke_waarde %}
+      <details class="prijs"><summary class="p-rij"><i class="k iw"></i><span class="p-naam">Intrinsieke waarde{% if r._pct.iw %} <small>{{ r._pct.iw }} t.o.v. nu</small>{% endif %}</span><span class="p-w">{{ a.intrinsieke_waarde|getal(vl) }}</span></summary>
+        <p>Wat één aandeel volgens de berekening echt waard is, los van de beurskoers. Het is een schatting; de onderbouwing staat in het hoofdstuk <a href="#waardering">Waardering</a>.</p></details>
+      {%- endif %}
     </div>
     {%- if a.scenarios %}
     <div class="vol">
       <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
-      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten: een <strong>slecht</strong>, een <strong>normaal</strong> en een <strong>goed</strong> scenario, telkens met de koers die daarbij hoort en hoe waarschijnlijk we dat vinden. Het koersdoel hierboven is het normale scenario.</p>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten, telkens met de koers die erbij hoort en hoe waarschijnlijk we dat vinden. Tik op een uitkomst voor de redenering.</p>
     </div>
     <div class="scenarios">
       {%- for s in a.scenarios %}
-      <div class="scenario {{ s.naam }}"><div class="n">{{ s.naam }}</div><div class="w">{{ s.koers|getal(vl) }}{% if s.kans %} <small style="font-size:12px;font-weight:500;color:var(--inkt-3)">· kans {{ s.kans }}</small>{% endif %}</div><p>{{ s.uitleg|inline }}</p></div>
+      <details class="scenario {{ s.naam }}"><summary><span class="n">{{ s.naam }}{% if s.kans %} · kans {{ s.kans }}{% endif %}</span><span class="w">{{ s.koers|getal(vl) }}{% if r._pct.scenarios[loop.index0] %} <small>{{ r._pct.scenarios[loop.index0] }}</small>{% endif %}</span></summary><p>{{ s.uitleg|inline }}</p></details>
       {%- endfor %}
     </div>
-        {%- endif %}
+    {%- endif %}
     {%- if r.verkoopsignalen %}
     <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
       <ul>{% for s in r.verkoopsignalen %}<li>{{ s|inline }}</li>{% endfor %}</ul></div>
     {%- endif %}
     {%- if a.score_opbouw %}
     {%- set so = a.score_opbouw %}{% set be = so._berekend or {} %}
-    <div class="scoreopbouw">
-      <div class="so-titel">Hoe komt de score {{ a.score }}/10 tot stand?</div>
+    <details class="scoreopbouw uitklap">
+      <summary><span class="so-titel">Hoe komt de score {{ a.score }}/10 tot stand?</span></summary>
       {%- if so.uitleg %}<p class="so-intro">{{ so.uitleg|inline }}</p>{% endif %}
       {%- for o in so.onderdelen %}
       <div class="so-rij">
@@ -157,23 +210,34 @@
       </div>
       {%- endfor %}
       <div class="so-som totaal">Totaal {{ be.totaal|getal }} → afgerond <strong>{{ a.score }}/10</strong></div>
-    </div>
+    </details>
     {%- endif %}
   </section>
 
-  <section class="pdf-blok kaart vlaggen">
+  <section class="pdf-blok kaart vlaggen" id="vlaggen">
     <div class="deel">Deel {{ d.vlag }}</div>
     <h2>🚩 Rode vlaggen</h2>
-    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou, hoe erg het is en daarna de details. <strong>No-go</strong> betekent: normaal niet kopen.</p>
-    {%- if r.rode_vlaggen %}
-      {%- for v in r.rode_vlaggen %}
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou en hoe erg het is. De cijfers en bronnen zitten onder "De details". <strong>No-go</strong> betekent: normaal niet kopen.</p>
+    {%- if r._vlaggen %}
+      {%- for v in r._vlaggen %}
       <div class="vlag {{ v.ernst }}">
         <div><span class="e">{{ {'nogo':'No-go','hoog':'Hoog','middel':'Middel','info':'Info'}[v.ernst] }}{% if v.regel %} · {{ v.regel }}{% endif %}</span><span class="t">{{ v.titel }}</span></div>
-        {%- for b in v.uitleg %}{{ blok(b) }}{% endfor %}
+        {%- for b in v._kern %}{{ blok(b) }}{% endfor %}
+        {%- if v._details %}<details class="uitklap vlag-details"><summary>De details: cijfers, data en bronnen</summary>{% for b in v._details %}{{ blok(b) }}{% endfor %}</details>{% endif %}
       </div>
       {%- endfor %}
     {%- else %}
       <p class="geen-vlag">Geen rode vlaggen gevonden.</p>
+    {%- endif %}
+    {%- if r._vlaggen_info %}
+    <div class="sub-titel nagekeken">Nagekeken, geen alarm</div>
+    <p class="deel-intro">Deze regels zijn gecontroleerd. Er is niets ernstigs gevonden, maar je weet graag wat er gezien is.</p>
+      {%- for v in r._vlaggen_info %}
+      <details class="uitklap vlag info">
+        <summary><span class="e">{% if v.regel %}{{ v.regel }}{% else %}Info{% endif %}</span><span class="t">{{ v.titel }}</span></summary>
+        {%- for b in v.uitleg %}{{ blok(b) }}{% endfor %}
+      </details>
+      {%- endfor %}
     {%- endif %}
   </section>
 
@@ -211,7 +275,10 @@
         {%- if r._r1 %}<div class="kader {{ 'waarschuwing' if r._r1.geraakt }}"><div class="t">Regel R1 (> 49%): {{ 'GERAAKT' if r._r1.geraakt else 'niet geraakt' }}</div>Grootste aandeelhouder {{ r._r1.grootste|getal }}% · top 3 samen {{ r._r1.top3|getal }}% kapitaal / {{ r._r1.top3_stem|getal }}% stemrecht.</div>{% endif %}
         {%- if ah.uitleg %}<p class="blok">{{ ah.uitleg|inline }}</p>{% endif %}
       {%- endif %}
-      {%- for b in s.inhoud %}{{ blok(b) }}{% endfor %}
+      {%- for b in s._intro %}{{ blok(b) }}{% endfor %}
+      {%- for dl in s._delen %}
+      <details class="uitklap onderdeel"><summary>{{ dl.titel }}</summary>{% for b in dl.blokken %}{{ blok(b) }}{% endfor %}</details>
+      {%- endfor %}
     </div>
   </details>
   {%- endfor %}
@@ -219,10 +286,10 @@
   <div class="achteraan-kop"><div class="deel">Deel {{ d.ach }} · Achteraan</div></div>
 
   {%- if r._woordenlijst %}
-  <section class="pdf-blok kaart">
-    <h2>Woordenlijst</h2>
+  <details class="pdf-blok kaart uitklap">
+    <summary><h2>Woordenlijst <small>({{ r._woordenlijst|length }} termen)</small></h2></summary>
     <dl class="woorden">{% for t, u in r._woordenlijst %}<dt>{{ t }}</dt><dd>{{ u }}</dd>{% endfor %}</dl>
-  </section>
+  </details>
   {%- endif %}
 
   {%- if r.review %}
@@ -243,16 +310,29 @@
   </section>
   {%- endif %}
 
-  <section class="pdf-blok kaart">
-    <h2>Bronnen</h2>
+  <details class="pdf-blok kaart uitklap" id="bronnen">
+    <summary><h2>Bronnen <small>({{ r.bronnen|length }})</small></h2></summary>
     <ol class="bronnen">
       {%- for b in r.bronnen %}
       <li id="bron-{{ b.id }}"><span class="type">{{ b.type or '' }}</span> {{ b.uitgever }} — {% if b.url %}<a href="{{ b.url }}" target="_blank" rel="noopener">{{ b.titel }}</a>{% else %}{{ b.titel }}{% endif %}{% if b.document %} ({{ b.document }}){% endif %}{% if b.datum %}, {{ b.datum }}{% endif %}</li>
       {%- endfor %}
     </ol>
-  </section>
+  </details>
 
   <p class="voet">Gemaakt op {{ gebouwd }}. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
 </main>
+<script>
+document.addEventListener("click", function (e) {
+  var t = e.target.closest(".term");
+  if (t) { e.preventDefault(); var o = t.classList.toggle("open"); t.setAttribute("aria-expanded", o); return; }
+  var a = e.target.closest("a[href^='#']");
+  if (!a) return;
+  var d = document.getElementById(a.getAttribute("href").slice(1));
+  for (var p = d; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+});
+document.addEventListener("keydown", function (e) {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("term")) { e.preventDefault(); e.target.click(); }
+});
+</script>
 </body>
 </html>

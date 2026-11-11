@@ -257,16 +257,20 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
       const css = [...doc.querySelectorAll("style")].map(s => s.textContent).join("\n")
         .replace(/:root/g, ":host").replace(/(^|[\s,}])html\s*\{/g, "$1.rb {").replace(/(^|[\s,}])body\s*\{/g, "$1.rb {");
       const schaduw = host.shadowRoot || host.attachShadow({ mode: "open" });
+      schaduw.addEventListener("keydown", e => {
+        if ((e.key === "Enter" || e.key === " ") && e.target.classList?.contains("term")) { e.preventDefault(); e.target.click(); }
+      });
       schaduw.innerHTML = `<style>${css}\n${FB_CSS}\n${SKIN}</style><div class="rb">${doc.body.innerHTML}</div>`;
       // Interne links (#bron-3, #cijfers) binnen het rapport afhandelen; de adresbalk-hash blijft voor de app.
       schaduw.addEventListener("click", e => {
+        const term = e.target.closest(".term");
+        if (term) { e.preventDefault(); term.setAttribute("aria-expanded", String(term.classList.toggle("open"))); return; }
         const a = e.target.closest("a[href^='#']");
         if (!a) return;
         e.preventDefault();
         const doel = schaduw.getElementById(a.getAttribute("href").slice(1));
         if (!doel) return;
-        if (doel.tagName === "DETAILS") doel.open = true;
-        doel.closest("details")?.setAttribute("open", "");
+        for (let p = doel; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
         doel.scrollIntoView({ behavior: "smooth", block: "start" });
       });
       st.textContent = "";
@@ -383,7 +387,10 @@ td.n { font-family: var(--f-data); white-space: nowrap; }
 .kaart > h2, .advies h2 { font-size: 20px; font-weight: 700; }
 .deel { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #3b5bff; }
 .oordeel { border-radius: 16px; font-weight: 800; }
-.tegel, .scenario { border-radius: 14px; }
+.tegel, .scenario, .prijzen { border-radius: 14px; }
+.kort-oordeel { border-radius: 20px; border-color: var(--rand); box-shadow: 0 1px 2px rgba(13,16,33,.04), 0 6px 24px -12px rgba(13,16,33,.12); }
+.ko-score, .p-w, details.onderdeel > summary, details.kaart.uitklap > summary h2 { font-family: "Bricolage Grotesque", "Figtree", sans-serif; letter-spacing: -.02em; }
+details.kaart.uitklap > summary h2 { font-size: 20px; font-weight: 700; }
 .tegel .w, .scenario .w { font-weight: 700; font-size: 20px; }
 details.sectie > summary { font-size: 17px; font-weight: 700; padding: 16px 20px; }
 details.sectie > summary::after { color: #3b5bff; }
@@ -515,7 +522,7 @@ details.sectie .inhoud { padding: 0 20px 18px; }
     const advies = schaduw.querySelector(".advies");
     if (advies) { const w = maakWidget("advies", "Advies en scenario's"); w.style.gridColumn = "1 / -1"; advies.appendChild(w); }
     // Kaarten (rode vlaggen, samenvatting, teamreview, …) behalve bronnen/legende/inhoud
-    schaduw.querySelectorAll("section.kaart").forEach(k => {
+    schaduw.querySelectorAll(".kaart").forEach(k => {
       const t = k.querySelector("h2")?.textContent.trim() || "";
       if (/^(Bronnen|Hoe lees|Woordenlijst)/.test(t)) return;
       k.appendChild(maakWidget(slug(t.replace(/^\W+/, "")) || "kaart", t.replace(/^\W+/, "")));
@@ -527,7 +534,7 @@ details.sectie .inhoud { padding: 0 20px 18px; }
     });
     // Totaal onderaan het rapport (vóór de voetnoot)
     const main = schaduw.querySelector("main");
-    const bronnen = [...schaduw.querySelectorAll("section.kaart")].find(k => /^Bronnen/.test(k.querySelector("h2")?.textContent.trim() || ""));
+    const bronnen = [...schaduw.querySelectorAll(".kaart")].find(k => /^Bronnen/.test(k.querySelector("h2")?.textContent.trim() || ""));
     (bronnen ? bronnen.parentNode.insertBefore(maakTotaal(), bronnen) : main?.appendChild(maakTotaal()));
   }
 

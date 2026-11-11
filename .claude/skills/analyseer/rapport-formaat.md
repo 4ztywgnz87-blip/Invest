@@ -99,7 +99,11 @@ Elk tekstelement heeft een **label**: `feit` (bronnen verplicht), `berekening`, 
   {"label": "inschatting", "tekst": "..."}]}
 
 {"type": "kerncijfers", "items": [
-  {"naam": "Omzet 2025", "waarde": "€1,2 mld", "trend": "op", "label": "feit", "toelichting": "+4,1%", "bronnen": [1]}]}
+  {"naam": "Omzet 2025", "waarde": "€1,2 mld", "trend": "op", "label": "feit", "toelichting": "+4,1%", "bronnen": [1],
+   "wat": "Alles wat het bedrijf in 2025 verkocht, vóór kosten.",          // knop "Uitleg": wat is dit cijfer? (altijd invullen)
+   "hoe": "Verkochte volumes × prijs, alle segmenten opgeteld.",           // optioneel: hoe berekend (verplicht bij label berekening)
+   "beoordeling": "goed",                                                  // optioneel: goed | normaal | zwak (is een mening)
+   "beoordeling_uitleg": "Groeit sneller dan de sector (+2,5%)."}]}        // verplicht als er een beoordeling is; verwijs naar feiten uit het rapport
   // trend: op | neer | gelijk
 
 {"type": "tabel", "titel": "...", "kolommen": ["(mln EUR)", "2024", "2025"],
@@ -143,7 +147,8 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 
 ## Opmaak in tekst
 - `**vet**`
-- `[[term|korte uitleg]]` → term met uitleg tussen haakjes (voor de beginnende belegger).
+- `*cursief*` → kleine grijze regel (bv. "*Controle: halfjaarverslag.*" onder een verkoopsignaal).
+- `[[term|korte uitleg]]` → de term wordt een **knop**: onderlijnd, en de uitleg verschijnt pas als de lezer erop tikt (in de PDF staat de uitleg tussen haakjes). Schrijf de zin dus zo dat hij ook zonder de uitleg vlot leest, en hou de uitleg kort (geen zin met een punt).
 - Bronverwijzingen komen uit het veld `bronnen`, niet in de tekst zelf.
 
 ## Sectie `actualiteit` (vaste opbouw)
@@ -153,12 +158,21 @@ Elke sectie heeft een `kort`-regel (verschijnt in de inhoudstafel en als ingekla
 4. Tijdlijn: `kop` + lijst voor *Wat gebeurde er?*, *Wat speelt er nu?*, *Wat komt eraan?*, elk afgesloten met een `tekst` (label `mening`) **"Wat betekent dit?"**.
 5. `kop` "Waar moet je op letten?" + lijst met concrete data en wat goed/slecht nieuws zou zijn.
 
+## Wat klapt open? (doet het sjabloon automatisch)
+Het rapport toont eerst het korte antwoord; alles daaronder klapt open bij een tik. Schrijf de inhoud daarop:
+- **Hoofdstuk**: de blokken **vóór de eerste `kop`** (inleiding + kern) blijven altijd zichtbaar; elke `kop` wordt een uitklapbaar onderdeel met alle blokken tot de volgende `kop`. → De kern moet dus vóór de eerste `kop` staan, en een tussentitel moet zeggen wat eronder zit.
+- **Rode vlag** (`nogo`/`hoog`/`middel`): stap 1–3 zichtbaar; alles vanaf het blok dat begint met **"De details"** zit onder een uitklapper. Vlaggen met ernst `info` staan apart onder "Nagekeken, geen alarm", dichtgeklapt.
+- **Wat is er veranderd**: het **eerste blok** (kernboodschap) is zichtbaar, de rest zit onder "Alle wijzigingen in detail".
+- **Kerncijfers**: elk vakje met `wat`/`hoe`/`beoordeling_uitleg` krijgt een knop "Uitleg".
+- **Advies**: prijzen staan op één prijsbalk (stop-loss, koopzone, koers nu, koersdoel, intrinsieke waarde, drie scenario's) met per prijs een uitklapbare uitleg; `stop_loss.uitleg` en `koersdoel_uitleg` verschijnen daar. De uitleg van elk scenario zit onder "Waarom?". De scoreopbouw is dichtgeklapt.
+- Woordenlijst en bronnen zijn dichtgeklapt. In de PDF staat alles open.
+
 ## Opbouw van het rapport (vast, in het sjabloon)
 Het sjabloon zet de delen altijd in deze volgorde, elk met een korte inleiding waarover het gaat:
-0. **Hoe lees je dit rapport?** — leeswijzer met de opbouw en de vier labels.
+0. **Het oordeel** (oordeel, score, `advies.reden`, rode vlaggen als label) — altijd helemaal bovenaan; daaronder de dichtgeklapte leeswijzer **Hoe lees je dit rapport?**.
 1. **Samenvatting** — wat is dit bedrijf en wat vinden we ervan (1 scherm).
 2. **Wat is er veranderd** — enkel bij een update; begint met de kernboodschap (advies gewijzigd of niet, en waarom).
-3. **Het advies in cijfers** — oordeel + reden, belangrijke prijzen (koopzone, koersdoel, stop-loss), drie scenario's ("Wat kan de koers over twee jaar doen?"), verkoopsignalen en de scoreopbouw.
+3. **Het advies in cijfers** — prijsbalk en belangrijke prijzen (koopzone, koersdoel, stop-loss), drie scenario's ("Wat kan de koers over twee jaar doen?"), verkoopsignalen en de scoreopbouw.
 4. **Rode vlaggen** — wat botst met de harde regels.
 5. **Details per thema** — inhoudstafel + uitklapbare secties.
 6. **Achteraan** — woordenlijst, kwaliteitscontrole (teamreview) en bronnen.
