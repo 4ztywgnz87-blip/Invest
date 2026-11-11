@@ -14,7 +14,7 @@
 ## Wat de gebruiker zelf in de app bewaart (ArtifactData, zelfde URL)
 | Collectie | Document | Inhoud | Wat doe je ermee? |
 |---|---|---|---|
-| `posities` | per ticker (`SOF-BR`) | `aankoop` (prijs per aandeel), `aantal`, `koers` + `koers_datum` (door de gebruiker ingevulde koers), of `verwijderd` | Bij een analyse of update van die ticker: gebruik `aankoop` voor `tools/koers.py analyse --aankoop` en vermeld in het chatantwoord kort wat het advies voor zíjn positie betekent. Niet in `rapport.json` of git zetten (privé). |
+| `posities` | per ticker (`SOF-BR`) | `aankoop` (prijs per aandeel), `aantal`, `koers` + `koers_datum` (door de gebruiker ingevulde koers), of `verwijderd` | Niets: de app rekent hier zelf mee (blok "Jouw positie"). Niet ophalen, niet in de chat bespreken en niet in `rapport.json` of git zetten (privé), tenzij de gebruiker er zelf om vraagt. |
 | `opvolging` | per rapport-id | `geraakt` (aangevinkte verkoopsignalen, index → true), `nagekeken` (datum) | Bij een update: een aangevinkt signaal is een aanwijzing om dat punt eerst na te kijken. |
 | `vragen` | per rapport-id | `gesprek` (vragen en antwoorden in de app), `verwerkt` | Begin van een sessie en bij een update: lees ze (`where verwerkt == false`). Een vraag die het rapport niet kon beantwoorden of die terugkomt → neem het antwoord op in het volgende rapport en noteer het patroon in `profiel/feedback.md`. Zet daarna `verwerkt: true`. |
 
