@@ -1,13 +1,36 @@
 [
   {
+    "url": "https://finance.yahoo.com/quote/SOF.BR",
+    "titel": "Koersdata SOF.BR en holdings",
+    "uitgever": "Yahoo Finance",
+    "datum": "2026-11-11",
+    "type": "data",
+    "samenvatting": "Koersdata SOF.BR en holdings",
+    "hash": "8da3d3434f873de5",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.zip",
+    "titel": "Euro foreign exchange reference rates (USD)",
+    "uitgever": "Europese Centrale Bank",
+    "datum": "2026-11-11",
+    "type": "data",
+    "samenvatting": "Euro foreign exchange reference rates (USD)",
+    "hash": "b88598b0fad4e0bf",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html",
-    "titel": "Anthropic sets IPO price range of 70 to 78 dollar",
+    "titel": "Anthropic sets IPO price range of $70 to $78, looks to start trading Nov. 19",
     "uitgever": "CNBC",
     "datum": "2026-11-10",
     "type": "nieuws",
-    "samenvatting": "Prijsvork 70-78 dollar, 825 mln aandelen, tot 1,405 biljoen (fully diluted); pricing 18-11, handel 19-11 (bronnen); omzet 9m 33,24 mld.",
+    "samenvatting": "Anthropic sets IPO price range of $70 to $78, looks to start trading Nov. 19",
     "hash": null,
-    "gelezen_op": "2026-11-11"
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml",
@@ -65,8 +88,21 @@
     "uitgever": "GBL",
     "datum": "2026-11-05",
     "type": "primair",
-    "samenvatting": "NAV per aandeel 99,21 euro op 30-9-2026 (105,37 eind 2025); korting 28,3% bij koers 71,10.",
-    "hash": "06916fd29f6f83a5",
+    "samenvatting": "GBL 30-9-2026: NAV €99,21/aandeel, koers €71,10, korting 28,3%, LTV 4,1%.",
+    "hash": "4ddf0c65bf251b75",
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
+  },
+  {
+    "url": "https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html",
+    "titel": "AI meltdown: Nvidia and Qualcomm drop more than 9%, pushing Nasdaq to worst day since April 2025",
+    "uitgever": "CNBC",
+    "datum": "2026-11-05",
+    "type": "nieuws",
+    "samenvatting": "AI meltdown: Nvidia and Qualcomm drop more than 9%, pushing Nasdaq to worst day since April 2025",
+    "hash": null,
     "gelezen_op": "2026-11-11"
   },
   {
@@ -91,13 +127,16 @@
   },
   {
     "url": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-04112026-ap",
-    "titel": "Euro area annual inflation up to 4.0%",
+    "titel": "Euro area annual inflation up to 4.0% (flash October 2026)",
     "uitgever": "Eurostat",
     "datum": "2026-11-04",
     "type": "primair",
-    "samenvatting": "Flash: inflatie eurozone oktober 2026 4,0% (september 3,8%); energie +20,8%.",
-    "hash": "7a37d0de4f1242ac",
-    "gelezen_op": "2026-11-11"
+    "samenvatting": "Euro area annual inflation up to 4.0% (flash October 2026)",
+    "hash": "2d522b69b48fe1b8",
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.deaandeelhouder.be/nieuws/2026/11/03/beursupdate-sofina-onderaan-in-rode-bel20",
@@ -120,6 +159,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.cnbc.com/2026/10/30/oil-rises-on-supply-concerns-as-houthis-attack-saudi-arabia.html",
+    "titel": "Oil jumps 2%, settles at 6-month highs on fears of escalation in Iran",
+    "uitgever": "CNBC",
+    "datum": "2026-10-30",
+    "type": "nieuws",
+    "samenvatting": "Oil jumps 2%, settles at 6-month highs on fears of escalation in Iran",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html",
     "titel": "ECB keeps key interest rate on hold at 2.5%",
     "uitgever": "CNBC",
@@ -131,12 +180,35 @@
   },
   {
     "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp261029~9a493adf17.en.html",
-    "titel": "Monetary policy decisions 29-10-2026",
+    "titel": "Monetary policy decisions (29 October 2026)",
     "uitgever": "Europese Centrale Bank",
     "datum": "2026-10-29",
     "type": "primair",
-    "samenvatting": "Rente ongewijzigd: depositorente 2,50%, herfinanciering 2,65%, marginale lening 2,90%.",
-    "hash": "ba2cb98511e9283f",
+    "samenvatting": "Monetary policy decisions (29 October 2026)",
+    "hash": "a82bbc43a4a57248",
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
+  },
+  {
+    "url": "https://www.fsma.be/en/manager-transaction/sofina-24",
+    "titel": "Transacties van leidinggevenden Sofina (meldingen 2025–2026)",
+    "uitgever": "FSMA",
+    "datum": "2026-10-29",
+    "type": "primair",
+    "samenvatting": "CEO opties uitgeoefend aan €128,12 en verkocht (2026); inschrijving claimemissie 15.923 aandelen; kleine aankopen Strömberg, Teo, Peugeot.",
+    "hash": "f7de504eacb362d2",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm",
+    "titel": "Federal Reserve issues FOMC statement (28 October 2026)",
+    "uitgever": "Federal Reserve",
+    "datum": "2026-10-28",
+    "type": "primair",
+    "samenvatting": "Federal Reserve issues FOMC statement (28 October 2026)",
+    "hash": "f42f2acf722e66e8",
     "gelezen_op": "2026-11-11"
   },
   {
@@ -171,12 +243,25 @@
   },
   {
     "url": "https://www.cnbc.com/2026/10/20/spacex-spcx-earnings-live-updates-q3-2026html.html",
-    "titel": "SpaceX Q3 2026 earnings live updates",
+    "titel": "SpaceX (SPCX) Q3 2026 earnings report: Live updates",
     "uitgever": "CNBC",
     "datum": "2026-10-20",
     "type": "nieuws",
-    "samenvatting": "Q3: omzet 14,58 mld, nettowinst 4,4 mld; +8% na beurstijd, slot 147,50; eerste lock-up begin augustus (meer dan 911 mln aandelen).",
+    "samenvatting": "SpaceX (SPCX) Q3 2026 earnings report: Live updates",
     "hash": "8fdf899382c90cad",
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
+  },
+  {
+    "url": "https://www.investorab.com/investors-media/reports-presentations/2026",
+    "titel": "Interim Management Statement January–September 2026",
+    "uitgever": "Investor AB",
+    "datum": "2026-10-16",
+    "type": "primair",
+    "samenvatting": "Interim Management Statement January–September 2026",
+    "hash": "da379ba5a34ae0d0",
     "gelezen_op": "2026-11-11"
   },
   {
@@ -191,13 +276,16 @@
   },
   {
     "url": "https://www.fsma.be/en/manager-transaction/sofina-47",
-    "titel": "FSMA-meldingen leidinggevenden: herschikking consortium 05-10-2026",
+    "titel": "Transacties binnen het consortium Boël (5-10-2026)",
     "uitgever": "FSMA",
-    "datum": "2026-10-05",
+    "datum": "2026-10-07",
     "type": "primair",
-    "samenvatting": "UFB kocht buiten de beurs 480.653 aandelen van SPI (sofina-55) en 201.099 van MIC (sofina-50, sofina-46) à €250,51; totaal consortium ongewijzigd.",
+    "samenvatting": "5-10-2026: UFB kocht 480.653 aandelen van SPI en 201.099 van MIC aan €250,51; totaal consortium ongewijzigd.",
     "hash": "ede1d48009e5a141",
-    "gelezen_op": "2026-11-08"
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/shareholding-structure/sofina-sa-press-release-publication-regarding-a-transparency-statement-28-09-2026.pdf",
@@ -220,6 +308,16 @@
     "gelezen_op": "2026-11-11"
   },
   {
+    "url": "https://www.exor.com/system/files/2026/document-documents/EXOR%202026%20First-Half%20Report.pdf",
+    "titel": "Interim Report H1 2026 en persbericht inkoopprogramma",
+    "uitgever": "Exor",
+    "datum": "2026-09-22",
+    "type": "primair",
+    "samenvatting": "Exor 30-6-2026: NAV/aandeel €157,9 (−3,9%), korting 57,6%, inkoop tot €500 mln.",
+    "hash": "09aaba6aef1ab4cc",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.cnbc.com/2026/09/10/ecb-interest-rate-hike-lagarde-iran.html",
     "titel": "ECB hikes interest rates to 2.5%",
     "uitgever": "CNBC",
@@ -231,23 +329,29 @@
   },
   {
     "url": "https://brederode.eu/wp-content/uploads/2026/09/20260910_BRE_Communique_Semestriel_2026_NL_DEF.pdf",
-    "titel": "Brederode halfjaarlijks persbericht 2026",
+    "titel": "Halfjaarlijks persbericht 2026",
     "uitgever": "Brederode",
     "datum": "2026-09-10",
     "type": "primair",
-    "samenvatting": "Eigen vermogen per aandeel 154,64 euro op 30-6-2026.",
-    "hash": "23e3adcaed59ae2e",
-    "gelezen_op": "2026-11-11"
+    "samenvatting": "Brederode 30-6-2026: eigen vermogen €154,64/aandeel, koers €104,60.",
+    "hash": "ae22c6a3c606dab6",
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.investing.com/news/transcripts/earnings-call-transcript-sofina-h1-2025-nav-rises-as-stock-gains-39-93CH-4887840",
-    "titel": "Transcript analistencall halfjaar 2026",
+    "titel": "Earnings call transcript: Sofina H1 2026",
     "uitgever": "Investing.com",
     "datum": "2026-09-03",
     "type": "analyse",
-    "samenvatting": "CEO: korting 'in de twintig' vs historisch 15-20%; ByteDance >5% <10%; doelschuld 5-10% LTV; Cognita en software drukten Direct; inflatie door Golfoorlog drukt multiples.",
+    "samenvatting": "Call HJ26: korting 'in de twintig' vs historisch 15–20%; ByteDance 5–10%; schuldopbouw naar 5–10% LTV over ~3 jaar; Direct vlak.",
     "hash": null,
-    "gelezen_op": "2026-11-08"
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2026/half-year-report-2026.pdf",
@@ -255,9 +359,12 @@
     "uitgever": "Sofina",
     "datum": "2026-09-02",
     "type": "primair",
-    "samenvatting": "NAV €11,5 mld / €326,48 per aandeel op 30-6-2026; nettowinst H1 €857m; netto schuld €219m (LTV 1,9%); 92% niet-genoteerd; top 10 Direct 27%, ByteDance enige >5%; USD-blootstelling €7,6 mld.",
+    "samenvatting": "NAV €11,534 mld / €326,48 per aandeel op 30-6-2026; netto schuld €219 mln (LTV 1,9%); 92% niet-genoteerd; ByteDance enige >5%; top 10 fondsen ≈10%; USD €7,6 mld; verbintenissen €1,456 mld.",
     "hash": "c9ae9b06f0eabbc3",
-    "gelezen_op": "2026-11-08"
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2026/presentation-of-the-2026-half-year-results.pdf",
@@ -268,6 +375,16 @@
     "samenvatting": "Waardecreatie H1 +8,1% (ex-FX +6,0%); Private Funds +16,1%, Direct +0,9%; obligaties 700m (2028) en 600m (2033); RCF 1.375m ongebruikt; koers vs NAV-historiek.",
     "hash": "dc5c426fac55e79b",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/news-alerts-pdfs/2026/2026-half-year-results-nl.pdf",
+    "titel": "Persbericht halfjaarresultaten 2026 en financiële kalender",
+    "uitgever": "Sofina",
+    "datum": "2026-09-02",
+    "type": "primair",
+    "samenvatting": "Persbericht halfjaarresultaten 2026 en financiële kalender",
+    "hash": "abd109fe218f4cc0",
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://mfn.se/one/a/exor/exor-press-release-h1-2026-results-18a36b7a",
@@ -360,6 +477,36 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.marketscreener.com/news/sofina-transactions-on-own-shares-a-18-05-2026-ce7f5adade8bf726",
+    "titel": "Sofina: Transactions on own shares / Share buyback programme",
+    "uitgever": "MarketScreener (overname persberichten Sofina)",
+    "datum": "2026-05-18",
+    "type": "nieuws",
+    "samenvatting": "Sofina: Transactions on own shares / Share buyback programme",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://company.vinted.com/newsroom/secondary-share-transaction-at-%E2%82%AC8B%20equity%20valuation",
+    "titel": "Vinted completes secondary share transaction at €8B equity valuation",
+    "uitgever": "Vinted",
+    "datum": "2026-04-27",
+    "type": "primair",
+    "samenvatting": "Vinted completes secondary share transaction at €8B equity valuation",
+    "hash": "cfde250459f90b46",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://company.vinted.com/newsroom/financial-results-2025",
+    "titel": "Vinted grew GMV by 47% YoY to €10.8bn, generating €1.1bn in annual revenue and €62m in net profit",
+    "uitgever": "Vinted",
+    "datum": "2026-04-09",
+    "type": "primair",
+    "samenvatting": "Vinted grew GMV by 47% YoY to €10.8bn, generating €1.1bn in annual revenue and €62m in net profit",
+    "hash": "a5a3f7a48fefd937",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://kpmg.com/be/nl/insights/my-tax-compass-de-trends-die-op-uw-fiscale-radar-moeten-staan/people-services-updates/meerwaardebelasting-goedgekeurd-door-het-parlement.html",
     "titel": "Meerwaardebelasting goedgekeurd door het parlement",
     "uitgever": "KPMG Belgie",
@@ -400,14 +547,47 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.sofinagroup.com/wp-content/uploads/2026/03/rapport-annuel-2025.pdf",
+    "titel": "Jaarverslag 2025 (incl. corporate governance-verklaring en remuneratieverslag)",
+    "uitgever": "Sofina",
+    "datum": "2026-03-26",
+    "type": "primair",
+    "samenvatting": "NAV €10,843 mld / €305,77; consortium Boël 54,60%; CEO €2,03 mln; geen clawback; claimemissie €545 mln aan €223; 10j-rendement 8,4% vs MSCI ACWI 10,8%; EY zonder voorbehoud.",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/news-alerts-pdfs/2026/849867817-presentation-of-the-2025-annual-results-26-03-2026.pdf",
+    "titel": "Investeerderspresentatie jaarresultaten 2025",
+    "uitgever": "Sofina",
+    "datum": "2026-03-26",
+    "type": "primair",
+    "samenvatting": "Investeerderspresentatie jaarresultaten 2025",
+    "hash": "032a35f8dbbaf910",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/news-alerts-pdfs/2026/849867805-sofina-announces-new-chair-26-03-2026.pdf",
+    "titel": "Chairman Dominique Lancksweert to retire at the end of his mandate in May 2026",
+    "uitgever": "Sofina",
+    "datum": "2026-03-26",
+    "type": "primair",
+    "samenvatting": "Chairman Dominique Lancksweert to retire at the end of his mandate in May 2026",
+    "hash": "8a9776db407cd798",
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.scmp.com/tech/big-tech/article/3344631/bytedance-valuation-said-hit-record-us550-billion-proposed-equity-sale",
-    "titel": "ByteDance valuation said to hit record 550 billion dollar",
-    "uitgever": "SCMP/Reuters",
-    "datum": "2026-02-25",
+    "titel": "ByteDance valuation said to hit record US$550 billion in proposed equity sale",
+    "uitgever": "Reuters (overgenomen door South China Morning Post)",
+    "datum": "2026-02-01",
     "type": "nieuws",
-    "samenvatting": "General Atlantic bood ByteDance-aandelen aan tegen waardering tot 550 mld dollar.",
+    "samenvatting": "ByteDance valuation said to hit record US$550 billion in proposed equity sale",
     "hash": "acd5a8eda147a8d3",
-    "gelezen_op": "2026-11-08"
+    "gelezen_op": "2026-11-11",
+    "historiek": [
+      "2026-11-11"
+    ]
   },
   {
     "url": "https://techcrunch.com/2026/01/23/heres-whats-you-should-know-about-the-us-tiktok-deal",
@@ -418,6 +598,36 @@
     "samenvatting": "TikTok USDS JV opgericht 22-1-2026; ByteDance <20%, Oracle/Silver Lake/MGX elk 15%; waardering TikTok US ~$14 mld.",
     "hash": "2bc27fff86595e80",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.cnbc.com/2026/01/22/tiktok-forms-us-joint-venture-names-a-ceo.html",
+    "titel": "TikTok forms U.S. joint venture, names Adam Presser CEO",
+    "uitgever": "CNBC",
+    "datum": "2026-01-22",
+    "type": "nieuws",
+    "samenvatting": "TikTok forms U.S. joint venture, names Adam Presser CEO",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.bolero.be/nl/support/veelgestelde-vragen/over-de-meerwaardebelasting",
+    "titel": "Veelgestelde vragen over de meerwaardebelasting",
+    "uitgever": "Bolero (KBC)",
+    "datum": "2026-01-01",
+    "type": "overig",
+    "samenvatting": "Veelgestelde vragen over de meerwaardebelasting",
+    "hash": "be7808c696615c6d",
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/investors/shareholder-center/shareholding-structure/press-release-art-15-transparency-law.pdf",
+    "titel": "Disclosure in accordance with Article 15 of the Law of May 2, 2007",
+    "uitgever": "Sofina",
+    "datum": "2025-10-07",
+    "type": "primair",
+    "samenvatting": "Disclosure in accordance with Article 15 of the Law of May 2, 2007",
+    "hash": "15bd858b457fe57a",
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://www.bolero.be/nl/analyse-en-inzicht/blog/sofina-ziet-waardering-cognita-dalen-door-mislukte-verkoopsdeal",
@@ -440,6 +650,16 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://manda.be/articles/sofina-risks-setback-in-cognita-sale",
+    "titel": "Sofina risks setback in Cognita sale",
+    "uitgever": "MandA.be",
+    "datum": "2025-01-01",
+    "type": "nieuws",
+    "samenvatting": "Sofina risks setback in Cognita sale",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2023/annual-report-2023-print-out-pdf.pdf",
     "titel": "Jaarverslag 2023",
     "uitgever": "Sofina",
@@ -448,6 +668,16 @@
     "samenvatting": "NAV €9,1 mld/€273,62; nettoresultaat -€104m; consortium 54,60%.",
     "hash": "77349b17b81a7fcc",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://www.sofinagroup.com/wp-content/uploads/2024/03/rapport-annuel-2023.pdf",
+    "titel": "Jaarverslag 2023",
+    "uitgever": "Sofina",
+    "datum": "2024-03-28",
+    "type": "primair",
+    "samenvatting": "Jaarverslag 2023",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
   },
   {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2022/Annual-report-2022-single-page-PDF--30032023-1.pdf",
@@ -460,6 +690,26 @@
     "gelezen_op": "2026-11-08"
   },
   {
+    "url": "https://www.sofinagroup.com/wp-content/uploads/2023/03/Rapport-annuel-2022-version-PDF-–-30.03.2023.pdf",
+    "titel": "Jaarverslag 2022",
+    "uitgever": "Sofina",
+    "datum": "2023-03-30",
+    "type": "primair",
+    "samenvatting": "Jaarverslag 2022",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
+    "url": "https://www.bloomberg.com/news/articles/2023-01-20/singapore-s-zilingo-to-liquidate-after-crisis-at-fashion-startup",
+    "titel": "Singapore's Zilingo to Enter Liquidation After Crisis at Fashion Startup",
+    "uitgever": "Bloomberg",
+    "datum": "2023-01-20",
+    "type": "nieuws",
+    "samenvatting": "Singapore's Zilingo to Enter Liquidation After Crisis at Fashion Startup",
+    "hash": null,
+    "gelezen_op": "2026-11-11"
+  },
+  {
     "url": "https://www.sofinagroup.com/~/media/Files/S/Sofina-Corp/annual-report/2021/sofina-sa-rapport-annuel-2021-singlepage.pdf",
     "titel": "Rapport annuel 2021",
     "uitgever": "Sofina",
@@ -468,5 +718,15 @@
     "samenvatting": "Nettoresultaat 2021 €2.593m (€76,99/aandeel).",
     "hash": "6c776b066be3a1df",
     "gelezen_op": "2026-11-08"
+  },
+  {
+    "url": "https://techcrunch.com/2019/02/11/zilingo-raises-226m",
+    "titel": "E-commerce startup Zilingo raises $226M to digitize Asia's fashion supply chain",
+    "uitgever": "TechCrunch",
+    "datum": "2019-02-11",
+    "type": "nieuws",
+    "samenvatting": "E-commerce startup Zilingo raises $226M to digitize Asia's fashion supply chain",
+    "hash": "bdb9f0cc4de9d72f",
+    "gelezen_op": "2026-11-11"
   }
 ]

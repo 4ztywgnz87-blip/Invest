@@ -6,18 +6,18 @@
 ## Status
 | Fase | Status | Opmerking |
 |------|--------|-----------|
-| 0 Identificatie & voorbereiding | ⬜ | |
-| 1 Koers & techniek | ⬜ | |
-| 2 Verslagen | ⬜ | |
-| 3 Bestuur & rode vlaggen | ⬜ | |
-| 4 Keten (2 niveaus) | ⬜ | |
-| 5 Sector & concurrenten | ⬜ | |
-| 6 Actualiteit | ⬜ | |
-| 7 Earnings call | ⬜ | |
-| 8 Waardering & advies | ⬜ | |
-| 9 Kritische expertblik | ⬜ | |
-| 10 Fact-check | ⬜ | |
-| 11 Teamreview ronde 1 | ⬜ | |
+| 0 Identificatie & voorbereiding | ✅ | koers, dekkingslijst, app-feedback (geen) |
+| 1 Koers & techniek | ✅ | koers.py 11-11 |
+| 2 Verslagen | ✅ | HJ26, JV25, JV21–24, presentaties |
+| 3 Bestuur & rode vlaggen | ✅ | R1 geraakt; R2 middel |
+| 4 Keten (2 niveaus) | ✅ |  |
+| 5 Sector & concurrenten | ✅ | GBL, Brederode, Exor, Investor AB |
+| 6 Actualiteit | ✅ |  |
+| 7 Earnings call | ✅ | HJ26-transcript |
+| 8 Waardering & advies | ✅ | Afwachten 5/10 |
+| 9 Kritische expertblik | ✅ |  |
+| 10 Fact-check | ✅ | feitenlog A–E, controle ok |
+| 11 Teamreview ronde 1 | 🔄 | |
 | 11 Teamreview ronde 2 (+3) | ⬜ | |
 | 12 Rapport bouwen | ⬜ | |
 | 13 Afronding & feedback | ⬜ | |
@@ -34,29 +34,29 @@
 ## Dekkingslijst
 | Bron | Waarvoor | Status | Wat gevonden / waarom niet (zoektermen, talen, datum) |
 |---|---|---|---|
-| Laatste jaarverslag + kerncijfers 4 jaar ervoor | cijfers, trend | ⬜ | |
-| Laatste halfjaar-/kwartaalverslag + persbericht | recentste cijfers | ⬜ | |
-| Investeerderspresentatie | strategie, vooruitzichten | ⬜ | |
-| Earnings call (transcript of verslag) | toon management | ⬜ | |
-| Verslag van de commissaris (oordeel, kernpunten, wissel revisor) | betrouwbaarheid cijfers | ⬜ | |
-| Remuneratieverslag | R2, R3 | ⬜ | |
-| Aandeelhouders: FSMA (transparantieverklaringen) | R1 | ⬜ | |
-| Insiders: FSMA (transacties leidinggevenden) | R5 | ⬜ | |
-| Corporate actions: Euronext + Belgisch Staatsblad + persberichten bedrijf | R6 | ⬜ | |
-| Rechtszaken: jaarverslag + zoekronde nieuws (NL/EN/FR/lokaal) + mededingingsautoriteit/EC | R4 | ⬜ | |
-| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ⬜ | |
-| Persberichten van het bedrijf (laatste 12 maanden; snelle update: sinds vorig rapport) | actualiteit | ⬜ | |
-| Basisnieuws: De Tijd / L'Echo | actualiteit | ⬜ | |
-| Basisnieuws: Reuters (originele URL) | actualiteit | ⬜ | |
-| Internationale kwaliteitspers (FT, Bloomberg, WSJ, AP) | actualiteit | ⬜ | |
-| Vakpers van de sector | sector, keten | ⬜ | |
-| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ⬜ | |
-| Verslagen van de 3–5 dichtste concurrenten | vergelijking | ⬜ | |
-| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ⬜ | |
-| Short-seller-onderzoek (enkel aanwijzing, nooit bron) | R2, R4 | ⬜ | |
-| Sancties en sectorregelgeving (EU-sanctielijst, sectorregulator) | risico | ⬜ | |
-| Fiscaliteit België (FOD Financiën) | netto rendement | ⬜ | |
-| Koersdata (tools/koers.py) | techniek, waardering | ⬜ | |
+| Laatste jaarverslag + kerncijfers 4 jaar ervoor | cijfers, trend | ✅ | JV2025 volledig doorgenomen (kerncijfers, governance, remuneratie, risico's, audit); kerncijfers JV2021–2024 (JV22 p.9, JV23 p.27, JV24 p.19). |
+| Laatste halfjaar-/kwartaalverslag + persbericht | recentste cijfers | ✅ | Halfjaarverslag 2026 p.3–53 + persbericht NL 2-9-2026. Sofina publiceert geen kwartaalcijfers. |
+| Investeerderspresentatie | strategie, vooruitzichten | ✅ | Presentatie HJ2026 (2-9-2026) en JV2025 (26-3-2026). |
+| Earnings call (transcript of verslag) | toon management | ✅ | Transcript HJ2026-call (Investing.com, 3-9-2026, rang C) via web-fetch; transcript JV2025-call niet gevonden (investing.com lijst, sofinagroup.com) → enkel presentatie. |
+| Verslag van de commissaris (oordeel, kernpunten, wissel revisor) | betrouwbaarheid cijfers | ✅ | EY, zonder voorbehoud, 6 jaar, kernpunt waardering niet-genoteerd (JV25 p.143–147); beperkt nazicht HJ26 zonder opmerkingen (p.53). Geen wissel. |
+| Remuneratieverslag | R2, R3 | ✅ | JV25 p.66–75. |
+| Aandeelhouders: FSMA (transparantieverklaringen) | R1 | ✅ | JV25 p.56–57 (consortium 54,60%); art.15-persbericht 7-10-2025; transparantiemelding 28-9-2026 (vermogensbeheerder 3,01%, niet in rapport: profiel §6). |
+| Insiders: FSMA (transacties leidinggevenden) | R5 | ✅ | fsma.be/en/manager-transaction/sofina-1 t.e.m. 130 doorlopen (11-11-2026). |
+| Corporate actions: Euronext + Belgisch Staatsblad + persberichten bedrijf | R6 | ✅ | Claimemissie 2025, obligatie 2025, inkoopprogramma's (okt. 2025, 3-4-2026), verkoop Salto/Kopi Kenangan. Euronext/Staatsblad: niet apart nodig, kapitaalverhoging bevestigd via art.15-persbericht en JV25 p.57. Persbericht 3-4-2026 zelf: 404 op sofinagroup.com → MarketScreener-overname. |
+| Rechtszaken: jaarverslag + zoekronde nieuws (NL/EN/FR/lokaal) + mededingingsautoriteit/EC | R4 | ✅ | JV25/HJ26: geen geschillen. Ronde 1 EN/NL/FR 'Sofina lawsuit/rechtszaak/procès/investigation', ronde 2 'actionnaires plainte/litige/tribunal/FSMA sanction', ronde 3 shortseller + Zilingo (2022–2023 vereffening deelneming). Niets tegen Sofina zelf. EC/BMA: niets gevonden (holding zonder marktpositie). |
+| Kredietbeoordeling (S&P, Moody's, Fitch: persbericht) | schuld | ✅ | S&P A− stabiel (24-9-2025, bevestigd 5-6-2026) via JV25 p.36 en HJ26 p.46; persbericht S&P zelf niet opgehaald (S&P-site vraagt login) → bedrijfsverslag. |
+| Persberichten van het bedrijf (laatste 12 maanden; snelle update: sinds vorig rapport) | actualiteit | ✅ | PB HJ26, PB voorzitter 26-3-2026, art.15, transparantie 28-9-2026; lijst op sofinagroup.com via JS (niet leesbaar) → zoekrondes + MarketScreener. |
+| Basisnieuws: De Tijd / L'Echo | actualiteit | ❌ | tijd.be en lecho.be weigeren Claude (getest 11-11-2026). Alternatief: La Libre, MandA.be, Bolero/Test-Aankoop (enkel voor feiten), persberichten Sofina. |
+| Basisnieuws: Reuters (originele URL) | actualiteit | ❌ | reuters.com geblokkeerd. Reuters-bericht ByteDance $550 mld via SCMP (overname met vermelding). |
+| Internationale kwaliteitspers (FT, Bloomberg, WSJ, AP) | actualiteit | ✅ | Bloomberg (Zilingo, koppen TikTok), CNBC (Anthropic, SpaceX, Nasdaq, olie, TikTok JV), Fortune, Axios. FT/WSJ/AP geblokkeerd. |
+| Vakpers van de sector | sector, keten | ✅ | TechCrunch, MandA.be (Cognita), Vinted-persberichten; GBL/Brederode/Exor-verslagen. |
+| Macro rechtstreeks bij de bron (ECB, Fed, Eurostat, Statbel) | rente, inflatie, valuta | ✅ | ECB 29-10-2026 + referentiekoersen, Fed 28-10-2026, Eurostat flash okt. 2026 (incl. België 5,2%). |
+| Verslagen van de 3–5 dichtste concurrenten | vergelijking | ✅ | GBL Q3 2026, Brederode HJ2026, Exor HJ2026 (eigen PDF's), Investor AB Q3 2026 (rapportpagina). |
+| Keten: verslagen/IR-site van de niveau-1-partijen | keten | ✅ | Vinted (persberichten), SpaceX/Anthropic (CNBC), ByteDance (geen IR: Reuters/CNBC), Cognita (MandA, call). Drylock: geen 2026-cijfers gevonden (NBB niet geraadpleegd) → enkel HJ26-vermelding. Nuxe, Proeduca, Cambridge Associates: geen publieke cijfers gezocht buiten HJ26. |
+| Short-seller-onderzoek (enkel aanwijzing, nooit bron) | R2, R4 | ✅ | Enkel shortpositie Fraser Perring 2022 (Bolero/KBC-notitie); geen nieuw rapport 2025–2026. Niet in rapport (profiel §6). |
+| Sancties en sectorregelgeving (EU-sanctielijst, sectorregulator) | risico | ✅ | HJ26 p.41: niet geraakt door EU-sancties, <3% blootstelling Oekraïne/Rusland/Wit-Rusland. Geen sectorregulator (geen bank/verzekeraar). |
+| Fiscaliteit België (FOD Financiën) | netto rendement | ❌ | fin.belgium.be toont CAPTCHA (web-fetch 11-11-2026). Alternatief: roerende voorheffing uit JV25 p.149; meerwaardebelasting via Bolero-FAQ (C). |
+| Koersdata (tools/koers.py) | techniek, waardering | ✅ | koers.py analyse SOF.BR 11-11-2026 (laatste slot 10-11); peers via Yahoo. |
 
 
 ## Gelezen documenten
@@ -210,3 +210,18 @@
 | Koersen 10-11-2026 (Yahoo): GBL 79,45 · Brederode 100,80 · Exor 74,30 · Investor B SEK 431,05 | Yahoo chart API | Yahoo (C) | ✅ |
 | Fiscaliteit: netto dividend €2,562 op €3,66 bruto (30% roerende voorheffing) | JV25 p.149 | JV25 (A) | ✅ |
 | Meerwaardebelasting 10% vanaf 1-1-2026, vrijstelling €10.000/jaar, fotomoment 31-12-2025 | FOD-pagina geblokkeerd (CAPTCHA); Bolero/Belfius FAQ | Bolero (C), Belfius (C) | ⚠️ C (FOD ❌) |
+
+### Feitenlog E — Analistencall halfjaar 2026 (Investing.com-transcript, gepubliceerd 3-9-2026, rang C; AI-ondersteund transcript, titel toont foutief "H1 2025")
+| Feit | Citaat | Status |
+|---|---|---|
+| Opbrengst kapitaalverhoging + obligatie uitzetten over ±3 jaar; netto schuldgraad doel 5–10%, "coherent with" S&P A− | "it should take three years" | ✅ |
+| Korting: "we are still in the 20s, versus ... historical average, which is between 15% and 20%" | citaat ("348" in transcript = transcriptiefout, niet gebruikt) | ✅ |
+| ByteDance "higher than 5%" maar "not higher than 10%"; "itchy fingers in high teens"; Sofina is LP in SPV, "no say and no view into the liquidity generation" | citaten | ✅ |
+| Direct "flat for all practical purposes"; waardecreatie vooral uit fondsen; operationele cijfers Direct positief, multiples negatief | citaten | ✅ |
+| Cognita: "doing well, but the growth is not as high as it was" (Midden-Oosten, betaalbaarheid) | citaat | ✅ |
+| Software-multiples hersteld van dieptepunt maar lager dan vorig jaar | citaat | ✅ |
+| Exits moeilijker door hogere rente; "we have permanent capital" | citaat | ✅ |
+| Inkoop eigen aandelen, dividend, rentekosten: niet besproken | — | ✅ |
+| Ontwijkend: timing schuldopbouw ("I am making no comment"), hypothetische co-investering HongShan | citaten | ✅ |
+| Salto: tegenstrijdig in call ("pending closing" vs "closed in July") → in rapport: getekend, afronding volgens HJ26 onder voorwaarden | — | ⚠️ |
+| Call jaarresultaten 2025 (maart 2026): geen transcript gevonden (investing.com lijst p.1, sofinagroup.com enkel presentatie) | — | ➖ |
