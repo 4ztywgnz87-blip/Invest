@@ -105,6 +105,8 @@ Elk tekstelement heeft een **label**: `feit` (bronnen verplicht), `berekening`, 
 {"type": "kader", "stijl": "info", "titel": "optioneel", "tekst": "..."}  // stijl: info | waarschuwing | mening
 
 {"type": "kop", "tekst": "Tussentitel"}                                   // structuur binnen een sectie
+
+{"type": "uitleg", "tekst": "Inleiding of overgangszin in gewone taal."}  // GEEN label en GEEN nieuwe feiten/cijfers: enkel uitleg, structuur en "wat zie je hier?"
 ```
 
 ### Structuur binnen een sectie (vaste opbouw)
