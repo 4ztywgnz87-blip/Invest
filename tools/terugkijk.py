@@ -1,6 +1,7 @@
 """Terugkijktest: wat gebeurde er echt na de peildatum van een terugkijkrapport?
 
 Gebruik:
+  python3 tools/terugkijk.py profiel terugkijk/ORSTED.CO/2021-02-15   # profiel zonder latere ervaringen (voor reviewers)
   python3 tools/terugkijk.py uitkomst terugkijk/ORSTED.CO/2021-02-15/rapport.json \
       [--index ^OMXC25] [--factor 2025-10-07:0.62]
 
@@ -127,14 +128,31 @@ def uitkomst(rapport: Path, index: str | None, factoren: list[tuple[str, float]]
     return uit
 
 
+def blind_profiel(map_: Path) -> Path:
+    """Kopie van profiel/PROFIEL.md zonder regels over eigen ervaringen (uitkomsten van na de peildatum)."""
+    bron = Path(__file__).resolve().parent.parent / "profiel" / "PROFIEL.md"
+    regels = bron.read_text(encoding="utf-8").splitlines()
+    weg = ("ervaring", "beste belegging", "slechtste", "terugkijktest")
+    uit = [r for r in regels if not any(w in r.lower() for w in weg)]
+    doel = map_ / "profiel_blind.md"
+    doel.write_text("> Blinde versie voor een terugkijktest: regels over eigen ervaringen van de gebruiker zijn weggelaten.\n\n"
+                    + "\n".join(uit) + "\n", encoding="utf-8")
+    return doel
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
+    pb = sub.add_parser("profiel")
+    pb.add_argument("map", type=Path)
     u = sub.add_parser("uitkomst")
     u.add_argument("rapport", type=Path)
     u.add_argument("--index", help="vergelijkingsindex of ETF, bv. ^OMXC25, ^BFX, IWDA.AS")
     u.add_argument("--factor", action="append", default=[], help="DATUM:FACTOR (koersen vanaf DATUM ÷ FACTOR, naar de eenheid van het rapport)")
     a = ap.parse_args(argv)
+    if a.cmd == "profiel":
+        print(f"Opgeslagen: {blind_profiel(a.map)}")
+        return
     factoren = [(x.split(":")[0], float(x.split(":")[1])) for x in a.factor]
     res = uitkomst(a.rapport, a.index, factoren)
     pad = a.rapport.parent / "uitkomst.json"

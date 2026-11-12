@@ -19,7 +19,10 @@ Claude weet vaak hoe het afliep. Een terugkijkrapport dat die kennis (ook onbewu
 3. **Elk argument heeft een toen-bron.** Een risico, kans of scenario mag enkel in het rapport als een bron van vóór de peildatum het (of de bouwstenen ervan) vermeldt. "Ik weet dat dit later gebeurde" is geen reden. Bij twijfel: weglaten, of noteren in de evaluatie.
 4. **Gewicht zoals toen.** Geef een risico niet meer nadruk dan de bronnen van toen rechtvaardigen. De kritische belegger toetst dat (zie teamreview).
 5. **Werkdossier zonder toekomst.** Schrijf in deel A nergens wat er na de peildatum gebeurde, ook niet als notitie.
-6. **Eerlijk over de grens.** Volledig blind zijn is onmogelijk. De evaluatie bevat daarom een **besmettingscheck**: per belangrijk punt in het rapport, hoe zeker zijn we dat het ook zonder kennis van achteraf zou gevonden zijn?
+6. **Profiel zonder uitkomst (W4).** Het profiel kan ervaringen bevatten die na de peildatum liggen (bv. "beste/slechtste belegging"). Maak voor de reviewers een kopie zonder die regels: `python3 tools/terugkijk.py profiel <peildatum>` schrijft `terugkijk/<TICKER>/<peildatum>/profiel_blind.md`, en geef reviewers dat pad in plaats van `profiel/PROFIEL.md`. Kies bij voorkeur een aandeel waarvan de afloop niet in het profiel staat en weinig bekend is.
+7. **Macro enkel als dagwaarde (W4).** Rente, wisselkoersen en inflatieverwachtingen enkel als dagwaarde op of vóór de peildatum (ECB-rentecurve, FRED-dagreeks). Nooit een maand- of kwartaalgemiddelde van een periode die op de peildatum nog niet voorbij of nog niet gepubliceerd was.
+8. **Koerssprongen (W4).** `tools/koers.py` meldt dagbewegingen van meer dan 25%. Bij een claimemissie, splitsing of andere actie: correctiefactor uit de officiële voorwaarden halen en in de evaluatie gebruiken (`tools/terugkijk.py --factor`).
+9. **Eerlijk over de grens.** Volledig blind zijn is onmogelijk. De evaluatie bevat daarom een **besmettingscheck**: per belangrijk punt in het rapport, hoe zeker zijn we dat het ook zonder kennis van achteraf zou gevonden zijn?
 
 ## Aanpassingen aan de fases (deel A)
 - **Map**: `terugkijk/<TICKER>/<peildatum>/` (niet in `rapporten/`: dit is geen advies voor vandaag en hoort niet in de app tussen de echte rapporten).

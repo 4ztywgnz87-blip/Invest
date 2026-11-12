@@ -147,6 +147,12 @@ def analyse(symbool: str, aankoop: float | None = None, tot: str | None = None) 
     if punten[-1] is not vijfj[-1]:
         punten.append(vijfj[-1])
 
+    # Grote dagsprongen (> 25%): mogelijk een kapitaalverhoging of splitsing die Yahoo niet (volledig) verwerkt.
+    sprongen = [{"datum": b["datum"], "van": a["slot"], "naar": b["slot"], "pct": round((b["slot"] / a["slot"] - 1) * 100, 1)}
+                for a, b in zip(rijen, rijen[1:]) if a["slot"] and abs(b["slot"] / a["slot"] - 1) > 0.25]
+    if sprongen:
+        print(f"⚠️  {len(sprongen)} koerssprong(en) > 25% op één dag: {sprongen[:5]} — controleer op kapitaalverhoging/splitsing", file=sys.stderr)
+
     m = h["meta"]
     bron = f"Yahoo Finance koersdata {symbool}, opgehaald {dt.date.today().isoformat()}"
     if tot:
@@ -175,6 +181,7 @@ def analyse(symbool: str, aankoop: float | None = None, tot: str | None = None) 
         "slot_per_jaar": per_jaar,
         "dividenden": h["dividenden"][-20:],
         "splits": h["splits"],
+        "sprongen": sprongen,
         "grafiek_blok": {
             "type": "grafiek", "soort": "lijn", "titel": f"Koers {symbool} – laatste 5 jaar", "eenheid": m.get("currency"),
             "x": [p["datum"] for p in punten],
