@@ -20,8 +20,8 @@
 | 11 Teamreview ronde 1 | ✅ | FA niet goedgekeurd, AS ok met opm., KB niet goedgekeurd; 44 opmerkingen verwerkt/verworpen (review.md) |
 
 | 11 Teamreview ronde 2 (+3) | ✅ | alle drie goedgekeurd met opmerkingen; 20 opmerkingen; geen ronde 3 |
-| 12 Rapport bouwen | ⬜ | |
-| 13 Afronding & feedback | ⬜ | |
+| 12 Rapport bouwen | ✅ | HTML+PDF, gsm 390 px gecontroleerd (fout grafiektabel hersteld) |
+| 13 Afronding & feedback | ✅ | app bijgewerkt (versie 13), PDF verstuurd, feedback gevraagd |
 
 (⬜ te doen · 🔄 bezig · ✅ klaar)
 
