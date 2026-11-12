@@ -10,6 +10,10 @@ Uit de terugkijktest Ørsted (zie `terugkijk/ORSTED.CO/2021-02-15/evaluatie.md`)
 - **W3 (2026-11-12)** — Bij kapitaalintensieve groeibedrijven een "staartscenario" op 5 jaar (afschrijvingen, dividend weg, kapitaalverhoging), als tekst naast de drie scenario's; in het slechte scenario altijd nagaan of het dividend kan wegvallen.
 - **W4 (2026-11-12)** — Strengere regels voor terugkijktests: profiel zonder latere ervaringen voor de reviewers, macrocijfers enkel als dagwaarde, koerssprongen (claimemissies) controleren.
 
+Uit de terugkijktest DEME (zie `terugkijk/DEME.BR/2024-11-15/evaluatie.md` en `terugkijk/SAMENVATTING.md`):
+- **W5 (2026-11-12)** — Scenario's koppelen niet automatisch "goede winst = hoge waardering": bij cyclische bedrijven ook de combinatie hoge winst / lage waardering toetsen; kasstroom ramen op de nieuwe investeringsverwachting, niet op het gemiddelde van zware investeringsjaren.
+- **W6 (2026-11-12)** — De kritische belegger zoekt ook uitdrukkelijk naar te veel voorzichtigheid (gemiste kansen), niet enkel naar te veel optimisme.
+
 ## Afgehandeld
 
 - **V2 (2026-11-11)** — op vraag van de gebruiker: scoreopbouw per onderdeel in elk rapport. Doorgevoerd in `PROFIEL.md` §7, `SKILL.md`, `rapport-formaat.md` en `tools/rapport.py`.

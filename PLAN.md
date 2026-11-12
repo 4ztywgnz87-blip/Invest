@@ -1,6 +1,6 @@
 # Invest — Definitief plan (v1)
 
-> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **F1 klaar · eerste rapport (Sofina) klaar · F3 app gepubliceerd — F4 terugkijktest gestart (Ørsted peildatum 15-02-2021, daarna DEME ± november 2024)**.
+> Gebaseerd op de intake in [`ANTWOORDEN.md`](ANTWOORDEN.md). Status: **F1 klaar · eerste rapport (Sofina) klaar · F3 app gepubliceerd — F4 terugkijktest gedaan (Ørsted 15-02-2021, DEME 15-11-2024; samenvatting in terugkijk/SAMENVATTING.md; voorstellen W1–W6 wachten op akkoord)**.
 
 ---
 
