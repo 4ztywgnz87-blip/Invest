@@ -17,7 +17,8 @@
 | 8 Waardering & advies | ✅ | Afwachten 5/10 |
 | 9 Kritische expertblik | ✅ |  |
 | 10 Fact-check | ✅ | feitenlog A–E, controle ok |
-| 11 Teamreview ronde 1 | 🔄 | |
+| 11 Teamreview ronde 1 | ✅ | FA niet goedgekeurd, AS ok met opm., KB niet goedgekeurd; 44 opmerkingen verwerkt/verworpen (review.md) |
+
 | 11 Teamreview ronde 2 (+3) | ⬜ | |
 | 12 Rapport bouwen | ⬜ | |
 | 13 Afronding & feedback | ⬜ | |
@@ -162,7 +163,7 @@
 | Doel-LTV 5–10%; minimale bruto kas €300 mln | "target Loan-to-value ratio between 5% and 10%"; "minimum gross cash position of EUR 300 m at all times" | JV25 p.35, p.15 | ✅ |
 | S&P A− stabiel (sept. 2025): conservatief financieel beleid, lage schuld, sterke liquiditeit vs risico illiquide portefeuille | p.36 | JV25 p.36 | ✅ |
 | Beurswaarde €8,8 mld eind 2025; vrij verhandelbaar 42,04% (€3,8 mld); gemiddeld 26.143 aandelen/dag | p.56 | JV25 p.56 | ✅ |
-| Referentieaandeelhouder (consortium sinds 31-8-2007, MIC sinds 1-7-2013): UFB 8.225.068 (22,41%), SPI 9.092.485 (24,78%), MIC 2.717.108 (7,40%) = 20.034.661 = 54,60% (noemer zonder eigen aandelen); eigen aandelen 1.149.306 (3,13%) op 3-10-2025 | tabel p.56 | JV25 p.56, p.137 | ✅ |
+| Referentieaandeelhouder (consortium sinds 31-8-2007, MIC sinds 1-7-2013): UFB 8.225.068 (22,41%), SPI 9.092.485 (24,78%), MIC 2.717.108 (7,40%) = 20.034.661 = 54,60% van ALLE 36.696.428 aandelen (voetnoot JV zegt 'zonder eigen aandelen', maar rekenkundig is het totaal; stemrecht zonder eigen aandelen ±56,4% (okt. 2025) / 56,71% (eigen aandelen 30-6-2026)) — gecorrigeerd na review FA-1/KB-1; eigen aandelen 1.149.306 (3,13%) op 3-10-2025 | tabel p.56 | JV25 p.56, p.137 | ✅ |
 | Eén stem per aandeel; geen aparte klassen of bijzondere controlerechten; geen relatieovereenkomst met referentieaandeelhouder (raad vond niet nodig); geen bekende afspraken over overdracht/stemrecht | p.56, p.58 | JV25 | ✅ |
 | 2025 geen transparantiemeldingen; geen andere partij ≥3% | p.57 | JV25 p.57 | ✅ |
 | Inkoop eigen aandelen 2025: 189.068 gekocht (2024: 422.655), 236.640 verkocht; doel: opties dekken + liquiditeitscontract Kepler Cheuvreux; machtiging tot 20% (AV 4-5-2023, 5 j) | p.57 | JV25 p.57 | ✅ |
@@ -235,3 +236,31 @@
 | Ontwijkend: timing schuldopbouw ("I am making no comment"), hypothetische co-investering HongShan | citaten | ✅ |
 | Salto: tegenstrijdig in call ("pending closing" vs "closed in July") → in rapport: getekend, afronding volgens HJ26 onder voorwaarden | — | ⚠️ |
 | Call jaarresultaten 2025 (maart 2026): geen transcript gevonden (investing.com lijst p.1, sofinagroup.com enkel presentatie) | — | ➖ |
+
+### Feitenlog F — aanvullingen na teamreview ronde 1
+| Feit | Citaat / tabelregel | Bron | Status |
+|---|---|---|---|
+| Familie vijf generaties actief | "Our reference family shareholder has been active in business for five generations" | HJ26 p.7 (A) | ✅ |
+| Auditcomité 80%, remuneratiecomité 75% onafhankelijk | "Audit Committee 80% … Remuneration Committee 75%" | JV25 p.59/61 (A) | ✅ |
+| Belangen (volledig verwaterd): Cambridge Associates 21,40%, Proeduca 17,22%, Cognita 14,06% (Lernen Midco), MNH 15,49%, Cleo AI 11,11%, Nuxe 49,00%, Drylock 25,00%, Vinted 2,88%, Cerealis 10,00% | tabellen | HJ26 p.30–32 (A) | ✅ |
+| Verdeling consortium na 5-10-2026 (berekening): UFB 8.906.820, SPI 8.611.832, MIC 2.516.009; op 36.696.428 = 24,27/23,47/6,86%; op 35.328.731 stemgerechtigde = 25,21/24,38/7,12% (56,71%) | JV25 p.56 + FSMA nrs 46/47/50/55 | berekening | ✅ |
+| FX-effect 2025 −€925 mln; waardecreatie +1,9% (+10,1% zonder FX) | brug "Currency Impact -925" | pres JV25 slide 10 (A) | ✅ |
+| Beheerkosten cash 2025 €74,2 mln (2024 €61,2 mln) | "Management expenses 2 -74,197" | JV25 (managementkasstroom) (A) | ✅ |
+| CEO-totaal 2021–2025: 4,09 / 1,27 / 1,24 / 1,98 / 2,03 mln | tabel p.74 | JV25 p.74 (A) | ✅ |
+| LTIP cash 2025: CEO €565.593, LC €2.353.754; LC-pensioen 666.409 incl. eenmalige bijdrage | tabel + voetnoot 6 p.71 | JV25 p.71 (A) | ✅ |
+| Bestuurders totaal incl. voorzitter €2.689.281 (+11,5%) | p.74 | JV25 p.74 (A) | ✅ |
+| Inkoopprogramma 9-6 tot 31-8-2026: max €23 mln, 100.000 aandelen, KBC Securities, dekking opties | zoekfragment persbericht Sofina (link nu 404) | sofinagroup.com (A, via zoekmachine) | ⚠️ |
+| AV 13-5-2026: UFB en Charles Peugeot benoemd (3 j), EY herbenoemd, dividend €3,66 | zoekfragment persbericht (link nu 404) | sofinagroup.com (A, via zoekmachine) | ⚠️ |
+| Salto: Inflexion Partnership Capital III lead minderheidsinvesteerder, samen met Baskische families 33%, onder voorbehoud toezichthouders (juli 2026) | persbericht Inflexion; Dealroom | inflexion.com (A) | ✅ |
+| ECB 11-6-2026: depositorente 2,00 → 2,25% | persbericht ECB | ecb.europa.eu (A) | ✅ |
+| Brent $91,49 op 10-11-2026 (kort onder $90), −20% in november | CNBC 10-11-2026 | CNBC (B) | ✅ |
+| Democraten winnen Huis en Senaat (3-11-2026); oproep moratorium datacenters | CNBC 4/5-11-2026 | CNBC (B) | ✅ |
+| Nasdaq in correctie (>10% onder top) | CNBC 5-11-2026 | CNBC (B) | ✅ |
+| Anthropic S-1: H1 2026 omzet $16,3 mld, nettoverlies $80,7 mld (± $72,4 mld niet-cash, omzetbare leningen) | Fortune 26-10-2026, CNBC | Fortune (B) | ✅ |
+| Crypto: 0 treffers 'crypto', 'blockchain', 'digital asset' in JV25 en HJ26 | grep | JV25, HJ26 | ✅ |
+
+### Waardering (aannames, na ronde 1)
+- Basis: officiële NAV €326,48 (30-6-2026). Bandbreedte nu €315–335 (dollar +€5,2; techafwaardering −€4 tot −€12).
+- Korting: eigen gemiddelde eind 2022–30-6-2026 = 25,0%; management 15–20% (bewering).
+- Scenario's (nov. 2028): Slecht −8%/j, 32% korting → €190 (25%); Normaal +6%/j, 22% → €285 (55%); Goed +11%/j, 15% → €340 (20%). Gewogen €272. Staart −40% (€160), kans 5–10%.
+- Koopzone: korting 25–31% op €326,48 = €225–245. Score 5,25 − 1 (R1) = 4,25 → 4.
