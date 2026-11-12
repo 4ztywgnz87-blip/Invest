@@ -11,9 +11,11 @@ haalt de koersen NA de peildatum op en schrijft `uitkomst.json` naast het rappor
   - welk scenario lag het dichtst bij de koers na 2 jaar?
   - rendement incl. dividend t.o.v. een vergelijkingsindex
 
---factor DATUM:FACTOR corrigeert koersen vóór DATUM voor een kapitaalverhoging of andere actie die
-Yahoo niet verwerkt (bv. claimemissie): koersen vóór DATUM worden × FACTOR gerekend. De factor moet uit
-een officiële bron komen (theoretische koers ex-claim / laatste koers met claim) en in de evaluatie staan.
+--factor DATUM:FACTOR corrigeert voor een kapitaalverhoging of andere actie die Yahoo niet (volledig)
+verwerkt (bv. claimemissie): koersen vanaf DATUM worden ÷ FACTOR gerekend, zodat alles in de eenheid van
+het rapport staat (dezelfde schaal als koers, koopzone, stop-loss en scenario's op de peildatum).
+DATUM = de eerste dag die Yahoo wél aangepast/na de actie toont. De factor moet uit een officiële bron
+komen (theoretische koers ex-claim / laatste koers met claim) en in de evaluatie staan.
 Dit script gebruikt NA de peildatum gegevens: het hoort enkel bij de evaluatie, nooit bij het rapport zelf.
 """
 from __future__ import annotations
@@ -51,9 +53,9 @@ def reeks(symbool: str, van: str) -> list[dict]:
 def corrigeer(rij: list[dict], factoren: list[tuple[str, float]]) -> None:
     for datum, f in factoren:
         for r in rij:
-            if r["datum"] < datum:
+            if r["datum"] >= datum:
                 for k in ("slot", "laag", "hoog", "adj"):
-                    r[k] *= f
+                    r[k] /= f
 
 
 def op(rij: list[dict], datum: str) -> dict | None:
@@ -131,7 +133,7 @@ def main(argv=None):
     u = sub.add_parser("uitkomst")
     u.add_argument("rapport", type=Path)
     u.add_argument("--index", help="vergelijkingsindex of ETF, bv. ^OMXC25, ^BFX, IWDA.AS")
-    u.add_argument("--factor", action="append", default=[], help="DATUM:FACTOR (koersen vóór DATUM × FACTOR)")
+    u.add_argument("--factor", action="append", default=[], help="DATUM:FACTOR (koersen vanaf DATUM ÷ FACTOR, naar de eenheid van het rapport)")
     a = ap.parse_args(argv)
     factoren = [(x.split(":")[0], float(x.split(":")[1])) for x in a.factor]
     res = uitkomst(a.rapport, a.index, factoren)

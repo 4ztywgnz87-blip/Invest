@@ -1,0 +1,93 @@
+{
+ "ticker": "ORSTED.CO",
+ "peildatum": "2021-02-15",
+ "koers_peildatum": 1058.0,
+ "berekend_op": "2026-11-12",
+ "correcties": [
+  {
+   "voor": "2025-09-08",
+   "factor": 0.556
+  }
+ ],
+ "rapport": {
+  "oordeel": "Afwachten",
+  "score": 5,
+  "koopzone": {
+   "van": 480,
+   "tot": 600
+  },
+  "koersdoel": 880,
+  "stop_loss": 846.4,
+  "scenarios": [
+   {
+    "naam": "Slecht",
+    "koers": 500,
+    "kans": "30%",
+    "uitleg": "De rente stijgt verder en/of de VS-projecten lopen vertraging of kostenoverschrijdingen op (een risico dat Ørsted zelf noemt). Ørsted haalt zijn doel niet (±21 mld EBITDA in 2023) en beleggers betalen nog maar ±13× die winst: (13 × 21 − ±64 mld schuld) / 420 mln aandelen ≈ DKK 500. De 13× is een eigen inschatting, niet getoetst aan concurrenten. Bij zo'n schuld komt de verhouding kasstroom/schuld (ruwe indicatie) dicht bij de eigen ondergrens van 30%: een lagere kredietbeoordeling of een kapitaalverhoging (waarbij de Staat moet meedoen om 50% te houden) wordt dan mogelijk."
+   },
+   {
+    "naam": "Normaal",
+    "koers": 880,
+    "kans": "50%",
+    "uitleg": "Projecten worden opgeleverd zoals gepland (Hornsea 2 en Changhua 1&2a in 2022) en Ørsted haalt zijn doel (±24 mld EBITDA in 2023). De waardering zakt licht van ±21× naar ±18× (op dezelfde basis, met de schuld van 2023): (18 × 24 − 64) / 420 ≈ DKK 876, afgerond 880. De 18× is een eigen inschatting, niet getoetst aan concurrenten. Dit ligt boven onze eigen waarde (530), omdat de markt nu een lager rendement aanvaardt dan wij aannemen: het koersdoel is de koers die wij verwachten, niet de waarde die wij berekenen."
+   },
+   {
+    "naam": "Goed",
+    "koers": 1300,
+    "kans": "20%",
+    "uitleg": "De rente blijft rond nul, het geld blijft naar groene fondsen stromen en Ørsted wint veel van de ±25 GW veilingen in 2021 met goede rendementen. Ørsted haalt de bovenkant van zijn doel (±25 mld) en meer verkopen van belangen houden de schuld lager (±55 mld) en de markt betaalt ±24× (eigen inschatting): (24 × 25 − 55) / 420 ≈ DKK 1.300."
+   }
+  ]
+ },
+ "koers": {
+  "6m": {
+   "datum": "2021-08-13",
+   "koers": 967.2,
+   "verschil_pct": -8.6,
+   "rendement_incl_dividend_pct": -8.0
+  },
+  "1j": {
+   "datum": "2022-02-15",
+   "koers": 680.0,
+   "verschil_pct": -35.7,
+   "rendement_incl_dividend_pct": -35.3
+  },
+  "2j": {
+   "datum": "2023-02-15",
+   "koers": 625.6,
+   "verschil_pct": -40.9,
+   "rendement_incl_dividend_pct": -40.0
+  },
+  "vandaag": {
+   "datum": "2026-11-12",
+   "koers": 258.18,
+   "verschil_pct": -75.6,
+   "rendement_incl_dividend_pct": -74.9
+  }
+ },
+ "binnen_2j": {
+  "laagste": {
+   "datum": "2022-10-13",
+   "koers": 567.0
+  },
+  "hoogste": {
+   "datum": "2021-02-16",
+   "koers": 1065.0
+  },
+  "stop_loss_geraakt": "2021-05-11",
+  "koersdoel_gehaald": "2021-05-04",
+  "koopzone_bereikt": "2022-10-07"
+ },
+ "dichtste_scenario_2j": {
+  "naam": "Slecht",
+  "koers_scenario": 500,
+  "kans_volgens_rapport": "30%"
+ },
+ "index": {
+  "symbool": "^OMXC25",
+  "1j": 2.7,
+  "2j": 5.0,
+  "vandaag": 19.0
+ },
+ "bron": "Yahoo Finance koersdata ORSTED.CO en ^OMXC25, opgehaald 2026-11-12"
+}
