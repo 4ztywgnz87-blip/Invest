@@ -45,10 +45,31 @@ Extra opdracht in deze terugkijktest: alles van na de peildatum en elke vorm van
 | FA-19 / FA-20 | klein | ondergrens Capital Group; bron 26%/jaar | verwerkt |
 
 ## Ronde 2
-**Oordelen:** FA: … · AS: … · KB: …
+**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen
+**Gecontroleerde punten (FA):** ±22 waarvan 17 correct. Geen kennis van achteraf meer gevonden. Geen ronde 3 nodig (niets kritiek, niemand 'niet goedgekeurd').
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
+| FA2-1 | belangrijk | Schuld 2023 = 28,2 + 36 = 64 mld, niet 60; afleiding 55 mld (goed) ontbreekt | verwerkt: 64 mld; scenario's 500 / 880 / 1.300; koersdoel 890 → **880**; afleiding goed scenario in werkdossier |
+| FA2-2 | belangrijk | Dividend ±2%/jaar fout (1,1%) | verwerkt: 1,1–1,3%/jaar, verwacht rendement ±−14% |
+| FA2-3 | klein | Oude cijfers in werkdossier | verwerkt |
+| FA2-4 | klein | 10,8 mld = alle verkopen (Deense netten 10,9 min verlies LNG) | verwerkt |
+| FA2-5 | klein | Capital Group: enkel stemrecht bekend; "±60%" is benadering | verwerkt |
+| FA2-6 / KB2-3 | klein/belangrijk | Multiples 13×/18×/24× niet verankerd; FFO-definitie | verwerkt: als eigen inschatting gemarkeerd, open punt; "ruwe indicatie" |
+| KB2-1 | belangrijk | Wat betekent Afwachten bij NO-GO? | verwerkt: "Nu: niet kopen" in reden, samenvatting en koopsignaal |
+| KB2-2 | belangrijk | Koopzone ≈ slecht scenario; koersdoel ≠ waarde | verwerkt: uitleg dat dit bewust is; koersdoel = verwachte koers, niet berekende waarde |
+| KB2-4 | klein | Nog onverklaarde termen | deels verwerkt: CfD, safe harbour; overige (GW, break-even) niet |
+| KB2-5 | klein | Elementen slecht scenario: toen-bron per element | verwerkt in werkdossier; nagaan in evaluatie |
+| KB2-6 | klein | Eerste verkoopsignaal onduidelijk | verwerkt: enkel stop-loss |
+| KB2-7 | klein | Afronding 4,6 → 5 tonen | verwerkt |
+| AS2-1 | belangrijk | Korte samenvatting actualiteit "vergunningen sneller" | verwerkt |
+| AS2-2 | belangrijk | Round 4-winnaars als feit | al aanwezig (bron 7, met Offshore Wind Ltd = Cobra/Flotation); impact blijft ▼▲ onzeker (bod Ørsted onbekend) |
+| AS2-3 | klein | 4,9 GW bruto; Baltica nog niet afgerond | verwerkt |
+| AS2-4 | klein | Poolse toewijzing juni 2021 | verwerkt |
+| AS2-5 | klein | Staat meerderheidseigenaar energie-eiland | verwerkt |
+| AS2-6 | klein | Rente vs vereist rendement | verwerkt |
 
 ## Open punten / meningsverschillen
-- Concurrentverslagen (RWE, Iberdrola, EDPR, SSE) niet gelezen: de waardering wordt niet aan peers getoetst.
+- Concurrentverslagen (RWE, Iberdrola, EDPR, SSE) niet gelezen: waardering en multiples niet aan peers getoetst (alle drie reviewers).
+- Insidertransacties niet nagekeken.
+- Besmetting: auteur niet blind (KB-3) — besmettingscheck in de evaluatie.

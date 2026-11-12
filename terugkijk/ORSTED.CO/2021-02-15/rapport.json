@@ -15,22 +15,22 @@
  "advies": {
   "oordeel": "Afwachten",
   "score": 5,
-  "reden": "Regel **R1 is geraakt**: de Deense Staat heeft **50,1%** van de aandelen (50,7% van de stemmen). Daarbovenop is het aandeel **duur**: volgens onze berekening is de koers enkel te verantwoorden als beleggers met een jaarlijks rendement van ±4% tevreden zijn. Ørsted noemt zelf **rente en inflatie** zijn grootste risico. Sterk bedrijf, maar een hoge prijs en een [[NO-GO-regel|jouw harde regel R1: niet kopen als één partij meer dan 49% heeft]].",
+  "reden": "Regel **R1 is geraakt**: de Deense Staat heeft **50,1%** van de aandelen (50,7% van de stemmen). Daarbovenop is het aandeel **duur**: volgens onze berekening is de koers enkel te verantwoorden als beleggers met een jaarlijks rendement van ±4% tevreden zijn. Ørsted noemt zelf **rente en inflatie** zijn grootste risico. Sterk bedrijf, maar een hoge prijs en een [[NO-GO-regel|jouw harde regel R1: niet kopen als één partij meer dan 49% heeft]]. **Nu niet kopen.**",
   "koers_nu": 1058.0,
   "koers_datum": "15-02-2021",
   "koopzone": {
    "van": 480,
    "tot": 600
   },
-  "koersdoel": 890,
-  "koersdoel_uitleg": "normaal scenario, begin 2023: Ørsted haalt zijn eigen doel (±24 mld EBITDA), de markt betaalt ±18× die winst. Dat is −16% t.o.v. de koers nu; met dividend (±2%/jaar) verwacht rendement over 2 jaar ±−12%.",
+  "koersdoel": 880,
+  "koersdoel_uitleg": "normaal scenario, begin 2023: Ørsted haalt zijn eigen doel (±24 mld EBITDA), de markt betaalt ±18× die winst (eigen inschatting). Dat is −17% t.o.v. de koers nu; met dividend (±1,1–1,3% per jaar) verwacht rendement over 2 jaar ±−14%.",
   "stop_loss": {
    "waarde": 846.4,
    "uitleg": "Standaard −20% t.o.v. de koers van 15-02-2021 (1.058), zoals in jouw profiel. Dit geldt enkel voor wie het aandeel al heeft of toch koopt; het advies is niet kopen. Ter info: het dichtstbijzijnde sterke steunniveau ligt op 842 (augustus 2020)."
   },
   "intrinsieke_waarde": 530,
   "score_opbouw": {
-   "uitleg": "Sterk en goed bestuurd bedrijf met gezonde schulden en veel herinvestering, maar duur en R1 is geraakt (Deense Staat 50,1%).",
+   "uitleg": "Sterk en goed bestuurd bedrijf met gezonde schulden en veel herinvestering, maar duur en R1 is geraakt (Deense Staat 50,1%). Rekensom: 5,6 − 1 (R1) = 4,6, afgerond 5.",
    "onderdelen": [
     {
      "naam": "Bestuur & aandeelhouders (zonder R1)",
@@ -82,19 +82,19 @@
     "naam": "Slecht",
     "koers": 500,
     "kans": "30%",
-    "uitleg": "De rente stijgt verder en/of de VS-projecten lopen vertraging of kostenoverschrijdingen op (een risico dat Ørsted zelf noemt). Ørsted haalt zijn doel niet (±21 mld EBITDA in 2023) en beleggers betalen nog maar ±13× die winst: (13 × 21 − ±60 mld schuld) / 420 mln aandelen ≈ DKK 507. Bij zo'n schuld komt de verhouding kasstroom/schuld dicht bij de eigen ondergrens van 30%: een lagere kredietbeoordeling of een kapitaalverhoging (waarbij de Staat moet meedoen om 50% te houden) wordt dan mogelijk."
+    "uitleg": "De rente stijgt verder en/of de VS-projecten lopen vertraging of kostenoverschrijdingen op (een risico dat Ørsted zelf noemt). Ørsted haalt zijn doel niet (±21 mld EBITDA in 2023) en beleggers betalen nog maar ±13× die winst: (13 × 21 − ±64 mld schuld) / 420 mln aandelen ≈ DKK 500. De 13× is een eigen inschatting, niet getoetst aan concurrenten. Bij zo'n schuld komt de verhouding kasstroom/schuld (ruwe indicatie) dicht bij de eigen ondergrens van 30%: een lagere kredietbeoordeling of een kapitaalverhoging (waarbij de Staat moet meedoen om 50% te houden) wordt dan mogelijk."
    },
    {
     "naam": "Normaal",
-    "koers": 890,
+    "koers": 880,
     "kans": "50%",
-    "uitleg": "Projecten worden opgeleverd zoals gepland (Hornsea 2 en Changhua 1&2a in 2022) en Ørsted haalt zijn doel (±24 mld EBITDA in 2023). De waardering zakt licht van ±21× naar ±18× (op dezelfde basis, met de schuld van 2023): (18 × 24 − 60) / 420 ≈ DKK 885. Dit ligt boven onze eigen waarde (530), omdat de markt nu een lager rendement aanvaardt dan wij aannemen."
+    "uitleg": "Projecten worden opgeleverd zoals gepland (Hornsea 2 en Changhua 1&2a in 2022) en Ørsted haalt zijn doel (±24 mld EBITDA in 2023). De waardering zakt licht van ±21× naar ±18× (op dezelfde basis, met de schuld van 2023): (18 × 24 − 64) / 420 ≈ DKK 876, afgerond 880. De 18× is een eigen inschatting, niet getoetst aan concurrenten. Dit ligt boven onze eigen waarde (530), omdat de markt nu een lager rendement aanvaardt dan wij aannemen: het koersdoel is de koers die wij verwachten, niet de waarde die wij berekenen."
    },
    {
     "naam": "Goed",
     "koers": 1300,
     "kans": "20%",
-    "uitleg": "De rente blijft rond nul, het geld blijft naar groene fondsen stromen en Ørsted wint veel van de ±25 GW veilingen in 2021 met goede rendementen. Ørsted haalt de bovenkant van zijn doel (±25 mld) en de markt betaalt ±24×: (24 × 25 − 55) / 420 ≈ DKK 1.300."
+    "uitleg": "De rente blijft rond nul, het geld blijft naar groene fondsen stromen en Ørsted wint veel van de ±25 GW veilingen in 2021 met goede rendementen. Ørsted haalt de bovenkant van zijn doel (±25 mld) en meer verkopen van belangen houden de schuld lager (±55 mld) en de markt betaalt ±24× (eigen inschatting): (24 × 25 − 55) / 420 ≈ DKK 1.300."
    }
   ]
  },
@@ -227,7 +227,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "**De details:** de Staat heeft 50,12% van het kapitaal en 50,74% van de stemmen. Hij oefent zijn rechten uit op de algemene vergadering en benoemt professionele bestuurders. Een wijziging van de statuten of de ontbinding van het bedrijf vereist dat de Staat aanwezig is en akkoord gaat. Andel heeft 5,01% en The Capital Group 5–10%; samen met de Staat is dat minstens ±60% (met de ondergrens voor Capital Group).",
+     "tekst": "**De details:** de Staat heeft 50,12% van het kapitaal en 50,74% van de stemmen. Hij oefent zijn rechten uit op de algemene vergadering en benoemt professionele bestuurders. Een wijziging van de statuten of de ontbinding van het bedrijf vereist dat de Staat aanwezig is en akkoord gaat. Andel heeft 5,01% en The Capital Group 5–10%; samen met de Staat is dat ongeveer 60% of meer (benadering: Capital Group alleen als stemrecht bekend).",
      "bronnen": [
       1
      ]
@@ -403,16 +403,16 @@
   {
    "type": "tekst",
    "label": "mening",
-   "tekst": "**Wat vinden we ervan?** Uitstekend bedrijf, hoge prijs. Afwachten: 5/10. Pas interessant rond DKK 480–600, en ook dan blijft R1 gelden."
+   "tekst": "**Wat vinden we ervan?** Uitstekend bedrijf, hoge prijs. Afwachten: 5/10. **Nu: niet kopen.** In de koopzone (DKK 480–600) kan de lage prijs misschien de uitzondering op R1 rechtvaardigen; dan opnieuw beoordelen."
   }
  ],
  "verkoopsignalen": [
-  "**Koers onder DKK 846** (−20%, jouw standaard [[stop-loss|verkooporder die afgaat als de koers te ver zakt]]) of **boven het koersdoel 890 na een daling**: herbekijk. *Controle: koers.*",
+  "**Koers onder DKK 846** (−20%, jouw standaard [[stop-loss|verkooporder die afgaat als de koers te ver zakt]]) → verkopen volgens je profiel. *Controle: koers.*",
   "Amerikaanse 10-jaarsrente **boven 2%** (terug op het niveau van vóór COVID: 1,92% eind 2019) of Europese 10-jaarsrente **boven 0%** (eind 2019: −0,14%) → de waardering komt onder druk; rente is volgens Ørsted zelf risico nummer 1. *Controle: FRED / ECB, maandelijks.*",
   "Ørsted meldt een **nieuwe vertraging of kostenoverschrijding** bij een VS-project (Ocean Wind, Sunrise, Revolution, South Fork) of een [[bijzondere waardevermindering|boekhoudkundige afwaardering omdat een project minder waard is dan gedacht]]. *Controle: kwartaalverslag (29-4, 12-8, 3-11-2021).*",
   "De EBITDA-verwachting voor 2021 zakt **onder DKK 15 mld**, of [[ROCE|winst vóór rente en belastingen gedeeld door het geïnvesteerde kapitaal]] **onder 8%** (doel ±10%). *Controle: kwartaalverslag.*",
   "[[FFO/aangepaste netto schuld|kasstroom uit de activiteiten gedeeld door de schuld: hoe hoger, hoe veiliger]] **onder 30%**, een kredietbeoordeling **onder BBB+/Baa1**, of een **kapitaalverhoging**. *Controle: jaarverslag, persberichten.*",
-  "**Koopsignaal** (het oordeel kan veranderen): koers in de koopzone **480–600**, of een vereist rendement dat de markt aanvaardt rond 5% (bv. rente fors hoger terwijl Ørsted zijn doelen haalt). R1 blijft wel gelden. *Controle: koers + kwartaalverslag.*"
+  "**Koopsignaal** (het oordeel kan veranderen): koers in de koopzone **480–600**. Ook dan eerst opnieuw beoordelen of de rest uitzonderlijk positief is, want R1 blijft gelden. *Controle: koers + kwartaalverslag.*"
  ],
  "onvoldoende_info": [
   {
@@ -435,7 +435,7 @@
   },
   {
    "onderwerp": "Cijfers en waardering van concurrenten (RWE, Iberdrola, EDPR, SSE)",
-   "wat_wel": "Ørsted vergelijkt zelf met de MSCI Europe Utilities-index (−5% in 2020 tegenover Ørsted +80%); Bloomberg meldt recordwaarderingen in de groene sector. Verslagen van concurrenten zijn niet gelezen.",
+   "wat_wel": "Ørsted vergelijkt zelf met de MSCI Europe Utilities-index (−5% in 2020 tegenover Ørsted +80%); Bloomberg meldt recordwaarderingen in de groene sector. Verslagen van concurrenten zijn niet gelezen. Gevolg: de multiples in de scenario's (13×, 18×, 24×) zijn eigen inschattingen, niet getoetst aan concurrenten.",
    "zoekrondes": [
     "ronde 1: jaarverslag Ørsted p.74",
     "ronde 2: Bloomberg 26-1-2021",
@@ -469,7 +469,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "De Deense Staat bezit 50,12% van het kapitaal en 50,74% van de stemmen, Andel 5,01% (na een verkoop van 2,27% in januari 2020) en The Capital Group 5–10%. Particuliere beleggers hebben ±2%; 63% van de aandelen is in Deense handen. Er is één soort aandeel.",
+     "tekst": "De Deense Staat bezit 50,12% van het kapitaal en 50,74% van de stemmen, Andel 5,01% (na een verkoop van 2,27% in januari 2020) en The Capital Group 5–10% van de stemmen (exact belang niet bekend). Particuliere beleggers hebben ±2%; 63% van de aandelen is in Deense handen. Er is één soort aandeel.",
      "bronnen": [
       1
      ]
@@ -604,7 +604,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Wat zie je hier? De EBITDA steeg in 2020 met 4% tot DKK 18,1 mld. De winst van 16,7 mld bevat een eenmalige [[meerwaarde|winst op de verkoop van een bezit]] van 10,8 mld op de verkoop van de Deense netten; zonder die meerwaarde blijft ±5,9 mld over.",
+     "tekst": "Wat zie je hier? De EBITDA steeg in 2020 met 4% tot DKK 18,1 mld. De winst van 16,7 mld bevat een eenmalige [[meerwaarde|winst op de verkoop van een bezit]] van 10,8 mld op verkopen (Deense netten 10,9 mld, min een verlies op LNG); zonder die meerwaarde blijft ±5,9 mld over.",
      "bronnen": [
       1
      ]
@@ -908,7 +908,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Nieuw in de pijplijn: in december 2020 kreeg Ørsted de vergunning voor Hornsea 3 (VK, meer dan 2,4 GW), dat kan meedingen in de volgende Britse veiling. In de VS verlengde de overheid de belastingvoordelen voor wind op zee (10 jaar 'safe harbour' en een nieuw belastingkrediet van 30% op de investering).",
+     "tekst": "Nieuw in de pijplijn: in december 2020 kreeg Ørsted de vergunning voor Hornsea 3 (VK, meer dan 2,4 GW), dat kan meedingen in de volgende Britse veiling. In de VS verlengde de overheid de belastingvoordelen voor wind op zee (10 jaar '[[safe harbour|garantie dat een project de belastingvoordelen behoudt als de bouw op tijd start]]' en een nieuw belastingkrediet van 30% op de investering).",
      "bronnen": [
       1
      ]
@@ -944,7 +944,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "De parken op zee hebben grotendeels gereguleerde prijzen: een vaste prijs per MWh voor de meeste parken in Denemarken, Duitsland en Nederland en de Britse CfD-parken. Ørsted verwacht dat gemiddeld ±90% van de EBITDA in 2019–2025 uit langlopende contracten of gereguleerde activiteiten komt. De VS-parken krijgen ±20 jaar een vaste prijs.",
+     "tekst": "De parken op zee hebben grotendeels gereguleerde prijzen: een vaste prijs per MWh voor de meeste parken in Denemarken, Duitsland en Nederland en de Britse [[CfD|Britse regeling met een vaste stroomprijs per MWh voor 15 jaar]]-parken. Ørsted verwacht dat gemiddeld ±90% van de EBITDA in 2019–2025 uit langlopende contracten of gereguleerde activiteiten komt. De VS-parken krijgen ±20 jaar een vaste prijs.",
      "bronnen": [
       1
      ]
@@ -1118,7 +1118,7 @@
   {
    "id": "actualiteit",
    "titel": "Actualiteit",
-   "kort": "Rente stijgt, groene aandelen op recordwaardering, VS-vergunningen gaan sneller, zwaardere veilingen",
+   "kort": "Rente stijgt, groene aandelen op recordwaardering, Biden wil meer wind op zee, harde concurrentie in veilingen",
    "inhoud": [
     {
      "type": "uitleg",
@@ -1143,7 +1143,7 @@
      "items": [
       {
        "label": "inschatting",
-       "tekst": "**Stijgende rente — ▼ groot.** Een stijging van het vereiste rendement met 1 procentpunt (van 5,5 naar 6,5%) verlaagt onze waardering met ±⅓; ook de prijs die partners voor de helft van een park betalen, daalt.",
+       "tekst": "**Stijgende rente — ▼ groot.** Als het vereiste rendement met 1 procentpunt stijgt (bv. door een hogere rente) (van 5,5 naar 6,5%) verlaagt onze waardering met ±⅓; ook de prijs die partners voor de helft van een park betalen, daalt.",
        "bronnen": [
         1,
         4
@@ -1168,7 +1168,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "**Nieuwe projecten (Hornsea 3, Baltica) — ▲ middel.** Groeimogelijkheden van samen ±4,9 GW, maar nog zonder vaste prijs.",
+       "tekst": "**Nieuwe projecten (Hornsea 3, Baltica) — ▲ middel.** Groeimogelijkheden van samen ±4,9 GW (waarvan ±3,7 GW voor Ørsted, want Baltica is 50/50), maar nog zonder vaste prijs.",
        "bronnen": [
         1,
         12
@@ -1264,14 +1264,14 @@
       },
       {
        "label": "feit",
-       "tekst": "Denemarken keurde op 4-2-2021 een kunstmatig energie-eiland in de Noordzee goed (eerste fase 3 GW, later 10 GW). Dat is een kans voor Deense ontwikkelaars zoals Ørsted, maar de spelregels zijn nog niet bekend.",
+       "tekst": "Denemarken keurde op 4-2-2021 een kunstmatig energie-eiland in de Noordzee goed (eerste fase 3 GW, later 10 GW); de Deense Staat wordt meerderheidseigenaar van het eiland. Dat is een kans voor Deense ontwikkelaars zoals Ørsted, maar de spelregels zijn nog niet bekend.",
        "bronnen": [
         13
        ]
       },
       {
        "label": "feit",
-       "tekst": "Ørsted stapt in de Poolse parken Baltica 2 en 3 (10-2-2021). Britse zeebodemverhuur (8-2-2021): bijna 8 GW, met hoge 'option fees'.",
+       "tekst": "Ørsted tekende de instap in de Poolse parken Baltica 2 en 3 (10-2-2021; afronding na goedkeuring, verwacht in het eerste kwartaal van 2021). Britse zeebodemverhuur (8-2-2021): bijna 8 GW, met hoge 'option fees'.",
        "bronnen": [
         12,
         7
@@ -1326,6 +1326,13 @@
        "bronnen": [
         2,
         1
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Poolse toewijzing van 5,9 GW met vaste stroomprijs tegen eind juni 2021, waarin Baltica 2 en 3 meedingen.",
+       "bronnen": [
+        12
        ]
       }
      ]
@@ -1457,7 +1464,7 @@
         3
        ],
        "wat": "Wat je betaalt voor het hele bedrijf (aandelen + schuld, de [[ondernemingswaarde|beurswaarde plus schulden]]) gedeeld door één jaar bedrijfswinst.",
-       "hoe": "(445 + 12,3 schuld + 13,2 hybride + 2,7 minderheden) / 18,1 (2020) of / 15,5 (midden verwachting 2021, zonder nieuwe verkopen van belangen). Op het eigen doel voor 2023 (±24 mld) en met de verwachte schuld van ±60 mld: ±21×.",
+       "hoe": "(445 + 12,3 schuld + 13,2 hybride + 2,7 minderheden) / 18,1 (2020) of / 15,5 (midden verwachting 2021, zonder nieuwe verkopen van belangen). Op het eigen doel voor 2023 (±24 mld) en met de verwachte schuld van ±64 mld: ±21×.",
        "beoordeling": "zwak",
        "beoordeling_uitleg": "Hoog voor een nutsbedrijf, ook al is een deel van het kapitaal nog in aanbouw en levert het nog niets op (mening; concurrenten niet vergeleken)."
       },
@@ -1598,7 +1605,7 @@
     {
      "type": "tekst",
      "label": "mening",
-     "tekst": "[[Koopzone|prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft]] **DKK 480–600**: dat is onze waarde bij 5–5,5%. [[Koersdoel|de koers die we over 2 jaar verwachten in het normale scenario]] **DKK 890** (normaal scenario, begin 2023): dat ligt boven onze eigen waarde, omdat de markt waarschijnlijk een lager rendement blijft aanvaarden dan wij aannemen. Stop-loss −20% op 846. Let op: ook in de koopzone blijft R1 (Deense Staat 50,1%) gelden."
+     "tekst": "[[Koopzone|prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft]] **DKK 480–600**: dat is onze waarde bij 5–5,5%. [[Koersdoel|de koers die we over 2 jaar verwachten in het normale scenario]] **DKK 880** (normaal scenario, begin 2023): dat ligt boven onze eigen waarde, omdat de markt waarschijnlijk een lager rendement blijft aanvaarden dan wij aannemen. Stop-loss −20% op 846. De koopzone wordt misschien nooit bereikt; dat is bewust: je betaalt dan enkel een prijs waarbij ook het slechte scenario (±500) nog goed afloopt. Ook in de koopzone blijft R1 gelden: een lagere prijs alleen volstaat niet, de rest moet uitzonderlijk positief zijn."
     }
    ]
   },
@@ -2498,7 +2505,37 @@
   }
  ],
  "review": {
-  "status": "bezig",
-  "rondes": []
+  "status": "afgerond",
+  "feiten_gecontroleerd": 94,
+  "feiten_correct": 79,
+  "rondes": [
+   {
+    "nr": 1,
+    "oordelen": {
+     "financieel-analist": "niet goedgekeurd",
+     "actua-specialist": "niet goedgekeurd",
+     "kritische-belegger": "niet goedgekeurd"
+    },
+    "opmerkingen": 51,
+    "verwerkt": 47,
+    "verworpen": 0
+   },
+   {
+    "nr": 2,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 19,
+    "verwerkt": 17,
+    "verworpen": 0
+   }
+  ],
+  "open_punten": [
+   "Verslagen van concurrenten (RWE, Iberdrola, EDPR, SSE) niet gelezen: de waardering en de multiples in de scenario's zijn niet aan concurrenten getoetst.",
+   "Insidertransacties van de 12 maanden vóór de peildatum konden niet nagekeken worden.",
+   "Terugkijktest: de hoofdanalist kende de afloop in grote lijnen (en het profiel noemt Ørsted de slechtste belegging van de gebruiker). Het rapport is dus niet blind geschreven; de evaluatie bevat een besmettingscheck."
+  ]
  }
 }

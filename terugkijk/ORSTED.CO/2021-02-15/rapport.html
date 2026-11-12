@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ørsted – rapport 2026-11-11</title>
+<style>:root {
+  --bg: #f4f5f7;
+  --vlak: #ffffff;
+  --inkt: #101828;
+  --inkt-2: #475467;
+  --inkt-3: #667085;
+  --rand: #e4e7ec;
+  --kop: #0b1f3a;
+  --accent: #1d4ed8;
+  --feit: #1d4ed8;      --feit-bg: #eff4ff;
+  --berek: #067647;     --berek-bg: #ecfdf3;
+  --inschat: #93590a;   --inschat-bg: #fff7e6;
+  --mening: #b42318;    --mening-bg: #fef3f2;
+  --kopen: #067647; --houden: #175cd3; --verkopen: #b42318; --afwachten: #93590a; --onvoldoende: #475467;
+  --nogo: #b42318; --hoog: #c4320a; --middel: #93590a; --info: #475467;
+  --g-raster: #eaecf0; --g-as: #667085;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--inkt);
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+a { color: var(--accent); }
+.pagina { max-width: 920px; margin: 0 auto; padding: 0 16px 48px; }
+
+/* Kop */
+.kop { background: var(--kop); color: #fff; padding: 22px 0 18px; }
+.kop .pagina { padding-bottom: 0; }
+.kop .ticker { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+.kop h1 { margin: 2px 0 4px; font-size: 26px; line-height: 1.2; font-weight: 650; }
+.kop .sub { font-size: 13px; opacity: .8; }
+
+/* Adviesblok */
+.advies { display: grid; grid-template-columns: auto 1fr; gap: 16px 22px; align-items: center;
+  background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 18px; margin-top: -1px; margin-top: 16px; }
+.oordeel { font-size: 22px; font-weight: 700; color: #fff; padding: 10px 18px; border-radius: 10px; text-align: center; min-width: 140px; }
+.oordeel small { display: block; font-size: 12px; font-weight: 500; opacity: .9; }
+.oordeel.Kopen { background: var(--kopen); } .oordeel.Houden { background: var(--houden); }
+.oordeel.Verkopen { background: var(--verkopen); } .oordeel.Afwachten { background: var(--afwachten); }
+.oordeel.Onvoldoende { background: var(--onvoldoende); }
+.advies .reden { font-size: 15px; }
+.score { display: flex; gap: 3px; margin-top: 6px; }
+.score i { width: 16px; height: 6px; border-radius: 3px; background: var(--rand); }
+.score i.aan { background: var(--inkt); }
+.cijferrij { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.tegel { border: 1px solid var(--rand); border-radius: 10px; padding: 10px 12px; }
+.tegel .n { font-size: 12px; color: var(--inkt-3); }
+.tegel .w { font-size: 18px; font-weight: 650; }
+.tegel .t { font-size: 12px; color: var(--inkt-2); }
+.scenarios { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.scenario { border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+.scenario .n { font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; }
+.scenario.Slecht .n { color: var(--verkopen); } .scenario.Normaal .n { color: var(--houden); } .scenario.Goed .n { color: var(--kopen); }
+.scenario .w { font-size: 18px; font-weight: 650; }
+.scenario p { margin: 4px 0 0; font-size: 13px; color: var(--inkt-2); }
+
+/* Blokken */
+.kaart { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.kaart > h2 { margin: 0 0 10px; font-size: 17px; }
+.vlaggen .vlag { border-left: 4px solid var(--info); padding: 8px 12px; margin: 8px 0; background: #fafafa; border-radius: 0 8px 8px 0; }
+.vlag.nogo { border-color: var(--nogo); background: #fef3f2; } .vlag.hoog { border-color: var(--hoog); background: #fff6ed; }
+.vlag.middel { border-color: var(--middel); background: #fffaeb; }
+.vlag .t { font-weight: 650; }
+.vlag .e { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-right: 6px; }
+.vlag.nogo .e { color: var(--nogo); } .vlag.hoog .e { color: var(--hoog); } .vlag.middel .e { color: var(--middel); } .vlag.info .e { color: var(--info); }
+.geen-vlag { color: var(--berek); font-weight: 600; }
+
+details.sectie { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; margin-top: 12px; }
+details.sectie > summary { cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 650; font-size: 16px; display: flex; justify-content: space-between; gap: 12px; }
+details.sectie > summary::-webkit-details-marker { display: none; }
+details.sectie > summary::after { content: "+"; color: var(--inkt-3); font-weight: 400; font-size: 20px; line-height: 1; }
+details.sectie[open] > summary::after { content: "–"; }
+details.sectie > summary .kort { font-weight: 400; font-size: 13px; color: var(--inkt-3); display: block; }
+details.sectie .inhoud { padding: 0 18px 16px; }
+
+p.blok, li.blok { margin: 8px 0; }
+ul.blokken { padding-left: 0; list-style: none; margin: 8px 0; }
+ul.blokken li { padding-left: 0; }
+.lab { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  padding: 1px 6px; border-radius: 4px; margin-right: 6px; vertical-align: 1px; }
+.lab.feit { color: var(--feit); background: var(--feit-bg); }
+.lab.berekening { color: var(--berek); background: var(--berek-bg); }
+.lab.inschatting { color: var(--inschat); background: var(--inschat-bg); }
+.lab.mening { color: var(--mening); background: var(--mening-bg); }
+.blok.mening, .blok.inschatting { font-style: normal; }
+a.ref { font-size: 11px; vertical-align: super; text-decoration: none; margin-left: 1px; }
+a.ref::before { content: "["; } a.ref::after { content: "]"; }
+.term { border-bottom: 1px dotted var(--inkt-3); }
+.uitleg { color: var(--inkt-3); font-size: .92em; }
+.kader { border-radius: 10px; padding: 10px 14px; margin: 10px 0; background: var(--feit-bg); }
+.kader.waarschuwing { background: #fffaeb; } .kader.mening { background: var(--mening-bg); }
+.kader .t { font-weight: 650; }
+.kerncijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0; }
+.trend.op { color: var(--berek); } .trend.neer { color: var(--mening); } .trend.gelijk { color: var(--inkt-3); }
+
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--rand); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+th { font-weight: 600; color: var(--inkt-2); font-size: 12.5px; }
+.tabelwrap { overflow-x: auto; margin: 10px 0; }
+.tabel-titel, .grafiek-titel { font-weight: 650; font-size: 14px; margin: 14px 0 4px; }
+.bijschrift { font-size: 12px; color: var(--inkt-3); margin-top: 2px; }
+
+/* Grafieken */
+.grafiek-svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.g-raster { stroke: var(--g-raster); stroke-width: 1; }
+.g-nul { stroke: var(--inkt-3); stroke-width: 1; }
+.g-as { fill: var(--g-as); font-size: 13px; }
+.g-ref { fill: var(--inkt-2); font-size: 13px; }
+.g-legende { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--inkt-2); margin-top: 4px; }
+.g-legende i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+details.g-tabel summary { font-size: 12px; color: var(--accent); cursor: pointer; margin-top: 4px; }
+
+/* Bronnen */
+ol.bronnen { padding-left: 22px; font-size: 13px; }
+ol.bronnen li { margin: 4px 0; word-break: break-word; }
+ol.bronnen .type { font-size: 10.5px; text-transform: uppercase; color: var(--inkt-3); letter-spacing: .04em; }
+.legende-labels { font-size: 12.5px; color: var(--inkt-2); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.voet { font-size: 12px; color: var(--inkt-3); margin-top: 24px; }
+
+@media (max-width: 600px) {
+  body { font-size: 14.5px; }
+  .kop h1 { font-size: 22px; }
+  .advies { grid-template-columns: 1fr; }
+  .oordeel { min-width: 0; }
+  .scenarios { grid-template-columns: 1fr; }
+  .kaart, details.sectie > summary, details.sectie .inhoud { padding-left: 14px; padding-right: 14px; }
+}
+@media print {
+  body { background: #fff; font-size: 11.5px; }
+  .kop { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .kaart, details.sectie, .advies { border-color: #d0d5dd; }
+  .kop { margin: 0; }
+  details.g-tabel { display: none; }
+  .pagina { max-width: none; }
+}
+
+/* Structuur */
+.tussentitel { font-size: 14.5px; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--rand); color: var(--kop); }
+details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-right: 2px; }
+.inhoudstafel ol { margin: 0; padding-left: 22px; }
+.inhoudstafel li { margin: 3px 0; }
+.inhoudstafel a { text-decoration: none; font-weight: 600; }
+.inhoudstafel .kort { color: var(--inkt-3); font-size: 13px; }
+@media print {
+  .kaart > h2, .tussentitel, .grafiek-titel, .tabel-titel { break-after: avoid; }
+  details.sectie > summary { font-size: 17px; border-bottom: 2px solid var(--kop); margin: 0 18px; padding: 14px 0 6px; }
+  details.sectie > summary::after { content: none; }
+  details.sectie .inhoud { padding-top: 8px; }
+  p, li { orphans: 1; widows: 1; }
+}
+dl.woorden { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13.5px; }
+dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt-2); }
+@media (max-width: 600px) { dl.woorden { grid-template-columns: 1fr; } dl.woorden dd { margin-bottom: 6px; } }
+
+/* uitleg: inleiding/overgang zonder label */
+.leestekst { margin: 8px 0 10px; line-height: 1.55; }
+
+/* scoreopbouw */
+.scoreopbouw { grid-column: 1 / -1; background: var(--bg); border-radius: 10px; padding: 12px 14px; }
+.so-titel { font-weight: 650; margin-bottom: 4px; }
+.so-intro { margin: 0 0 8px; font-size: 14px; color: var(--inkt-3); }
+.so-rij { padding: 8px 0; border-top: 1px solid rgba(0,0,0,.06); }
+.so-kop { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+.so-naam { font-weight: 600; }
+.so-p { font-weight: 700; white-space: nowrap; }
+.so-balk { height: 6px; background: rgba(0,0,0,.08); border-radius: 3px; margin: 5px 0; overflow: hidden; }
+.so-balk i { display: block; height: 100%; background: var(--afwachten, #b54708); border-radius: 3px; }
+.so-uitleg { font-size: 13px; line-height: 1.45; color: var(--inkt-3); }
+.so-corr .so-p { color: #b42318; }
+.so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
+.so-som.totaal { font-size: 15px; }
+
+/* opbouw en leeswijzer */
+.vol { grid-column: 1 / -1; }
+.deel { font-size: 11.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--inkt-3); margin-bottom: 2px; }
+.deel-intro { margin: 4px 0 10px; font-size: 14.5px; line-height: 1.5; color: var(--inkt-2, #344054); }
+.advies h2 { margin: 0; font-size: 20px; }
+.sub-titel { font-weight: 650; font-size: 16px; margin-top: 6px; }
+.opbouw { margin: 4px 0 6px; padding-left: 20px; line-height: 1.5; font-size: 14.5px; }
+.opbouw li { margin: 4px 0; }
+.achteraan-kop { margin: 26px 0 4px; }
+
+/* ---------- Uitklappers, termknoppen, prijsbalk (2026-11) ---------- */
+/* Oordeel bovenaan */
+.kort-oordeel { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.ko-kop { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.kort-oordeel .oordeel { min-width: 0; padding: 8px 18px; }
+.ko-score { font-weight: 800; line-height: 1; white-space: nowrap; }
+.ko-score b { font-size: 40px; } .ko-score small { font-size: 15px; color: var(--inkt-3); font-weight: 600; }
+.kort-oordeel .score { margin: 12px 0 10px; } .kort-oordeel .score i { flex: 1; }
+.kort-oordeel .reden { font-size: 15.5px; line-height: 1.5; }
+.ko-vlaggen { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.ko-vlag { font-size: 12.5px; font-weight: 650; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: #fffaeb; color: var(--middel); }
+.ko-vlag.nogo { background: #fef3f2; color: var(--nogo); } .ko-vlag.hoog { background: #fff6ed; color: var(--hoog); }
+
+/* Algemene uitklapper */
+details.uitklap > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+details.uitklap > summary::-webkit-details-marker { display: none; }
+details.uitklap > summary::after { content: "+"; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); color: var(--accent);
+  display: grid; place-items: center; font-size: 18px; font-weight: 500; line-height: 1; }
+details.uitklap[open] > summary::after { content: "–"; }
+details.kaart.uitklap > summary h2 { margin: 0; font-size: 17px; }
+details.kaart.uitklap > summary h2 small { font-weight: 400; font-size: 13px; color: var(--inkt-3); }
+details.kaart.uitklap[open] > summary { margin-bottom: 10px; }
+summary:focus-visible, .term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Tussentitels binnen een hoofdstuk */
+details.onderdeel { border-top: 1px solid var(--rand); }
+details.onderdeel:last-of-type { border-bottom: 1px solid var(--rand); }
+details.onderdeel > summary { padding: 12px 0; font-weight: 650; font-size: 15px; color: var(--kop); }
+details.onderdeel[open] { padding-bottom: 10px; }
+details.onderdeel[open] > summary { color: var(--accent); }
+
+/* Vakterm = knop, uitleg klapt open */
+.term { border-bottom: 1.5px dotted var(--accent); cursor: pointer; }
+.term.open { background: var(--feit-bg); border-bottom-style: solid; }
+.uitleg { display: none; }
+.term.open + .uitleg { display: inline; margin-left: 4px; padding: 2px 7px; border-radius: 6px; background: var(--feit-bg);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  color: var(--inkt-2); font-size: .93em; font-weight: 400; font-style: normal; }
+.term.open + .uitleg::before { content: "= "; font-weight: 650; color: var(--accent); }
+
+/* Kerncijfer met uitleg */
+details.tegel.meer > summary { cursor: pointer; list-style: none; }
+details.tegel.meer > summary::-webkit-details-marker { display: none; }
+.meer-knop { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 650; color: var(--accent); }
+.meer-knop::after { content: " +"; } details.tegel[open] .meer-knop::after { content: " –"; }
+details.tegel[open] { grid-column: 1 / -1; background: var(--bg); }
+.meer-inhoud { border-top: 1px solid var(--rand); margin-top: 8px; padding-top: 2px; }
+.meer-inhoud p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--inkt-2); }
+.beoordeling { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; margin-right: 8px; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.beoordeling i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.beoordeling.goed { color: var(--kopen); } .beoordeling.normaal { color: var(--inkt-3); } .beoordeling.zwak { color: var(--verkopen); }
+
+/* Prijsbalk */
+.prijsbalk { padding: 4px 2px 0; }
+.pb-boven, .pb-onder { position: relative; height: 18px; }
+.pb-nu-label { position: absolute; transform: translateX(-50%); font-size: 11.5px; font-weight: 700; white-space: nowrap; }
+.pb-spoor { position: relative; height: 12px; border-radius: 6px; background: var(--rand); }
+.pb-zone { position: absolute; top: 0; bottom: 0; background: var(--kopen); opacity: .55; border-radius: 3px; }
+.pb-streep { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1.5px; border-radius: 2px; }
+.pb-streep.stop, .k.stop { background: var(--verkopen); } .pb-streep.doel, .k.doel { background: var(--houden); } .pb-streep.iw, .k.iw { background: var(--inkt-3); }
+.pb-nu { position: absolute; top: -5px; width: 14px; height: 22px; margin-left: -7px; border-radius: 4px; background: var(--inkt); border: 2px solid var(--vlak); }
+.pb-bol { position: absolute; top: 5px; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; }
+.pb-bol.Slecht { background: var(--verkopen); } .pb-bol.Normaal { background: var(--houden); } .pb-bol.Goed { background: var(--kopen); }
+.pb-as { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--inkt-3); }
+.pb-legende { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: 11.5px; color: var(--inkt-2); }
+.pb-legende span { display: inline-flex; align-items: center; gap: 5px; }
+.k { display: inline-block; flex: none; width: 4px; height: 14px; border-radius: 2px; }
+.k.zone { width: 12px; background: var(--kopen); opacity: .55; } .k.nu { width: 10px; background: var(--inkt); border-radius: 3px; }
+.k.bol { width: 9px; height: 9px; border-radius: 50%; background: var(--inkt-3); }
+
+/* Prijzen als uitklapbare rijen */
+.prijzen { border: 1px solid var(--rand); border-radius: 10px; overflow: hidden; }
+.prijs + .prijs { border-top: 1px solid var(--rand); }
+.p-rij { display: flex; align-items: center; gap: 10px; padding: 11px 12px; list-style: none; }
+.p-rij::-webkit-details-marker { display: none; }
+summary.p-rij { cursor: pointer; }
+summary.p-rij::after { content: "+"; color: var(--accent); font-size: 18px; line-height: 1; width: 12px; text-align: center; }
+details.prijs[open] > summary.p-rij::after { content: "–"; }
+div.prijs .p-rij::after { content: ""; width: 12px; }
+.p-rij .k { width: 12px; } .p-rij .k.stop, .p-rij .k.doel, .p-rij .k.iw { width: 4px; margin: 0 4px; }
+.p-naam { flex: 1; font-weight: 600; font-size: 14.5px; }
+.p-naam small { display: block; font-weight: 400; font-size: 12px; color: var(--inkt-3); }
+.p-w { font-weight: 700; font-size: 16px; white-space: nowrap; }
+details.prijs > p { margin: 0; padding: 0 12px 12px 34px; font-size: 13.5px; line-height: 1.5; color: var(--inkt-2); }
+
+/* Scenario's uitklapbaar */
+details.scenario > summary { cursor: pointer; list-style: none; display: grid; gap: 2px; }
+details.scenario > summary::-webkit-details-marker { display: none; }
+details.scenario .w small { font-size: 12.5px; font-weight: 500; color: var(--inkt-3); }
+details.scenario > summary::after { content: "Waarom? +"; font-size: 12px; font-weight: 650; color: var(--accent); margin-top: 2px; }
+details.scenario[open] > summary::after { content: "Waarom? –"; }
+
+/* Scoreopbouw + vlaggen */
+details.scoreopbouw > summary .so-titel { margin: 0; }
+details.scoreopbouw[open] > summary { margin-bottom: 6px; }
+details.vlag-details { margin-top: 8px; border-top: 1px solid rgba(0,0,0,.08); }
+details.vlag-details > summary { padding: 9px 0 3px; font-size: 13.5px; font-weight: 650; color: var(--accent); }
+.nagekeken { margin-top: 16px; }
+details.vlag.info > summary { padding: 3px 0; }
+details.vlag.info > summary .t { flex: 1; }
+.kader li em, .kader em { display: block; font-style: normal; font-size: 12.5px; color: var(--inkt-3); margin-top: 2px; }
+ul.opbouw { list-style: disc; }
+
+@media print {
+  .uitleg { display: inline !important; color: var(--inkt-3); font-size: .92em; }
+  .uitleg::before { content: " (" !important; font-weight: 400 !important; color: inherit !important; } .uitleg::after { content: ")"; }
+  .term { border-bottom: 1px dotted var(--inkt-3); }
+  details.uitklap > summary::after, summary.p-rij::after, details.scenario > summary::after, .meer-knop { display: none !important; content: none !important; }
+  details.onderdeel { border: 0 !important; }
+  details.onderdeel > summary { font-size: 13.5px; border-bottom: 1px solid var(--rand); padding: 12px 0 4px; break-after: avoid; }
+  details.vlag-details > summary { display: none; }
+  .kort-oordeel, .prijzen, details.tegel[open] { border-color: #d0d5dd; }
+  .oordeel, .pb-spoor, .pb-zone, .pb-streep, .pb-nu, .pb-bol, .k, .beoordeling i, .ko-vlag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padding: 1px 5px; border-radius: 4px; }
+
+/* Aandeelhoudersbalk */
+.ah-balk { margin: 8px 0 12px; }
+.ah-spoor { position: relative; display: flex; height: 22px; border-radius: 6px; overflow: visible; background: var(--rand); margin-top: 22px; }
+.ah-spoor i { display: block; height: 100%; border-right: 2px solid var(--vlak); }
+.ah-spoor i:first-child { border-radius: 6px 0 0 6px; } .ah-spoor i:last-of-type { border-radius: 0 6px 6px 0; border-right: 0; }
+.ah-spoor i.top, .k.ah-top { background: var(--nogo); } .ah-spoor i.ander, .k.ah-ander { background: var(--houden); }
+.ah-spoor i.eigen, .k.ah-eigen { background: var(--inkt-3); } .ah-spoor i.vrij, .k.ah-vrij { background: #cfd4dc; }
+.k.ah-top, .k.ah-ander, .k.ah-eigen, .k.ah-vrij { width: 12px; height: 12px; border-radius: 3px; }
+.ah-grens { position: absolute; top: -6px; bottom: -6px; width: 2px; background: var(--inkt); }
+.ah-grens span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; white-space: nowrap; padding-bottom: 1px; }
+
+/* Ketenschema */
+.keten { margin: 6px 0 4px; }
+.kt-centrum { display: inline-block; background: var(--kop); color: #fff; font-weight: 700; padding: 7px 14px; border-radius: 10px; }
+.kt-takken { list-style: none; margin: 0 0 0 16px; padding: 10px 0 0 16px; border-left: 2px solid var(--rand); display: grid; gap: 10px; }
+.kt-takken > li { position: relative; }
+.kt-takken > li::before { content: ""; position: absolute; left: -16px; top: 18px; width: 14px; border-top: 2px solid var(--rand); }
+.kt-tak { border: 1px solid var(--rand); border-radius: 10px; padding: 8px 12px; background: var(--vlak); }
+.kt-gewicht { float: right; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--feit-bg); padding: 1px 8px; border-radius: 999px; }
+.kt-uitleg { font-size: 13px; color: var(--inkt-2); margin-top: 2px; }
+.kt-onder { list-style: none; margin: 6px 0 0 14px; padding: 0 0 0 12px; border-left: 2px dotted var(--rand); font-size: 13px; color: var(--inkt-2); display: grid; gap: 4px; }
+@media print { .ah-spoor i, .ah-grens, .kt-centrum, .kt-gewicht { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .keten { break-inside: avoid; } }
+</style>
+</head>
+<body><header class="kop"><div class="pagina">
+  <div class="ticker">ORSTED.CO · Nasdaq Copenhagen · DK0060094928 · AANDEEL</div>
+  <h1>Ørsted</h1>
+  <div class="sub">Terugkijktest — zoals op 2021-02-15, geschreven op 2026-11-11 · Hernieuwbare energie (windparken op zee)</div>
+</div></header>
+
+<main class="pagina"><section class="pdf-blok kort-oordeel" id="oordeel">
+    <div class="ko-kop">
+      <div class="oordeel Afwachten">Afwachten</div><div class="ko-score" aria-label="score 5 op 10"><b>5</b><small>/10</small></div>
+    </div><div class="score" aria-hidden="true"><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+    <div class="reden">Regel <strong>R1 is geraakt</strong>: de Deense Staat heeft <strong>50,1%</strong> van de aandelen (50,7% van de stemmen). Daarbovenop is het aandeel <strong>duur</strong>: volgens onze berekening is de koers enkel te verantwoorden als beleggers met een jaarlijks rendement van ±4% tevreden zijn. Ørsted noemt zelf <strong>rente en inflatie</strong> zijn grootste risico. Sterk bedrijf, maar een hoge prijs en een <span class="term" tabindex="0" role="button" aria-expanded="false">NO-GO-regel</span><span class="uitleg">jouw harde regel R1: niet kopen als één partij meer dan 49% heeft</span>. <strong>Nu niet kopen.</strong></div><div class="ko-vlaggen"><a class="ko-vlag nogo" href="#vlaggen">🚩 No-go · R1</a><a class="ko-vlag middel" href="#vlaggen">🚩 Middel · R4</a></div>
+  </section>
+
+  <details class="pdf-blok kaart leeswijzer uitklap">
+    <summary><h2>Hoe lees je dit rapport?</h2></summary>
+    <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ul class="opbouw">
+      <li><strong>Onderlijnd woord</strong> — tik erop en je krijgt de uitleg van die vakterm.</li>
+      <li><strong>Vakje met "Uitleg"</strong> — tik op een cijfer om te lezen wat het is, hoe het berekend is en of het goed of slecht is.</li>
+      <li><strong>Titel met een +</strong> — tik om dat stuk open te klappen.</li>
+    </ul>
+    <ol class="opbouw">
+      <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li>
+      <li><strong>Het advies in cijfers</strong> — tegen welke prijs kopen, het koersdoel, wanneer verkopen, drie mogelijke uitkomsten voor de koers en hoe de score tot stand komt.</li>
+      <li><strong>Rode vlaggen</strong> — wat botst met jouw harde regels.</li>
+      <li><strong>Details per thema</strong> — 11 hoofdstukken om open te klappen, met alle cijfers, uitleg en bronnen.</li>
+      <li><strong>Achteraan</strong> — woordenlijst, kwaliteitscontrole en bronnenlijst.</li>
+    </ol>
+    <p class="deel-intro" style="margin-top:10px">Elk stuk tekst krijgt een label, zodat je weet hoe zeker het is:</p>
+    <div class="legende-labels">
+      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
+      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
+      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
+      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
+    </div>
+  </details>
+
+  <section class="pdf-blok kaart" id="samenvatting">
+    <div class="deel">Deel 1</div>
+    <h2>Samenvatting</h2>
+    <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p><p class="blok feit"><span class="lab feit">Feit</span>Ørsted is de grootste bouwer van <span class="term" tabindex="0" role="button" aria-expanded="false">windparken op zee</span><span class="uitleg">grote windturbines in zee, ver van de kust</span> ter wereld (voorheen DONG Energy). In 2020 kwam <strong>81% van de <span class="term" tabindex="0" role="button" aria-expanded="false">EBITDA</span><span class="uitleg">winst vóór rente, belastingen en afschrijvingen</span></strong> (DKK 18,1 mld) uit die parken. Het bedrijf wil DKK 200 mld investeren tussen 2019 en 2025.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span><strong>R1 geraakt — <span class="term" tabindex="0" role="button" aria-expanded="false">NO-GO</span><span class="uitleg">volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is</span>:</strong> de Deense Staat bezit 50,1%.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span><strong>Duur:</strong> bij DKK 1.058 betaal je ±26× de EBITDA van 2020 en ±30× de verwachting voor 2021. Het dividend levert 1,1% op. Van eind 2017 tot eind 2020 werd de koers 3,7 keer zo hoog; de EBITDA zonder eenmalige winsten werd 1,9 keer zo hoog (+87%).<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></p><p class="blok feit"><span class="lab feit">Feit</span><strong>Grootste risico volgens Ørsted zelf: rente en inflatie.</strong> De Amerikaanse <span class="term" tabindex="0" role="button" aria-expanded="false">10-jaarsrente</span><span class="uitleg">de rente op een Amerikaanse staatslening van 10 jaar, maatstaf voor de prijs van geld</span> steeg van 0,93% eind 2020 naar 1,20% (12-2-2021); de Europese bleef negatief (−0,42%). Beide zijn nog historisch laag.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a><a class="ref" href="#bron-5">5</a></p><p class="blok mening"><span class="lab mening">Mening</span><strong>Onze berekening:</strong> de waarde ligt tussen DKK 320 en 1.000 per aandeel, afhankelijk van het <span class="term" tabindex="0" role="button" aria-expanded="false">vereiste rendement</span><span class="uitleg">hoeveel procent per jaar beleggers minstens willen verdienen</span> (centraal ±530). De koers van 1.058 is te verantwoorden als je tevreden bent met ±3,9% per jaar.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Wat vinden we ervan?</strong> Uitstekend bedrijf, hoge prijs. Afwachten: 5/10. <strong>Nu: niet kopen.</strong> In de koopzone (DKK 480–600) kan de lage prijs misschien de uitzondering op R1 rechtvaardigen; dan opnieuw beoordelen.</p>
+  </section>
+
+  <section class="advies" id="advies">
+    <div class="vol">
+      <div class="deel">Deel 2</div>
+      <h2>Het advies in cijfers</h2>
+      <p class="deel-intro">De prijzen om in de gaten te houden, wat de koers de komende twee jaar zou kunnen doen, wanneer je verkoopt en hoe de score is opgebouwd.</p>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Belangrijke prijzen</div>
+      <p class="deel-intro">Alle prijzen op één lijn, van laag naar hoog. Tik op een prijs voor de uitleg.</p>
+    </div>
+    <div class="vol prijsbalk" role="img" aria-label="Prijzen op een schaal van 480 tot 1 300 DKK">
+      <div class="pb-boven"><span class="pb-nu-label" style="left: 68.3%">koers nu</span></div>
+      <div class="pb-spoor"><i class="pb-zone" style="left: 5.4%; width: 13.0%"></i><i class="pb-streep stop" style="left: 45.3%"></i><i class="pb-streep doel" style="left: 48.9%"></i><i class="pb-streep iw" style="left: 10.8%"></i>
+        <i class="pb-nu" style="left: 68.3%"></i>
+      </div>
+      <div class="pb-onder"><i class="pb-bol Slecht" style="left: 7.5%"></i><i class="pb-bol Normaal" style="left: 48.9%"></i><i class="pb-bol Goed" style="left: 94.6%"></i></div>
+      <div class="pb-as"><span>480 DKK</span><span>1 300 DKK</span></div>
+      <div class="pb-legende"><span><i class="k zone"></i>koopzone</span><span><i class="k stop"></i>stop-loss</span><span><i class="k doel"></i>koersdoel</span><span><i class="k iw"></i>intrinsieke waarde</span><span><i class="k bol"></i>scenario's</span></div>
+    </div>
+    <div class="vol prijzen">
+      <div class="prijs"><div class="p-rij"><i class="k nu"></i><span class="p-naam">Koers nu <small>15-02-2021</small></span><span class="p-w">1 058 DKK</span></div></div>
+      <details class="prijs"><summary class="p-rij"><i class="k zone"></i><span class="p-naam">Koopzone <small>−55% tot −43% t.o.v. nu</small></span><span class="p-w">480 – 600 DKK</span></summary>
+        <p>De prijs waarbij kopen aantrekkelijk wordt: het mogelijke rendement weegt dan op tegen het risico. Staat de koers erboven, dan betaal je meer dan wij verantwoord vinden.</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k doel"></i><span class="p-naam">Koersdoel (2 jaar) <small>−17% t.o.v. nu</small></span><span class="p-w">880 DKK</span></summary>
+        <p>Waar de koers volgens het normale scenario binnen twee jaar zou staan. Het is een inschatting, geen belofte. Onderbouwing: normaal scenario, begin 2023: Ørsted haalt zijn eigen doel (±24 mld EBITDA), de markt betaalt ±18× die winst (eigen inschatting). Dat is −17% t.o.v. de koers nu; met dividend (±1,1–1,3% per jaar) verwacht rendement over 2 jaar ±−14%..</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k stop"></i><span class="p-naam">Stop-loss <small>−20% onder je aankoopprijs</small></span><span class="p-w">846,40 DKK</span></summary>
+        <p>De koers waarop je verkoopt om een groter verlies te vermijden. Die hangt af van de prijs waartegen jij koopt. Standaard −20% t.o.v. de koers van 15-02-2021 (1.058), zoals in jouw profiel. Dit geldt enkel voor wie het aandeel al heeft of toch koopt; het advies is niet kopen. Ter info: het dichtstbijzijnde sterke steunniveau ligt op 842 (augustus 2020).</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k iw"></i><span class="p-naam">Intrinsieke waarde <small>−50% t.o.v. nu</small></span><span class="p-w">530 DKK</span></summary>
+        <p>Wat één aandeel volgens de berekening echt waard is, los van de beurskoers. Het is een schatting; de onderbouwing staat in het hoofdstuk <a href="#waardering">Waardering</a>.</p></details>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten, telkens met de koers die erbij hoort en hoe waarschijnlijk we dat vinden. Tik op een uitkomst voor de redenering.</p>
+    </div>
+    <div class="scenarios">
+      <details class="scenario Slecht"><summary><span class="n">Slecht · kans 30%</span><span class="w">500 DKK <small>−53%</small></span></summary><p>De rente stijgt verder en/of de VS-projecten lopen vertraging of kostenoverschrijdingen op (een risico dat Ørsted zelf noemt). Ørsted haalt zijn doel niet (±21 mld EBITDA in 2023) en beleggers betalen nog maar ±13× die winst: (13 × 21 − ±64 mld schuld) / 420 mln aandelen ≈ DKK 500. De 13× is een eigen inschatting, niet getoetst aan concurrenten. Bij zo&#x27;n schuld komt de verhouding kasstroom/schuld (ruwe indicatie) dicht bij de eigen ondergrens van 30%: een lagere kredietbeoordeling of een kapitaalverhoging (waarbij de Staat moet meedoen om 50% te houden) wordt dan mogelijk.</p></details>
+      <details class="scenario Normaal"><summary><span class="n">Normaal · kans 50%</span><span class="w">880 DKK <small>−17%</small></span></summary><p>Projecten worden opgeleverd zoals gepland (Hornsea 2 en Changhua 1&amp;2a in 2022) en Ørsted haalt zijn doel (±24 mld EBITDA in 2023). De waardering zakt licht van ±21× naar ±18× (op dezelfde basis, met de schuld van 2023): (18 × 24 − 64) / 420 ≈ DKK 876, afgerond 880. De 18× is een eigen inschatting, niet getoetst aan concurrenten. Dit ligt boven onze eigen waarde (530), omdat de markt nu een lager rendement aanvaardt dan wij aannemen: het koersdoel is de koers die wij verwachten, niet de waarde die wij berekenen.</p></details>
+      <details class="scenario Goed"><summary><span class="n">Goed · kans 20%</span><span class="w">1 300 DKK <small>+23%</small></span></summary><p>De rente blijft rond nul, het geld blijft naar groene fondsen stromen en Ørsted wint veel van de ±25 GW veilingen in 2021 met goede rendementen. Ørsted haalt de bovenkant van zijn doel (±25 mld) en meer verkopen van belangen houden de schuld lager (±55 mld) en de markt betaalt ±24× (eigen inschatting): (24 × 25 − 55) / 420 ≈ DKK 1.300.</p></details>
+    </div>
+    <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul><li><strong>Koers onder DKK 846</strong> (−20%, jouw standaard <span class="term" tabindex="0" role="button" aria-expanded="false">stop-loss</span><span class="uitleg">verkooporder die afgaat als de koers te ver zakt</span>) → verkopen volgens je profiel. <em>Controle: koers.</em></li><li>Amerikaanse 10-jaarsrente <strong>boven 2%</strong> (terug op het niveau van vóór COVID: 1,92% eind 2019) of Europese 10-jaarsrente <strong>boven 0%</strong> (eind 2019: −0,14%) → de waardering komt onder druk; rente is volgens Ørsted zelf risico nummer 1. <em>Controle: FRED / ECB, maandelijks.</em></li><li>Ørsted meldt een <strong>nieuwe vertraging of kostenoverschrijding</strong> bij een VS-project (Ocean Wind, Sunrise, Revolution, South Fork) of een <span class="term" tabindex="0" role="button" aria-expanded="false">bijzondere waardevermindering</span><span class="uitleg">boekhoudkundige afwaardering omdat een project minder waard is dan gedacht</span>. <em>Controle: kwartaalverslag (29-4, 12-8, 3-11-2021).</em></li><li>De EBITDA-verwachting voor 2021 zakt <strong>onder DKK 15 mld</strong>, of <span class="term" tabindex="0" role="button" aria-expanded="false">ROCE</span><span class="uitleg">winst vóór rente en belastingen gedeeld door het geïnvesteerde kapitaal</span> <strong>onder 8%</strong> (doel ±10%). <em>Controle: kwartaalverslag.</em></li><li><span class="term" tabindex="0" role="button" aria-expanded="false">FFO/aangepaste netto schuld</span><span class="uitleg">kasstroom uit de activiteiten gedeeld door de schuld: hoe hoger, hoe veiliger</span> <strong>onder 30%</strong>, een kredietbeoordeling <strong>onder BBB+/Baa1</strong>, of een <strong>kapitaalverhoging</strong>. <em>Controle: jaarverslag, persberichten.</em></li><li><strong>Koopsignaal</strong> (het oordeel kan veranderen): koers in de koopzone <strong>480–600</strong>. Ook dan eerst opnieuw beoordelen of de rest uitzonderlijk positief is, want R1 blijft gelden. <em>Controle: koers + kwartaalverslag.</em></li></ul></div>
+    <details class="scoreopbouw uitklap">
+      <summary><span class="so-titel">Hoe komt de score 5/10 tot stand?</span></summary><p class="so-intro">Sterk en goed bestuurd bedrijf met gezonde schulden en veel herinvestering, maar duur en R1 is geraakt (Deense Staat 50,1%). Rekensom: 5,6 − 1 (R1) = 4,6, afgerond 5.</p>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Bestuur &amp; aandeelhouders (zonder R1)</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Onafhankelijke raad, gematigde verloning (directie van 2 personen samen DKK 22 mln, bestuur 4,6 mln), geen uitkooppremie voor de vertrokken CEO. Wel veel wissels in de top (nieuwe CEO, 2 vertrekkende directieleden, nieuwe structuur) en twee grote geschillen (belasting DKK 5,1 mld, Elsam DKK 4,4 mld).</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Financiële gezondheid</span><span class="so-p">7/10</span></div>
+        <div class="so-balk"><i style="width: 70%"></i></div>
+        <div class="so-uitleg">Weegt 20% · Netto schuld slechts DKK 12,3 mld, kasstroom ruim boven het eigen doel (FFO/schuld 48% vs. doel 30%). Maar de vrije kasstroom is enkel positief dankzij verkopen; zonder verkopen is ze sterk negatief door de bouwprojecten.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Groei &amp; herinvestering</span><span class="so-p">8/10</span></div>
+        <div class="so-balk"><i style="width: 80%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Bijna alle kasstroom gaat naar nieuwe parken (DKK 200 mld plan tot 2025); EBITDA uit draaiende wind- en zonneparken groeide 26% per jaar van 2017 tot 2020 (doel: 20%/jaar tot 2023). Past bij jouw voorkeur voor herinvestering.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Waardering (prijs nu)</span><span class="so-p">3/10</span></div>
+        <div class="so-balk"><i style="width: 30%"></i></div>
+        <div class="so-uitleg">Weegt 20% · ±26× de EBITDA van 2020, ±30× de verwachting voor 2021 en nog ±21× het eigen doel voor 2023; dividendrendement 1,1%. Onze waarde ligt tussen DKK 320 en 1.000 naargelang het vereiste rendement (centraal ±530). De koers vraagt een vereist rendement van ±3,9%.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Risico&#39;s &amp; actualiteit</span><span class="so-p">4/10</span></div>
+        <div class="so-balk"><i style="width: 40%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Rente en inflatie zijn volgens Ørsted zelf het grootste risico; de inflatieverwachting in de VS steeg tot het hoogste niveau sinds 2014. VS-projecten zijn vertraagd door vergunningen, en in veilingen is er meer concurrentie. Tegenwicht: de regering-Biden wil wind op zee versnellen en Ørsted breidt uit naar Polen.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Past bij jouw profiel</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Herinvestering en ±90% vaste of gereguleerde inkomsten passen bij jouw profiel. Het bedrijf zelf is geen hype (echte winsten), maar de koers liep sneller op dan de winst (fondsinstroom). R1 telt hier niet mee (zie correctie).</div>
+      </div>
+      <div class="so-som">Gewogen gemiddelde: <strong>5,60</strong></div>
+      <div class="so-rij so-corr">
+        <div class="so-kop"><span class="so-naam">R1 geraakt: Deense Staat 50,1%</span><span class="so-p">-1</span></div>
+        <div class="so-uitleg">Volgens jouw harde regel een NO-GO, tenzij de rest uitzonderlijk positief is. Dat is niet zo: vooral de prijs is het probleem.</div>
+      </div>
+      <div class="so-som totaal">Totaal 4,60 → afgerond <strong>5/10</strong></div>
+    </details>
+  </section>
+
+  <section class="pdf-blok kaart vlaggen" id="vlaggen">
+    <div class="deel">Deel 3</div>
+    <h2>🚩 Rode vlaggen</h2>
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou en hoe erg het is. De cijfers en bronnen zitten onder "De details". <strong>No-go</strong> betekent: normaal niet kopen.</p>
+      <div class="vlag nogo">
+        <div><span class="e">No-go · R1</span><span class="t">De Deense Staat bezit 50,1%</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> De Deense Staat is meerderheidsaandeelhouder van Ørsted met 50,1% van de aandelen en de stemmen.<a class="ref" href="#bron-1">1</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Waarom is dat een probleem voor jou?</strong> Wie meer dan de helft heeft, beslist alleen over het bestuur, het dividend en nieuwe aandelen. Een overheid kan andere doelen hebben dan winst voor aandeelhouders, zoals energiebeleid of werkgelegenheid. Als kleine aandeelhouder kan je niets afdwingen.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Hoe erg is het?</strong> Jouw regel R1 is geraakt: een NO-GO, tenzij al de rest uitzonderlijk positief is. Dat is niet zo, vooral omdat het aandeel erg duur is. Tegenover het risico staat wel dat de Staat zich tot nu toe als een rustige, professionele eigenaar gedraagt.</p><details class="uitklap vlag-details"><summary>De details: cijfers, data en bronnen</summary><p class="blok feit"><span class="lab feit">Feit</span><strong>De details:</strong> de Staat heeft 50,12% van het kapitaal en 50,74% van de stemmen. Hij oefent zijn rechten uit op de algemene vergadering en benoemt professionele bestuurders. Een wijziging van de statuten of de ontbinding van het bedrijf vereist dat de Staat aanwezig is en akkoord gaat. Andel heeft 5,01% en The Capital Group 5–10%; samen met de Staat is dat ongeveer 60% of meer (benadering: Capital Group alleen als stemrecht bekend).<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Sommige vergunningen en leningen kunnen herzien worden als de Staat onder 50% zakt (een <span class="term" tabindex="0" role="button" aria-expanded="false">change of control-clausule</span><span class="uitleg">afspraak die geldt als de controle over het bedrijf verandert</span>). De Staat heeft dus ook een praktische reden om zijn meerderheid te houden, en zou bij een kapitaalverhoging moeten meedoen.<a class="ref" href="#bron-1">1</a></p></details>
+      </div>
+      <div class="vlag middel">
+        <div><span class="e">Middel · R4</span><span class="t">Belastinggeschil van DKK 5,1 mld en oude schadeclaim (Elsam)</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> Ørsted heeft twee grote lopende geschillen: de Deense belastingdienst eist extra belasting op twee Britse windparken, en een oude schadeclaim over te hoge stroomprijzen (2003–2006) loopt nog in beroep.<a class="ref" href="#bron-1">1</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Waarom is dat een probleem voor jou?</strong> Een verloren zaak kost eenmalig geld; het belastinggeschil kan bovendien ook latere jaren raken als hetzelfde principe gevolgd wordt.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Hoe erg is het?</strong> Middelmatig. Samen gaat het om ±DKK 9,5 mld plus interesten, ±2% van de beurswaarde. Ørsted won de Elsam-zaak in eerste aanleg en betwist de belastingeis.</p><details class="uitklap vlag-details"><summary>De details: cijfers, data en bronnen</summary><p class="blok feit"><span class="lab feit">Feit</span><strong>De details:</strong> de belastingdienst besliste in december 2020 dat Ørsted belast moet worden op de volledige ontwikkelingswaarde van Walney Extension en Hornsea 1: <strong>DKK 5,1 mld extra belasting voor 2015–2016 plus interest</strong>. Ørsted ging in beroep bij de Deense belastingrechtbank en vroeg een overlegprocedure tussen de Deense en Britse belastingdiensten om dubbele belasting te vermijden. Er is een voorziening aangelegd (bedrag niet apart vermeld). Daarnaast wil Denemarken nieuwe regels invoeren voor buitenlandse dochters (CFC-regels), wat Ørsted zelf een risico noemt.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>De Elsam-claim (±DKK 4,4 mld plus interest, ingediend in 2007) werd in maart 2020 afgewezen; de eisers gingen in beroep bij het Hof van West-Denemarken. Volgens Ørsted zal geen enkele zaak, alleen of samen, de financiële positie wezenlijk raken. Een ander geschil (over de naam &#x27;Ørsted&#x27;) won Ørsted in november 2020 definitief voor het Deense Hooggerechtshof.<a class="ref" href="#bron-1">1</a></p></details>
+      </div>
+    <div class="sub-titel nagekeken">Nagekeken, geen alarm</div>
+    <p class="deel-intro">Deze regels zijn gecontroleerd. Er is niets ernstigs gevonden, maar je weet graag wat er gezien is.</p>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R3</span><span class="t">Veel wissels in de top, zonder uitkooppremie</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> CEO Henrik Poulsen nam ontslag (aangekondigd 15-6-2020); Mads Nipper is CEO sinds januari 2021. Bij de nieuwe structuur verlaten ook Anders Lindberg en Morten Hultberg Buchgreitz de directie; Martin Neubert wordt adjunct-CEO.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Poulsen verloor zijn aandelentoekenningen van 2018–2020 (kost −DKK 4,6 mln). In 2019 kregen twee vertrokken directieleden samen DKK 11,6 mln loon tijdens de opzegperiode en DKK 4,5 mln vertrekvergoeding.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Geen buitensporige uitkoop tot nu toe. Controlepunt: de verloning van 2021 (eventuele vertrekvergoedingen voor Lindberg en Buchgreitz).</p>
+      </details>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R2</span><span class="t">Transacties met verbonden partijen: klein</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> Bestuurslid Peter Korsholm deed via een eigen bedrijf gewone transacties met Danish Oil Pipe, een dochter van Ørsted. Transacties met verbonden partijen gebeuren volgens Ørsted tegen marktvoorwaarden. Transacties met andere bedrijven van de Deense Staat worden niet apart gemeld (dat mag volgens de boekhoudregels).<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Geen aanwijzing van zelfverrijking.</p>
+      </details>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R6</span><span class="t">Verkoop Deense netten en klantenbestand (2020)</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> Ørsted verkocht in 2020 zijn Deense elektriciteitsnet, particuliere klanten en straatverlichting aan SEAS-NVE (nu Andel) voor DKK 20,5 mld, met een meerwaarde van DKK 10,9 mld. Reden: geld vrijmaken voor de bouw van wind- en zonneparken. Het aantal aandelen bleef ongewijzigd.<a class="ref" href="#bron-1">1</a></p>
+      </details>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R5</span><span class="t">Insidertransacties: geen volledig beeld</span></summary><p class="blok mening"><span class="lab mening">Mening</span><strong>Wat is er aan de hand?</strong> We konden de aankopen en verkopen van aandelen door bestuurders en directie in de 12 maanden vóór de peildatum niet nakijken: de meldingen op de website van Ørsted en bij GlobeNewswire waren niet bereikbaar. Zie &#x27;Onvoldoende info&#x27;.</p>
+      </details>
+  </section>
+  <section class="pdf-blok kaart">
+    <h2>Onvoldoende info gevonden</h2>
+    <div class="kader waarschuwing"><div class="t">Insidertransacties (12 maanden vóór de peildatum)</div>
+      Niets bruikbaars: enkel titels van meldingen uit januari–februari 2020 gevonden; voor de tweede helft van 2020 en begin 2021 niets.
+      <div class="bijschrift">Gezocht in 3 rondes: ronde 1: orsted.com company announcements (pagina laadt enkel met JavaScript); ronde 2: GlobeNewswire-archief (geweigerd, 403); ronde 3: WebSearch op directienamen + &#39;manager&#39;s transaction&#39; 2020 (enkel titels, geen bedragen)</div></div>
+    <div class="kader waarschuwing"><div class="t">Transcript van de analistencall van 3-2-2021</div>
+      De presentatie van de call is gelezen; het volledige transcript staat achter een betaalmuur (GuruFocus, roic.ai).
+      <div class="bijschrift">Gezocht in 3 rondes: ronde 1: orsted.com IR (niet bereikbaar); ronde 2: gurufocus/roic.ai (login vereist); ronde 3: pers over de call (geen bruikbaar verslag gevonden met datum vóór de peildatum)</div></div>
+    <div class="kader waarschuwing"><div class="t">Cijfers en waardering van concurrenten (RWE, Iberdrola, EDPR, SSE)</div>
+      Ørsted vergelijkt zelf met de MSCI Europe Utilities-index (−5% in 2020 tegenover Ørsted +80%); Bloomberg meldt recordwaarderingen in de groene sector. Verslagen van concurrenten zijn niet gelezen. Gevolg: de multiples in de scenario&#x27;s (13×, 18×, 24×) zijn eigen inschattingen, niet getoetst aan concurrenten.
+      <div class="bijschrift">Gezocht in 3 rondes: ronde 1: jaarverslag Ørsted p.74; ronde 2: Bloomberg 26-1-2021; ronde 3: niet verder gezocht — beperking van deze terugkijktest; open punt in de teamreview en meegenomen in de evaluatie</div></div>
+  </section>
+
+  <nav class="pdf-blok kaart inhoudstafel" id="details">
+    <div class="deel">Deel 4</div>
+    <h2>Details per thema</h2>
+    <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
+    <ol><li><a href="#bestuur">Bestuur &amp; aandeelhouders</a> <span class="kort">— R1 geraakt (Deense Staat 50,1%); onafhankelijke raad; redelijke verloning; nieuwe CEO</span></li><li><a href="#cijfers">Cijfers</a> <span class="kort">— EBITDA 18,1 mld (+4%), 81% uit wind op zee; winst gedragen door eenmalige verkoop; lage schuld</span></li><li><a href="#investeringen">Waarin investeren ze?</a> <span class="kort">— DKK 200 mld plan 2019–2025; 32–34 mld in 2021; verkoop van 50%-belangen als financieringsmodel</span></li><li><a href="#keten">De keten (2 niveaus)</a> <span class="kort">— Afhankelijk van overheidscontracten (CfD), turbineleverancier Siemens Gamesa, VS-vergunningen en kopers van belangen</span></li><li><a href="#sector">Sector &amp; concurrenten</a> <span class="kort">— Snel groeiende markt (±25 GW veilingen in 2021) maar zwaardere concurrentie (oliemaatschappijen); sector op recordwaardering</span></li><li><a href="#actualiteit">Actualiteit</a> <span class="kort">— Rente stijgt, groene aandelen op recordwaardering, Biden wil meer wind op zee, harde concurrentie in veilingen</span></li><li><a href="#earnings_call">Analistencall (3-2-2021)</a> <span class="kort">— Presentatie gelezen; transcript niet beschikbaar; toon: zelfzeker over groei</span></li><li><a href="#waardering">Waardering &amp; advies</a> <span class="kort">— ±26–30× EBITDA; onze waarde DKK 320–1.000 (centraal ±530); de koers vraagt een vereist rendement van ±3,9%</span></li><li><a href="#techniek">Koers &amp; techniek</a> <span class="kort">— Na een verdrievoudiging in 3 jaar 22% onder de top; korte trend daalt, lange trend stijgt</span></li><li><a href="#expert">Kritische expertblik</a> <span class="kort">— Pre-mortem: rente + duurdere bouw + lagere rendementen in veilingen</span></li><li><a href="#profiel">Toets aan jouw profiel</a> <span class="kort">— Herinvestering ✓, deels gereguleerd ✓; R1 ✗, hype-trekken in de koers ✗</span></li>
+    </ol>
+  </nav>
+  <details class="sectie pdf-blok" id="bestuur">
+    <summary><span><span class="nr">1.</span> Bestuur &amp; aandeelhouders<span class="kort">R1 geraakt (Deense Staat 50,1%); onafhankelijke raad; redelijke verloning; nieuwe CEO</span></span></summary>
+    <div class="inhoud">
+        <div class="tabel-titel">Aandeelhoudersstructuur<a class="ref" href="#bron-1">1</a></div>
+        <div class="ah-balk" role="img" aria-label="Verdeling van de aandelen; de drie grootste aandeelhouders samen 60,13%">
+          <div class="ah-spoor"><i class="top" style="width: 50.12%" title="Deense Staat (Ministerie van Financiën) 50,12%"></i><i class="top" style="width: 5.01%" title="Andel A.M.B.A. (Deense coöperatie, ex-SEAS-NVE) 5,01%"></i><i class="top" style="width: 5.0%" title="The Capital Group (VS, vermogensbeheerder) 5%"></i><i class="eigen" style="width: 0.07%" title="Eigen aandelen 0,07%"></i><i class="vrij" style="width: 39.8%" title="Vrij verhandelbaar (overige, restpost) 39,80%"></i><b class="ah-grens" style="left: 49%"><span>49%-grens</span></b></div>
+          <div class="pb-legende"><span><i class="k ah-top"></i>drie grootste aandeelhouders (60,13%)</span><span><i class="k ah-ander"></i>andere gemelde</span><span><i class="k ah-eigen"></i>eigen aandelen</span><span><i class="k ah-vrij"></i>vrij verhandelbaar</span></div>
+        </div>
+        <div class="tabelwrap"><table>
+          <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
+          <tbody><tr><td>Deense Staat (Ministerie van Financiën)<div class="bijschrift">rechtstreeks; meerderheidsaandeelhouder sinds de beursgang (2016)</div></td><td>50,12</td><td>50,74</td></tr><tr><td>Andel A.M.B.A. (Deense coöperatie, ex-SEAS-NVE)<div class="bijschrift">rechtstreeks</div></td><td>5,01</td><td>5,07</td></tr><tr><td>The Capital Group (VS, vermogensbeheerder)<div class="bijschrift">5–10% volgens het jaarverslag, exact cijfer niet publiek; hier de ondergrens (inschatting)</div></td><td>5</td><td></td></tr><tr><td>Eigen aandelen</td><td>0,07</td><td></td></tr><tr><td>Vrij verhandelbaar (overige, restpost)</td><td>39,80</td><td></td></tr></tbody>
+        </table></div><div class="kader waarschuwing"><div class="t">Regel R1 (> 49%): GERAAKT</div>Grootste aandeelhouder 50,12% · top 3 samen 60,13% kapitaal / 60,81% stemrecht.</div><p class="blok">De Deense Staat heeft 50,12% van het kapitaal en 50,74% van de stemmen (het verschil komt van volmachten op de algemene vergadering). Elke wijziging van de statuten vereist bovendien dat de Staat aanwezig is en akkoord gaat. Andel heeft 5,01% (5,07% van de stemmen), The Capital Group 5–10%. Het vrij verhandelbare deel is een restpost die afhangt van het werkelijke belang van Capital Group. Er is één soort aandeel.</p><p class="leestekst">Dit deel gaat over wie Ørsted controleert en wie het bedrijf leidt. Dat bepaalt of kleine aandeelhouders eerlijk behandeld worden (jouw regels R1 tot R6).</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> professioneel bestuurd bedrijf met een meerderheid voor de Deense Staat. Geen tekenen van zelfverrijking; wel een nieuwe CEO die nog moet tonen wat hij wil.</p>
+      <details class="uitklap onderdeel"><summary>Aandeelhouders (R1)</summary><p class="leestekst">Eerst wie de baas is. De Staat heeft net meer dan de helft, en de statuten geven hem bovendien een vetorecht op statutenwijzigingen.</p><p class="blok feit"><span class="lab feit">Feit</span>De Deense Staat bezit 50,12% van het kapitaal en 50,74% van de stemmen, Andel 5,01% (na een verkoop van 2,27% in januari 2020) en The Capital Group 5–10% van de stemmen (exact belang niet bekend). Particuliere beleggers hebben ±2%; 63% van de aandelen is in Deense handen. Er is één soort aandeel.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Wijziging van de statuten of ontbinding vereist dat de Staat deelneemt aan de algemene vergadering en akkoord gaat. De Staat werkt volgens het Deense eigendomsbeleid van 2015 en benoemt professionele bestuurders.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>Raad van bestuur en directie</summary><p class="leestekst">Naast de aandeelhouders: wie controleert het management, en wie leidt het?</p><p class="blok feit"><span class="lab feit">Feit</span>De raad telt negen leden: zes gekozen door de algemene vergadering en drie door de werknemers, onder voorzitter Thomas Thune Andersen. Geen enkel directielid zit in de raad. Mads Nipper volgde Henrik Poulsen op als CEO (aangesteld 9-9-2020, gestart in januari 2021). Met de nieuwe structuur vertrekken ook Anders Lindberg en Morten Hultberg Buchgreitz, en wordt Martin Neubert adjunct-CEO; er komt een nieuwe COO.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>Verloning (R2, R3)</summary><p class="leestekst">Verdient de leiding buitensporig veel? Dat is de vraag achter jouw regels R2 en R3.</p><p class="blok feit"><span class="lab feit">Feit</span>De directie (CEO en CFO samen) kreeg in 2020 DKK 22,0 mln (2019: 26,0 mln); dat bedrag is lager doordat Poulsen zijn aandelentoekenningen verloor. De vijf andere leden van het directiecomité kregen samen DKK 51,9 mln (2019: 51,4 mln), waarvan 9,8 mln als afhankelijke koopprijs van de overname van Lincoln Clean Energy. De raad van bestuur kreeg DKK 4,6 mln. Totaal: 78,5 mln. Bestuurders krijgen enkel een vaste vergoeding.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Voor een bedrijf van deze omvang (beurswaarde ±DKK 445 mld) is dit gematigd. Geen R2-vlag. Het aparte verloningsverslag hebben we niet gelezen, enkel de tabel in het jaarverslag.</p></details>
+      <details class="uitklap onderdeel"><summary>Commissaris</summary><p class="blok feit"><span class="lab feit">Feit</span>PwC is commissaris sinds 2010 en werd in maart 2020 na een aanbesteding herbenoemd. Het oordeel is zonder voorbehoud. De kernpunten van de controle zijn de boekhouding van de verkopen van 50%-belangen in windparken en de belastingen (onzekere posities en geschillen).<a class="ref" href="#bron-1">1</a></p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="cijfers">
+    <summary><span><span class="nr">2.</span> Cijfers<span class="kort">EBITDA 18,1 mld (+4%), 81% uit wind op zee; winst gedragen door eenmalige verkoop; lage schuld</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel toont hoe Ørsted financieel draait: hoeveel het verdient, waar dat vandaan komt en hoe zwaar de schulden wegen. Let op: veel cijfers van Ørsted schommelen door verkopen van belangen in windparken (eenmalige winsten).</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de terugkerende winst uit draaiende parken groeit stevig, maar de totale winst is grillig en steunt sterk op verkopen. De schuld is laag dankzij de verkoop van de Deense netten.</p>
+      <details class="uitklap onderdeel"><summary>Winst over 5 jaar</summary><p class="blok berekening"><span class="lab berekening">Berekening</span>Belangrijk: de EBITDA van 2017 en 2018 bevat grote eenmalige winsten op bouwcontracten en verkopen (13,7 mld in 2017, 18,8 mld in 2018; 1,6 mld in 2020). Zonder die winsten steeg de EBITDA van 8,9 mld (2017) naar 16,5 mld (2020), +87%. De winst uit draaiende wind- en zonneparken groeide 26% per jaar (doel: 20% per jaar tot 2023, naar DKK 25–26 mld).<a class="ref" href="#bron-1">1</a></p><p class="leestekst">Eerst de EBITDA: dat is de winst uit de activiteiten vóór rente, belastingen en afschrijvingen. 2018 springt eruit door de verkoop van 50% van Hornsea 1.</p><div class="grafiek-blok">
+    <div class="grafiek-titel">EBITDA en winst (mld DKK)<a class="ref" href="#bron-1">1</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="EBITDA en winst (mld DKK)" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="164.0" y2="164.0" class="g-raster"/><text x="46" y="168.0" text-anchor="end" class="g-as">10</text><line x1="52" x2="470" y1="88.0" y2="88.0" class="g-raster"/><text x="46" y="92.0" text-anchor="end" class="g-as">20</text><line x1="52" x2="470" y1="12.0" y2="12.0" class="g-raster"/><text x="46" y="16.0" text-anchor="end" class="g-as">30</text><path d="M64.8,240.0 V98.8 Q64.8,94.8 68.8,94.8 H88.8 Q92.8,94.8 92.8,98.8 V240.0 Z" fill="#2a78d6"><title>EBITDA 2016: 19,10 mld DKK</title></path><path d="M94.8,240.0 V151.3 Q94.8,147.3 98.8,147.3 H118.8 Q122.8,147.3 122.8,151.3 V240.0 Z" fill="#eb6834"><title>Winst (voortgezette activiteiten) 2016: 12,20 mld DKK</title></path><path d="M148.4,240.0 V73.0 Q148.4,69.0 152.4,69.0 H172.4 Q176.4,69.0 176.4,73.0 V240.0 Z" fill="#2a78d6"><title>EBITDA 2017: 22,50 mld DKK</title></path><path d="M178.4,240.0 V142.9 Q178.4,138.9 182.4,138.9 H202.4 Q206.4,138.9 206.4,142.9 V240.0 Z" fill="#eb6834"><title>Winst (voortgezette activiteiten) 2017: 13,30 mld DKK</title></path><path d="M232.0,240.0 V16.0 Q232.0,12.0 236.0,12.0 H256.0 Q260.0,12.0 260.0,16.0 V240.0 Z" fill="#2a78d6"><title>EBITDA 2018: 30 mld DKK</title></path><path d="M262.0,240.0 V95.8 Q262.0,91.8 266.0,91.8 H286.0 Q290.0,91.8 290.0,95.8 V240.0 Z" fill="#eb6834"><title>Winst (voortgezette activiteiten) 2018: 19,50 mld DKK</title></path><path d="M315.6,240.0 V111.0 Q315.6,107.0 319.6,107.0 H339.6 Q343.6,107.0 343.6,111.0 V240.0 Z" fill="#2a78d6"><title>EBITDA 2019: 17,50 mld DKK</title></path><path d="M345.6,240.0 V197.6 Q345.6,193.6 349.6,193.6 H369.6 Q373.6,193.6 373.6,197.6 V240.0 Z" fill="#eb6834"><title>Winst (voortgezette activiteiten) 2019: 6,10 mld DKK</title></path><path d="M399.2,240.0 V106.4 Q399.2,102.4 403.2,102.4 H423.2 Q427.2,102.4 427.2,106.4 V240.0 Z" fill="#2a78d6"><title>EBITDA 2020: 18,10 mld DKK</title></path><path d="M429.2,240.0 V117.1 Q429.2,113.1 433.2,113.1 H453.2 Q457.2,113.1 457.2,117.1 V240.0 Z" fill="#eb6834"><title>Winst (voortgezette activiteiten) 2020: 16,70 mld DKK</title></path><text x="93.8" y="258" text-anchor="middle" class="g-as">2016</text><text x="177.4" y="258" text-anchor="middle" class="g-as">2017</text><text x="261.0" y="258" text-anchor="middle" class="g-as">2018</text><text x="344.6" y="258" text-anchor="middle" class="g-as">2019</text><text x="428.2" y="258" text-anchor="middle" class="g-as">2020</text></svg><div class="g-legende"><span><i style="background:#2a78d6"></i>EBITDA</span><span><i style="background:#eb6834"></i>Winst (voortgezette activiteiten)</span></div><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>EBITDA</th><th>Winst (voortgezette activiteiten)</th></tr></thead><tbody><tr><td>2016</td><td>19,10 mld DKK</td><td>12,20 mld DKK</td></tr><tr><td>2017</td><td>22,50 mld DKK</td><td>13,30 mld DKK</td></tr><tr><td>2018</td><td>30 mld DKK</td><td>19,50 mld DKK</td></tr><tr><td>2019</td><td>17,50 mld DKK</td><td>6,10 mld DKK</td></tr><tr><td>2020</td><td>18,10 mld DKK</td><td>16,70 mld DKK</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>Wat zie je hier? De EBITDA steeg in 2020 met 4% tot DKK 18,1 mld. De winst van 16,7 mld bevat een eenmalige <span class="term" tabindex="0" role="button" aria-expanded="false">meerwaarde</span><span class="uitleg">winst op de verkoop van een bezit</span> van 10,8 mld op verkopen (Deense netten 10,9 mld, min een verlies op LNG); zonder die meerwaarde blijft ±5,9 mld over.<a class="ref" href="#bron-1">1</a></p><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">EBITDA 2020</div>
+        <div class="w">DKK 18,1 mld <span class="trend op">▲</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab feit">Feit</span>+4%</div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Winst uit de activiteiten vóór rente, belastingen en afschrijvingen.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Licht hoger dan 2019, maar lager dan 2017 en 2018 (toen grote verkoopwinsten).</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Waarvan wind op zee</div>
+        <div class="w">DKK 14,75 mld <span class="trend neer">▼</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab feit">Feit</span>81% van het totaal</div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Winst uit de windparken op zee: verkoop van stroom, onderhoud en bouwcontracten voor partners.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>De draaiende parken verdienden meer (15,5 mld), maar er waren minder eenmalige verkoopwinsten.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Verwachting EBITDA 2021</div>
+        <div class="w">DKK 15–16 mld <span class="trend neer">▼</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab feit">Feit</span>zonder nieuwe verkopen</div><div class="beoordeling zwak"><i></i>zwak</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Wat Ørsted zelf verwacht voor 2021, zonder winst uit nieuwe verkopen van belangen.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Lager dan 2020: Deense netten verkocht, geen winst uit bestaande partnerships meer, normaal windjaar verwacht.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Winst zonder meerwaarde</div>
+        <div class="w">±DKK 5,9 mld <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab berekening">Berekening</span>16,7 − 10,8</div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Nettowinst 2020 zonder de eenmalige meerwaarde op de verkoop van de Deense netten.</p><p><strong>Hoe berekend?</strong> Winst voortgezette activiteiten 16.727 min &#x27;gain on divestment of enterprises&#x27; 10.831 (mln DKK). Benadering: bevat ook het deel van hybride beleggers en minderheden.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Vergelijkbaar met 2019 (6,1 mld).</p>
+        </div>
+      </details>
+    </div></details>
+      <details class="uitklap onderdeel"><summary>Kasstroom en investeringen</summary><p class="leestekst">Een bouwer van windparken geeft eerst veel geld uit en verdient het pas jaren later terug. Daarom is de kasstroom belangrijk.</p><div class="grafiek-blok">
+    <div class="grafiek-titel">Kasstroom (mld DKK)<a class="ref" href="#bron-1">1</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Kasstroom (mld DKK)" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="164.0" y2="164.0" class="g-raster"/><text x="46" y="168.0" text-anchor="end" class="g-as">10</text><line x1="52" x2="470" y1="88.0" y2="88.0" class="g-raster"/><text x="46" y="92.0" text-anchor="end" class="g-as">20</text><line x1="52" x2="470" y1="12.0" y2="12.0" class="g-raster"/><text x="46" y="16.0" text-anchor="end" class="g-as">30</text><path d="M56.0,240.0 V158.1 Q56.0,154.1 60.0,154.1 H75.9 Q79.9,154.1 79.9,158.1 V240.0 Z" fill="#2a78d6"><title>Operationele kasstroom 2016: 11,30 mld DKK</title></path><path d="M81.9,240.0 V130.0 Q81.9,126.0 85.9,126.0 H101.7 Q105.7,126.0 105.7,130.0 V240.0 Z" fill="#eb6834"><title>Bruto-investeringen 2016: 15 mld DKK</title></path><path d="M107.7,240.0 V174.8 Q107.7,170.8 111.7,170.8 H127.6 Q131.6,170.8 131.6,174.8 V240.0 Z" fill="#1baf7a"><title>Verkopen (desinvesteringen) 2016: 9,10 mld DKK</title></path><path d="M139.6,240.0 V236.4 Q139.6,232.4 143.6,232.4 H159.5 Q163.5,232.4 163.5,236.4 V240.0 Z" fill="#2a78d6"><title>Operationele kasstroom 2017: 1 mld DKK</title></path><path d="M165.5,240.0 V109.5 Q165.5,105.5 169.5,105.5 H185.3 Q189.3,105.5 189.3,109.5 V240.0 Z" fill="#eb6834"><title>Bruto-investeringen 2017: 17,70 mld DKK</title></path><path d="M191.3,240.0 V114.8 Q191.3,110.8 195.3,110.8 H211.2 Q215.2,110.8 215.2,114.8 V240.0 Z" fill="#1baf7a"><title>Verkopen (desinvesteringen) 2017: 17 mld DKK</title></path><path d="M223.2,240.0 V165.7 Q223.2,161.7 227.2,161.7 H243.1 Q247.1,161.7 247.1,165.7 V240.0 Z" fill="#2a78d6"><title>Operationele kasstroom 2018: 10,30 mld DKK</title></path><path d="M249.1,240.0 V57.8 Q249.1,53.8 253.1,53.8 H268.9 Q272.9,53.8 272.9,57.8 V240.0 Z" fill="#eb6834"><title>Bruto-investeringen 2018: 24,50 mld DKK</title></path><path d="M274.9,240.0 V92.0 Q274.9,88.0 278.9,88.0 H294.8 Q298.8,88.0 298.8,92.0 V240.0 Z" fill="#1baf7a"><title>Verkopen (desinvesteringen) 2018: 20 mld DKK</title></path><path d="M306.8,240.0 V144.4 Q306.8,140.4 310.8,140.4 H326.7 Q330.7,140.4 330.7,144.4 V240.0 Z" fill="#2a78d6"><title>Operationele kasstroom 2019: 13,10 mld DKK</title></path><path d="M332.7,240.0 V66.9 Q332.7,62.9 336.7,62.9 H352.5 Q356.5,62.9 356.5,66.9 V240.0 Z" fill="#eb6834"><title>Bruto-investeringen 2019: 23,30 mld DKK</title></path><path d="M358.5,240.0 V218.9 Q358.5,214.9 362.5,214.9 H378.4 Q382.4,214.9 382.4,218.9 V240.0 Z" fill="#1baf7a"><title>Verkopen (desinvesteringen) 2019: 3,30 mld DKK</title></path><path d="M390.4,240.0 V118.6 Q390.4,114.6 394.4,114.6 H410.3 Q414.3,114.6 414.3,118.6 V240.0 Z" fill="#2a78d6"><title>Operationele kasstroom 2020: 16,50 mld DKK</title></path><path d="M416.3,240.0 V38.8 Q416.3,34.8 420.3,34.8 H436.1 Q440.1,34.8 440.1,38.8 V240.0 Z" fill="#eb6834"><title>Bruto-investeringen 2020: 27 mld DKK</title></path><path d="M442.1,240.0 V99.6 Q442.1,95.6 446.1,95.6 H462.0 Q466.0,95.6 466.0,99.6 V240.0 Z" fill="#1baf7a"><title>Verkopen (desinvesteringen) 2020: 19 mld DKK</title></path><text x="93.8" y="258" text-anchor="middle" class="g-as">2016</text><text x="177.4" y="258" text-anchor="middle" class="g-as">2017</text><text x="261.0" y="258" text-anchor="middle" class="g-as">2018</text><text x="344.6" y="258" text-anchor="middle" class="g-as">2019</text><text x="428.2" y="258" text-anchor="middle" class="g-as">2020</text></svg><div class="g-legende"><span><i style="background:#2a78d6"></i>Operationele kasstroom</span><span><i style="background:#eb6834"></i>Bruto-investeringen</span><span><i style="background:#1baf7a"></i>Verkopen (desinvesteringen)</span></div><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Operationele kasstroom</th><th>Bruto-investeringen</th><th>Verkopen (desinvesteringen)</th></tr></thead><tbody><tr><td>2016</td><td>11,30 mld DKK</td><td>15 mld DKK</td><td>9,10 mld DKK</td></tr><tr><td>2017</td><td>1 mld DKK</td><td>17,70 mld DKK</td><td>17 mld DKK</td></tr><tr><td>2018</td><td>10,30 mld DKK</td><td>24,50 mld DKK</td><td>20 mld DKK</td></tr><tr><td>2019</td><td>13,10 mld DKK</td><td>23,30 mld DKK</td><td>3,30 mld DKK</td></tr><tr><td>2020</td><td>16,50 mld DKK</td><td>27 mld DKK</td><td>19 mld DKK</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok berekening"><span class="lab berekening">Berekening</span>Wat zie je hier? Elk jaar investeert Ørsted meer dan de activiteiten opbrengen. Het tekort wordt gedekt door belangen te verkopen. In 2020: 16,5 mld kasstroom − 27,0 mld investeringen + 19,0 mld verkopen = 8,5 mld vrije kasstroom; zonder verkopen −10,5 mld.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>Schulden</summary><p class="leestekst">Hoe zwaar wegen de schulden? Ørsted heeft een eigen doel en een minimale kredietrating vastgelegd.</p><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Netto rentedragende schuld</div>
+        <div class="w">DKK 12,3 mld <span class="trend neer">▼</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab feit">Feit</span>2019: 17,2 mld</div><div class="beoordeling goed"><i></i>goed</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Leningen min kaspositie.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Laag tegenover een EBITDA van 18,1 mld (±0,7×).</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">FFO / aangepaste netto schuld</div>
+        <div class="w">48% <span class="trend op">▲</span><a class="ref" href="#bron-1">1</a></div><div class="t"><span class="lab feit">Feit</span>doel ±30%</div><div class="beoordeling goed"><i></i>goed</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Kasstroom uit de activiteiten gedeeld door de schuld (inclusief de helft van het hybride kapitaal). Hoe hoger, hoe veiliger.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Ruim boven het eigen doel; er is ruimte voor meer schuld om de bouw te betalen.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Hybride kapitaal</div>
+        <div class="w">DKK 13,2 mld <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Een soort eeuwigdurende lening (looptijd 1.000 jaar) die half als eigen vermogen telt bij de kredietbeoordelaars.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Stabiel sinds 2016.</p>
+        </div>
+      </details>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>Ørsted wil minstens een rating BBB+/Baa1 behouden; dat komt eerst in de volgorde van kapitaalgebruik, vóór het dividend en vóór groei. De schuld zonder hybride kapitaal was 37,1 mld, waarvan meer dan de helft als &#x27;groene&#x27; obligaties.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>Rendement op kapitaal en dividend</summary><p class="blok feit"><span class="lab feit">Feit</span>Het rendement op het geïnvesteerde kapitaal (<span class="term" tabindex="0" role="button" aria-expanded="false">ROCE</span><span class="uitleg">winst vóór rente en belastingen gedeeld door het gemiddelde geïnvesteerde kapitaal</span>) was 9,7% in 2020, in lijn met het doel van gemiddeld ±10% voor 2019–2025. Het dividend stijgt met 9,5% tot DKK 11,5 per aandeel (4,8 mld); Ørsted wil het tot 2025 jaarlijks met een hoog enkelcijferig percentage verhogen.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Dividendrendement bij DKK 1.058: 11,5 / 1.058 = <strong>1,1%</strong>. Uitkering: 4,8 mld op een winst zonder meerwaarde van ±5,9 mld (±80%).<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="investeringen">
+    <summary><span><span class="nr">3.</span> Waarin investeren ze?<span class="kort">DKK 200 mld plan 2019–2025; 32–34 mld in 2021; verkoop van 50%-belangen als financieringsmodel</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel gaat over waar het geld naartoe gaat. Bij Ørsted is dat de kern van het verhaal: bijna alles gaat naar nieuwe wind- en zonneparken.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> veel herinvestering, wat bij jouw profiel past. Maar het model hangt af van één ding: partners (vooral pensioenfondsen) die graag 50% van een park kopen. Dat lukt het best als de rente laag is.</p>
+      <details class="uitklap onderdeel"><summary>Het investeringsplan</summary><p class="blok feit"><span class="lab feit">Feit</span>Ørsted investeert DKK 200 mld tussen 2019 en 2025, voor meer dan 95% in wind op zee, wind op land en zon. In 2019–2020 ging al 50 mld uit (35 mld op zee, 13 mld op land). Voor 2021 verwacht Ørsted 32–34 mld. Doel: meer dan 30 GW groene capaciteit in 2030 (11,3 GW eind 2020, 4,0 GW in aanbouw, 5,0 GW toegekend).<a class="ref" href="#bron-1">1</a></p><div class="grafiek-blok">
+    <div class="grafiek-titel">Geïnstalleerde groene capaciteit (GW)<a class="ref" href="#bron-1">1</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Geïnstalleerde groene capaciteit (GW)" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="194.4" y2="194.4" class="g-raster"/><text x="46" y="198.4" text-anchor="end" class="g-as">2,50</text><line x1="52" x2="470" y1="148.8" y2="148.8" class="g-raster"/><text x="46" y="152.8" text-anchor="end" class="g-as">5</text><line x1="52" x2="470" y1="103.2" y2="103.2" class="g-raster"/><text x="46" y="107.2" text-anchor="end" class="g-as">7,50</text><line x1="52" x2="470" y1="57.6" y2="57.6" class="g-raster"/><text x="46" y="61.6" text-anchor="end" class="g-as">10</text><line x1="52" x2="470" y1="12.0" y2="12.0" class="g-raster"/><text x="46" y="16.0" text-anchor="end" class="g-as">12,50</text><path d="M107.7,240.0 V92.6 Q107.7,88.6 111.7,88.6 H131.7 Q135.7,88.6 135.7,92.6 V240.0 Z" fill="#2a78d6"><title>Capaciteit 2018: 8,30 GW</title></path><path d="M247.0,240.0 V63.4 Q247.0,59.4 251.0,59.4 H271.0 Q275.0,59.4 275.0,63.4 V240.0 Z" fill="#2a78d6"><title>Capaciteit 2019: 9,90 GW</title></path><path d="M386.3,240.0 V37.9 Q386.3,33.9 390.3,33.9 H410.3 Q414.3,33.9 414.3,37.9 V240.0 Z" fill="#2a78d6"><title>Capaciteit 2020: 11,30 GW</title></path><text x="121.7" y="258" text-anchor="middle" class="g-as">2018</text><text x="261.0" y="258" text-anchor="middle" class="g-as">2019</text><text x="400.3" y="258" text-anchor="middle" class="g-as">2020</text></svg><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Capaciteit</th></tr></thead><tbody><tr><td>2018</td><td>8,30 GW</td></tr><tr><td>2019</td><td>9,90 GW</td></tr><tr><td>2020</td><td>11,30 GW</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="leestekst">Wat zie je hier? De capaciteit groeit met 14–20% per jaar; het doel van 30 GW in 2030 vraagt bijna een verdrievoudiging.</p></details>
+      <details class="uitklap onderdeel"><summary>Het financieringsmodel: de helft van een park verkopen (&#34;farm-down&#34;)</summary><p class="blok feit"><span class="lab feit">Feit</span>Ørsted bouwt een park, verkoopt 50% aan een partner (bv. Changhua 1 aan het Canadese pensioenfonds CDPQ en Cathay PE in december 2020; 25% van Ocean Wind aan PSEG) en bouwt het park daarna voor die partner af. De winst daarop heet &#x27;partnerships&#x27; en is moeilijk te voorspellen; Ørsted rekent ze daarom niet in zijn verwachtingen.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Ørsted schrijft zelf dat dit model gevoelig is voor de rente: windparken zijn aantrekkelijker voor kopers als de rente laag is in vergelijking met andere beleggingen met een vergelijkbaar risico.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Dit is een belangrijk punt voor de waardering: als de rente stijgt, dalen zowel de verkoopprijzen van belangen als de waarde van de toekomstige kasstromen.</p></details>
+      <details class="uitklap onderdeel"><summary>Grootste bouwprojecten</summary><p class="blok feit"><span class="lab feit">Feit</span>Hornsea 2 (1.386 MW, VK) en Greater Changhua 1&amp;2a (900 MW, Taiwan) moeten in 2022 klaar zijn; volgens de presentatie lopen alle projecten volgens plan. In de VS zijn vijf parken op zee in ontwikkeling; de start van de bouw van vier ervan schuift waarschijnlijk op na 2023/2024 door wachten op de federale vergunningsdienst BOEM.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></p><p class="blok feit"><span class="lab feit">Feit</span>Nieuw in de pijplijn: in december 2020 kreeg Ørsted de vergunning voor Hornsea 3 (VK, meer dan 2,4 GW), dat kan meedingen in de volgende Britse veiling. In de VS verlengde de overheid de belastingvoordelen voor wind op zee (10 jaar &#x27;<span class="term" tabindex="0" role="button" aria-expanded="false">safe harbour</span><span class="uitleg">garantie dat een project de belastingvoordelen behoudt als de bouw op tijd start</span>&#x27; en een nieuw belastingkrediet van 30% op de investering).<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Op 10-2-2021 tekende Ørsted met het Poolse PGE een 50/50-samenwerking voor de parken Baltica 2 en 3 (samen 2,5 GW). Ørsted betaalt PLN 657 mln (±€147 mln) voor nieuwe aandelen; beide projecten kunnen meedingen in de Poolse toewijzing van 2021.<a class="ref" href="#bron-12">12</a></p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="keten">
+    <summary><span><span class="nr">4.</span> De keten (2 niveaus)<span class="kort">Afhankelijk van overheidscontracten (CfD), turbineleverancier Siemens Gamesa, VS-vergunningen en kopers van belangen</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel kijkt naar de partijen waarvan Ørsted afhankelijk is: wie koopt de stroom, wie levert de turbines, wie keurt projecten goed en wie koopt belangen in de parken.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de inkomsten zijn grotendeels vastgelegd (vaste prijzen of subsidies). De grote afhankelijkheden zitten aan de kant van de kosten en de vergunningen: turbines, schepen, bouwhavens en overheden.</p>
+        <div class="tabel-titel">De keten in één beeld</div>
+        <div class="keten">
+          <div class="kt-centrum">Ørsted</div>
+          <ul class="kt-takken">
+            <li><div class="kt-tak"><strong>Windparken op zee in bedrijf</strong><span class="kt-gewicht">±81% van EBITDA</span><div class="kt-uitleg">VK, Duitsland, Denemarken, Nederland</div></div><ul class="kt-onder"><li><strong>Britse CfD-regeling</strong> — vaste prijs per MWh</li><li><strong>Hornsea 1, Walney, Borssele 1&amp;2</strong> — grootste parken</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>Bouwprogramma</strong><span class="kt-gewicht">DKK 32–34 mld in 2021</span><div class="kt-uitleg">Hornsea 2 en Greater Changhua 1&amp;2a (2022)</div></div><ul class="kt-onder"><li><strong>Siemens Gamesa</strong> — turbineleverancier</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>VS-projecten op zee</strong><span class="kt-gewicht">toekomst</span><div class="kt-uitleg">Ocean Wind, Sunrise, Revolution, South Fork, Skipjack</div></div><ul class="kt-onder"><li><strong>BOEM (federale vergunningen)</strong> — vertraging</li><li><strong>Partners Eversource en PSEG</strong> — mede-eigenaars</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>Partners die 50% overnemen (farm-down)</strong><span class="kt-gewicht">kern van het model</span><div class="kt-uitleg">bv. CDPQ en Cathay PE in Changhua 1</div></div><ul class="kt-onder"><li><strong>Rente</strong> — lagere rente = hogere verkoopprijs</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>Grote afnemers</strong><span class="kt-gewicht">langlopende contracten</span><div class="kt-uitleg">TSMC (20 jaar), Amazon (10 jaar)</div></div>
+            </li>
+            <li><div class="kt-tak"><strong>Wind op land en zon (VS)</strong><span class="kt-gewicht">±6% van EBITDA</span><div class="kt-uitleg">Texas, Nebraska, Alabama</div></div>
+            </li>
+          </ul>
+        </div>
+        <div class="bijschrift">Niveau 1 (kaders) en niveau 2 (lijntjes eronder). Dit is een samenvatting: cijfers en bronnen staan in de onderdelen hieronder.</div>
+      <details class="uitklap onderdeel"><summary>1. Overheden en contracten (vaste prijzen)</summary><p class="blok feit"><span class="lab feit">Feit</span>De parken op zee hebben grotendeels gereguleerde prijzen: een vaste prijs per MWh voor de meeste parken in Denemarken, Duitsland en Nederland en de Britse <span class="term" tabindex="0" role="button" aria-expanded="false">CfD</span><span class="uitleg">Britse regeling met een vaste stroomprijs per MWh voor 15 jaar</span>-parken. Ørsted verwacht dat gemiddeld ±90% van de EBITDA in 2019–2025 uit langlopende contracten of gereguleerde activiteiten komt. De VS-parken krijgen ±20 jaar een vaste prijs.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Keerzijde: vaste nominale prijzen verliezen reële waarde als de inflatie stijgt. Ørsted dekt dat deels af met leningen aan vaste rente in dezelfde munt.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>2. Turbineleverancier Siemens Gamesa</summary><p class="blok feit"><span class="lab feit">Feit</span>Siemens Gamesa levert de 8 MW-turbines voor o.a. Borssele 1&amp;2 en is voorkeursleverancier (11 MW-turbines) voor Borkum Riffgrund 3 en Gode Wind 3.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Niveau 2: Siemens Gamesa boekte in het eerste kwartaal van zijn boekjaar 2021 (oktober–december 2020) geen enkele nieuwe order voor wind op zee en verwacht die in de volgende kwartalen; de omzet steeg 15% tot €2,3 mld en de bedrijfsmarge (vóór bijzondere kosten) was 5,3%. Siemens Gamesa bevestigde zijn verwachting voor 2021 (marge 3–5%).<a class="ref" href="#bron-14">14</a></p><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit voor Ørsted? De leverancier heeft lage marges; tegenvallers bij Siemens Gamesa kunnen doorwerken in levertijden of prijzen. We hebben geen aanwijzing van problemen bij lopende Ørsted-projecten.</p></details>
+      <details class="uitklap onderdeel"><summary>3. VS: vergunningen en partners</summary><p class="blok feit"><span class="lab feit">Feit</span>De VS-projecten (Revolution Wind, Ocean Wind 1, Skipjack, Sunrise Wind en South Fork) hangen af van de federale dienst BOEM. Ørsted noemt de bouw in de VS het vierde grootste risico: onrijpe markt, lokale-inhoudvereisten, beperkte havens en schepen. Partners: Eversource (Revolution, Sunrise, South Fork) en PSEG (25% Ocean Wind 1).<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>President Biden tekende op 27-1-2021 een decreet waarin het ministerie van Binnenlandse Zaken stappen moet zoeken om de productie van wind op zee tegen 2030 te verdubbelen. Op 3-2-2021 kondigde BOEM aan dat het de beoordeling van Vineyard Wind (een project van andere bedrijven) hervat.<a class="ref" href="#bron-11">11</a><a class="ref" href="#bron-6">6</a><a class="ref" href="#bron-9">9</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span>Positief signaal voor het tempo van vergunningen, maar nog geen vergunning voor een Ørsted-project: volgens het jaarverslag schuift de bouwstart van vier Ørsted-projecten wellicht op na 2023/2024. Ørsted noemt zelf mogelijke &#x27;vertragingen en/of kostenoverschrijdingen&#x27; als gevolg.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>4. Kopers van belangen en grote afnemers</summary><p class="blok feit"><span class="lab feit">Feit</span>Kopers van 50%-belangen zijn vooral pensioenfondsen en infrastructuurbeleggers (CDPQ, Cathay PE, PSEG). Grote afnemers met langlopende contracten zijn TSMC (20 jaar vaste prijs voor Changhua 2b&amp;4, 920 MW, vanaf 2025/26) en Amazon (10 jaar, 250 MW van Borkum Riffgrund 3).<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? De klanten zijn sterk, maar het model heeft een gemeenschappelijke zwakke plek: alles is gebouwd op goedkoop geld. Stijgt de rente, dan betalen partners minder en wordt de bouw duurder om te financieren.</p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="sector">
+    <summary><span><span class="nr">5.</span> Sector &amp; concurrenten<span class="kort">Snel groeiende markt (±25 GW veilingen in 2021) maar zwaardere concurrentie (oliemaatschappijen); sector op recordwaardering</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel kijkt naar de markt voor windenergie op zee en naar de concurrenten. Belangrijk, omdat de rendementen van Ørsted afhangen van hoeveel concurrenten meebieden.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de markt groeit snel, maar de concurrentie wordt harder. Nieuwe spelers zoals oliemaatschappijen betalen hoge prijzen voor zeebodem en contracten, wat de rendementen drukt.</p>
+      <details class="uitklap onderdeel"><summary>Groeimarkt</summary><p class="blok feit"><span class="lab feit">Feit</span>Ørsted verwacht in 2021 veilingen en aanbestedingen voor ±25 GW, waaronder de Britse subsidieveiling (CfD-ronde 4, tot 12 GW, tweede helft 2021), New Jersey 2, de eerste Japanse ronde en een Pools programma van 5,9 GW. Het VK wil naar 40 GW wind op zee in 2030.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-7">7</a></p></details>
+      <details class="uitklap onderdeel"><summary>Zwaardere concurrentie</summary><p class="blok feit"><span class="lab feit">Feit</span>Ørsted schrijft dat de prijsdruk in veilingen groter is dan de kostendaling kan verklaren, en heeft concurrentie daarom opgewaardeerd tot zijn derde grootste risico. Het verwacht oliemaatschappijen, nutsbedrijven, institutionele beleggers en regionale ontwikkelaars als concurrenten.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Los daarvan maakte de Britse Crown Estate op 8-2-2021 de resultaten bekend van de verhuur van nieuwe zeebodem (leasing Round 4, bijna 8 GW). Bieders moesten voor het eerst een jaarlijkse <span class="term" tabindex="0" role="button" aria-expanded="false">option fee</span><span class="uitleg">jaarlijkse huur voor het recht om op een stuk zeebodem een park te ontwikkelen</span> bieden. WindEurope en RenewableUK waarschuwden dat de zeer hoge biedingen de kosten van wind op zee verhogen.<a class="ref" href="#bron-7">7</a><a class="ref" href="#bron-15">15</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span>De winnaars waren RWE, EnBW met BP, Total met Green Investment Group en Offshore Wind Limited; Ørsted stond er niet bij. Of Ørsted meebood, vonden we niet. Het kan dus zowel een gemiste kans zijn als discipline (geen dure huur betalen). In de dagen erna daalde de koers 4,3% (8-2) en 4,6% (9-2); een verband is niet bewezen.<a class="ref" href="#bron-7">7</a><a class="ref" href="#bron-3">3</a></p></details>
+      <details class="uitklap onderdeel"><summary>Waardering van de sector</summary><p class="blok feit"><span class="lab feit">Feit</span>Bloomberg schreef op 26-1-2021 dat een recordinstroom van geld in groene fondsen (ESG-ETF&#x27;s: beursfondsen die beleggen volgens milieu- en bestuurscriteria) de koersen van groene aandelen opdreef. De MSCI Global Environment-index steeg 93% in 2020. Volgens strategen van Bank of America viel de stijging van meer dan 40% van Ørsted, EDP Renováveis en Verbund in het vierde kwartaal samen met een verviervoudiging van de instroom in het iShares Global Clean Energy-fonds.<a class="ref" href="#bron-8">8</a></p><p class="blok feit"><span class="lab feit">Feit</span>Ter vergelijking: de Europese nutsbedrijven (MSCI Europe Utilities) daalden 5% in 2020, de Deense C25-index steeg 34%, Ørsted zelf 80%.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? Een deel van de koersstijging komt niet van betere resultaten, maar van geld dat in fondsen stroomt die Ørsted &#x27;moeten&#x27; kopen. Dat geld kan even snel weer wegvloeien.</p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="actualiteit">
+    <summary><span><span class="nr">6.</span> Actualiteit<span class="kort">Rente stijgt, groene aandelen op recordwaardering, Biden wil meer wind op zee, harde concurrentie in veilingen</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel gaat over wat er rond Ørsted gebeurde en speelt tot 15-2-2021, en wat eraan komt. Belangrijk: alles is beoordeeld met de kennis van die datum.</p><div class="kader mening"><div class="t">Besluit: wat betekent de actualiteit voor Ørsted?</div>De drie belangrijkste drijvers:<br>1. <strong>De rente en de inflatieverwachting stijgen</strong>, al blijven ze laag (VS 10 jaar: 0,93% eind 2020 → 1,20%; verwachte inflatie 2,21%, hoogste sinds 2014). Voor Ørsted is dat risico nummer 1.<br>2. <strong>Groene aandelen zijn duur geworden</strong>, mee door geld dat in groene fondsen stroomde.<br>3. <strong>De concurrentie wordt harder</strong> (zeer hoge biedingen voor Britse zeebodem).<br>Tegenwicht: de regering-Biden wil wind op zee tegen 2030 verdubbelen, Ørsted kreeg de vergunning voor Hornsea 3 en stapt in Polen in (Baltica, 2,5 GW).<br>Netto: risico op korte termijn voor de koers, positief voor het bedrijf op lange termijn. <strong>Gevolg voor het advies: Afwachten, 5/10</strong> — niet omdat het bedrijf slecht is, maar omdat de prijs weinig ruimte laat voor tegenvallers.</div>
+      <details class="uitklap onderdeel"><summary>Impact per onderwerp</summary><p class="leestekst">Schaal: klein (&lt;1% van de waarde), middel (1–3%), groot (&gt;3%). ▲ positief, ▼ negatief.</p><ul class="blokken">
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Stijgende rente — ▼ groot.</strong> Als het vereiste rendement met 1 procentpunt stijgt (bv. door een hogere rente) (van 5,5 naar 6,5%) verlaagt onze waardering met ±⅓; ook de prijs die partners voor de helft van een park betalen, daalt.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Instroom in groene fondsen — ▼▲ groot.</strong> Duwde de koers omhoog (+80% in 2020); als de instroom stopt, kan het omgekeerde gebeuren.<a class="ref" href="#bron-8">8</a><a class="ref" href="#bron-1">1</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>VS-beleid onder Biden — ▲ middel.</strong> Doel: wind op zee verdubbelen tegen 2030; tempo voor de Ørsted-parken zelf nog onbekend.<a class="ref" href="#bron-11">11</a><a class="ref" href="#bron-6">6</a><a class="ref" href="#bron-1">1</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Nieuwe projecten (Hornsea 3, Baltica) — ▲ middel.</strong> Groeimogelijkheden van samen ±4,9 GW (waarvan ±3,7 GW voor Ørsted, want Baltica is 50/50), maar nog zonder vaste prijs.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-12">12</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Hoge biedingen voor Britse zeebodem — ▼▲ onzeker.</strong> Toont dat nieuwe spelers veel betalen; voor Ørsted zelf richting onbekend.<a class="ref" href="#bron-7">7</a><a class="ref" href="#bron-15">15</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Lagere winst in 2021 — ▼ klein.</strong> De verwachting (15–16 mld) is lager dan 2020, vooral door eenmalige effecten.<a class="ref" href="#bron-1">1</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat zie je hier? De grote factoren (rente en geldstromen) liggen buiten de controle van Ørsted, en de koers is daar erg gevoelig voor.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat gebeurde er? (2020)</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>Ørsted verkocht zijn Deense netten en klanten (DKK 20,5 mld) en zijn LNG-activiteiten, en tekende het grootste groene stroomcontract ooit met TSMC.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>COVID-19 vertraagde de bouw van Hornsea 2 en drukte de Britse stroomprijzen, maar de winst lag boven de verwachting door sterke wind (9,7 m/s tegenover normaal 9,3).<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>CEO Henrik Poulsen vertrok; Mads Nipper werd CEO.<a class="ref" href="#bron-1">1</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? 2020 was een sterk jaar, maar met hulp van de wind en eenmalige verkopen.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat speelt er nu? (november 2020 – februari 2021)</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>De Amerikaanse 10-jaarsrente steeg van 0,52% (4-8-2020) en 0,93% (31-12-2020) naar 1,20% (12-2-2021); vóór COVID was ze 1,92% (eind 2019). De verwachte inflatie voor 10 jaar steeg van 1,57% naar 2,21%; de reële rente (rente min verwachte inflatie) bleef zeer negatief (−1,01%). De Europese 10-jaarsrente (AAA) was −0,42% op 12-2-2021.<a class="ref" href="#bron-4">4</a><a class="ref" href="#bron-10">10</a><a class="ref" href="#bron-5">5</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>De koers bereikte 1.355 op 7-1-2021 en zakte daarna 22% tot 1.058 op 15-2-2021.<a class="ref" href="#bron-3">3</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Biden-decreet (27-1-2021) over de verdubbeling van wind op zee; BOEM hervat de beoordeling van Vineyard Wind (3-2-2021).<a class="ref" href="#bron-11">11</a><a class="ref" href="#bron-6">6</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Denemarken keurde op 4-2-2021 een kunstmatig energie-eiland in de Noordzee goed (eerste fase 3 GW, later 10 GW); de Deense Staat wordt meerderheidseigenaar van het eiland. Dat is een kans voor Deense ontwikkelaars zoals Ørsted, maar de spelregels zijn nog niet bekend.<a class="ref" href="#bron-13">13</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Ørsted tekende de instap in de Poolse parken Baltica 2 en 3 (10-2-2021; afronding na goedkeuring, verwacht in het eerste kwartaal van 2021). Britse zeebodemverhuur (8-2-2021): bijna 8 GW, met hoge &#x27;option fees&#x27;.<a class="ref" href="#bron-12">12</a><a class="ref" href="#bron-7">7</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? De rente stijgt, maar blijft laag; de koers corrigeert al, maar staat nog altijd boven onze centrale waardering. Er is ook goed nieuws: VS-beleid, Hornsea 3 en Polen.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat komt eraan? (2021–2022)</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>Capital Markets Day op 2-6-2021 met een update van de langetermijnstrategie en doelen.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Verkoop van 50% van Borssele 1&amp;2 rond de zomer van 2021; mogelijk ook van de zonneportefeuille.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Oplevering van Hornsea 2 en Greater Changhua 1&amp;2a in 2022.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Veilingen voor ±25 GW in 2021 (VK, VS, Japan, Polen, Nederland, Denemarken).<a class="ref" href="#bron-2">2</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Britse subsidieveiling (CfD-ronde 4, tot 12 GW) in de tweede helft van 2021, waarin Hornsea 3 kan meedingen.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Poolse toewijzing van 5,9 GW met vaste stroomprijs tegen eind juni 2021, waarin Baltica 2 en 3 meedingen.<a class="ref" href="#bron-12">12</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? 2021 wordt een jaar van veilingen en verkopen; daar zal blijken of de rendementen houden.</p></details>
+      <details class="uitklap onderdeel"><summary>Waar moet je op letten?</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>1-3-2021 — Algemene vergadering.</strong> Dividend DKK 11,5.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>29-4-2021 — Eerste kwartaal.</strong> Goed nieuws: verwachting bevestigd en Borssele-verkoop aan een goede prijs. Slecht: vertraging in de bouw of lagere verwachting.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>2-6-2021 — Capital Markets Day.</strong> Let op het beloofde rendement op nieuwe projecten: daalt het, dan bevestigt dat de druk van concurrentie.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>12-8-2021 — Halfjaar.</strong> Rente en verkoopprijzen van belangen.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>3-11-2021 — Negen maanden.</strong> Stand van de VS-vergunningen.<a class="ref" href="#bron-1">1</a></li>
+    </ul></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="earnings_call">
+    <summary><span><span class="nr">7.</span> Analistencall (3-2-2021)<span class="kort">Presentatie gelezen; transcript niet beschikbaar; toon: zelfzeker over groei</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel vat de presentatie samen waarmee het management op 3-2-2021 de jaarcijfers aan analisten toelichtte. Het volledige transcript konden we niet lezen (betaalmuur).</p><p class="blok feit"><span class="lab feit">Feit</span>Kernboodschap: &#x27;zeer sterke resultaten, zowel operationeel als financieel&#x27;. EBITDA uit draaiende wind- en zonneparken +14% tot DKK 16,9 mld; ROCE 10%; dividend +9,5%. Alle zeven bouwprojecten lopen volgens plan. Ørsted verwacht ±25 GW aan veilingen in 2021.<a class="ref" href="#bron-2">2</a></p><p class="blok feit"><span class="lab feit">Feit</span>Verwachting 2021: EBITDA 15–16 mld zonder nieuwe partnerships (2020: 18,1 mld), investeringen 32–34 mld. De daling komt van de verkochte Deense netten (−0,9 mld), het wegvallen van winst uit bestaande partnerships (−1,6 mld) en een normaal windjaar.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Toon in de presentatie: zelfzeker en gericht op groei (de vragenronde konden we niet lezen). Het nieuwe management (CEO Nipper was op dat moment ±5 weken in functie) stelt de strategie pas voor op de <span class="term" tabindex="0" role="button" aria-expanded="false">Capital Markets Day</span><span class="uitleg">dag waarop het bedrijf zijn langetermijnplannen aan beleggers voorstelt</span> van juni. Het jaarverslag benoemt de risico&#x27;s (rente, concurrentie, VS) duidelijk; in de presentatie krijgen ze weinig plaats.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="waardering">
+    <summary><span><span class="nr">8.</span> Waardering &amp; advies<span class="kort">±26–30× EBITDA; onze waarde DKK 320–1.000 (centraal ±530); de koers vraagt een vereist rendement van ±3,9%</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel beantwoordt de vraag: is DKK 1.058 een redelijke prijs voor wat Ørsted verdient en zal verdienen? We doen dat op twee manieren: met vergelijkende verhoudingen en met een eigen berekening.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de koers is te verdedigen als je met ±3,9% rendement per jaar tevreden bent en Ørsted zijn doelen haalt. Bij 5–5,5% (onze centrale aanname) is het aandeel ±50% te duur. Het antwoord hangt dus sterk af van één aanname, en die is onzeker.</p>
+      <details class="uitklap onderdeel"><summary>Verhoudingen</summary><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Beurswaarde</div>
+        <div class="w">DKK ±445 mld <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Alle aandelen samen aan de koers van 15-2-2021.</p><p><strong>Hoe berekend?</strong> 420,07 mln aandelen × 1.058.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Ondernemingswaarde / EBITDA</div>
+        <div class="w">±26× (2020) · ±30× (2021) <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div><div class="beoordeling zwak"><i></i>zwak</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Wat je betaalt voor het hele bedrijf (aandelen + schuld, de <span class="term" tabindex="0" role="button" aria-expanded="false">ondernemingswaarde</span><span class="uitleg">beurswaarde plus schulden</span>) gedeeld door één jaar bedrijfswinst.</p><p><strong>Hoe berekend?</strong> (445 + 12,3 schuld + 13,2 hybride + 2,7 minderheden) / 18,1 (2020) of / 15,5 (midden verwachting 2021, zonder nieuwe verkopen van belangen). Op het eigen doel voor 2023 (±24 mld) en met de verwachte schuld van ±64 mld: ±21×.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Hoog voor een nutsbedrijf, ook al is een deel van het kapitaal nog in aanbouw en levert het nog niets op (mening; concurrenten niet vergeleken).</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Koers / winst zonder meerwaarde</div>
+        <div class="w">±75× <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div><div class="beoordeling zwak"><i></i>zwak</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Hoeveel jaar winst je betaalt.</p><p><strong>Hoe berekend?</strong> 1.058 / (5.896 mln / 420,07 mln aandelen = DKK 14,0). Benadering.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Ook met de eenmalige meerwaarde (winst per aandeel 38,8) is het 27×.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Dividendrendement</div>
+        <div class="w">1,1% <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div><div class="beoordeling zwak"><i></i>zwak</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Dividend gedeeld door de koers.</p><p><strong>Hoe berekend?</strong> 11,5 / 1.058.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Laag; het dividend groeit wel met een hoog enkelcijferig percentage per jaar (beleid tot 2025).</p>
+        </div>
+      </details>
+    </div></details>
+      <details class="uitklap onderdeel"><summary>Eigen berekening</summary><p class="leestekst">We rekenen met de eigen doelen van Ørsted: ±10% rendement op het geïnvesteerde kapitaal en het investeringsplan tot 2025. Alle aannames zijn zichtbaar, zodat je ze zelf kan nagaan.</p><ul class="blokken">
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span>Geïnvesteerd kapitaal groeit van DKK 110 mld (2020) naar ±200 mld in 2025: nog ±150 mld investeringen volgens het plan, min verkopen van belangen en afschrijvingen (inschatting: netto +90 mld).<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span>ROCE ±10% (doel van Ørsted); na 22% belasting blijft ±7,8% over.<a class="ref" href="#bron-1">1</a></li>
+      <li class="blok berekening"><span class="lab berekening">Berekening</span>Tot 2025 investeert Ørsted ±90 mld meer kapitaal, terwijl het na belasting ±60 mld verdient (10% op het gemiddelde kapitaal × 0,78): netto ±−30 mld, teruggerekend naar vandaag ±−26 mld.</li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span>Vereist rendement (gemiddelde kost van het kapitaal): centraal 5–5,5%. Ankers: Ørsted betaalt ±2,8% rente op zijn leningen; aandeelhouders vragen meer dan schuldeisers omdat ze als laatste betaald worden. Groei na 2025: 2% per jaar.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-4">4</a><a class="ref" href="#bron-5">5</a></li>
+      <li class="blok berekening"><span class="lab berekening">Berekening</span>Waarde = kasstromen tot 2025 + waarde in 2025 (winst na belasting × (1 − groei/rendement op kapitaal) / (vereist rendement − groei)), teruggerekend naar vandaag, min schuld, hybride kapitaal en minderheden (28,2 mld), gedeeld door 420 mln aandelen.</li>
+    </ul><div class="tabel-titel">Waarde per aandeel naargelang het vereiste rendement<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div><div class="tabelwrap"><table>
+      <thead><tr><th>Vereist rendement</th><th>Waarde per aandeel (DKK)</th><th>t.o.v. koers 1.058</th></tr></thead>
+      <tbody><tr><td>3,5%</td><td>±1.420</td><td>+34%</td></tr><tr><td>4,0%</td><td>±1.000</td><td>−5%</td></tr><tr><td>4,5%</td><td>±760</td><td>−28%</td></tr><tr><td>5,0%</td><td>±590</td><td>−44%</td></tr><tr><td>5,5%</td><td>±475</td><td>−55%</td></tr><tr><td>6,5%</td><td>±320</td><td>−70%</td></tr></tbody>
+    </table></div><div class="bijschrift">Berekening; alle andere aannames gelijk. Break-even met de koers: ±3,9%.</div><p class="blok berekening"><span class="lab berekening">Berekening</span>Wat zie je hier? Elke halve procent verschil in het vereiste rendement verschuift de waarde met honderden kronen. De koers van 1.058 komt overeen met ±3,9%. Alleen als ook groei (2,5%), rendement op kapitaal (11%) en investeringen (±230 mld kapitaal) hoger liggen, haalt 4,5% de koers (±1.170).</p><p class="blok mening"><span class="lab mening">Mening</span>Wij nemen 5–5,5% als centrale waarde (±530): voor een bedrijf met grote bouwprojecten, valuta- en veilingrisico vinden we ±3,9% weinig. Maar zolang de rente zo laag is, kan de markt lange tijd met minder tevreden zijn.</p></details>
+      <details class="uitklap onderdeel"><summary>Koopzone, koersdoel en stop-loss</summary><p class="blok mening"><span class="lab mening">Mening</span><span class="term" tabindex="0" role="button" aria-expanded="false">Koopzone</span><span class="uitleg">prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft</span> <strong>DKK 480–600</strong>: dat is onze waarde bij 5–5,5%. <span class="term" tabindex="0" role="button" aria-expanded="false">Koersdoel</span><span class="uitleg">de koers die we over 2 jaar verwachten in het normale scenario</span> <strong>DKK 880</strong> (normaal scenario, begin 2023): dat ligt boven onze eigen waarde, omdat de markt waarschijnlijk een lager rendement blijft aanvaarden dan wij aannemen. Stop-loss −20% op 846. De koopzone wordt misschien nooit bereikt; dat is bewust: je betaalt dan enkel een prijs waarbij ook het slechte scenario (±500) nog goed afloopt. Ook in de koopzone blijft R1 gelden: een lagere prijs alleen volstaat niet, de rest moet uitzonderlijk positief zijn.</p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="techniek">
+    <summary><span><span class="nr">9.</span> Koers &amp; techniek<span class="kort">Na een verdrievoudiging in 3 jaar 22% onder de top; korte trend daalt, lange trend stijgt</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel kijkt naar de koers zelf: de trend, de schommelingen en waar steun ligt. Dat helpt vooral om een stop-loss te kiezen.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de lange trend is nog stijgend, maar sinds de top van januari daalt de koers. De schommelingen zijn groot voor een nutsbedrijf.</p><div class="grafiek-blok">
+    <div class="grafiek-titel">Koers Ørsted (ORSTED.CO) – juni 2016 tot 15-02-2021<a class="ref" href="#bron-3">3</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Koers Ørsted (ORSTED.CO) – juni 2016 tot 15-02-2021" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="198.0" y2="198.0" class="g-raster"/><text x="46" y="202.0" text-anchor="end" class="g-as">250</text><line x1="52" x2="470" y1="156.1" y2="156.1" class="g-raster"/><text x="46" y="160.1" text-anchor="end" class="g-as">500</text><line x1="52" x2="470" y1="114.1" y2="114.1" class="g-raster"/><text x="46" y="118.1" text-anchor="end" class="g-as">750</text><line x1="52" x2="470" y1="72.2" y2="72.2" class="g-raster"/><text x="46" y="76.2" text-anchor="end" class="g-as">1 000</text><line x1="52" x2="470" y1="30.2" y2="30.2" class="g-raster"/><text x="46" y="34.2" text-anchor="end" class="g-as">1 250</text><polyline points="52.0,196.7 53.4,197.5 54.8,196.8 56.3,200.4 57.7,199.6 59.1,198.6 60.5,197.7 62.0,197.4 63.4,195.5 64.8,194.5 66.2,193.1 67.6,194.2 69.1,195.1 70.5,194.6 71.9,193.9 73.3,195.5 74.7,194.2 76.2,195.2 77.6,194.8 79.0,195.0 80.4,194.1 81.9,193.4 83.3,195.7 84.7,195.5 86.1,194.8 87.5,195.0 89.0,197.1 90.4,197.0 91.8,198.4 93.2,198.0 94.7,199.0 96.1,199.8 97.5,199.4 98.9,199.3 100.3,198.7 101.8,195.4 103.2,195.1 104.6,196.2 106.0,197.0 107.4,195.9 108.9,196.3 110.3,196.5 111.7,196.3 113.1,196.5 114.6,196.0 116.0,196.8 117.4,197.0 118.8,196.8 120.2,198.1 121.7,197.5 123.1,196.7 124.5,196.5 125.9,196.1 127.4,195.0 128.8,193.9 130.2,193.8 131.6,194.9 133.0,194.6 134.5,194.2 135.9,192.8 137.3,193.8 138.7,192.5 140.1,190.9 141.6,190.1 143.0,189.4 144.4,188.3 145.8,189.2 147.3,190.7 148.7,191.4 150.1,189.9 151.5,189.8 152.9,189.7 154.4,190.1 155.8,189.1 157.2,187.6 158.6,186.7 160.1,185.9 161.5,185.0 162.9,185.4 164.3,185.1 165.7,183.9 167.2,184.3 168.6,182.0 170.0,179.8 171.4,178.7 172.9,176.4 174.3,177.7 175.7,177.4 177.1,178.5 178.5,179.5 180.0,182.9 181.4,183.1 182.8,182.4 184.2,182.8 185.6,180.3 187.1,180.9 188.5,181.7 189.9,181.8 191.3,182.9 192.8,183.2 194.2,182.8 195.6,181.4 197.0,180.7 198.4,181.0 199.9,181.3 201.3,180.7 202.7,182.1 204.1,178.9 205.6,178.6 207.0,175.9 208.4,178.3 209.8,174.9 211.2,175.2 212.7,175.3 214.1,176.6 215.5,174.2 216.9,174.4 218.3,174.6 219.8,175.1 221.2,171.0 222.6,170.7 224.0,172.7 225.5,170.9 226.9,174.7 228.3,175.7 229.7,176.7 231.1,177.9 232.6,177.2 234.0,176.1 235.4,175.3 236.8,173.9 238.3,171.5 239.7,170.7 241.1,172.1 242.5,173.6 243.9,174.9 245.4,175.4 246.8,171.5 248.2,171.7 249.6,172.0 251.0,171.3 252.5,172.5 253.9,172.0 255.3,171.9 256.7,170.9 258.2,169.3 259.6,166.5 261.0,169.4 262.4,171.8 263.8,170.3 265.3,169.9 266.7,170.0 268.1,168.2 269.5,163.6 271.0,163.8 272.4,166.7 273.8,163.2 275.2,168.6 276.6,166.0 278.1,163.0 279.5,163.3 280.9,166.9 282.3,166.2 283.7,165.3 285.2,165.4 286.6,162.8 288.0,161.9 289.4,159.4 290.9,159.9 292.3,159.7 293.7,159.7 295.1,159.0 296.5,158.3 298.0,155.7 299.4,153.8 300.8,154.1 302.2,154.9 303.7,155.4 305.1,153.0 306.5,155.0 307.9,156.7 309.3,154.7 310.8,155.5 312.2,154.5 313.6,152.9 315.0,150.2 316.4,149.3 317.9,150.7 319.3,144.8 320.7,144.5 322.1,142.8 323.6,144.7 325.0,139.2 326.4,137.2 327.8,136.8 329.2,133.5 330.7,135.8 332.1,134.9 333.5,132.2 334.9,129.2 336.4,126.2 337.8,130.3 339.2,131.6 340.6,127.8 342.0,131.7 343.5,132.0 344.9,135.6 346.3,133.4 347.7,136.4 349.1,135.6 350.6,134.5 352.0,135.5 353.4,135.2 354.8,140.5 356.3,144.6 357.7,138.4 359.1,138.4 360.5,137.6 361.9,135.6 363.4,137.0 364.8,134.2 366.2,130.3 367.6,128.3 369.1,124.4 370.5,128.9 371.9,129.3 373.3,123.3 374.7,117.6 376.2,114.5 377.6,119.3 379.0,117.6 380.4,115.3 381.9,112.3 383.3,117.2 384.7,119.5 386.1,125.5 387.5,140.6 389.0,143.6 390.4,127.4 391.8,128.2 393.2,132.4 394.6,125.9 396.1,124.1 397.5,121.1 398.9,125.0 400.3,123.2 401.8,119.8 403.2,115.5 404.6,112.2 406.0,109.5 407.4,114.8 408.9,114.9 410.3,109.7 411.7,110.7 413.1,106.3 414.6,98.7 416.0,92.0 417.4,88.9 418.8,88.7 420.2,88.8 421.7,91.6 423.1,91.0 424.5,92.3 425.9,88.1 427.3,91.6 428.8,91.5 430.2,94.3 431.6,96.3 433.0,96.5 434.5,92.3 435.9,83.9 437.3,74.7 438.7,67.7 440.1,68.6 441.6,76.5 443.0,76.7 444.4,64.1 445.8,58.8 447.3,56.2 448.7,49.3 450.1,55.5 451.5,61.4 452.9,64.1 454.4,59.4 455.8,53.6 457.2,26.7 458.6,22.7 460.0,22.7 461.5,43.4 462.9,31.6 464.3,45.3 465.7,39.6 467.2,55.7 468.6,65.1 470.0,62.4" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="470.0" cy="62.4" r="4" fill="#2a78d6" stroke="#fff" stroke-width="2"/><line x1="52" x2="470" y1="98.0" y2="98.0" stroke="#52514e" stroke-width="1.2" stroke-dasharray="5 4"/><text x="466" y="93.0" text-anchor="end" class="g-ref">Stop-loss −20%: 846,40</text><line x1="52" x2="470" y1="79.6" y2="79.6" stroke="#52514e" stroke-width="1.2" stroke-dasharray="5 4"/><text x="466" y="74.6" text-anchor="end" class="g-ref">Gemiddelde 200 dagen: 955,95</text><rect x="50.6" y="12" width="2.8" height="228" fill="transparent"><title>2016-06-09 — Slotkoers: 258 DKK</title></rect><rect x="53.4" y="12" width="2.8" height="228" fill="transparent"><title>2016-06-21 — Slotkoers: 257,30 DKK</title></rect><rect x="56.3" y="12" width="2.8" height="228" fill="transparent"><title>2016-07-01 — Slotkoers: 241 DKK</title></rect><rect x="59.1" y="12" width="2.8" height="228" fill="transparent"><title>2016-07-13 — Slotkoers: 252 DKK</title></rect><rect x="62.0" y="12" width="2.8" height="228" fill="transparent"><title>2016-07-25 — Slotkoers: 265 DKK</title></rect><rect x="64.8" y="12" width="2.8" height="228" fill="transparent"><title>2016-08-04 — Slotkoers: 279,40 DKK</title></rect><rect x="67.6" y="12" width="2.8" height="228" fill="transparent"><title>2016-08-16 — Slotkoers: 267,30 DKK</title></rect><rect x="70.5" y="12" width="2.8" height="228" fill="transparent"><title>2016-08-26 — Slotkoers: 274,60 DKK</title></rect><rect x="73.3" y="12" width="2.8" height="228" fill="transparent"><title>2016-09-07 — Slotkoers: 273 DKK</title></rect><rect x="76.2" y="12" width="2.8" height="228" fill="transparent"><title>2016-09-19 — Slotkoers: 269,50 DKK</title></rect><rect x="79.0" y="12" width="2.8" height="228" fill="transparent"><title>2016-09-29 — Slotkoers: 273,40 DKK</title></rect><rect x="81.9" y="12" width="2.8" height="228" fill="transparent"><title>2016-10-11 — Slotkoers: 263,80 DKK</title></rect><rect x="84.7" y="12" width="2.8" height="228" fill="transparent"><title>2016-10-21 — Slotkoers: 269,30 DKK</title></rect><rect x="87.5" y="12" width="2.8" height="228" fill="transparent"><title>2016-11-02 — Slotkoers: 255,80 DKK</title></rect><rect x="90.4" y="12" width="2.8" height="228" fill="transparent"><title>2016-11-14 — Slotkoers: 247,90 DKK</title></rect><rect x="93.2" y="12" width="2.8" height="228" fill="transparent"><title>2016-11-24 — Slotkoers: 244,10 DKK</title></rect><rect x="96.1" y="12" width="2.8" height="228" fill="transparent"><title>2016-12-06 — Slotkoers: 242 DKK</title></rect><rect x="98.9" y="12" width="2.8" height="228" fill="transparent"><title>2016-12-16 — Slotkoers: 246 DKK</title></rect><rect x="101.8" y="12" width="2.8" height="228" fill="transparent"><title>2016-12-29 — Slotkoers: 267,60 DKK</title></rect><rect x="104.6" y="12" width="2.8" height="228" fill="transparent"><title>2017-01-10 — Slotkoers: 256 DKK</title></rect><rect x="107.5" y="12" width="2.8" height="228" fill="transparent"><title>2017-01-20 — Slotkoers: 260,50 DKK</title></rect><rect x="110.3" y="12" width="2.8" height="228" fill="transparent"><title>2017-02-01 — Slotkoers: 260,60 DKK</title></rect><rect x="113.1" y="12" width="2.8" height="228" fill="transparent"><title>2017-02-13 — Slotkoers: 262 DKK</title></rect><rect x="116.0" y="12" width="2.8" height="228" fill="transparent"><title>2017-02-23 — Slotkoers: 256,20 DKK</title></rect><rect x="118.8" y="12" width="2.8" height="228" fill="transparent"><title>2017-03-07 — Slotkoers: 249,70 DKK</title></rect><rect x="121.7" y="12" width="2.8" height="228" fill="transparent"><title>2017-03-17 — Slotkoers: 257,90 DKK</title></rect><rect x="124.5" y="12" width="2.8" height="228" fill="transparent"><title>2017-03-29 — Slotkoers: 261,60 DKK</title></rect><rect x="127.4" y="12" width="2.8" height="228" fill="transparent"><title>2017-04-10 — Slotkoers: 274,60 DKK</title></rect><rect x="130.2" y="12" width="2.8" height="228" fill="transparent"><title>2017-04-25 — Slotkoers: 268,60 DKK</title></rect><rect x="133.0" y="12" width="2.8" height="228" fill="transparent"><title>2017-05-05 — Slotkoers: 273,10 DKK</title></rect><rect x="135.9" y="12" width="2.8" height="228" fill="transparent"><title>2017-05-18 — Slotkoers: 275 DKK</title></rect><rect x="138.7" y="12" width="2.8" height="228" fill="transparent"><title>2017-06-01 — Slotkoers: 292,40 DKK</title></rect><rect x="141.6" y="12" width="2.8" height="228" fill="transparent"><title>2017-06-14 — Slotkoers: 301,60 DKK</title></rect><rect x="144.4" y="12" width="2.8" height="228" fill="transparent"><title>2017-06-26 — Slotkoers: 302,70 DKK</title></rect><rect x="147.3" y="12" width="2.8" height="228" fill="transparent"><title>2017-07-06 — Slotkoers: 289,80 DKK</title></rect><rect x="150.1" y="12" width="2.8" height="228" fill="transparent"><title>2017-07-18 — Slotkoers: 299,10 DKK</title></rect><rect x="153.0" y="12" width="2.8" height="228" fill="transparent"><title>2017-07-28 — Slotkoers: 297,40 DKK</title></rect><rect x="155.8" y="12" width="2.8" height="228" fill="transparent"><title>2017-08-09 — Slotkoers: 312,40 DKK</title></rect><rect x="158.6" y="12" width="2.8" height="228" fill="transparent"><title>2017-08-21 — Slotkoers: 322,60 DKK</title></rect><rect x="161.5" y="12" width="2.8" height="228" fill="transparent"><title>2017-08-31 — Slotkoers: 325,20 DKK</title></rect><rect x="164.3" y="12" width="2.8" height="228" fill="transparent"><title>2017-09-12 — Slotkoers: 334 DKK</title></rect><rect x="167.2" y="12" width="2.8" height="228" fill="transparent"><title>2017-09-22 — Slotkoers: 345,40 DKK</title></rect><rect x="170.0" y="12" width="2.8" height="228" fill="transparent"><title>2017-10-04 — Slotkoers: 365,30 DKK</title></rect><rect x="172.9" y="12" width="2.8" height="228" fill="transparent"><title>2017-10-16 — Slotkoers: 371,30 DKK</title></rect><rect x="175.7" y="12" width="2.8" height="228" fill="transparent"><title>2017-10-26 — Slotkoers: 366,50 DKK</title></rect><rect x="178.5" y="12" width="2.8" height="228" fill="transparent"><title>2017-11-07 — Slotkoers: 340,40 DKK</title></rect><rect x="181.4" y="12" width="2.8" height="228" fill="transparent"><title>2017-11-17 — Slotkoers: 343,40 DKK</title></rect><rect x="184.2" y="12" width="2.8" height="228" fill="transparent"><title>2017-11-29 — Slotkoers: 355,70 DKK</title></rect><rect x="187.1" y="12" width="2.8" height="228" fill="transparent"><title>2017-12-11 — Slotkoers: 347,50 DKK</title></rect><rect x="189.9" y="12" width="2.8" height="228" fill="transparent"><title>2017-12-21 — Slotkoers: 340,50 DKK</title></rect><rect x="192.8" y="12" width="2.8" height="228" fill="transparent"><title>2018-01-05 — Slotkoers: 340,80 DKK</title></rect><rect x="195.6" y="12" width="2.8" height="228" fill="transparent"><title>2018-01-17 — Slotkoers: 353,50 DKK</title></rect><rect x="198.4" y="12" width="2.8" height="228" fill="transparent"><title>2018-01-29 — Slotkoers: 350 DKK</title></rect><rect x="201.3" y="12" width="2.8" height="228" fill="transparent"><title>2018-02-08 — Slotkoers: 344,80 DKK</title></rect><rect x="204.1" y="12" width="2.8" height="228" fill="transparent"><title>2018-02-20 — Slotkoers: 366,10 DKK</title></rect><rect x="207.0" y="12" width="2.8" height="228" fill="transparent"><title>2018-03-02 — Slotkoers: 367,60 DKK</title></rect><rect x="209.8" y="12" width="2.8" height="228" fill="transparent"><title>2018-03-14 — Slotkoers: 386,20 DKK</title></rect><rect x="212.7" y="12" width="2.8" height="228" fill="transparent"><title>2018-03-26 — Slotkoers: 377,50 DKK</title></rect><rect x="215.5" y="12" width="2.8" height="228" fill="transparent"><title>2018-04-10 — Slotkoers: 390,80 DKK</title></rect><rect x="218.4" y="12" width="2.8" height="228" fill="transparent"><title>2018-04-20 — Slotkoers: 386,80 DKK</title></rect><rect x="221.2" y="12" width="2.8" height="228" fill="transparent"><title>2018-05-03 — Slotkoers: 413 DKK</title></rect><rect x="224.0" y="12" width="2.8" height="228" fill="transparent"><title>2018-05-17 — Slotkoers: 411,70 DKK</title></rect><rect x="226.9" y="12" width="2.8" height="228" fill="transparent"><title>2018-05-30 — Slotkoers: 383,10 DKK</title></rect><rect x="229.7" y="12" width="2.8" height="228" fill="transparent"><title>2018-06-12 — Slotkoers: 370 DKK</title></rect><rect x="232.6" y="12" width="2.8" height="228" fill="transparent"><title>2018-06-22 — Slotkoers: 380,90 DKK</title></rect><rect x="235.4" y="12" width="2.8" height="228" fill="transparent"><title>2018-07-04 — Slotkoers: 394 DKK</title></rect><rect x="238.3" y="12" width="2.8" height="228" fill="transparent"><title>2018-07-16 — Slotkoers: 412,90 DKK</title></rect><rect x="241.1" y="12" width="2.8" height="228" fill="transparent"><title>2018-07-26 — Slotkoers: 395,90 DKK</title></rect><rect x="243.9" y="12" width="2.8" height="228" fill="transparent"><title>2018-08-07 — Slotkoers: 385 DKK</title></rect><rect x="246.8" y="12" width="2.8" height="228" fill="transparent"><title>2018-08-17 — Slotkoers: 407 DKK</title></rect><rect x="249.6" y="12" width="2.8" height="228" fill="transparent"><title>2018-08-29 — Slotkoers: 409,10 DKK</title></rect><rect x="252.5" y="12" width="2.8" height="228" fill="transparent"><title>2018-09-10 — Slotkoers: 405,20 DKK</title></rect><rect x="255.3" y="12" width="2.8" height="228" fill="transparent"><title>2018-09-20 — Slotkoers: 412 DKK</title></rect><rect x="258.2" y="12" width="2.8" height="228" fill="transparent"><title>2018-10-02 — Slotkoers: 438,20 DKK</title></rect><rect x="261.0" y="12" width="2.8" height="228" fill="transparent"><title>2018-10-12 — Slotkoers: 406,10 DKK</title></rect><rect x="263.8" y="12" width="2.8" height="228" fill="transparent"><title>2018-10-24 — Slotkoers: 417,90 DKK</title></rect><rect x="266.7" y="12" width="2.8" height="228" fill="transparent"><title>2018-11-05 — Slotkoers: 428,10 DKK</title></rect><rect x="269.5" y="12" width="2.8" height="228" fill="transparent"><title>2018-11-15 — Slotkoers: 454,20 DKK</title></rect><rect x="272.4" y="12" width="2.8" height="228" fill="transparent"><title>2018-11-27 — Slotkoers: 457,50 DKK</title></rect><rect x="275.2" y="12" width="2.8" height="228" fill="transparent"><title>2018-12-07 — Slotkoers: 441 DKK</title></rect><rect x="278.1" y="12" width="2.8" height="228" fill="transparent"><title>2018-12-19 — Slotkoers: 456,80 DKK</title></rect><rect x="280.9" y="12" width="2.8" height="228" fill="transparent"><title>2019-01-07 — Slotkoers: 439,90 DKK</title></rect><rect x="283.8" y="12" width="2.8" height="228" fill="transparent"><title>2019-01-17 — Slotkoers: 444,80 DKK</title></rect><rect x="286.6" y="12" width="2.8" height="228" fill="transparent"><title>2019-01-29 — Slotkoers: 465,10 DKK</title></rect><rect x="289.4" y="12" width="2.8" height="228" fill="transparent"><title>2019-02-08 — Slotkoers: 477 DKK</title></rect><rect x="292.3" y="12" width="2.8" height="228" fill="transparent"><title>2019-02-20 — Slotkoers: 478,50 DKK</title></rect><rect x="295.1" y="12" width="2.8" height="228" fill="transparent"><title>2019-03-04 — Slotkoers: 487,10 DKK</title></rect><rect x="298.0" y="12" width="2.8" height="228" fill="transparent"><title>2019-03-14 — Slotkoers: 513,60 DKK</title></rect><rect x="300.8" y="12" width="2.8" height="228" fill="transparent"><title>2019-03-26 — Slotkoers: 506,80 DKK</title></rect><rect x="303.7" y="12" width="2.8" height="228" fill="transparent"><title>2019-04-05 — Slotkoers: 518,20 DKK</title></rect><rect x="306.5" y="12" width="2.8" height="228" fill="transparent"><title>2019-04-17 — Slotkoers: 496,50 DKK</title></rect><rect x="309.3" y="12" width="2.8" height="228" fill="transparent"><title>2019-05-02 — Slotkoers: 503,20 DKK</title></rect><rect x="312.2" y="12" width="2.8" height="228" fill="transparent"><title>2019-05-14 — Slotkoers: 518,80 DKK</title></rect><rect x="315.0" y="12" width="2.8" height="228" fill="transparent"><title>2019-05-27 — Slotkoers: 540,40 DKK</title></rect><rect x="317.9" y="12" width="2.8" height="228" fill="transparent"><title>2019-06-12 — Slotkoers: 567 DKK</title></rect><rect x="320.7" y="12" width="2.8" height="228" fill="transparent"><title>2019-06-24 — Slotkoers: 579 DKK</title></rect><rect x="323.6" y="12" width="2.8" height="228" fill="transparent"><title>2019-07-04 — Slotkoers: 600,60 DKK</title></rect><rect x="326.4" y="12" width="2.8" height="228" fill="transparent"><title>2019-07-16 — Slotkoers: 615 DKK</title></rect><rect x="329.2" y="12" width="2.8" height="228" fill="transparent"><title>2019-07-26 — Slotkoers: 620,80 DKK</title></rect><rect x="332.1" y="12" width="2.8" height="228" fill="transparent"><title>2019-08-07 — Slotkoers: 642,40 DKK</title></rect><rect x="334.9" y="12" width="2.8" height="228" fill="transparent"><title>2019-08-19 — Slotkoers: 678 DKK</title></rect><rect x="337.8" y="12" width="2.8" height="228" fill="transparent"><title>2019-08-29 — Slotkoers: 646 DKK</title></rect><rect x="340.6" y="12" width="2.8" height="228" fill="transparent"><title>2019-09-10 — Slotkoers: 645,60 DKK</title></rect><rect x="343.5" y="12" width="2.8" height="228" fill="transparent"><title>2019-09-20 — Slotkoers: 622,20 DKK</title></rect><rect x="346.3" y="12" width="2.8" height="228" fill="transparent"><title>2019-10-02 — Slotkoers: 617,20 DKK</title></rect><rect x="349.2" y="12" width="2.8" height="228" fill="transparent"><title>2019-10-14 — Slotkoers: 628,40 DKK</title></rect><rect x="352.0" y="12" width="2.8" height="228" fill="transparent"><title>2019-10-24 — Slotkoers: 624,20 DKK</title></rect><rect x="354.8" y="12" width="2.8" height="228" fill="transparent"><title>2019-11-05 — Slotkoers: 568,40 DKK</title></rect><rect x="357.7" y="12" width="2.8" height="228" fill="transparent"><title>2019-11-15 — Slotkoers: 605,60 DKK</title></rect><rect x="360.5" y="12" width="2.8" height="228" fill="transparent"><title>2019-11-27 — Slotkoers: 621,80 DKK</title></rect><rect x="363.4" y="12" width="2.8" height="228" fill="transparent"><title>2019-12-09 — Slotkoers: 630,20 DKK</title></rect><rect x="366.2" y="12" width="2.8" height="228" fill="transparent"><title>2019-12-19 — Slotkoers: 665,80 DKK</title></rect><rect x="369.1" y="12" width="2.8" height="228" fill="transparent"><title>2020-01-07 — Slotkoers: 662 DKK</title></rect><rect x="371.9" y="12" width="2.8" height="228" fill="transparent"><title>2020-01-17 — Slotkoers: 695,40 DKK</title></rect><rect x="374.7" y="12" width="2.8" height="228" fill="transparent"><title>2020-01-29 — Slotkoers: 748 DKK</title></rect><rect x="377.6" y="12" width="2.8" height="228" fill="transparent"><title>2020-02-10 — Slotkoers: 729,20 DKK</title></rect><rect x="380.4" y="12" width="2.8" height="228" fill="transparent"><title>2020-02-20 — Slotkoers: 761 DKK</title></rect><rect x="383.3" y="12" width="2.8" height="228" fill="transparent"><title>2020-03-03 — Slotkoers: 718 DKK</title></rect><rect x="386.1" y="12" width="2.8" height="228" fill="transparent"><title>2020-03-13 — Slotkoers: 592 DKK</title></rect><rect x="389.0" y="12" width="2.8" height="228" fill="transparent"><title>2020-03-25 — Slotkoers: 670,80 DKK</title></rect><rect x="391.8" y="12" width="2.8" height="228" fill="transparent"><title>2020-04-06 — Slotkoers: 641,20 DKK</title></rect><rect x="394.7" y="12" width="2.8" height="228" fill="transparent"><title>2020-04-21 — Slotkoers: 690,40 DKK</title></rect><rect x="397.5" y="12" width="2.8" height="228" fill="transparent"><title>2020-05-01 — Slotkoers: 685 DKK</title></rect><rect x="400.3" y="12" width="2.8" height="228" fill="transparent"><title>2020-05-14 — Slotkoers: 716 DKK</title></rect><rect x="403.2" y="12" width="2.8" height="228" fill="transparent"><title>2020-05-28 — Slotkoers: 761,20 DKK</title></rect><rect x="406.0" y="12" width="2.8" height="228" fill="transparent"><title>2020-06-11 — Slotkoers: 746 DKK</title></rect><rect x="408.9" y="12" width="2.8" height="228" fill="transparent"><title>2020-06-23 — Slotkoers: 776,20 DKK</title></rect><rect x="411.7" y="12" width="2.8" height="228" fill="transparent"><title>2020-07-03 — Slotkoers: 796,80 DKK</title></rect><rect x="414.6" y="12" width="2.8" height="228" fill="transparent"><title>2020-07-15 — Slotkoers: 881,60 DKK</title></rect><rect x="417.4" y="12" width="2.8" height="228" fill="transparent"><title>2020-07-27 — Slotkoers: 901,40 DKK</title></rect><rect x="420.2" y="12" width="2.8" height="228" fill="transparent"><title>2020-08-06 — Slotkoers: 884 DKK</title></rect><rect x="423.1" y="12" width="2.8" height="228" fill="transparent"><title>2020-08-18 — Slotkoers: 880 DKK</title></rect><rect x="425.9" y="12" width="2.8" height="228" fill="transparent"><title>2020-08-28 — Slotkoers: 884 DKK</title></rect><rect x="428.8" y="12" width="2.8" height="228" fill="transparent"><title>2020-09-09 — Slotkoers: 868 DKK</title></rect><rect x="431.6" y="12" width="2.8" height="228" fill="transparent"><title>2020-09-21 — Slotkoers: 854,80 DKK</title></rect><rect x="434.5" y="12" width="2.8" height="228" fill="transparent"><title>2020-10-01 — Slotkoers: 930 DKK</title></rect><rect x="437.3" y="12" width="2.8" height="228" fill="transparent"><title>2020-10-13 — Slotkoers: 1 026 DKK</title></rect><rect x="440.1" y="12" width="2.8" height="228" fill="transparent"><title>2020-10-23 — Slotkoers: 974,40 DKK</title></rect><rect x="443.0" y="12" width="2.8" height="228" fill="transparent"><title>2020-11-04 — Slotkoers: 1 048 DKK</title></rect><rect x="445.8" y="12" width="2.8" height="228" fill="transparent"><title>2020-11-16 — Slotkoers: 1 095 DKK</title></rect><rect x="448.7" y="12" width="2.8" height="228" fill="transparent"><title>2020-11-26 — Slotkoers: 1 100 DKK</title></rect><rect x="451.5" y="12" width="2.8" height="228" fill="transparent"><title>2020-12-08 — Slotkoers: 1 048 DKK</title></rect><rect x="454.4" y="12" width="2.8" height="228" fill="transparent"><title>2020-12-18 — Slotkoers: 1 110 DKK</title></rect><rect x="457.2" y="12" width="2.8" height="228" fill="transparent"><title>2021-01-05 — Slotkoers: 1 294 DKK</title></rect><rect x="460.1" y="12" width="2.8" height="228" fill="transparent"><title>2021-01-15 — Slotkoers: 1 172 DKK</title></rect><rect x="462.9" y="12" width="2.8" height="228" fill="transparent"><title>2021-01-27 — Slotkoers: 1 160 DKK</title></rect><rect x="465.7" y="12" width="2.8" height="228" fill="transparent"><title>2021-02-08 — Slotkoers: 1 098 DKK</title></rect><rect x="468.6" y="12" width="2.8" height="228" fill="transparent"><title>2021-02-15 — Slotkoers: 1 058 DKK</title></rect><text x="52.0" y="258" text-anchor="start" class="g-as">2016</text><text x="135.9" y="258" text-anchor="middle" class="g-as">2017</text><text x="219.8" y="258" text-anchor="middle" class="g-as">2018</text><text x="303.7" y="258" text-anchor="middle" class="g-as">2019</text><text x="387.5" y="258" text-anchor="middle" class="g-as">2020</text><text x="470.0" y="258" text-anchor="end" class="g-as">2021</text></svg><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Slotkoers</th></tr></thead><tbody><tr><td>2016-12-29</td><td>267,60 DKK</td></tr><tr><td>2017-12-29</td><td>338,70 DKK</td></tr><tr><td>2018-12-28</td><td>435,70 DKK</td></tr><tr><td>2019-12-30</td><td>689 DKK</td></tr><tr><td>2020-12-28</td><td>1 271 DKK</td></tr><tr><td>2021-02-15</td><td>1 058 DKK</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>Wat zie je hier? Van DKK 268 eind 2016 naar 1.244 eind 2020 en een top van 1.355 op 7-1-2021. Op 15-2-2021: 1.058, onder het <span class="term" tabindex="0" role="button" aria-expanded="false">gemiddelde van 50 dagen</span><span class="uitleg">gemiddelde slotkoers van de laatste 50 beursdagen: de korte trend</span> (1.163) maar boven dat van 200 dagen (956).<a class="ref" href="#bron-3">3</a></p><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Rendement 3 jaar</div>
+        <div class="w">+205% <span class="trend op">▲</span><a class="ref" href="#bron-3">3</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Koersstijging over 3 jaar, gecorrigeerd voor dividend (aangepaste slotkoers van Yahoo Finance).</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Uitzonderlijk hoog voor een nutsbedrijf; de winst steeg niet in die mate.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Beweeglijkheid (volatiliteit)</div>
+        <div class="w">36,5% per jaar <span class="trend op">▲</span><a class="ref" href="#bron-3">3</a></div><div class="beoordeling zwak"><i></i>zwak</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Hoe sterk de koers schommelt; 36% betekent dat een jaarbeweging van ±36% normaal is.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Dubbel zo hoog als bij een typisch nutsbedrijf (mening).</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Laagste en hoogste koers 1 jaar</div>
+        <div class="w">574 – 1.355 <span class="trend gelijk">▬</span><a class="ref" href="#bron-3">3</a></div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> De laagste koers (maart 2020, COVID) en de hoogste (januari 2021) van het voorbije jaar.</p>
+        </div>
+      </details>
+    </div><p class="blok feit"><span class="lab feit">Feit</span><span class="term" tabindex="0" role="button" aria-expanded="false">Steunniveaus</span><span class="uitleg">koersen waar de daling eerder stopte</span> (eerdere dieptepunten): 1.026 (4-12-2020), 931 (29-10-2020), 842 (12-8-2020), 727 (15-6-2020).<a class="ref" href="#bron-3">3</a></p><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? De koers kan ver zakken voor hij op een sterk steunniveau botst; de −20%-stop (846) valt samen met het steunniveau van augustus 2020.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="expert">
+    <summary><span><span class="nr">10.</span> Kritische expertblik<span class="kort">Pre-mortem: rente + duurdere bouw + lagere rendementen in veilingen</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Hier kijken we als sceptische belegger: wat kan er misgaan, en wat ziet de markt mogelijk over het hoofd?</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Stel dat Ørsted over twee jaar 50% lager staat: wat is de meest waarschijnlijke reden?</strong> Een stijgende rente die de waardering van groene aandelen terugzet naar die van gewone nutsbedrijven, samen met lagere rendementen op nieuwe projecten door zwaardere concurrentie, en vertragingen of kostenoverschrijdingen in de VS. Ørsted noemt die risico&#x27;s zelf als nummer 1, 3 en 4. Een hogere schuld kan dan leiden tot een lagere kredietbeoordeling of een kapitaalverhoging.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Wat de markt mogelijk over het hoofd ziet (negatief):</strong> de koers steeg sneller dan de winst (eind 2017 tot eind 2020: 3,7× tegenover 1,9× voor de EBITDA zonder eenmalige winsten), deels door geld dat in groene fondsen stroomt. De VS-parken zijn nieuw terrein voor Ørsted (weinig havens en schepen, nieuwe regels) en hebben een vaste prijs voor ±20 jaar.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Wat de markt mogelijk over het hoofd ziet (positief):</strong> Ørsted is wereldleider met een bewezen staat van dienst (Borssele 1&amp;2 op tijd en binnen budget), een sterke balans, nieuwe groeikansen (Hornsea 3, Polen, Deens energie-eiland, VS-beleid) en kopers die graag de helft van een park overnemen. Bij blijvend lage rente kan de koers nog veel verder stijgen.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Waar we het minst zeker van zijn:</strong> het juiste vereiste rendement. Tussen 4,5% en 5,5% ligt het verschil tussen &#x27;correct gewaardeerd&#x27; en &#x27;meer dan de helft te duur&#x27;.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="profiel">
+    <summary><span><span class="nr">11.</span> Toets aan jouw profiel<span class="kort">Herinvestering ✓, deels gereguleerd ✓; R1 ✗, hype-trekken in de koers ✗</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Hoe past Ørsted bij wat jij belangrijk vindt?</p><ul class="blokken">
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Herinvestering (positief):</strong> bijna alle kasstroom gaat naar nieuwe parken: langetermijnvisie.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Defensief?</strong> Deels: ±90% van de EBITDA komt uit contracten of regulering, maar met grote bouwprojecten, valuta- en renterisico. Geen klassiek defensief aandeel.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Hype?</strong> Het bedrijf zelf niet: de winst uit draaiende parken groeit stevig. Wel liep de koers sneller op dan de winst, mee door fondsinstroom.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>R1 (negatief):</strong> Deense Staat 50,1% → NO-GO volgens jouw regels.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Fiscaliteit:</strong> Deens dividend: Deense bronheffing (deels terug te vragen) plus Belgische roerende voorheffing; beurstaks. Niet nagekeken in een officiële bron voor deze terugkijktest: laat dit nakijken bij je broker.</li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Besluit: past op twee punten goed, maar R1 en de prijs wegen zwaarder. Afwachten.</p>
+    </div>
+  </details>
+
+  <div class="achteraan-kop"><div class="deel">Deel 5 · Achteraan</div></div>
+  <details class="pdf-blok kaart uitklap">
+    <summary><h2>Woordenlijst <small>(21 termen)</small></h2></summary>
+    <dl class="woorden"><dt>10-jaarsrente</dt><dd>de rente op een Amerikaanse staatslening van 10 jaar, maatstaf voor de prijs van geld</dd><dt>bijzondere waardevermindering</dt><dd>boekhoudkundige afwaardering omdat een project minder waard is dan gedacht</dd><dt>Capital Markets Day</dt><dd>dag waarop het bedrijf zijn langetermijnplannen aan beleggers voorstelt</dd><dt>CfD</dt><dd>Britse regeling met een vaste stroomprijs per MWh voor 15 jaar</dd><dt>change of control-clausule</dt><dd>afspraak die geldt als de controle over het bedrijf verandert</dd><dt>EBITDA</dt><dd>winst vóór rente, belastingen en afschrijvingen</dd><dt>FFO/aangepaste netto schuld</dt><dd>kasstroom uit de activiteiten gedeeld door de schuld: hoe hoger, hoe veiliger</dd><dt>gemiddelde van 50 dagen</dt><dd>gemiddelde slotkoers van de laatste 50 beursdagen: de korte trend</dd><dt>Koersdoel</dt><dd>de koers die we over 2 jaar verwachten in het normale scenario</dd><dt>Koopzone</dt><dd>prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft</dd><dt>meerwaarde</dt><dd>winst op de verkoop van een bezit</dd><dt>NO-GO</dt><dd>volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is</dd><dt>NO-GO-regel</dt><dd>jouw harde regel R1: niet kopen als één partij meer dan 49% heeft</dd><dt>ondernemingswaarde</dt><dd>beurswaarde plus schulden</dd><dt>option fee</dt><dd>jaarlijkse huur voor het recht om op een stuk zeebodem een park te ontwikkelen</dd><dt>ROCE</dt><dd>winst vóór rente en belastingen gedeeld door het geïnvesteerde kapitaal</dd><dt>safe harbour</dt><dd>garantie dat een project de belastingvoordelen behoudt als de bouw op tijd start</dd><dt>Steunniveaus</dt><dd>koersen waar de daling eerder stopte</dd><dt>stop-loss</dt><dd>verkooporder die afgaat als de koers te ver zakt</dd><dt>vereiste rendement</dt><dd>hoeveel procent per jaar beleggers minstens willen verdienen</dd><dt>windparken op zee</dt><dd>grote windturbines in zee, ver van de kust</dd></dl>
+  </details>
+  <section class="pdf-blok kaart">
+    <h2>Kwaliteitscontrole</h2>
+    <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p><div class="kader info"><div class="t">Dit is een terugkijktest</div>Dit rapport is geschreven alsof het 2021-02-15 is: enkel bronnen en koersen van vóór die datum. Het dient om onze werkwijze te toetsen aan wat er nadien echt gebeurde — geen advies voor vandaag.</div>
+    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 94 feiten naast de bron gelegd, 79 meteen correct.
+    70 opmerkingen: 64 verwerkt, 0 gemotiveerd verworpen.</p>
+    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd met opmerkingen</span><span><strong>Actua-specialist:</strong> goedgekeurd met opmerkingen</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>Verslagen van concurrenten (RWE, Iberdrola, EDPR, SSE) niet gelezen: de waardering en de multiples in de scenario&#x27;s zijn niet aan concurrenten getoetst.</li><li>Insidertransacties van de 12 maanden vóór de peildatum konden niet nagekeken worden.</li><li>Terugkijktest: de hoofdanalist kende de afloop in grote lijnen (en het profiel noemt Ørsted de slechtste belegging van de gebruiker). Het rapport is dus niet blind geschreven; de evaluatie bevat een besmettingscheck.</li></ul></div>
+  </section>
+
+  <details class="pdf-blok kaart uitklap" id="bronnen">
+    <summary><h2>Bronnen <small>(15)</small></h2></summary>
+    <ol class="bronnen">
+      <li id="bron-1"><span class="type">primair</span> Ørsted A/S — <a href="https://orsted.com/annualreport2020" target="_blank" rel="noopener">Annual report 2020</a> (Annual report 2020 (gepubliceerd 3-2-2021)), 2021-02-03</li>
+      <li id="bron-2"><span class="type">primair</span> Ørsted A/S — <a href="https://www.energiesdelamer.eu/wp-content/uploads/2021/02/04-02-021-Orsted-annual-report-2020-investor-presentation.pdf" target="_blank" rel="noopener">Investor presentation Q4 and full-year 2020</a> (Investeerderspresentatie 3-2-2021 (kopie op energiesdelamer.eu, origineel op orsted.com niet bereikbaar)), 2021-02-03</li>
+      <li id="bron-3"><span class="type">data</span> Yahoo Finance — <a href="https://finance.yahoo.com/quote/ORSTED.CO" target="_blank" rel="noopener">Koersdata ORSTED.CO, afgekapt op peildatum 15-02-2021</a> (tools/koers.py --tot 2021-02-15 (peildatum)), 2021-02-15</li>
+      <li id="bron-4"><span class="type">data</span> Federal Reserve Board via FRED — <a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" rel="noopener">10-Year Treasury Constant Maturity Rate (DGS10)</a> (dagwaarden 4-8-2020, 31-12-2020, 12-2-2021), 2021-02-12</li>
+      <li id="bron-5"><span class="type">data</span> Europese Centrale Bank (dagelijkse rentecurve) — <a href="https://data.ecb.europa.eu/data/datasets/YC" target="_blank" rel="noopener">Euro area yield curve, AAA, 10-year spot rate (YC.B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y)</a> (dagwaarden 31-12-2019, 30-12-2020, 12-2-2021), 2021-02-12</li>
+      <li id="bron-6"><span class="type">primair</span> Bureau of Ocean Energy Management (VS) — <a href="https://www.boem.gov/newsroom/press-releases/boem-resume-environmental-review-vineyard-winds-proposed-project" target="_blank" rel="noopener">BOEM to Resume Environmental Review of Vineyard Wind&#39;s Proposed Project</a>, 2021-02-03</li>
+      <li id="bron-7"><span class="type">analyse</span> WindEurope — <a href="https://windeurope.org/news/latest-uk-seabed-leasing-risks-raising-costs-of-offshore-wind/" target="_blank" rel="noopener">Latest UK seabed leasing risks raising costs of offshore wind</a>, 2021-02-08</li>
+      <li id="bron-8"><span class="type">nieuws</span> Bloomberg (overgenomen door WealthManagement.com) — <a href="https://www.wealthmanagement.com/etfs/dot-com-era-stock-valuations-bring-bubble-fears-to-esg-funds" target="_blank" rel="noopener">Dot-com Era Stock Valuations Bring Bubble Fears to ESG Funds</a>, 2021-01-26</li>
+      <li id="bron-9"><span class="type">nieuws</span> Reuters (Nichola Groom, overgenomen door OE Digital) — <a href="https://www.oedigital.com/news/485058-boem-to-restart-permitting-for-major-us-offshore-wind-project" target="_blank" rel="noopener">BOEM to restart permitting for major US offshore wind project</a>, 2021-02-03</li>
+      <li id="bron-10"><span class="type">data</span> Federal Reserve Bank of St. Louis (FRED) — <a href="https://fred.stlouisfed.org/series/T10YIE" target="_blank" rel="noopener">10-Year Breakeven Inflation Rate (T10YIE) en 10-Year Real Interest Rate (DFII10)</a> (dagwaarden 4-8-2020 en 12-2-2021), 2021-02-12</li>
+      <li id="bron-11"><span class="type">nieuws</span> Offshore Wind (offshorewind.biz) — <a href="https://offshorewind.biz/2021/01/28/us-hits-pause-button-on-oil-gas-leasing-doubles-2030-offshore-wind-target" target="_blank" rel="noopener">US Hits Pause Button on Oil &amp; Gas Leasing, Doubles 2030 Offshore Wind Target</a>, 2021-01-28</li>
+      <li id="bron-12"><span class="type">nieuws</span> Offshore Wind (offshorewind.biz) — <a href="https://www.offshorewind.biz/2021/02/10/orsted-buys-into-baltica-2-3-owfs-in-poland/" target="_blank" rel="noopener">Ørsted Buys Into Baltica 2 &amp; 3 OWFs in Poland</a>, 2021-02-10</li>
+      <li id="bron-13"><span class="type">nieuws</span> Offshore Wind (offshorewind.biz) — <a href="https://offshorewind.biz/2021/02/04/breaking-denmark-greenlights-north-sea-energy-island-hub" target="_blank" rel="noopener">Denmark Greenlights North Sea Energy Island Hub</a>, 2021-02-04</li>
+      <li id="bron-14"><span class="type">nieuws</span> Offshore Wind (offshorewind.biz) — <a href="https://www.offshorewind.biz/2021/01/25/siemens-gamesa-reports-15-revenue-increase-in-q1-2021/" target="_blank" rel="noopener">Siemens Gamesa Reports 15% Revenue Increase in Q1 2021</a>, 2021-01-25</li>
+      <li id="bron-15"><span class="type">analyse</span> RenewableUK — <a href="https://www.renewableuk.com/news-and-resources/press-releases/renewableuk-responds-to-results-of-round-4-offshore-wind-leasing-process" target="_blank" rel="noopener">RenewableUK responds to results of Round 4 offshore wind leasing process</a>, 2021-02-08</li>
+    </ol>
+  </details>
+
+  <p class="voet">Gemaakt op 12-11-2026 08:15. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+</main>
+<script>
+document.addEventListener("click", function (e) {
+  var t = e.target.closest(".term");
+  if (t) { e.preventDefault(); var o = t.classList.toggle("open"); t.setAttribute("aria-expanded", o); return; }
+  var a = e.target.closest("a[href^='#']");
+  if (!a) return;
+  var d = document.getElementById(a.getAttribute("href").slice(1));
+  for (var p = d; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+});
+document.addEventListener("keydown", function (e) {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("term")) { e.preventDefault(); e.target.click(); }
+});
+</script>
+</body>
+</html>

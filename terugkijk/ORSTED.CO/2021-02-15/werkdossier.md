@@ -19,9 +19,9 @@
 | 8 Waardering & advies | ✅ | Afwachten 4/10; IW ±475 |
 | 9 Kritische expertblik | ✅ |  |
 | 10 Fact-check | ✅ | zie hieronder |
-| 11 Teamreview ronde 1 | ⬜ | |
-| 11 Teamreview ronde 2 (+3) | ⬜ | |
-| 12 Rapport bouwen | ⬜ | |
+| 11 Teamreview ronde 1 | ✅ | 3× niet goedgekeurd, 51 opm. |
+| 11 Teamreview ronde 2 (+3) | ✅ | 3× goedgekeurd met opm.; geen ronde 3 |
+| 12 Rapport bouwen | ✅ | HTML + PDF, 390 px nagekeken |
 | 13 Afronding & feedback | ⬜ | |
 
 (⬜ te doen · 🔄 bezig · ✅ klaar)
@@ -153,8 +153,8 @@
 ## Fact-check (fase 10)
 - Alle cijfers uit AR2020 nagekeken tegen het feitenlog (p.12, 15, 17, 29, 43, 63, 74–75, 104, 113).
 - Herberekend: beurswaarde 420,07 × 1.058 = 444,4 mld; EV 472,6 mld; EV/EBITDA 2021 (15,5) = 30,5×; winst zonder meerwaarde 16.727 − 10.831 = 5.896 mln → 14,0/aandeel → K/W 75; FCF zonder verkopen 16,5 − 27,0 = −10,5; uitkering 4,8/5,9 = 81%; daling vanaf top 1.355 → 1.058 = −21,9%.
-- DCF: 20 × 0,78 = 15,6; herinvestering 2/7,8 = 25,6%; FCF 11,6; /3,5% = 331; /1,055^5 = 253; −26 = 227; −28,2 = 199 → 473/aandeel. Gevoeligheid 6,5% → ±320/aandeel (−33%).
-- Scenario's herrekend: slecht (13×20−50)/420 = 500; normaal (20×22−50)/420 = 929 → koersdoel aangepast van 900 naar 930; goed (28×24−45)/420 = 1.493.
+- DCF (eerste versie, vervangen door de tabel hieronder): 5,5% → 473/aandeel.
+- Ronde 2 (definitief): slecht (13×21−64)/420 = 497 → 500; normaal (18×24−64)/420 = 876 → koersdoel 880; goed (24×25−55)/420 = 1.298 → 1.300. Waardetabel 3,5–6,5%: 1.421 / 1.006 / 757 / 592 / 475 / 319; break-even 3,92%; centraal 5,25% → 529.
 - Winnaars Round 4 nagekeken in WindEurope-bericht (bron 7).
 - Alle bronnen hebben een datum ≤ 15-02-2021 (gecontroleerd door tools/rapport.py).
 
@@ -163,8 +163,9 @@ Zie sectie `waardering`: CE 110 → ±200 mld (2025), ROCE 10%, belasting 22%, W
 
 ### Scenario-ankers (ronde 1)
 - EBITDA 2023: doel Ørsted 25–26 mld uit draaiende parken (AR p.17, 33) + Markets & Bioenergy ±1,2 mld − overige/ontwikkelkosten ±2,3 mld (AR p.15, 43) → groep ±24 mld bij doel. Slecht 21, goed 25.
-- Schuld 2023 (netto + hybride + minderheden): nu 28,2 mld. 2021–2023: investeringen ±100 mld (32–34/jaar) + dividend ±16 mld − operationele kasstroom ±55 mld − verkopen van belangen ±25 mld → +36 mld → ±60 mld (inschatting; goed scenario 55).
-- Multiple nu op dezelfde basis: (445 + 60) / 24 ≈ 21×.
+- Schuld 2023 (netto + hybride + minderheden): nu 28,2 mld. 2021–2023: investeringen ±100 mld (32–34/jaar) + dividend ±16 mld − operationele kasstroom ±55 mld − verkopen van belangen ±25 mld → +36 mld → 28,2 + 36 = ±64 mld (inschatting; correctie ronde 2, was 60). Goed scenario ±55 mld: ±9 mld extra verkopen van belangen (inschatting).
+- Multiple nu op dezelfde basis: (445 + 64) / 24 ≈ 21×.
+- Bronnen van toen per element van het slechte scenario (KB2-5): VS-vertraging/kostenoverschrijding AR p.73; ratingbeleid BBB+/Baa1 en FFO/schuld ~30% AR p.17; change of control bij Staat < 50% AR p.113; kost van het kapitaal: rentebronnen 4, 5, 10.
 
 ## Besmetting (voor de evaluatie)
 - Het profiel (`profiel/PROFIEL.md` §1) vermeldt dat Ørsted (2021) de slechtste belegging van de gebruiker was. De hoofdanalist heeft dat gelezen vóór het schrijven (bij het opstarten van de taak). Dit rapport is dus **niet blind** geschreven; te vermelden in de besmettingscheck van de evaluatie (review KB-3). Volgende terugkijktests: profiel zonder ervaringen van na de peildatum aan reviewers geven.
