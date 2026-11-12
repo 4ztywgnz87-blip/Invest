@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEME Group – rapport 2026-11-12</title>
+<style>:root {
+  --bg: #f4f5f7;
+  --vlak: #ffffff;
+  --inkt: #101828;
+  --inkt-2: #475467;
+  --inkt-3: #667085;
+  --rand: #e4e7ec;
+  --kop: #0b1f3a;
+  --accent: #1d4ed8;
+  --feit: #1d4ed8;      --feit-bg: #eff4ff;
+  --berek: #067647;     --berek-bg: #ecfdf3;
+  --inschat: #93590a;   --inschat-bg: #fff7e6;
+  --mening: #b42318;    --mening-bg: #fef3f2;
+  --kopen: #067647; --houden: #175cd3; --verkopen: #b42318; --afwachten: #93590a; --onvoldoende: #475467;
+  --nogo: #b42318; --hoog: #c4320a; --middel: #93590a; --info: #475467;
+  --g-raster: #eaecf0; --g-as: #667085;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--inkt);
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+a { color: var(--accent); }
+.pagina { max-width: 920px; margin: 0 auto; padding: 0 16px 48px; }
+
+/* Kop */
+.kop { background: var(--kop); color: #fff; padding: 22px 0 18px; }
+.kop .pagina { padding-bottom: 0; }
+.kop .ticker { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+.kop h1 { margin: 2px 0 4px; font-size: 26px; line-height: 1.2; font-weight: 650; }
+.kop .sub { font-size: 13px; opacity: .8; }
+
+/* Adviesblok */
+.advies { display: grid; grid-template-columns: auto 1fr; gap: 16px 22px; align-items: center;
+  background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 18px; margin-top: -1px; margin-top: 16px; }
+.oordeel { font-size: 22px; font-weight: 700; color: #fff; padding: 10px 18px; border-radius: 10px; text-align: center; min-width: 140px; }
+.oordeel small { display: block; font-size: 12px; font-weight: 500; opacity: .9; }
+.oordeel.Kopen { background: var(--kopen); } .oordeel.Houden { background: var(--houden); }
+.oordeel.Verkopen { background: var(--verkopen); } .oordeel.Afwachten { background: var(--afwachten); }
+.oordeel.Onvoldoende { background: var(--onvoldoende); }
+.advies .reden { font-size: 15px; }
+.score { display: flex; gap: 3px; margin-top: 6px; }
+.score i { width: 16px; height: 6px; border-radius: 3px; background: var(--rand); }
+.score i.aan { background: var(--inkt); }
+.cijferrij { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.tegel { border: 1px solid var(--rand); border-radius: 10px; padding: 10px 12px; }
+.tegel .n { font-size: 12px; color: var(--inkt-3); }
+.tegel .w { font-size: 18px; font-weight: 650; }
+.tegel .t { font-size: 12px; color: var(--inkt-2); }
+.scenarios { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.scenario { border-radius: 10px; padding: 10px 12px; background: var(--bg); }
+.scenario .n { font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .04em; }
+.scenario.Slecht .n { color: var(--verkopen); } .scenario.Normaal .n { color: var(--houden); } .scenario.Goed .n { color: var(--kopen); }
+.scenario .w { font-size: 18px; font-weight: 650; }
+.scenario p { margin: 4px 0 0; font-size: 13px; color: var(--inkt-2); }
+
+/* Blokken */
+.kaart { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.kaart > h2 { margin: 0 0 10px; font-size: 17px; }
+.vlaggen .vlag { border-left: 4px solid var(--info); padding: 8px 12px; margin: 8px 0; background: #fafafa; border-radius: 0 8px 8px 0; }
+.vlag.nogo { border-color: var(--nogo); background: #fef3f2; } .vlag.hoog { border-color: var(--hoog); background: #fff6ed; }
+.vlag.middel { border-color: var(--middel); background: #fffaeb; }
+.vlag .t { font-weight: 650; }
+.vlag .e { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin-right: 6px; }
+.vlag.nogo .e { color: var(--nogo); } .vlag.hoog .e { color: var(--hoog); } .vlag.middel .e { color: var(--middel); } .vlag.info .e { color: var(--info); }
+.geen-vlag { color: var(--berek); font-weight: 600; }
+
+details.sectie { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; margin-top: 12px; }
+details.sectie > summary { cursor: pointer; list-style: none; padding: 14px 18px; font-weight: 650; font-size: 16px; display: flex; justify-content: space-between; gap: 12px; }
+details.sectie > summary::-webkit-details-marker { display: none; }
+details.sectie > summary::after { content: "+"; color: var(--inkt-3); font-weight: 400; font-size: 20px; line-height: 1; }
+details.sectie[open] > summary::after { content: "–"; }
+details.sectie > summary .kort { font-weight: 400; font-size: 13px; color: var(--inkt-3); display: block; }
+details.sectie .inhoud { padding: 0 18px 16px; }
+
+p.blok, li.blok { margin: 8px 0; }
+ul.blokken { padding-left: 0; list-style: none; margin: 8px 0; }
+ul.blokken li { padding-left: 0; }
+.lab { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  padding: 1px 6px; border-radius: 4px; margin-right: 6px; vertical-align: 1px; }
+.lab.feit { color: var(--feit); background: var(--feit-bg); }
+.lab.berekening { color: var(--berek); background: var(--berek-bg); }
+.lab.inschatting { color: var(--inschat); background: var(--inschat-bg); }
+.lab.mening { color: var(--mening); background: var(--mening-bg); }
+.blok.mening, .blok.inschatting { font-style: normal; }
+a.ref { font-size: 11px; vertical-align: super; text-decoration: none; margin-left: 1px; }
+a.ref::before { content: "["; } a.ref::after { content: "]"; }
+.term { border-bottom: 1px dotted var(--inkt-3); }
+.uitleg { color: var(--inkt-3); font-size: .92em; }
+.kader { border-radius: 10px; padding: 10px 14px; margin: 10px 0; background: var(--feit-bg); }
+.kader.waarschuwing { background: #fffaeb; } .kader.mening { background: var(--mening-bg); }
+.kader .t { font-weight: 650; }
+.kerncijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 10px 0; }
+.trend.op { color: var(--berek); } .trend.neer { color: var(--mening); } .trend.gelijk { color: var(--inkt-3); }
+
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--rand); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; white-space: normal; }
+th { font-weight: 600; color: var(--inkt-2); font-size: 12.5px; }
+.tabelwrap { overflow-x: auto; margin: 10px 0; }
+.tabel-titel, .grafiek-titel { font-weight: 650; font-size: 14px; margin: 14px 0 4px; }
+.bijschrift { font-size: 12px; color: var(--inkt-3); margin-top: 2px; }
+
+/* Grafieken */
+.grafiek-svg { width: 100%; max-width: 640px; height: auto; display: block; }
+.g-raster { stroke: var(--g-raster); stroke-width: 1; }
+.g-nul { stroke: var(--inkt-3); stroke-width: 1; }
+.g-as { fill: var(--g-as); font-size: 13px; }
+.g-ref { fill: var(--inkt-2); font-size: 13px; }
+.g-legende { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12.5px; color: var(--inkt-2); margin-top: 4px; }
+.g-legende i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+details.g-tabel summary { font-size: 12px; color: var(--accent); cursor: pointer; margin-top: 4px; }
+
+/* Bronnen */
+ol.bronnen { padding-left: 22px; font-size: 13px; }
+ol.bronnen li { margin: 4px 0; word-break: break-word; }
+ol.bronnen .type { font-size: 10.5px; text-transform: uppercase; color: var(--inkt-3); letter-spacing: .04em; }
+.legende-labels { font-size: 12.5px; color: var(--inkt-2); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.voet { font-size: 12px; color: var(--inkt-3); margin-top: 24px; }
+
+@media (max-width: 600px) {
+  body { font-size: 14.5px; }
+  .kop h1 { font-size: 22px; }
+  .advies { grid-template-columns: 1fr; }
+  .oordeel { min-width: 0; }
+  .scenarios { grid-template-columns: 1fr; }
+  .kaart, details.sectie > summary, details.sectie .inhoud { padding-left: 14px; padding-right: 14px; }
+}
+@media print {
+  body { background: #fff; font-size: 11.5px; }
+  .kop { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .kaart, details.sectie, .advies { border-color: #d0d5dd; }
+  .kop { margin: 0; }
+  details.g-tabel { display: none; }
+  .pagina { max-width: none; }
+}
+
+/* Structuur */
+.tussentitel { font-size: 14.5px; margin: 18px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--rand); color: var(--kop); }
+details.sectie > summary .nr { color: var(--inkt-3); font-weight: 600; margin-right: 2px; }
+.inhoudstafel ol { margin: 0; padding-left: 22px; }
+.inhoudstafel li { margin: 3px 0; }
+.inhoudstafel a { text-decoration: none; font-weight: 600; }
+.inhoudstafel .kort { color: var(--inkt-3); font-size: 13px; }
+@media print {
+  .kaart > h2, .tussentitel, .grafiek-titel, .tabel-titel { break-after: avoid; }
+  details.sectie > summary { font-size: 17px; border-bottom: 2px solid var(--kop); margin: 0 18px; padding: 14px 0 6px; }
+  details.sectie > summary::after { content: none; }
+  details.sectie .inhoud { padding-top: 8px; }
+  p, li { orphans: 1; widows: 1; }
+}
+dl.woorden { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; font-size: 13.5px; }
+dl.woorden dt { font-weight: 650; } dl.woorden dd { margin: 0; color: var(--inkt-2); }
+@media (max-width: 600px) { dl.woorden { grid-template-columns: 1fr; } dl.woorden dd { margin-bottom: 6px; } }
+
+/* uitleg: inleiding/overgang zonder label */
+.leestekst { margin: 8px 0 10px; line-height: 1.55; }
+
+/* scoreopbouw */
+.scoreopbouw { grid-column: 1 / -1; background: var(--bg); border-radius: 10px; padding: 12px 14px; }
+.so-titel { font-weight: 650; margin-bottom: 4px; }
+.so-intro { margin: 0 0 8px; font-size: 14px; color: var(--inkt-3); }
+.so-rij { padding: 8px 0; border-top: 1px solid rgba(0,0,0,.06); }
+.so-kop { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+.so-naam { font-weight: 600; }
+.so-p { font-weight: 700; white-space: nowrap; }
+.so-balk { height: 6px; background: rgba(0,0,0,.08); border-radius: 3px; margin: 5px 0; overflow: hidden; }
+.so-balk i { display: block; height: 100%; background: var(--afwachten, #b54708); border-radius: 3px; }
+.so-uitleg { font-size: 13px; line-height: 1.45; color: var(--inkt-3); }
+.so-corr .so-p { color: #b42318; }
+.so-som { font-size: 14px; padding: 8px 0 2px; border-top: 1px solid rgba(0,0,0,.12); }
+.so-som.totaal { font-size: 15px; }
+
+/* opbouw en leeswijzer */
+.vol { grid-column: 1 / -1; }
+.deel { font-size: 11.5px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--inkt-3); margin-bottom: 2px; }
+.deel-intro { margin: 4px 0 10px; font-size: 14.5px; line-height: 1.5; color: var(--inkt-2, #344054); }
+.advies h2 { margin: 0; font-size: 20px; }
+.sub-titel { font-weight: 650; font-size: 16px; margin-top: 6px; }
+.opbouw { margin: 4px 0 6px; padding-left: 20px; line-height: 1.5; font-size: 14.5px; }
+.opbouw li { margin: 4px 0; }
+.achteraan-kop { margin: 26px 0 4px; }
+
+/* ---------- Uitklappers, termknoppen, prijsbalk (2026-11) ---------- */
+/* Oordeel bovenaan */
+.kort-oordeel { background: var(--vlak); border: 1px solid var(--rand); border-radius: 12px; padding: 16px 18px; margin-top: 16px; }
+.ko-kop { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.kort-oordeel .oordeel { min-width: 0; padding: 8px 18px; }
+.ko-score { font-weight: 800; line-height: 1; white-space: nowrap; }
+.ko-score b { font-size: 40px; } .ko-score small { font-size: 15px; color: var(--inkt-3); font-weight: 600; }
+.kort-oordeel .score { margin: 12px 0 10px; } .kort-oordeel .score i { flex: 1; }
+.kort-oordeel .reden { font-size: 15.5px; line-height: 1.5; }
+.ko-vlaggen { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.ko-vlag { font-size: 12.5px; font-weight: 650; text-decoration: none; padding: 3px 10px; border-radius: 999px; background: #fffaeb; color: var(--middel); }
+.ko-vlag.nogo { background: #fef3f2; color: var(--nogo); } .ko-vlag.hoog { background: #fff6ed; color: var(--hoog); }
+
+/* Algemene uitklapper */
+details.uitklap > summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+details.uitklap > summary::-webkit-details-marker { display: none; }
+details.uitklap > summary::after { content: "+"; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--bg); color: var(--accent);
+  display: grid; place-items: center; font-size: 18px; font-weight: 500; line-height: 1; }
+details.uitklap[open] > summary::after { content: "–"; }
+details.kaart.uitklap > summary h2 { margin: 0; font-size: 17px; }
+details.kaart.uitklap > summary h2 small { font-weight: 400; font-size: 13px; color: var(--inkt-3); }
+details.kaart.uitklap[open] > summary { margin-bottom: 10px; }
+summary:focus-visible, .term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Tussentitels binnen een hoofdstuk */
+details.onderdeel { border-top: 1px solid var(--rand); }
+details.onderdeel:last-of-type { border-bottom: 1px solid var(--rand); }
+details.onderdeel > summary { padding: 12px 0; font-weight: 650; font-size: 15px; color: var(--kop); }
+details.onderdeel[open] { padding-bottom: 10px; }
+details.onderdeel[open] > summary { color: var(--accent); }
+
+/* Vakterm = knop, uitleg klapt open */
+.term { border-bottom: 1.5px dotted var(--accent); cursor: pointer; }
+.term.open { background: var(--feit-bg); border-bottom-style: solid; }
+.uitleg { display: none; }
+.term.open + .uitleg { display: inline; margin-left: 4px; padding: 2px 7px; border-radius: 6px; background: var(--feit-bg);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  color: var(--inkt-2); font-size: .93em; font-weight: 400; font-style: normal; }
+.term.open + .uitleg::before { content: "= "; font-weight: 650; color: var(--accent); }
+
+/* Kerncijfer met uitleg */
+details.tegel.meer > summary { cursor: pointer; list-style: none; }
+details.tegel.meer > summary::-webkit-details-marker { display: none; }
+.meer-knop { display: inline-block; margin-top: 6px; font-size: 12px; font-weight: 650; color: var(--accent); }
+.meer-knop::after { content: " +"; } details.tegel[open] .meer-knop::after { content: " –"; }
+details.tegel[open] { grid-column: 1 / -1; background: var(--bg); }
+.meer-inhoud { border-top: 1px solid var(--rand); margin-top: 8px; padding-top: 2px; }
+.meer-inhoud p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.5; color: var(--inkt-2); }
+.beoordeling { display: inline-flex; align-items: center; gap: 5px; margin-top: 5px; margin-right: 8px; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.beoordeling i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.beoordeling.goed { color: var(--kopen); } .beoordeling.normaal { color: var(--inkt-3); } .beoordeling.zwak { color: var(--verkopen); }
+
+/* Prijsbalk */
+.prijsbalk { padding: 4px 2px 0; }
+.pb-boven, .pb-onder { position: relative; height: 18px; }
+.pb-nu-label { position: absolute; transform: translateX(-50%); font-size: 11.5px; font-weight: 700; white-space: nowrap; }
+.pb-spoor { position: relative; height: 12px; border-radius: 6px; background: var(--rand); }
+.pb-zone { position: absolute; top: 0; bottom: 0; background: var(--kopen); opacity: .55; border-radius: 3px; }
+.pb-streep { position: absolute; top: -4px; bottom: -4px; width: 3px; margin-left: -1.5px; border-radius: 2px; }
+.pb-streep.stop, .k.stop { background: var(--verkopen); } .pb-streep.doel, .k.doel { background: var(--houden); } .pb-streep.iw, .k.iw { background: var(--inkt-3); }
+.pb-nu { position: absolute; top: -5px; width: 14px; height: 22px; margin-left: -7px; border-radius: 4px; background: var(--inkt); border: 2px solid var(--vlak); }
+.pb-bol { position: absolute; top: 5px; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; }
+.pb-bol.Slecht { background: var(--verkopen); } .pb-bol.Normaal { background: var(--houden); } .pb-bol.Goed { background: var(--kopen); }
+.pb-as { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--inkt-3); }
+.pb-legende { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 6px; font-size: 11.5px; color: var(--inkt-2); }
+.pb-legende span { display: inline-flex; align-items: center; gap: 5px; }
+.k { display: inline-block; flex: none; width: 4px; height: 14px; border-radius: 2px; }
+.k.zone { width: 12px; background: var(--kopen); opacity: .55; } .k.nu { width: 10px; background: var(--inkt); border-radius: 3px; }
+.k.bol { width: 9px; height: 9px; border-radius: 50%; background: var(--inkt-3); }
+
+/* Prijzen als uitklapbare rijen */
+.prijzen { border: 1px solid var(--rand); border-radius: 10px; overflow: hidden; }
+.prijs + .prijs { border-top: 1px solid var(--rand); }
+.p-rij { display: flex; align-items: center; gap: 10px; padding: 11px 12px; list-style: none; }
+.p-rij::-webkit-details-marker { display: none; }
+summary.p-rij { cursor: pointer; }
+summary.p-rij::after { content: "+"; color: var(--accent); font-size: 18px; line-height: 1; width: 12px; text-align: center; }
+details.prijs[open] > summary.p-rij::after { content: "–"; }
+div.prijs .p-rij::after { content: ""; width: 12px; }
+.p-rij .k { width: 12px; } .p-rij .k.stop, .p-rij .k.doel, .p-rij .k.iw { width: 4px; margin: 0 4px; }
+.p-naam { flex: 1; font-weight: 600; font-size: 14.5px; }
+.p-naam small { display: block; font-weight: 400; font-size: 12px; color: var(--inkt-3); }
+.p-w { font-weight: 700; font-size: 16px; white-space: nowrap; }
+details.prijs > p { margin: 0; padding: 0 12px 12px 34px; font-size: 13.5px; line-height: 1.5; color: var(--inkt-2); }
+
+/* Scenario's uitklapbaar */
+details.scenario > summary { cursor: pointer; list-style: none; display: grid; gap: 2px; }
+details.scenario > summary::-webkit-details-marker { display: none; }
+details.scenario .w small { font-size: 12.5px; font-weight: 500; color: var(--inkt-3); }
+details.scenario > summary::after { content: "Waarom? +"; font-size: 12px; font-weight: 650; color: var(--accent); margin-top: 2px; }
+details.scenario[open] > summary::after { content: "Waarom? –"; }
+
+/* Scoreopbouw + vlaggen */
+details.scoreopbouw > summary .so-titel { margin: 0; }
+details.scoreopbouw[open] > summary { margin-bottom: 6px; }
+details.vlag-details { margin-top: 8px; border-top: 1px solid rgba(0,0,0,.08); }
+details.vlag-details > summary { padding: 9px 0 3px; font-size: 13.5px; font-weight: 650; color: var(--accent); }
+.nagekeken { margin-top: 16px; }
+details.vlag.info > summary { padding: 3px 0; }
+details.vlag.info > summary .t { flex: 1; }
+.kader li em, .kader em { display: block; font-style: normal; font-size: 12.5px; color: var(--inkt-3); margin-top: 2px; }
+ul.opbouw { list-style: disc; }
+
+@media print {
+  .uitleg { display: inline !important; color: var(--inkt-3); font-size: .92em; }
+  .uitleg::before { content: " (" !important; font-weight: 400 !important; color: inherit !important; } .uitleg::after { content: ")"; }
+  .term { border-bottom: 1px dotted var(--inkt-3); }
+  details.uitklap > summary::after, summary.p-rij::after, details.scenario > summary::after, .meer-knop { display: none !important; content: none !important; }
+  details.onderdeel { border: 0 !important; }
+  details.onderdeel > summary { font-size: 13.5px; border-bottom: 1px solid var(--rand); padding: 12px 0 4px; break-after: avoid; }
+  details.vlag-details > summary { display: none; }
+  .kort-oordeel, .prijzen, details.tegel[open] { border-color: #d0d5dd; }
+  .oordeel, .pb-spoor, .pb-zone, .pb-streep, .pb-nu, .pb-bol, .k, .beoordeling i, .ko-vlag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+ol.bronnen .type.zwak { color: var(--mening); background: var(--mening-bg); padding: 1px 5px; border-radius: 4px; }
+
+/* Aandeelhoudersbalk */
+.ah-balk { margin: 8px 0 12px; }
+.ah-spoor { position: relative; display: flex; height: 22px; border-radius: 6px; overflow: visible; background: var(--rand); margin-top: 22px; }
+.ah-spoor i { display: block; height: 100%; border-right: 2px solid var(--vlak); }
+.ah-spoor i:first-child { border-radius: 6px 0 0 6px; } .ah-spoor i:last-of-type { border-radius: 0 6px 6px 0; border-right: 0; }
+.ah-spoor i.top, .k.ah-top { background: var(--nogo); } .ah-spoor i.ander, .k.ah-ander { background: var(--houden); }
+.ah-spoor i.eigen, .k.ah-eigen { background: var(--inkt-3); } .ah-spoor i.vrij, .k.ah-vrij { background: #cfd4dc; }
+.k.ah-top, .k.ah-ander, .k.ah-eigen, .k.ah-vrij { width: 12px; height: 12px; border-radius: 3px; }
+.ah-grens { position: absolute; top: -6px; bottom: -6px; width: 2px; background: var(--inkt); }
+.ah-grens span { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 11px; font-weight: 700; white-space: nowrap; padding-bottom: 1px; }
+
+/* Ketenschema */
+.keten { margin: 6px 0 4px; }
+.kt-centrum { display: inline-block; background: var(--kop); color: #fff; font-weight: 700; padding: 7px 14px; border-radius: 10px; }
+.kt-takken { list-style: none; margin: 0 0 0 16px; padding: 10px 0 0 16px; border-left: 2px solid var(--rand); display: grid; gap: 10px; }
+.kt-takken > li { position: relative; }
+.kt-takken > li::before { content: ""; position: absolute; left: -16px; top: 18px; width: 14px; border-top: 2px solid var(--rand); }
+.kt-tak { border: 1px solid var(--rand); border-radius: 10px; padding: 8px 12px; background: var(--vlak); }
+.kt-gewicht { float: right; margin-left: 8px; font-size: 12px; font-weight: 700; color: var(--accent); background: var(--feit-bg); padding: 1px 8px; border-radius: 999px; }
+.kt-uitleg { font-size: 13px; color: var(--inkt-2); margin-top: 2px; }
+.kt-onder { list-style: none; margin: 6px 0 0 14px; padding: 0 0 0 12px; border-left: 2px dotted var(--rand); font-size: 13px; color: var(--inkt-2); display: grid; gap: 4px; }
+@media print { .ah-spoor i, .ah-grens, .kt-centrum, .kt-gewicht { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .keten { break-inside: avoid; } }
+</style>
+</head>
+<body><header class="kop"><div class="pagina">
+  <div class="ticker">DEME.BR · Euronext Brussel · BE0974413453 · AANDEEL</div>
+  <h1>DEME Group</h1>
+  <div class="sub">Terugkijktest — zoals op 2024-11-15, geschreven op 2026-11-12 · Maritieme werken: offshore-energie, baggeren en infrastructuur</div>
+</div></header>
+
+<main class="pagina"><section class="pdf-blok kort-oordeel" id="oordeel">
+    <div class="ko-kop">
+      <div class="oordeel Afwachten">Afwachten</div><div class="ko-score" aria-label="score 5 op 10"><b>5</b><small>/10</small></div>
+    </div><div class="score" aria-hidden="true"><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class="aan"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+    <div class="reden">Goed bedrijf aan een redelijke prijs, maar regel <strong>R1 is geraakt</strong>: Ackermans &amp; van Haaren bezit <strong>62,1%</strong> (met VINCI 74%). De rest is goed, niet uitzonderlijk. <strong>Nu niet kopen.</strong></div><div class="ko-vlaggen"><a class="ko-vlag nogo" href="#vlaggen">🚩 No-go · R1</a><a class="ko-vlag middel" href="#vlaggen">🚩 Middel · R4</a></div>
+  </section>
+
+  <details class="pdf-blok kaart leeswijzer uitklap">
+    <summary><h2>Hoe lees je dit rapport?</h2></summary>
+    <p class="deel-intro">Het rapport gaat van kort naar uitgebreid. Bovenaan staat de conclusie; wil je weten waarom, lees dan verder of klap de details open.</p>
+    <ul class="opbouw">
+      <li><strong>Onderlijnd woord</strong> — tik erop en je krijgt de uitleg van die vakterm.</li>
+      <li><strong>Vakje met "Uitleg"</strong> — tik op een cijfer om te lezen wat het is, hoe het berekend is en of het goed of slecht is.</li>
+      <li><strong>Titel met een +</strong> — tik om dat stuk open te klappen.</li>
+    </ul>
+    <ol class="opbouw">
+      <li><strong>Samenvatting</strong> — wat is dit bedrijf en wat vinden we ervan, op één scherm.</li>
+      <li><strong>Het advies in cijfers</strong> — tegen welke prijs kopen, het koersdoel, wanneer verkopen, drie mogelijke uitkomsten voor de koers en hoe de score tot stand komt.</li>
+      <li><strong>Rode vlaggen</strong> — wat botst met jouw harde regels.</li>
+      <li><strong>Details per thema</strong> — 11 hoofdstukken om open te klappen, met alle cijfers, uitleg en bronnen.</li>
+      <li><strong>Achteraan</strong> — woordenlijst, kwaliteitscontrole en bronnenlijst.</li>
+    </ol>
+    <p class="deel-intro" style="margin-top:10px">Elk stuk tekst krijgt een label, zodat je weet hoe zeker het is:</p>
+    <div class="legende-labels">
+      <span><span class="lab feit">Feit</span>uit een bron, met verwijzing</span>
+      <span><span class="lab berekening">Berekening</span>zelf berekend uit feiten</span>
+      <span><span class="lab inschatting">Inschatting</span>verwachting, kan anders uitdraaien</span>
+      <span><span class="lab mening">Mening</span>oordeel van de analist</span>
+    </div>
+  </details>
+
+  <section class="pdf-blok kaart" id="samenvatting">
+    <div class="deel">Deel 1</div>
+    <h2>Samenvatting</h2>
+    <p class="deel-intro">Wat is dit bedrijf, en wat vinden we ervan? De kern in een paar punten.</p><p class="blok feit"><span class="lab feit">Feit</span>DEME is een Belgische groep die op zee bouwt: <span class="term" tabindex="0" role="button" aria-expanded="false">funderingen en kabels voor windparken op zee</span><span class="uitleg">DEME bouwt de windparken niet zelf maar installeert ze voor anderen</span>, baggerwerk, havens en tunnels. In 2023: omzet €3,3 mld, nettowinst €163 mln.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span><strong>R1 geraakt — <span class="term" tabindex="0" role="button" aria-expanded="false">NO-GO</span><span class="uitleg">volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is</span>:</strong> Ackermans &amp; van Haaren bezit 62,1%. Daarom: <strong>nu niet kopen</strong>.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span><strong>Goed nieuws:</strong> 2024 wordt een recordjaar (omzet +20% of meer) en de schuld halveerde tot €352 mln (30-6-2024).<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p><p class="blok feit"><span class="lab feit">Feit</span><strong>Risico&#x27;s:</strong> de winst staat op een recordniveau, DEME verwacht na 2024 geen groei meer, het <span class="term" tabindex="0" role="button" aria-expanded="false">orderboek</span><span class="uitleg">getekende opdrachten die nog uitgevoerd moeten worden</span> daalde van €7,6 naar €7,1 mld in één kwartaal, en wind op zee is onrustig (Trump verkozen op 6-11-2024).<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-7">7</a></p><p class="blok mening"><span class="lab mening">Mening</span><strong>Prijs:</strong> redelijk als de goede jaren aanhouden; onze waarde ligt tussen €58 en €167 (centraal ±€115). Afwachten: 5/10.</p>
+  </section>
+
+  <section class="advies" id="advies">
+    <div class="vol">
+      <div class="deel">Deel 2</div>
+      <h2>Het advies in cijfers</h2>
+      <p class="deel-intro">De prijzen om in de gaten te houden, wat de koers de komende twee jaar zou kunnen doen, wanneer je verkoopt en hoe de score is opgebouwd.</p>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Belangrijke prijzen</div>
+      <p class="deel-intro">Alle prijzen op één lijn, van laag naar hoog. Tik op een prijs voor de uitleg.</p>
+    </div>
+    <div class="vol prijsbalk" role="img" aria-label="Prijzen op een schaal van 81 tot 211 EUR">
+      <div class="pb-boven"><span class="pb-nu-label" style="left: 43.3%">koers nu</span></div>
+      <div class="pb-spoor"><i class="pb-zone" style="left: 15.0%; width: 10.3%"></i><i class="pb-streep stop" style="left: 24.6%"></i><i class="pb-streep doel" style="left: 54.8%"></i><i class="pb-streep iw" style="left: 28.7%"></i>
+        <i class="pb-nu" style="left: 43.3%"></i>
+      </div>
+      <div class="pb-onder"><i class="pb-bol Slecht" style="left: 5.4%"></i><i class="pb-bol Normaal" style="left: 54.8%"></i><i class="pb-bol Goed" style="left: 94.6%"></i></div>
+      <div class="pb-as"><span>81 EUR</span><span>211 EUR</span></div>
+      <div class="pb-legende"><span><i class="k zone"></i>koopzone</span><span><i class="k stop"></i>stop-loss</span><span><i class="k doel"></i>koersdoel</span><span><i class="k iw"></i>intrinsieke waarde</span><span><i class="k bol"></i>scenario's</span></div>
+    </div>
+    <div class="vol prijzen">
+      <div class="prijs"><div class="p-rij"><i class="k nu"></i><span class="p-naam">Koers nu <small>15-11-2024</small></span><span class="p-w">136,20 EUR</span></div></div>
+      <details class="prijs"><summary class="p-rij"><i class="k zone"></i><span class="p-naam">Koopzone <small>−30% tot −19% t.o.v. nu</small></span><span class="p-w">95 – 110 EUR</span></summary>
+        <p>De prijs waarbij kopen aantrekkelijk wordt: het mogelijke rendement weegt dan op tegen het risico. Staat de koers erboven, dan betaal je meer dan wij verantwoord vinden.</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k doel"></i><span class="p-naam">Koersdoel (2 jaar) <small>+12% t.o.v. nu</small></span><span class="p-w">153 EUR</span></summary>
+        <p>Waar de koers volgens het normale scenario binnen twee jaar zou staan. Het is een inschatting, geen belofte. Onderbouwing: normaal scenario, november 2026: ±5,5× een EBITDA van ±€700 mln plus een kleine nettokas. Dat is de koers die wij verwachten als de goede jaren aanhouden, niet onze berekende waarde (±€115). Alle drie scenario&#x27;s samen (35/50/15%) geven ±€136 over 2 jaar: ongeveer de koers van nu. Met ±1,5% dividend per jaar is dat ver onder de ±9% per jaar die een belegger voor dit risico mag vragen..</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k stop"></i><span class="p-naam">Stop-loss <small>−20% onder je aankoopprijs</small></span><span class="p-w">109 EUR</span></summary>
+        <p>De koers waarop je verkoopt om een groter verlies te vermijden. Die hangt af van de prijs waartegen jij koopt. Enkel voor wie het aandeel al heeft: verkopen bij −20% onder je eigen aankoopprijs (jouw profiel). Voor wie op 15-11-2024 had gekocht: €109. Het laatste sterke steunniveau ligt op €115 (februari 2024). Let op: DEME schommelt sterk (25,8% per jaar), dus −20% wordt sneller geraakt dan bij een rustig aandeel. De stop-loss is een regel om verlies te beperken op je eigen aankoopprijs, geen oordeel over de waarde: zakt de koers tot in de koopzone, bekijk de zaak dan opnieuw (R1 blijft gelden).</p></details>
+      <details class="prijs"><summary class="p-rij"><i class="k iw"></i><span class="p-naam">Intrinsieke waarde <small>−16% t.o.v. nu</small></span><span class="p-w">115 EUR</span></summary>
+        <p>Wat één aandeel volgens de berekening echt waard is, los van de beurskoers. Het is een schatting; de onderbouwing staat in het hoofdstuk <a href="#waardering">Waardering</a>.</p></details>
+    </div>
+    <div class="vol">
+      <div class="sub-titel">Wat kan de koers over twee jaar doen?</div>
+      <p class="deel-intro">Niemand kent de toekomst. Daarom drie mogelijke uitkomsten, telkens met de koers die erbij hoort en hoe waarschijnlijk we dat vinden. Tik op een uitkomst voor de redenering.</p>
+    </div>
+    <div class="scenarios">
+      <details class="scenario Slecht"><summary><span class="n">Slecht · kans 35%</span><span class="w">81 EUR <small>−41%</small></span></summary><p>Wind op zee vertraagt (VS onder Trump, duurdere projecten in Europa), het orderboek krimpt en de omzet zakt ±15%, met een marge van ±15% (zoals in het eerste halfjaar 2023, toen projecten in de VS en Taiwan verlies maakten). EBITDA ±€500 mln, beleggers betalen ±4,5× (zoals Fugro) en de nettokas wordt een schuld: (4,5 × 500 − 200) / 25,3 mln aandelen ≈ €81. Eigen inschatting.</p></details>
+      <details class="scenario Normaal"><summary><span class="n">Normaal · kans 50%</span><span class="w">153 EUR <small>+12%</small></span></summary><p>DEME doet wat het zegt: omzet rond het niveau van 2024 en een marge van 16–20% → EBITDA ±€700 mln. De markt betaalt ±5,5× en de vrije kasstroom maakt van de schuld een kleine nettokas: (5,5 × 700 + 30) / 25,3 ≈ €153. Eigen inschatting.</p></details>
+      <details class="scenario Goed"><summary><span class="n">Goed · kans 15%</span><span class="w">211 EUR <small>+55%</small></span></summary><p>De vraag naar installatieschepen en kabels blijft groter dan het aanbod (DEME spreekt van &#x27;sterke tenderactiviteit&#x27;), de marge stijgt naar 20% en de markt betaalt ±6,5× (tussen Fugro en Subsea7): (6,5 × 800 + 150) / 25,3 ≈ €211. Eigen inschatting.</p></details>
+    </div>
+    <div class="vol kader waarschuwing"><div class="t">Wanneer verkopen? Hou dit in de gaten:</div>
+      <ul><li>Wie het aandeel heeft: <strong>koers 20% onder je aankoopprijs</strong> (<span class="term" tabindex="0" role="button" aria-expanded="false">stop-loss</span><span class="uitleg">verkooporder die afgaat als de koers te ver zakt</span>; bij aankoop op 15-11-2024: €109) → verkopen volgens je profiel. <em>Controle: koers.</em></li><li><strong><span class="term" tabindex="0" role="button" aria-expanded="false">Orderboek</span><span class="uitleg">getekende opdrachten die nog uitgevoerd moeten worden</span> onder €6 mld</strong> in twee opeenvolgende <span class="term" tabindex="0" role="button" aria-expanded="false">trading updates</span><span class="uitleg">korte tussentijdse cijfers per kwartaal</span> (nu €7,1 mld; €5,9 mld in 2022) → minder werk voor de komende jaren. <em>Controle: trading updates (mei, november) en halfjaarcijfers.</em></li><li><strong><span class="term" tabindex="0" role="button" aria-expanded="false">EBITDA-marge</span><span class="uitleg">bedrijfswinst vóór afschrijvingen, als percentage van de omzet</span> onder 17%</strong> (DEME verwacht zelf 16–20%) of een groot project met verlies. <em>Controle: jaar- en halfjaarcijfers (26-2-2025, 26-8-2025).</em></li><li><strong><span class="term" tabindex="0" role="button" aria-expanded="false">Netto schuld</span><span class="uitleg">leningen min kas</span> boven 1,5× de EBITDA</strong> (nu 0,5×) → de balans verzwakt. <em>Controle: halfjaarcijfers.</em></li><li><strong><span class="term" tabindex="0" role="button" aria-expanded="false">Vrije kasstroom</span><span class="uitleg">geld dat overblijft na investeringen</span> negatief in een halfjaar</strong> terwijl de winst stabiel blijft → klanten betalen minder vooruit (<span class="term" tabindex="0" role="button" aria-expanded="false">werkkapitaal</span><span class="uitleg">geld dat vastzit in of vrijkomt uit lopende projecten</span>), vaak een teken dat er minder nieuw werk binnenkomt. <em>Controle: halfjaarcijfers.</em></li><li><strong>Ackermans &amp; van Haaren wijzigt zijn belang</strong> (melding bij de <span class="term" tabindex="0" role="button" aria-expanded="false">FSMA</span><span class="uitleg">Belgische beurstoezichthouder</span>) → R1 en de waardering opnieuw bekijken. <em>Controle: FSMA-meldingen.</em></li><li><strong>Koopsignaal</strong>: koers in de koopzone <strong>€95–110</strong>, de prijs waarbij DEME zonder R1 interessant zou zijn. Een uitzondering op R1 vraagt dat de rest uitzonderlijk positief is (eigen voorstel: alle onderdelen van de score minstens 8/10); dat is nu niet zo. <em>Controle: koers + halfjaarcijfers.</em></li></ul></div>
+    <details class="scoreopbouw uitklap">
+      <summary><span class="so-titel">Hoe komt de score 5/10 tot stand?</span></summary><p class="so-intro">Gezonde balans en goede uitvoering, redelijke prijs, maar R1 geraakt en de winst staat op een recordniveau. Rekensom: 5,85 − 1 (R1) = 4,85, afgerond 5.</p>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Bestuur &amp; aandeelhouders (zonder R1)</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Ervaren referentieaandeelhouder, gematigde verloning (CEO ±€2,1 mln met pensioen). Wel: de voorzitter (Luc Bertrand, AvH) zit ook het remuneratiecomité voor, een nieuwe CFO sinds mei 2024, en een strafzaak over een Russisch contract uit 2014.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Financiële gezondheid</span><span class="so-p">7/10</span></div>
+        <div class="so-balk"><i style="width: 70%"></i></div>
+        <div class="so-uitleg">Weegt 20% · Netto schuld €352 mln (30-6-2024), 0,5× de EBITDA. Maar de vrije kasstroom was in 2021–2023 gemiddeld maar ±€37 mln, en die van het eerste halfjaar 2024 (€278 mln) komt deels van vooruitbetalingen van klanten (werkkapitaal), die kunnen omkeren als het orderboek krimpt.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Groei &amp; herinvestering</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Omzet 2024 +20% of meer, uitkering 33%. Maar de investeringen in schepen dalen (2024: €300–350 mln, minder dan de afschrijvingen) en DEME verwacht na 2024 geen verdere omzetgroei.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Waardering (prijs nu)</span><span class="so-p">5/10</span></div>
+        <div class="so-balk"><i style="width: 50%"></i></div>
+        <div class="so-uitleg">Weegt 20% · ±6,6× de EBITDA van 2023 (Fugro ±4,8×, Subsea7 ±7,7×). Onze waarde ligt tussen €58 en €167 (centraal ±€115): de koers van €136 rekent erop dat de recordwinst van 2024 blijft.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Risico&#39;s &amp; actualiteit</span><span class="so-p">5/10</span></div>
+        <div class="so-balk"><i style="width: 50%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Projecten aan vaste prijs (kostenoverschrijdingen), een onrustige markt voor wind op zee (Ørsted stopte projecten in de VS), en de verkiezing van Trump (VS-aandeel ±11% van de omzet). Orderboek 9% lager dan een jaar eerder.</div>
+      </div>
+      <div class="so-rij">
+        <div class="so-kop"><span class="so-naam">Past bij jouw profiel</span><span class="so-p">6/10</span></div>
+        <div class="so-balk"><i style="width: 60%"></i></div>
+        <div class="so-uitleg">Weegt 15% · Geen hype (echte winst, redelijke prijs) en een deel herinvestering. Wel conjunctuurgevoelig (sterk afhankelijk van de economie en investeringen van klanten) en geen defensieve sector.</div>
+      </div>
+      <div class="so-som">Gewogen gemiddelde: <strong>5,85</strong></div>
+      <div class="so-rij so-corr">
+        <div class="so-kop"><span class="so-naam">R1 geraakt: Ackermans &amp; van Haaren 62,1%</span><span class="so-p">-1</span></div>
+        <div class="so-uitleg">Volgens jouw harde regel een NO-GO, tenzij de rest uitzonderlijk positief is. Goed, maar niet uitzonderlijk.</div>
+      </div>
+      <div class="so-som totaal">Totaal 4,85 → afgerond <strong>5/10</strong></div>
+    </details>
+  </section>
+
+  <section class="pdf-blok kaart vlaggen" id="vlaggen">
+    <div class="deel">Deel 3</div>
+    <h2>🚩 Rode vlaggen</h2>
+    <p class="deel-intro">Hier staat alles wat botst met jouw harde regels (R1 tot en met R6 uit je profiel). Per punt lees je wat er aan de hand is, waarom het belangrijk is voor jou en hoe erg het is. De cijfers en bronnen zitten onder "De details". <strong>No-go</strong> betekent: normaal niet kopen.</p>
+      <div class="vlag nogo">
+        <div><span class="e">No-go · R1</span><span class="t">Ackermans &amp; van Haaren bezit 62,1%</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> De Antwerpse holding Ackermans &amp; van Haaren (AvH) heeft 62,1% van de aandelen en de stemmen van DEME. Samen met VINCI (12,1%) is dat 74%.<a class="ref" href="#bron-1">1</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Waarom is dat een probleem voor jou?</strong> Wie meer dan de helft heeft, beslist alleen over het bestuur, het dividend en nieuwe aandelen, en kan ooit een bod doen om alle andere aandeelhouders uit te kopen. Als kleine aandeelhouder kan je niets afdwingen. Slechts ±26% wordt vrij verhandeld.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Hoe erg is het?</strong> Jouw regel R1 is geraakt: een NO-GO, tenzij de rest uitzonderlijk positief is. De rest is goed, maar niet uitzonderlijk. Tegenwicht: AvH is een ervaren langetermijnbelegger die DEME al jaren via CFE controleerde.</p><details class="uitklap vlag-details"><summary>De details: cijfers, data en bronnen</summary><p class="blok feit"><span class="lab feit">Feit</span><strong>De details:</strong> tot juni 2022 was DEME een dochter van CFE, dat zelf door AvH gecontroleerd wordt. Op 29-6-2022 werd DEME afgesplitst en naar de beurs gebracht; AvH en VINCI bleven referentieaandeelhouders. Voorzitter Luc Bertrand en bestuurder John-Eric Bertrand zijn niet-uitvoerende bestuurders.<a class="ref" href="#bron-1">1</a></p></details>
+      </div>
+      <div class="vlag middel">
+        <div><span class="e">Middel · R4</span><span class="t">Strafzaak over een Russisch baggercontract (2014)</span></div><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> In september 2023 werden enkele DEME-vennootschappen gedagvaard voor de strafrechtbank van Gent, over de manier waarop in 2014 een baggercontract in de Russische haven Sabetta werd toegekend aan Mordraga, een voormalige Russische joint venture van DEME.<a class="ref" href="#bron-1">1</a></p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Waarom is dat een probleem voor jou?</strong> Een veroordeling kan een boete en reputatieschade meebrengen, en publieke opdrachtgevers letten op zulke zaken.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Hoe erg is het?</strong> Middelmatig. De concurrent die klacht indiende, zag af van zijn burgerlijke eis; schadevergoeding aan hem is dus niet meer mogelijk. De zaak ten gronde moet nog gepleit worden.</p><details class="uitklap vlag-details"><summary>De details: cijfers, data en bronnen</summary><p class="blok feit"><span class="lab feit">Feit</span><strong>De details:</strong> het onderzoek startte na een klacht van een concurrent. Op 6-12-2023 legde de rechtbank een kalender vast voor de conclusies. Daarnaast loopt een claim in een consortium waaruit DEME zich vóór de werken terugtrok; DEME verwacht daar geen wezenlijke impact van.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>De stand van de zaak na maart 2024 hebben we niet nagekeken in het halfjaarbericht of in de pers.</p></details>
+      </div>
+    <div class="sub-titel nagekeken">Nagekeken, geen alarm</div>
+    <p class="deel-intro">Deze regels zijn gecontroleerd. Er is niets ernstigs gevonden, maar je weet graag wat er gezien is.</p>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R2</span><span class="t">Verloning en verbonden partijen: gematigd</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> CEO Luc Vandenbulcke kreeg in 2023 €1,99 mln (vast €0,53 mln, variabel €1,45 mln; met pensioen en voordelen ±€2,1 mln). Hij werkt sinds midden 2023 als zelfstandige, wat het vaste bedrag deels verklaart. De andere leden van het directiecomité kregen samen ±€4,5 mln, de bestuurders €0,79 mln. Er is (nog) geen langetermijnbonus.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>DEME boekte €285 mln omzet met joint ventures en geassocieerde ondernemingen (±9% van de omzet), volgens DEME tegen marktvoorwaarden. Voorzitter Luc Bertrand (AvH) zit ook het remuneratiecomité voor.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Geen aanwijzing van zelfverrijking.</p>
+      </details>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R5</span><span class="t">Insidertransacties: enkel opties uit het verloningsplan</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> De FSMA publiceerde 16 meldingen van leidinggevenden van DEME in de 12 maanden vóór de peildatum, allemaal tussen 10 en 21 april 2024. Het gaat om het aanvaarden en uitoefenen van opties uit het verloningsplan (prijs €0), in kleine aantallen (1.039 tot 10.560 stuks; CEO Luc Vandenbulcke 10.560).<a class="ref" href="#bron-11">11</a></p><p class="blok mening"><span class="lab mening">Mening</span>Geen aankopen of verkopen op de beurs die iets zeggen over het vertrouwen van de leiding. Geen alarm.</p>
+      </details>
+      <details class="uitklap vlag info">
+        <summary><span class="e">R6</span><span class="t">Beursgang via afsplitsing (2022), geen nieuwe aandelen</span></summary><p class="blok feit"><span class="lab feit">Feit</span><strong>Wat is er aan de hand?</strong> DEME kwam op 30-6-2022 op de beurs door een partiële splitsing van CFE; er werden geen nieuwe aandelen verkocht. Eind 2023 waren er 25.314.482 aandelen.<a class="ref" href="#bron-1">1</a></p>
+      </details>
+  </section>
+  <section class="pdf-blok kaart">
+    <h2>Onvoldoende info gevonden</h2>
+    <div class="kader waarschuwing"><div class="t">Waardering van de dichtste concurrenten</div>
+      De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord, Boskalis) zijn volgens ons niet beursgenoteerd (niet met een bron nagekeken). Vergeleken met Fugro en Subsea7; Cadeler had in 2023 met een vloot in opbouw te weinig EBITDA (±€50 mln, aangepast) voor een zinvolle vergelijking.
+      <div class="bijschrift">Gezocht in 3 rondes: ronde 1: jaarverslag DEME (concurrenten niet bij naam genoemd); ronde 2: Fugro en Subsea7 jaarcijfers 2023; ronde 3: Cadeler jaarcijfers 2023</div></div>
+    <div class="kader waarschuwing"><div class="t">Transcript van de analistencall (29-8-2024)</div>
+      Niet gelezen; enkel de persberichten.
+      <div class="bijschrift">Gezocht in 3 rondes: ronde 1: investors.deme-group.com (time-out); ronde 2: demedredging.gcs-web.com (verbinding geweigerd); ronde 3: niet verder gezocht</div></div>
+  </section>
+
+  <nav class="pdf-blok kaart inhoudstafel" id="details">
+    <div class="deel">Deel 4</div>
+    <h2>Details per thema</h2>
+    <p class="deel-intro">Elk hoofdstuk gaat dieper in op één onderwerp en begint met een korte uitleg waarover het gaat. Tik op een titel om het te openen.</p>
+    <ol><li><a href="#bestuur">Bestuur &amp; aandeelhouders</a> <span class="kort">— R1 geraakt (AvH 62,1%); gematigde verloning; strafzaak Sabetta loopt</span></li><li><a href="#cijfers">Cijfers</a> <span class="kort">— Omzet 2023 €3,3 mld (+24%), 2024 &gt;+20%; marge ±18%; vrije kasstroom tot 2023 klein</span></li><li><a href="#investeringen">Waarin investeren ze?</a> <span class="kort">— Vloot (Orion, Green Jade, Yellowstone); capex ±€300 mln in 2024 na pieken</span></li><li><a href="#keten">De keten (2 niveaus)</a> <span class="kort">— Klanten: ontwikkelaars van windparken, netbeheerders (Elia, TenneT), overheden; aandeelhouder AvH</span></li><li><a href="#sector">Sector &amp; concurrenten</a> <span class="kort">— Dichtste concurrenten niet beursgenoteerd; DEME tussen Fugro (4,8×) en Subsea7 (7,7×)</span></li><li><a href="#actualiteit">Actualiteit</a> <span class="kort">— Sterke cijfers, maar onrust in wind op zee en Trump verkozen; orderboek −9%</span></li><li><a href="#earnings_call">Toon van het management</a> <span class="kort">— Analistencall niet gelezen; toon in de persberichten zelfzeker</span></li><li><a href="#waardering">Waardering &amp; advies</a> <span class="kort">— ±6,6× EBITDA 2023; onze waarde €58–167 (centraal ±€115); koers rekent op aanhoudende recordwinst</span></li><li><a href="#techniek">Koers &amp; techniek</a> <span class="kort">— Sinds beursgang +30%; 21% onder de top van mei 2024; korte trend dalend</span></li><li><a href="#expert">Kritische expertblik</a> <span class="kort">— Pre-mortem: wind op zee stokt, marges zakken, orderboek krimpt</span></li><li><a href="#profiel">Toets aan jouw profiel</a> <span class="kort">— Herinvestering ✓, geen hype ✓; R1 ✗, conjunctuurgevoelig</span></li>
+    </ol>
+  </nav>
+  <details class="sectie pdf-blok" id="bestuur">
+    <summary><span><span class="nr">1.</span> Bestuur &amp; aandeelhouders<span class="kort">R1 geraakt (AvH 62,1%); gematigde verloning; strafzaak Sabetta loopt</span></span></summary>
+    <div class="inhoud">
+        <div class="tabel-titel">Aandeelhoudersstructuur<a class="ref" href="#bron-1">1</a></div>
+        <div class="ah-balk" role="img" aria-label="Verdeling van de aandelen; de drie grootste aandeelhouders samen 74,23%">
+          <div class="ah-spoor"><i class="top" style="width: 62.12%" title="Ackermans &amp; van Haaren NV 62,12%"></i><i class="top" style="width: 12.11%" title="VINCI Construction SAS 12,11%"></i><i class="vrij" style="width: 25.77%" title="Vrij verhandelbaar 25,77%"></i><b class="ah-grens" style="left: 49%"><span>49%-grens</span></b></div>
+          <div class="pb-legende"><span><i class="k ah-top"></i>drie grootste aandeelhouders (74,23%)</span><span><i class="k ah-ander"></i>andere gemelde</span><span><i class="k ah-eigen"></i>eigen aandelen</span><span><i class="k ah-vrij"></i>vrij verhandelbaar</span></div>
+        </div>
+        <div class="tabelwrap"><table>
+          <thead><tr><th>Aandeelhouder</th><th>Kapitaal %</th><th>Stemrecht %</th></tr></thead>
+          <tbody><tr><td>Ackermans &amp; van Haaren NV<div class="bijschrift">rechtstreeks; Antwerpse beursgenoteerde holding, sinds 2022 na de afsplitsing uit CFE</div></td><td>62,12</td><td>62,12</td></tr><tr><td>VINCI Construction SAS<div class="bijschrift">rechtstreeks; Franse bouwgroep</div></td><td>12,11</td><td>12,11</td></tr><tr><td>Vrij verhandelbaar</td><td>25,77</td><td></td></tr></tbody>
+        </table></div><div class="kader waarschuwing"><div class="t">Regel R1 (> 49%): GERAAKT</div>Grootste aandeelhouder 62,12% · top 3 samen 74,23% kapitaal / 74,23% stemrecht.</div><p class="blok">Ackermans &amp; van Haaren (AvH) heeft 62,12% en dus alleen de meerderheid; VINCI heeft 12,11%. Samen 74%. Er is één soort aandeel, één stem per aandeel (stand 31-12-2023).</p><p class="leestekst">Dit deel gaat over wie DEME controleert en wie het bedrijf leidt. Dat bepaalt of kleine aandeelhouders eerlijk behandeld worden (jouw regels R1 tot R6).</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> professioneel bestuurd bedrijf met een duidelijke baas: Ackermans &amp; van Haaren. Geen tekenen van zelfverrijking.</p>
+      <details class="uitklap onderdeel"><summary>Aandeelhouders (R1)</summary><p class="blok feit"><span class="lab feit">Feit</span>Ackermans &amp; van Haaren heeft 15.725.684 aandelen (62,12%), VINCI Construction 3.066.460 (12,11%); 25,77% wordt vrij verhandeld. Volgens een studie van oktober 2023 hebben institutionele beleggers ±14% en particulieren ±11%; België is de grootste regio.<a class="ref" href="#bron-1">1</a></p></details>
+      <details class="uitklap onderdeel"><summary>Raad van bestuur en directie</summary><p class="blok feit"><span class="lab feit">Feit</span>DEME heeft een raad van bestuur met één CEO (Luc Vandenbulcke) als uitvoerend bestuurder; voorzitter is Luc Bertrand, niet-uitvoerend bestuurder. De dagelijkse leiding ligt sinds 29-6-2022 bij de CEO, bijgestaan door het directiecomité.<a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>In 2024 trad onafhankelijk bestuurder Kerstin Konradsson af en werd Els Verbraecken als CFO opgevolgd door Stijn Gaytant (mei 2024).<a class="ref" href="#bron-2">2</a></p></details>
+      <details class="uitklap onderdeel"><summary>Verloning (R2, R3)</summary><p class="blok feit"><span class="lab feit">Feit</span>CEO: €1,99 mln in 2023 (vast €0,53 mln, variabel €1,45 mln). Directiecomité zonder CEO: €4,48 mln. Bestuurders samen: €0,79 mln. Geen vertrekvergoedingen gemeld.<a class="ref" href="#bron-1">1</a></p><p class="blok mening"><span class="lab mening">Mening</span>Gematigd voor een bedrijf met €3,3 mld omzet. Geen R2- of R3-vlag.</p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="cijfers">
+    <summary><span><span class="nr">2.</span> Cijfers<span class="kort">Omzet 2023 €3,3 mld (+24%), 2024 &gt;+20%; marge ±18%; vrije kasstroom tot 2023 klein</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel toont hoe DEME financieel draait: omzet, winst, kasstroom en schulden.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> sterke groei in 2023–2024 en een balans die snel verbetert. De marge is terug op het niveau van 2021–2022 na een zwak eerste halfjaar 2023.</p>
+      <details class="uitklap onderdeel"><summary>Omzet en winst</summary><div class="grafiek-blok">
+    <div class="grafiek-titel">Omzet en EBITDA (mln euro)<a class="ref" href="#bron-1">1</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Omzet en EBITDA (mln euro)" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="170.6" y2="170.6" class="g-raster"/><text x="46" y="174.6" text-anchor="end" class="g-as">1 000</text><line x1="52" x2="470" y1="101.2" y2="101.2" class="g-raster"/><text x="46" y="105.2" text-anchor="end" class="g-as">2 000</text><line x1="52" x2="470" y1="31.8" y2="31.8" class="g-raster"/><text x="46" y="35.8" text-anchor="end" class="g-as">3 000</text><path d="M92.7,240.0 V69.8 Q92.7,65.8 96.7,65.8 H116.7 Q120.7,65.8 120.7,69.8 V240.0 Z" fill="#2a78d6"><title>Omzet 2021: 2 511 mln EUR</title></path><path d="M122.7,240.0 V211.4 Q122.7,207.4 126.7,207.4 H146.7 Q150.7,207.4 150.7,211.4 V240.0 Z" fill="#eb6834"><title>EBITDA 2021: 469,30 mln EUR</title></path><path d="M232.0,240.0 V59.8 Q232.0,55.8 236.0,55.8 H256.0 Q260.0,55.8 260.0,59.8 V240.0 Z" fill="#2a78d6"><title>Omzet 2022: 2 655 mln EUR</title></path><path d="M262.0,240.0 V211.1 Q262.0,207.1 266.0,207.1 H286.0 Q290.0,207.1 290.0,211.1 V240.0 Z" fill="#eb6834"><title>EBITDA 2022: 473,90 mln EUR</title></path><path d="M371.3,240.0 V16.0 Q371.3,12.0 375.3,12.0 H395.3 Q399.3,12.0 399.3,16.0 V240.0 Z" fill="#2a78d6"><title>Omzet 2023: 3 285 mln EUR</title></path><path d="M401.3,240.0 V202.6 Q401.3,198.6 405.3,198.6 H425.3 Q429.3,198.6 429.3,202.6 V240.0 Z" fill="#eb6834"><title>EBITDA 2023: 596,50 mln EUR</title></path><text x="121.7" y="258" text-anchor="middle" class="g-as">2021</text><text x="261.0" y="258" text-anchor="middle" class="g-as">2022</text><text x="400.3" y="258" text-anchor="middle" class="g-as">2023</text></svg><div class="g-legende"><span><i style="background:#2a78d6"></i>Omzet</span><span><i style="background:#eb6834"></i>EBITDA</span></div><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Omzet</th><th>EBITDA</th></tr></thead><tbody><tr><td>2021</td><td>2 511 mln EUR</td><td>469,30 mln EUR</td></tr><tr><td>2022</td><td>2 655 mln EUR</td><td>473,90 mln EUR</td></tr><tr><td>2023</td><td>3 285 mln EUR</td><td>596,50 mln EUR</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>Wat zie je hier? In 2023 steeg de omzet 24% tot €3.285 mln en de EBITDA 26% tot €597 mln (marge 18,2%). De nettowinst was €163 mln (winst per aandeel €6,43).<a class="ref" href="#bron-1">1</a></p><div class="tabel-titel">Kerncijfers 2021–2023 en eerste halfjaar 2024 (mln euro)<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></div><div class="tabelwrap"><table>
+      <thead><tr><th></th><th>2021</th><th>2022</th><th>2023</th><th>1H24</th></tr></thead>
+      <tbody><tr><td>Omzet</td><td>2.511</td><td>2.655</td><td>3.285</td><td>1.916</td></tr><tr><td>EBITDA</td><td>469</td><td>474</td><td>597</td><td>345</td></tr><tr><td>EBITDA-marge</td><td>18,7%</td><td>17,9%</td><td>18,2%</td><td>18,0%</td></tr><tr><td>Nettowinst</td><td>115</td><td>113</td><td>163</td><td>141</td></tr><tr><td>Vrije kasstroom</td><td>131</td><td>−80</td><td>62</td><td>278</td></tr><tr><td>Netto financiële schuld</td><td>393</td><td>521</td><td>512</td><td>352</td></tr><tr><td>Investeringen</td><td>282</td><td>484</td><td>399</td><td>167</td></tr></tbody>
+    </table></div><div class="bijschrift">EBITDA-marge: berekening. Vrije kasstroom gemiddeld 2021–2023: ±€37 mln per jaar.</div><p class="blok berekening"><span class="lab berekening">Berekening</span>Wat zie je hier? De marge was in 2021–2023 al ±18%; enkel het eerste halfjaar 2023 was zwak (15,0%), door verliezen op projecten in de VS en Taiwan. De vrije kasstroom was de voorbije jaren klein door grote investeringen in nieuwe schepen; in 2024 springt ze omhoog door minder investeringen en vooruitbetalingen van klanten.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></p><p class="blok feit"><span class="lab feit">Feit</span>Eerste halfjaar 2024: omzet €1.916 mln (+30%), EBITDA €345 mln (18,0%), nettowinst €141 mln (€5,58 per aandeel). Negen maanden: omzet €2.994 mln (+32%).<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">EBITDA-marge 1H24</div>
+        <div class="w">18,0% <span class="trend op">▲</span><a class="ref" href="#bron-2">2</a></div><div class="t"><span class="lab feit">Feit</span>1H23: 15,0%</div><div class="beoordeling goed"><i></i>goed</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> EBITDA gedeeld door de omzet.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Hoger dan Subsea7 (12% in 2023), vergelijkbaar met Fugro (18,2%).</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Orderboek</div>
+        <div class="w">€7,1 mld <span class="trend neer">▼</span><a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></div><div class="t"><span class="lab feit">Feit</span>1H24: €7,6 mld</div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Getekende opdrachten die nog niet als omzet geboekt zijn.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Hoger dan twee jaar eerder (€5,9 mld), maar €0,5 mld lager dan drie maanden eerder. Een groot vervolgcontract uit het vierde kwartaal zit er nog niet in. Voor 2026 lag eind juni slechts €1,4 mld vast.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Verwachting volgende jaren</div>
+        <div class="w">omzet ≈ 2024, marge 16–20% <span class="trend gelijk">▬</span><a class="ref" href="#bron-2">2</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Wat DEME zelf verwacht na 2024.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Geen verdere groei verwacht, wel goede marges.</p>
+        </div>
+      </details>
+    </div></details>
+      <details class="uitklap onderdeel"><summary>Kasstroom en schulden</summary><p class="blok feit"><span class="lab feit">Feit</span>Vrije kasstroom eerste halfjaar 2024: €278 mln (1H23: −€178 mln), deels door werkkapitaal (vooruitbetalingen van klanten: −€575 mln tegenover −€471 mln eind 2023). Netto financiële schuld €352 mln (30-6-2024), 0,49× de EBITDA (berekend zonder achtergestelde en andere leningen). Kas €509 mln. Investeringen 2024: €300–350 mln.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p></details>
+      <details class="uitklap onderdeel"><summary>Dividend</summary><p class="blok feit"><span class="lab feit">Feit</span>Dividend over 2023: €2,10 bruto (+40%), uitkering 33% van de winst.<a class="ref" href="#bron-1">1</a></p><p class="blok berekening"><span class="lab berekening">Berekening</span>Dividendrendement bij €136,2: 2,10 / 136,2 = 1,5%.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a></p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="investeringen">
+    <summary><span><span class="nr">3.</span> Waarin investeren ze?<span class="kort">Vloot (Orion, Green Jade, Yellowstone); capex ±€300 mln in 2024 na pieken</span></span></summary>
+    <div class="inhoud"><p class="leestekst">DEME is kapitaalintensief: schepen kosten honderden miljoenen. Dit deel toont waar het geld heen gaat.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> na een paar jaren van grote investeringen in nieuwe installatieschepen daalt de investering in 2024. Dat laat meer kasstroom over.</p><div class="grafiek-blok">
+    <div class="grafiek-titel">Investeringen (mln euro)<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-3">3</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Investeringen (mln euro)" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">0</text><line x1="52" x2="470" y1="194.4" y2="194.4" class="g-raster"/><text x="46" y="198.4" text-anchor="end" class="g-as">100</text><line x1="52" x2="470" y1="148.8" y2="148.8" class="g-raster"/><text x="46" y="152.8" text-anchor="end" class="g-as">200</text><line x1="52" x2="470" y1="103.2" y2="103.2" class="g-raster"/><text x="46" y="107.2" text-anchor="end" class="g-as">300</text><line x1="52" x2="470" y1="57.6" y2="57.6" class="g-raster"/><text x="46" y="61.6" text-anchor="end" class="g-as">400</text><line x1="52" x2="470" y1="12.0" y2="12.0" class="g-raster"/><text x="46" y="16.0" text-anchor="end" class="g-as">500</text><path d="M90.2,240.0 V115.4 Q90.2,111.4 94.2,111.4 H114.2 Q118.2,111.4 118.2,115.4 V240.0 Z" fill="#2a78d6"><title>Investeringen 2021: 282 mln EUR</title></path><path d="M194.8,240.0 V23.3 Q194.8,19.3 198.8,19.3 H218.8 Q222.8,19.3 222.8,23.3 V240.0 Z" fill="#2a78d6"><title>Investeringen 2022: 483,90 mln EUR</title></path><path d="M299.2,240.0 V62.1 Q299.2,58.1 303.2,58.1 H323.2 Q327.2,58.1 327.2,62.1 V240.0 Z" fill="#2a78d6"><title>Investeringen 2023: 398,90 mln EUR</title></path><path d="M403.8,240.0 V107.2 Q403.8,103.2 407.8,103.2 H427.8 Q431.8,103.2 431.8,107.2 V240.0 Z" fill="#2a78d6"><title>Investeringen 2024 (verwacht): 300 mln EUR</title></path><text x="104.2" y="258" text-anchor="middle" class="g-as">2021</text><text x="208.8" y="258" text-anchor="middle" class="g-as">2022</text><text x="313.2" y="258" text-anchor="middle" class="g-as">2023</text><text x="417.8" y="258" text-anchor="middle" class="g-as">2024 (verwacht)</text></svg><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Investeringen</th></tr></thead><tbody><tr><td>2021</td><td>282 mln EUR</td></tr><tr><td>2022</td><td>483,90 mln EUR</td></tr><tr><td>2023</td><td>398,90 mln EUR</td></tr><tr><td>2024 (verwacht)</td><td>300 mln EUR</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>In 2024 investeerde DEME onder meer in de nieuwe fallpipe-boot &#x27;Yellowstone&#x27; en de meetboot &#x27;Karina&#x27;; eerder kwamen het installatieschip &#x27;Orion&#x27; en het drijvende installatieschip &#x27;Green Jade&#x27; (Taiwan) in dienst.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Daarnaast investeert DEME via Concessions in groene waterstof (HYPORT Duqm in Oman: bp nam in juli 2024 49% over, DEME houdt 25,5%) en in windconcessies (ScotWind, 2 GW).<a class="ref" href="#bron-3">3</a></p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="keten">
+    <summary><span><span class="nr">4.</span> De keten (2 niveaus)<span class="kort">Klanten: ontwikkelaars van windparken, netbeheerders (Elia, TenneT), overheden; aandeelhouder AvH</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel kijkt naar de partijen waarvan DEME afhankelijk is: vooral de klanten die windparken en havens laten bouwen.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> DEME hangt sterk af van investeringen in wind op zee en netten. Als ontwikkelaars projecten uitstellen (zoals Ørsted in de VS), komt er minder nieuw werk.</p>
+        <div class="tabel-titel">De keten in één beeld</div>
+        <div class="keten">
+          <div class="kt-centrum">DEME</div>
+          <ul class="kt-takken">
+            <li><div class="kt-tak"><strong>Offshore Energy</strong><span class="kt-gewicht">±44% van de segmentomzet 2023</span><div class="kt-uitleg">funderingen, kabels en turbines voor windparken op zee</div></div><ul class="kt-onder"><li><strong>Dominion Energy (VS)</strong> — Coastal Virginia, 2,6 GW</li><li><strong>Taiwan (Hai Long, Greater Changhua)</strong> — via joint venture</li><li><strong>Prysmian / Hellenic Cables</strong> — kabelcontracten 2024</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>Dredging &amp; Infra</strong><span class="kt-gewicht">±47%</span><div class="kt-uitleg">baggeren, havens, tunnels</div></div><ul class="kt-onder"><li><strong>Fehmarnbelt-tunnel</strong> — Denemarken–Duitsland</li><li><strong>Prinses Elisabetheiland</strong> — België (Elia)</li><li><strong>Midden-Oosten</strong> — Saudi-Arabië, Abu Dhabi, Egypte</li></ul>
+            </li>
+            <li><div class="kt-tak"><strong>Environmental</strong><span class="kt-gewicht">±9%</span><div class="kt-uitleg">bodemsanering, dijken</div></div>
+            </li>
+            <li><div class="kt-tak"><strong>Concessions</strong><span class="kt-gewicht">klein</span><div class="kt-uitleg">belangen in windparken, ScotWind, waterstof (HYPORT Duqm)</div></div>
+            </li>
+            <li><div class="kt-tak"><strong>Ackermans &amp; van Haaren</strong><span class="kt-gewicht">62,1%</span><div class="kt-uitleg">hoofdaandeelhouder</div></div>
+            </li>
+          </ul>
+        </div>
+        <div class="bijschrift">Niveau 1 (kaders) en niveau 2 (lijntjes eronder). Dit is een samenvatting: cijfers en bronnen staan in de onderdelen hieronder.</div>
+      <details class="uitklap onderdeel"><summary>1. Offshore Energy (wind op zee en kabels)</summary><p class="blok feit"><span class="lab feit">Feit</span>Belangrijke projecten: Coastal Virginia (2,6 GW, voor Dominion Energy, VS), Vineyard Wind 1 (VS), Hai Long en Greater Changhua (Taiwan, via joint venture), Île d&#x27;Yeu–Noirmoutier en Dieppe–Le Tréport (Frankrijk), Dogger Bank (VK). In 2024 kwamen er kabelcontracten bij voor TenneT (via Prysmian), het Prinses Elisabetheiland (met Hellenic Cables) en OranjeWind.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Bij Vineyard Wind (VS) bespreekt DEME met de klant de timing en de planning van de resterende installaties.<a class="ref" href="#bron-2">2</a></p><p class="blok feit"><span class="lab feit">Feit</span>Niveau 2: de markt voor wind op zee had het moeilijk. Ørsted (de grootste ontwikkelaar van windparken op zee) stopte op 31-10-2023 de VS-projecten Ocean Wind 1 en 2 en boekte DKK 28,4 mld waardeverminderingen. DEME&#x27;s koers zakte eind oktober 2023 tot €84 &#x27;door zorgen over de offshoremarkt&#x27;. Of Ørsted een klant van DEME is, staat niet in DEME&#x27;s verslagen: dit is een signaal voor de sector, geen bewezen klantenrisico.<a class="ref" href="#bron-10">10</a><a class="ref" href="#bron-1">1</a></p><p class="blok feit"><span class="lab feit">Feit</span>Tegenwicht: in de Britse veiling AR6 (3-9-2024) kregen windparken op zee voor ±5,3 GW een contract met vaste prijs, waaronder Hornsea 4 (2,4 GW). Het VK is een DEME-markt (Dogger Bank, Moray West).<a class="ref" href="#bron-14">14</a><a class="ref" href="#bron-2">2</a></p></details>
+      <details class="uitklap onderdeel"><summary>2. Dredging &amp; Infra</summary><p class="blok feit"><span class="lab feit">Feit</span>Grote projecten: Fehmarnbelt-tunnel (Denemarken–Duitsland), Oosterweel en het Prinses Elisabetheiland (België), havens in Italië en Frankrijk, en sterk groeiend werk in het Midden-Oosten (Oxagon in Saudi-Arabië, Abu Dhabi). Het Midden-Oosten ging van 1% naar 6% van de omzet.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p><p class="blok feit"><span class="lab feit">Feit</span>Het Prinses Elisabetheiland (België) staat politiek onder druk: de kostenraming steeg van €2,2 mld naar mogelijk €7 à 8 mld, en de grootverbruikers (Febeliec) vragen de lopende aanbestedingen voor de elektrische installaties uit te stellen (VRT, 24-10-2024). De volgende fase (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia op 28-11-2024; of die uitgesteld wordt, is onduidelijk.<a class="ref" href="#bron-12">12</a><a class="ref" href="#bron-13">13</a></p><p class="blok feit"><span class="lab feit">Feit</span>DEME bouwt mee aan het eiland (de bouw van de eerste caisson startte in 2024, werken tot 2026) en tekende in 2024 een groot contract voor de hoogspanningskabels van het eiland, samen met Hellenic Cables. Het risico zit vooral in vervolgopdrachten en in de politieke steun; wie de gelijkstroomkabels krijgt, staat niet in onze bronnen.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p></details>
+      <details class="uitklap onderdeel"><summary>3. Ackermans &amp; van Haaren</summary><p class="blok feit"><span class="lab feit">Feit</span>AvH is de hoofdaandeelhouder (62,1%) en levert de voorzitter.<a class="ref" href="#bron-1">1</a></p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="sector">
+    <summary><span><span class="nr">5.</span> Sector &amp; concurrenten<span class="kort">Dichtste concurrenten niet beursgenoteerd; DEME tussen Fugro (4,8×) en Subsea7 (7,7×)</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel vergelijkt DEME met andere bedrijven die werken op zee uitvoeren.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> DEME heeft betere marges dan Subsea7 en zit qua marge op het niveau van Fugro, maar betaalt een hogere waardering dan Fugro.</p><p class="blok inschatting"><span class="lab inschatting">Inschatting</span>De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord en Boskalis) zijn niet beursgenoteerd; daarom vergelijken we met twee beursgenoteerde offshoredienstverleners.</p><div class="tabel-titel">Vergelijking (cijfers 2023, koers 15-11-2024)<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a><a class="ref" href="#bron-8">8</a><a class="ref" href="#bron-9">9</a><a class="ref" href="#bron-15">15</a><a class="ref" href="#bron-16">16</a><a class="ref" href="#bron-17">17</a></div><div class="tabelwrap"><table>
+      <thead><tr><th>Bedrijf</th><th>Omzet 2023</th><th>EBITDA-marge 2023</th><th>Ondernemingswaarde / EBITDA 2023</th></tr></thead>
+      <tbody><tr><td>DEME</td><td>€3,3 mld</td><td>18,2%</td><td>±6,6×</td></tr><tr><td>Fugro</td><td>€2,2 mld</td><td>18,2%</td><td>±4,8×</td></tr><tr><td>Subsea7</td><td>$6,0 mld</td><td>12%</td><td>±7,7× (±5,6× op verwachting 2024)</td></tr></tbody>
+    </table></div><div class="bijschrift">Berekening op koers 15-11-2024. DEME: (3.448 + schuld eind 2023 512) / 596,5. Fugro: 112,2 mln aandelen (nettowinst €254,8 mln / winst per aandeel €2,27) × €16,13 + netto schuld €110,5 mln (niet nagekeken of leases inbegrepen) / €397,3 mln. Subsea7: 302,2 mln aandelen × NOK 181,5 = ±$4,9 mld (ECB-wisselkoers) + netto schuld $552 mln (met leases) / $714 mln; verwachting 2024 $950–1.000 mln. DEME&#x27;s netto financiële schuld bevat leasingschulden, net als die van Subsea7; voor Fugro is dat niet nagekeken. De vergelijking is indicatief.</div><p class="blok mening"><span class="lab mening">Mening</span>Wat zie je hier? DEME zit tussen Fugro en Subsea7: niet goedkoop, niet duur. Belangrijk: EBITDA laat de kosten van schepen buiten beschouwing; bij een bedrijf dat veel in schepen investeert, oogt de verhouding daardoor gunstiger dan de echte kasstroom.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="actualiteit">
+    <summary><span><span class="nr">6.</span> Actualiteit<span class="kort">Sterke cijfers, maar onrust in wind op zee en Trump verkozen; orderboek −9%</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel gaat over wat er rond DEME gebeurde en speelt tot 15-11-2024, en wat eraan komt.</p><div class="kader mening"><div class="t">Besluit: wat betekent de actualiteit voor DEME?</div>De drie belangrijkste drijvers:<br>1. <strong>Uitstekende uitvoering</strong>: recordomzet, schuld gehalveerd, verwachting twee keer verhoogd.<br>2. <strong>Onzekerheid in wind op zee</strong>: Ørsted stopte in 2023 VS-projecten, Trump werd verkozen (6-11-2024), en het Belgische energie-eiland ligt politiek onder vuur.<br>3. <strong>Minder zicht op de toekomst</strong>: het orderboek zakte in één kwartaal van €7,6 naar €7,1 mld en DEME verwacht na 2024 geen groei.<br>Tegenwicht: de Britse veiling AR6 (5,3 GW), sterke tenderactiviteit en een groot vervolgcontract in het vierde kwartaal.<br>Netto: positief op korte termijn, onzeker na 2025. <strong>Gevolg voor het advies: Afwachten, 5/10</strong> — vooral door R1.</div>
+      <details class="uitklap onderdeel"><summary>Impact per onderwerp</summary><p class="leestekst">Schaal: klein (&lt;1% van de waarde), middel (1–3%), groot (&gt;3%). ▲ positief, ▼ negatief.</p><ul class="blokken">
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Recordjaar 2024 — ▲ groot.</strong> Omzet +20% of meer, marge ±18%.<a class="ref" href="#bron-3">3</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Trump verkozen — ▼ middel.</strong> De regio Amerika (VS en andere) was 11% van de omzet in het eerste halfjaar 2024 (19% een jaar eerder). Trumps concrete plannen voor wind op zee zijn nog onbekend; de beurs reageerde negatief op groene aandelen.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-7">7</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Orderboek −€0,5 mld in één kwartaal — ▼ middel.</strong> Minder zicht na 2025; een groot vervolgcontract in het vierde kwartaal zit er nog niet in.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Kostenontsporing energie-eiland — ▼ klein.</strong> DEME werkt al aan het eiland; vervolgwerk en politieke steun zijn onzeker.<a class="ref" href="#bron-12">12</a><a class="ref" href="#bron-13">13</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Britse veiling AR6 (5,3 GW) — ▲ middel.</strong> Meer werk voor installatie en kabels in een DEME-markt.<a class="ref" href="#bron-14">14</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>Lagere rente in Europa — ▲ klein.</strong> ECB-depositorente 3,25%; dat helpt de financiering van windparken.<a class="ref" href="#bron-5">5</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat zie je hier? De cijfers zijn sterk; de risico&#x27;s zitten in de nieuwe orders.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat gebeurde er?</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>2023: Ørsted stopt Ocean Wind 1 en 2 (31-10-2023); DEME-koers zakt eind oktober 2023 tot €84 &#x27;door zorgen over de offshoremarkt&#x27; en eindigt het jaar op €111. In het eerste halfjaar 2023 maakte DEME verlies op projecten in de VS en Taiwan.<a class="ref" href="#bron-10">10</a><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Eerste halfjaar 2024: nettowinst €141 mln (×4,7), koers bereikt €171 (24-5-2024).<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-4">4</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? De koers herstelde sterk na de schrik van 2023.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat speelt er nu?</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>24-10-2024: de kostenraming van het Prinses Elisabetheiland stijgt naar mogelijk €7 à 8 mld; grootverbruikers vragen uitstel van de aanbestedingen.<a class="ref" href="#bron-12">12</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>6-11-2024: Trump wint de VS-verkiezingen; Europese groene aandelen zakken (Ørsted tot −14%). DEME sluit die dag 5,7% lager (128,6).<a class="ref" href="#bron-7">7</a><a class="ref" href="#bron-4">4</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>14-11-2024: trading update met hogere verwachting; koers +7,8% (122,8 → 132,4), op 15-11 136,2.<a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-4">4</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Rente: Europese 10-jaarsrente (AAA) 2,45%, Amerikaanse 4,43%; ECB-depositorente 3,25%.<a class="ref" href="#bron-5">5</a><a class="ref" href="#bron-6">6</a></li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Wat betekent dit? De koers staat 21% onder de top van mei (6 maanden: −19%). Mogelijke verklaringen: de stemming rond wind op zee, of beleggers die vooruitlopen op een piek, want DEME verwacht na 2024 geen groei.</p></details>
+      <details class="uitklap onderdeel"><summary>Wat komt eraan?</summary><ul class="blokken">
+      <li class="blok feit"><span class="lab feit">Feit</span>28-11-2024: de volgende fase van het energie-eiland (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia.<a class="ref" href="#bron-13">13</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span>Jaarcijfers 2024 op 26-2-2025; trading update Q1 op 14-5-2025; algemene vergadering 21-5-2025; halfjaarcijfers 26-8-2025.<a class="ref" href="#bron-3">3</a></li>
+    </ul></details>
+      <details class="uitklap onderdeel"><summary>Waar moet je op letten?</summary><ul class="blokken">
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span><strong>28-11-2024 — Elia en het energie-eiland.</strong> De volgende fase (gelijkstroomkabels) staat op de agenda; gevolg voor DEME onduidelijk.<a class="ref" href="#bron-13">13</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>26-2-2025 — Jaarcijfers 2024.</strong> Goed: marge ≥18% en verwachting voor 2025 bevestigd. Slecht: lagere marge of zwakker orderboek.<a class="ref" href="#bron-3">3</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>14-5-2025 — Trading update Q1.</strong> Orderboek boven €7 mld?<a class="ref" href="#bron-3">3</a></li>
+      <li class="blok feit"><span class="lab feit">Feit</span><strong>26-8-2025 — Halfjaarcijfers 2025.</strong> Impact van het VS-beleid.<a class="ref" href="#bron-3">3</a></li>
+    </ul></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="earnings_call">
+    <summary><span><span class="nr">7.</span> Toon van het management<span class="kort">Analistencall niet gelezen; toon in de persberichten zelfzeker</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Het transcript van de call van 29-8-2024 konden we niet lezen; we baseren ons op de persberichten.</p><p class="blok feit"><span class="lab feit">Feit</span>CEO Luc Vandenbulcke: &#x27;Ik ben verheugd met de opmerkelijke prestaties … We verhogen onze omzetverwachting voor het hele jaar naar ongeveer 20%.&#x27; In november werd dat verder verhoogd naar meer dan 20%.<a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a></p><p class="blok mening"><span class="lab mening">Mening</span>Toon: zelfzeker en gestaafd door cijfers. Wel opvallend: voor de jaren na 2024 verwacht het management geen verdere groei van de omzet.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="waardering">
+    <summary><span><span class="nr">8.</span> Waardering &amp; advies<span class="kort">±6,6× EBITDA 2023; onze waarde €58–167 (centraal ±€115); koers rekent op aanhoudende recordwinst</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Is €136,2 een redelijke prijs voor wat DEME verdient en zal verdienen?</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> de koers is te verantwoorden als de recordwinst van 2024 blijft. Valt DEME terug naar een gewoon jaar, dan is het aandeel duidelijk te duur. De waardering hangt dus vooral af van hoe lang de goede jaren duren.</p>
+      <details class="uitklap onderdeel"><summary>Verhoudingen</summary><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Beurswaarde</div>
+        <div class="w">±€3,45 mld <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a></div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Alle aandelen samen aan de koers van 15-11-2024.</p><p><strong>Hoe berekend?</strong> 25.314.482 aandelen × 136,2.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Ondernemingswaarde / EBITDA</div>
+        <div class="w">±6,6× (2023) · ±5,3× (2024 verwacht) <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-4">4</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Wat je betaalt voor het hele bedrijf (<span class="term" tabindex="0" role="button" aria-expanded="false">ondernemingswaarde</span><span class="uitleg">beurswaarde plus schulden</span>) gedeeld door één jaar bedrijfswinst.</p><p><strong>Hoe berekend?</strong> (3.448 + 512 schuld eind 2023) / 596,5; voor 2024: (3.448 + 352) / ±717 (omzet 3.285 × 1,20 × marge 18,2%).</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Tussen Fugro (±4,8×) en Subsea7 (±7,7×) op 2023.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Koers / winst</div>
+        <div class="w">±21× (2023) · ±12× (1H24 × 2) <span class="trend gelijk">▬</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-4">4</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Hoeveel jaar winst je betaalt.</p><p><strong>Hoe berekend?</strong> 136,2 / 6,43 en 136,2 / (5,58 × 2).</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Op de winst van 2024 redelijk; op die van 2023 duur.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Dividendrendement</div>
+        <div class="w">1,5% <span class="trend op">▲</span><a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-4">4</a></div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Dividend gedeeld door de koers.</p><p><strong>Hoe berekend?</strong> 2,10 / 136,2.</p>
+        </div>
+      </details>
+    </div></details>
+      <details class="uitklap onderdeel"><summary>Eigen berekening</summary><p class="leestekst">We rekenen hoeveel geld DEME na investeringen overhoudt voor aandeelhouders, bij verschillende niveaus van winst.</p><ul class="blokken">
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span>Investeringen ±€350 mln per jaar (bovenkant van de verwachting voor 2024), afschrijvingen ±€380 mln, belasting 25% op de bedrijfswinst, rente ±€20 mln.<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a></li>
+      <li class="blok inschatting"><span class="lab inschatting">Inschatting</span>Vereist rendement voor aandeelhouders 9%: de Europese 10-jaarsrente (2,45%) plus ±6,5% omdat een aannemer conjunctuurgevoelig is. Dat is een eigen keuze. Groei op lange termijn 1,5%.<a class="ref" href="#bron-5">5</a></li>
+      <li class="blok berekening"><span class="lab berekening">Berekening</span>Waarde = vrije kasstroom / (9% − 1,5%) / 25,3 mln aandelen.</li>
+    </ul><div class="tabel-titel">Waarde per aandeel naargelang de winst<a class="ref" href="#bron-1">1</a><a class="ref" href="#bron-2">2</a><a class="ref" href="#bron-3">3</a><a class="ref" href="#bron-4">4</a></div><div class="tabelwrap"><table>
+      <thead><tr><th>EBITDA per jaar</th><th>Vrije kasstroom</th><th>Waarde per aandeel (€)</th><th>t.o.v. koers 136,2</th></tr></thead>
+      <tbody><tr><td>€513 mln (gemiddelde 2021–2023)</td><td>±€110 mln</td><td>±58</td><td>−57%</td></tr><tr><td>€600 mln (niveau 2023)</td><td>±€175 mln</td><td>±92</td><td>−32%</td></tr><tr><td>€711 mln (2024, marge 18%)</td><td>±€258 mln</td><td>±136</td><td>0%</td></tr><tr><td>€790 mln (marge 20%)</td><td>±€318 mln</td><td>±167</td><td>+23%</td></tr></tbody>
+    </table></div><div class="bijschrift">Berekening. Investeringen ±€350 mln per jaar tegenover afschrijvingen ±€380 mln: een gunstige aanname; met investeringen gelijk aan de afschrijvingen ligt elke waarde ±€15 lager. De rente (±€20 mln) is afgetrokken en de schuld blijft gelijk verondersteld, zodat de uitkomst de waarde voor aandeelhouders is (vereenvoudiging). Met 8% vereist rendement ligt elke waarde ±15% hoger, met 10% ±12% lager.</div><p class="blok mening"><span class="lab mening">Mening</span>Wat zie je hier? De koers rekent op het niveau van 2024 als blijvend. Wij nemen ±€115 als centrale waarde (het midden van het niveau van 2023 en dat van 2024), omdat een aannemer zelden jaren aan een stuk op zijn piek blijft. Let op: de vrije kasstroom was in 2021–2023 veel kleiner (gemiddeld ±€37 mln) door grote investeringen in schepen.</p></details>
+      <details class="uitklap onderdeel"><summary>Koopzone, koersdoel en stop-loss</summary><p class="blok mening"><span class="lab mening">Mening</span><span class="term" tabindex="0" role="button" aria-expanded="false">Koopzone</span><span class="uitleg">prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft</span> <strong>€95–110</strong>: tussen de waarde bij het winstniveau van 2023 (€92) en net onder onze centrale waarde (€115). Dat is de prijs waarbij DEME zonder R1 interessant zou zijn. <span class="term" tabindex="0" role="button" aria-expanded="false">Koersdoel</span><span class="uitleg">de koers die we over 2 jaar verwachten in het normale scenario</span> <strong>€153</strong> (normaal scenario, november 2026): de koers die wij verwachten zolang de goede jaren duren, niet onze berekende waarde. De drie scenario&#x27;s samen geven ±€136 in november 2026 (ongeveer de koers van nu): met dividend ±2,5% per jaar, ver onder de 9% per jaar die we als vereist rendement nemen. Dat ondersteunt Afwachten. Stop-loss: −20% onder je eigen aankoopprijs.</p></details>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="techniek">
+    <summary><span><span class="nr">9.</span> Koers &amp; techniek<span class="kort">Sinds beursgang +30%; 21% onder de top van mei 2024; korte trend dalend</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Dit deel kijkt naar de koers zelf: trend, schommelingen en steun.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Kern:</strong> sterke stijging sinds eind 2023, maar sinds mei 2024 een dalende trend.</p><div class="grafiek-blok">
+    <div class="grafiek-titel">Koers DEME (DEME.BR) – juni 2022 tot 15-11-2024<a class="ref" href="#bron-4">4</a></div>
+    <svg viewBox="0 0 480 270" role="img" aria-label="Koers DEME (DEME.BR) – juni 2022 tot 15-11-2024" class="grafiek-svg"><line x1="52" x2="470" y1="240.0" y2="240.0" class="g-raster"/><text x="46" y="244.0" text-anchor="end" class="g-as">80</text><line x1="52" x2="470" y1="194.4" y2="194.4" class="g-raster"/><text x="46" y="198.4" text-anchor="end" class="g-as">100</text><line x1="52" x2="470" y1="148.8" y2="148.8" class="g-raster"/><text x="46" y="152.8" text-anchor="end" class="g-as">120</text><line x1="52" x2="470" y1="103.2" y2="103.2" class="g-raster"/><text x="46" y="107.2" text-anchor="end" class="g-as">140</text><line x1="52" x2="470" y1="57.6" y2="57.6" class="g-raster"/><text x="46" y="61.6" text-anchor="end" class="g-as">160</text><line x1="52" x2="470" y1="12.0" y2="12.0" class="g-raster"/><text x="46" y="16.0" text-anchor="end" class="g-as">180</text><polyline points="52.0,183.0 53.4,179.6 54.7,191.0 56.1,183.7 57.5,187.6 58.8,189.2 60.2,186.9 61.6,183.8 62.9,170.3 64.3,161.7 65.7,162.5 67.0,154.9 68.4,165.5 69.8,167.9 71.1,166.3 72.5,157.9 73.9,154.4 75.2,161.6 76.6,160.9 78.0,161.6 79.3,165.4 80.7,167.6 82.1,162.8 83.4,161.1 84.8,157.9 86.2,160.2 87.5,154.1 88.9,161.2 90.2,167.4 91.6,163.3 93.0,170.4 94.3,179.1 95.7,179.5 97.1,178.7 98.4,172.9 99.8,168.6 101.2,176.2 102.5,159.1 103.9,170.4 105.3,154.0 106.6,157.9 108.0,160.9 109.4,159.2 110.7,162.8 112.1,166.8 113.5,172.0 114.8,161.2 116.2,166.1 117.6,162.5 118.9,160.8 120.3,157.4 121.7,158.2 123.0,159.7 124.4,158.4 125.8,155.7 127.1,149.3 128.5,138.5 129.9,150.1 131.2,142.8 132.6,135.3 134.0,134.3 135.3,136.3 136.7,134.0 138.1,138.5 139.4,131.6 140.8,139.7 142.2,131.9 143.5,127.2 144.9,124.9 146.3,133.6 147.6,136.4 149.0,133.2 150.4,138.5 151.7,150.4 153.1,147.7 154.5,150.9 155.8,152.0 157.2,153.4 158.5,152.1 159.9,154.4 161.3,153.4 162.6,147.7 164.0,145.9 165.4,147.8 166.7,152.4 168.1,156.3 169.5,151.0 170.8,152.4 172.2,149.8 173.6,151.1 174.9,155.4 176.3,157.2 177.7,159.5 179.0,159.7 180.4,159.2 181.8,164.2 183.1,161.8 184.5,155.6 185.9,156.1 187.2,157.9 188.6,155.6 190.0,154.3 191.3,151.5 192.7,150.6 194.1,150.2 195.4,151.1 196.8,149.3 198.2,147.4 199.5,147.9 200.9,134.7 202.3,140.6 203.6,144.2 205.0,143.3 206.4,138.8 207.7,142.0 209.1,147.0 210.5,145.6 211.8,152.0 213.2,148.8 214.6,146.1 215.9,145.2 217.3,150.6 218.7,141.5 220.0,135.1 221.4,132.8 222.8,133.3 224.1,134.7 225.5,138.8 226.8,136.5 228.2,136.9 229.6,133.8 230.9,146.5 232.3,139.7 233.7,142.4 235.0,145.2 236.4,145.2 237.8,146.5 239.1,147.4 240.5,147.4 241.9,147.9 243.2,155.6 244.6,161.1 246.0,160.2 247.3,161.6 248.7,161.1 250.1,161.6 251.4,160.2 252.8,158.4 254.2,162.5 255.5,156.6 256.9,170.7 258.3,177.5 259.6,177.5 261.0,182.1 262.4,182.1 263.7,188.5 265.1,181.6 266.5,184.8 267.8,188.5 269.2,189.8 270.6,187.1 271.9,185.3 273.3,197.6 274.7,205.3 276.0,210.4 277.4,201.2 278.8,212.6 280.1,210.4 281.5,217.9 282.9,221.5 284.2,224.3 285.6,228.1 287.0,222.9 288.3,216.3 289.7,217.4 291.1,220.2 292.4,213.3 293.8,210.6 295.2,205.1 296.5,201.2 297.9,193.5 299.2,187.1 300.6,196.2 302.0,200.6 303.3,199.4 304.7,197.6 306.1,190.3 307.4,177.1 308.8,178.4 310.2,180.7 311.5,172.5 312.9,172.1 314.3,171.6 315.6,171.1 317.0,170.2 318.4,166.1 319.7,168.0 321.1,162.9 322.5,163.4 323.8,164.3 325.2,162.0 326.6,160.2 327.9,157.9 329.3,156.1 330.7,157.0 332.0,156.6 333.4,156.1 334.8,156.6 336.1,156.6 337.5,156.6 338.9,156.6 340.2,157.9 341.6,146.1 343.0,148.3 344.3,130.1 345.7,119.2 347.1,102.7 348.4,92.7 349.8,98.2 351.2,96.4 352.5,92.7 353.9,91.8 355.3,92.7 356.6,96.8 358.0,84.5 359.4,80.4 360.7,85.9 362.1,91.3 363.5,98.2 364.8,95.4 366.2,96.4 367.5,93.2 368.9,87.2 370.3,88.6 371.6,78.1 373.0,81.8 374.4,80.4 375.7,70.8 377.1,68.1 378.5,53.5 379.8,46.2 381.2,43.9 382.6,41.6 383.9,31.6 385.3,44.4 386.7,49.4 388.0,49.4 389.4,53.5 390.8,61.7 392.1,64.4 393.5,59.4 394.9,57.1 396.2,59.4 397.6,54.0 399.0,47.6 400.3,42.1 401.7,49.4 403.1,42.1 404.4,51.2 405.8,48.0 407.2,35.3 408.5,36.6 409.9,39.8 411.3,42.1 412.6,36.2 414.0,39.4 415.4,40.3 416.7,42.6 418.1,49.8 419.5,57.6 420.8,55.8 422.2,48.9 423.6,46.2 424.9,44.8 426.3,48.0 427.7,48.9 429.0,49.8 430.4,46.7 431.8,54.0 433.1,71.7 434.5,80.4 435.8,82.7 437.2,83.6 438.6,77.7 439.9,78.1 441.3,77.2 442.7,82.7 444.0,87.2 445.4,86.8 446.8,91.3 448.1,91.8 449.5,91.3 450.9,90.4 452.2,100.0 453.6,98.6 455.0,99.1 456.3,103.2 457.7,103.2 459.1,99.6 460.4,99.6 461.8,104.1 463.2,108.2 464.5,129.2 465.9,134.2 467.3,139.7 468.6,120.5 470.0,111.9" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><circle cx="470.0" cy="111.9" r="4" fill="#2a78d6" stroke="#fff" stroke-width="2"/><line x1="52" x2="470" y1="174.0" y2="174.0" stroke="#52514e" stroke-width="1.2" stroke-dasharray="5 4"/><text x="466" y="169.0" text-anchor="end" class="g-ref">Stop-loss −20%: 108,96</text><line x1="52" x2="470" y1="80.4" y2="80.4" stroke="#52514e" stroke-width="1.2" stroke-dasharray="5 4"/><text x="466" y="75.4" text-anchor="end" class="g-ref">Gemiddelde 200 dagen: 150,00</text><rect x="50.6" y="12" width="2.7" height="228" fill="transparent"><title>2022-06-30 — Slotkoers: 105 EUR</title></rect><rect x="53.4" y="12" width="2.7" height="228" fill="transparent"><title>2022-07-06 — Slotkoers: 101,50 EUR</title></rect><rect x="56.1" y="12" width="2.7" height="228" fill="transparent"><title>2022-07-12 — Slotkoers: 103 EUR</title></rect><rect x="58.8" y="12" width="2.7" height="228" fill="transparent"><title>2022-07-18 — Slotkoers: 103,30 EUR</title></rect><rect x="61.6" y="12" width="2.7" height="228" fill="transparent"><title>2022-07-22 — Slotkoers: 110,58 EUR</title></rect><rect x="64.3" y="12" width="2.7" height="228" fill="transparent"><title>2022-07-28 — Slotkoers: 114 EUR</title></rect><rect x="67.0" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-03 — Slotkoers: 112,66 EUR</title></rect><rect x="69.8" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-09 — Slotkoers: 112,34 EUR</title></rect><rect x="72.5" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-15 — Slotkoers: 117,56 EUR</title></rect><rect x="75.2" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-19 — Slotkoers: 114,70 EUR</title></rect><rect x="78.0" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-25 — Slotkoers: 112,70 EUR</title></rect><rect x="80.7" y="12" width="2.7" height="228" fill="transparent"><title>2022-08-31 — Slotkoers: 113,88 EUR</title></rect><rect x="83.4" y="12" width="2.7" height="228" fill="transparent"><title>2022-09-06 — Slotkoers: 116 EUR</title></rect><rect x="86.2" y="12" width="2.7" height="228" fill="transparent"><title>2022-09-12 — Slotkoers: 117,66 EUR</title></rect><rect x="88.9" y="12" width="2.7" height="228" fill="transparent"><title>2022-09-16 — Slotkoers: 111,86 EUR</title></rect><rect x="91.6" y="12" width="2.7" height="228" fill="transparent"><title>2022-09-22 — Slotkoers: 110,54 EUR</title></rect><rect x="94.4" y="12" width="2.7" height="228" fill="transparent"><title>2022-09-28 — Slotkoers: 106,54 EUR</title></rect><rect x="97.1" y="12" width="2.7" height="228" fill="transparent"><title>2022-10-04 — Slotkoers: 109,44 EUR</title></rect><rect x="99.8" y="12" width="2.7" height="228" fill="transparent"><title>2022-10-10 — Slotkoers: 108 EUR</title></rect><rect x="102.5" y="12" width="2.7" height="228" fill="transparent"><title>2022-10-14 — Slotkoers: 110,52 EUR</title></rect><rect x="105.3" y="12" width="2.7" height="228" fill="transparent"><title>2022-10-20 — Slotkoers: 116 EUR</title></rect><rect x="108.0" y="12" width="2.7" height="228" fill="transparent"><title>2022-10-26 — Slotkoers: 115,42 EUR</title></rect><rect x="110.7" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-01 — Slotkoers: 112,10 EUR</title></rect><rect x="113.5" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-07 — Slotkoers: 114,56 EUR</title></rect><rect x="116.2" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-11 — Slotkoers: 114 EUR</title></rect><rect x="118.9" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-17 — Slotkoers: 116,24 EUR</title></rect><rect x="121.7" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-23 — Slotkoers: 115,22 EUR</title></rect><rect x="124.4" y="12" width="2.7" height="228" fill="transparent"><title>2022-11-29 — Slotkoers: 116,98 EUR</title></rect><rect x="127.1" y="12" width="2.7" height="228" fill="transparent"><title>2022-12-05 — Slotkoers: 124,52 EUR</title></rect><rect x="129.9" y="12" width="2.7" height="228" fill="transparent"><title>2022-12-09 — Slotkoers: 122,62 EUR</title></rect><rect x="132.6" y="12" width="2.7" height="228" fill="transparent"><title>2022-12-15 — Slotkoers: 126,38 EUR</title></rect><rect x="135.3" y="12" width="2.7" height="228" fill="transparent"><title>2022-12-21 — Slotkoers: 126,48 EUR</title></rect><rect x="138.1" y="12" width="2.7" height="228" fill="transparent"><title>2022-12-28 — Slotkoers: 127,56 EUR</title></rect><rect x="140.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-03 — Slotkoers: 127,42 EUR</title></rect><rect x="143.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-09 — Slotkoers: 130,48 EUR</title></rect><rect x="146.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-13 — Slotkoers: 125,46 EUR</title></rect><rect x="149.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-19 — Slotkoers: 124,50 EUR</title></rect><rect x="151.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-25 — Slotkoers: 120,50 EUR</title></rect><rect x="154.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-01-31 — Slotkoers: 118,58 EUR</title></rect><rect x="157.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-02-06 — Slotkoers: 118,54 EUR</title></rect><rect x="159.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-02-10 — Slotkoers: 118 EUR</title></rect><rect x="162.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-02-16 — Slotkoers: 121,26 EUR</title></rect><rect x="165.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-02-22 — Slotkoers: 118,40 EUR</title></rect><rect x="168.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-02-28 — Slotkoers: 119,04 EUR</title></rect><rect x="170.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-03-06 — Slotkoers: 119,56 EUR</title></rect><rect x="173.6" y="12" width="2.7" height="228" fill="transparent"><title>2023-03-10 — Slotkoers: 117,10 EUR</title></rect><rect x="176.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-03-16 — Slotkoers: 115,30 EUR</title></rect><rect x="179.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-03-22 — Slotkoers: 115,46 EUR</title></rect><rect x="181.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-03-28 — Slotkoers: 114,32 EUR</title></rect><rect x="184.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-04-03 — Slotkoers: 116,80 EUR</title></rect><rect x="187.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-04-11 — Slotkoers: 117 EUR</title></rect><rect x="190.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-04-17 — Slotkoers: 118,80 EUR</title></rect><rect x="192.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-04-21 — Slotkoers: 119,40 EUR</title></rect><rect x="195.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-04-27 — Slotkoers: 119,80 EUR</title></rect><rect x="198.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-05-04 — Slotkoers: 120,40 EUR</title></rect><rect x="200.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-05-10 — Slotkoers: 123,60 EUR</title></rect><rect x="203.6" y="12" width="2.7" height="228" fill="transparent"><title>2023-05-16 — Slotkoers: 122,40 EUR</title></rect><rect x="206.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-05-22 — Slotkoers: 123 EUR</title></rect><rect x="209.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-05-26 — Slotkoers: 121,40 EUR</title></rect><rect x="211.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-01 — Slotkoers: 120 EUR</title></rect><rect x="214.6" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-07 — Slotkoers: 121,60 EUR</title></rect><rect x="217.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-13 — Slotkoers: 123,20 EUR</title></rect><rect x="220.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-19 — Slotkoers: 127 EUR</title></rect><rect x="222.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-23 — Slotkoers: 126,20 EUR</title></rect><rect x="225.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-06-29 — Slotkoers: 125,40 EUR</title></rect><rect x="228.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-07-05 — Slotkoers: 126,60 EUR</title></rect><rect x="231.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-07-11 — Slotkoers: 124 EUR</title></rect><rect x="233.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-07-17 — Slotkoers: 121,60 EUR</title></rect><rect x="236.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-07-21 — Slotkoers: 121 EUR</title></rect><rect x="239.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-07-27 — Slotkoers: 120,60 EUR</title></rect><rect x="241.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-02 — Slotkoers: 117 EUR</title></rect><rect x="244.6" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-08 — Slotkoers: 115 EUR</title></rect><rect x="247.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-14 — Slotkoers: 114,60 EUR</title></rect><rect x="250.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-18 — Slotkoers: 115 EUR</title></rect><rect x="252.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-24 — Slotkoers: 114 EUR</title></rect><rect x="255.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-08-30 — Slotkoers: 110,40 EUR</title></rect><rect x="258.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-09-05 — Slotkoers: 107,40 EUR</title></rect><rect x="261.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-09-11 — Slotkoers: 105,40 EUR</title></rect><rect x="263.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-09-15 — Slotkoers: 105,60 EUR</title></rect><rect x="266.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-09-21 — Slotkoers: 102,60 EUR</title></rect><rect x="269.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-09-27 — Slotkoers: 103,20 EUR</title></rect><rect x="271.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-03 — Slotkoers: 98,60 EUR</title></rect><rect x="274.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-09 — Slotkoers: 93 EUR</title></rect><rect x="277.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-13 — Slotkoers: 92 EUR</title></rect><rect x="280.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-19 — Slotkoers: 89,70 EUR</title></rect><rect x="282.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-25 — Slotkoers: 86,90 EUR</title></rect><rect x="285.6" y="12" width="2.7" height="228" fill="transparent"><title>2023-10-31 — Slotkoers: 87,50 EUR</title></rect><rect x="288.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-11-06 — Slotkoers: 89,90 EUR</title></rect><rect x="291.1" y="12" width="2.7" height="228" fill="transparent"><title>2023-11-10 — Slotkoers: 91,70 EUR</title></rect><rect x="293.8" y="12" width="2.7" height="228" fill="transparent"><title>2023-11-16 — Slotkoers: 95,30 EUR</title></rect><rect x="296.5" y="12" width="2.7" height="228" fill="transparent"><title>2023-11-22 — Slotkoers: 100,40 EUR</title></rect><rect x="299.3" y="12" width="2.7" height="228" fill="transparent"><title>2023-11-28 — Slotkoers: 99,20 EUR</title></rect><rect x="302.0" y="12" width="2.7" height="228" fill="transparent"><title>2023-12-04 — Slotkoers: 97,80 EUR</title></rect><rect x="304.7" y="12" width="2.7" height="228" fill="transparent"><title>2023-12-08 — Slotkoers: 101,80 EUR</title></rect><rect x="307.4" y="12" width="2.7" height="228" fill="transparent"><title>2023-12-14 — Slotkoers: 107 EUR</title></rect><rect x="310.2" y="12" width="2.7" height="228" fill="transparent"><title>2023-12-20 — Slotkoers: 109,60 EUR</title></rect><rect x="312.9" y="12" width="2.7" height="228" fill="transparent"><title>2023-12-28 — Slotkoers: 110 EUR</title></rect><rect x="315.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-01-04 — Slotkoers: 110,60 EUR</title></rect><rect x="318.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-01-10 — Slotkoers: 111,60 EUR</title></rect><rect x="321.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-01-16 — Slotkoers: 113,60 EUR</title></rect><rect x="323.8" y="12" width="2.7" height="228" fill="transparent"><title>2024-01-22 — Slotkoers: 114,20 EUR</title></rect><rect x="326.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-01-26 — Slotkoers: 116 EUR</title></rect><rect x="329.3" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-01 — Slotkoers: 116,40 EUR</title></rect><rect x="332.0" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-07 — Slotkoers: 116,80 EUR</title></rect><rect x="334.8" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-13 — Slotkoers: 116,60 EUR</title></rect><rect x="337.5" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-19 — Slotkoers: 116,60 EUR</title></rect><rect x="340.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-23 — Slotkoers: 121,20 EUR</title></rect><rect x="343.0" y="12" width="2.7" height="228" fill="transparent"><title>2024-02-29 — Slotkoers: 128,20 EUR</title></rect><rect x="345.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-03-06 — Slotkoers: 140,20 EUR</title></rect><rect x="348.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-03-12 — Slotkoers: 142,20 EUR</title></rect><rect x="351.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-03-18 — Slotkoers: 144,60 EUR</title></rect><rect x="353.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-03-22 — Slotkoers: 144,60 EUR</title></rect><rect x="356.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-03-28 — Slotkoers: 148,20 EUR</title></rect><rect x="359.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-04-05 — Slotkoers: 147,60 EUR</title></rect><rect x="362.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-04-11 — Slotkoers: 142,20 EUR</title></rect><rect x="364.8" y="12" width="2.7" height="228" fill="transparent"><title>2024-04-17 — Slotkoers: 143 EUR</title></rect><rect x="367.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-04-23 — Slotkoers: 147 EUR</title></rect><rect x="370.3" y="12" width="2.7" height="228" fill="transparent"><title>2024-04-29 — Slotkoers: 151 EUR</title></rect><rect x="373.0" y="12" width="2.7" height="228" fill="transparent"><title>2024-05-06 — Slotkoers: 150 EUR</title></rect><rect x="375.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-05-10 — Slotkoers: 155,40 EUR</title></rect><rect x="378.5" y="12" width="2.7" height="228" fill="transparent"><title>2024-05-16 — Slotkoers: 165 EUR</title></rect><rect x="381.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-05-22 — Slotkoers: 167 EUR</title></rect><rect x="383.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-05-28 — Slotkoers: 165,80 EUR</title></rect><rect x="386.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-06-03 — Slotkoers: 163,60 EUR</title></rect><rect x="389.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-06-07 — Slotkoers: 158,20 EUR</title></rect><rect x="392.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-06-13 — Slotkoers: 159,20 EUR</title></rect><rect x="394.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-06-19 — Slotkoers: 159,20 EUR</title></rect><rect x="397.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-06-25 — Slotkoers: 164,40 EUR</title></rect><rect x="400.3" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-01 — Slotkoers: 163,60 EUR</title></rect><rect x="403.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-05 — Slotkoers: 162,80 EUR</title></rect><rect x="405.8" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-11 — Slotkoers: 169,80 EUR</title></rect><rect x="408.5" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-17 — Slotkoers: 167,80 EUR</title></rect><rect x="411.3" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-23 — Slotkoers: 169,40 EUR</title></rect><rect x="414.0" y="12" width="2.7" height="228" fill="transparent"><title>2024-07-29 — Slotkoers: 167,60 EUR</title></rect><rect x="416.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-02 — Slotkoers: 163,40 EUR</title></rect><rect x="419.5" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-08 — Slotkoers: 160,80 EUR</title></rect><rect x="422.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-14 — Slotkoers: 165 EUR</title></rect><rect x="424.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-20 — Slotkoers: 164,20 EUR</title></rect><rect x="427.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-26 — Slotkoers: 163,40 EUR</title></rect><rect x="430.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-08-30 — Slotkoers: 161,60 EUR</title></rect><rect x="433.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-09-05 — Slotkoers: 150 EUR</title></rect><rect x="435.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-09-11 — Slotkoers: 148,60 EUR</title></rect><rect x="438.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-09-17 — Slotkoers: 151 EUR</title></rect><rect x="441.3" y="12" width="2.7" height="228" fill="transparent"><title>2024-09-23 — Slotkoers: 149 EUR</title></rect><rect x="444.1" y="12" width="2.7" height="228" fill="transparent"><title>2024-09-27 — Slotkoers: 147,20 EUR</title></rect><rect x="446.8" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-03 — Slotkoers: 145 EUR</title></rect><rect x="449.5" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-09 — Slotkoers: 145,60 EUR</title></rect><rect x="452.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-15 — Slotkoers: 142 EUR</title></rect><rect x="455.0" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-21 — Slotkoers: 140 EUR</title></rect><rect x="457.7" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-25 — Slotkoers: 141,60 EUR</title></rect><rect x="460.4" y="12" width="2.7" height="228" fill="transparent"><title>2024-10-31 — Slotkoers: 139,60 EUR</title></rect><rect x="463.2" y="12" width="2.7" height="228" fill="transparent"><title>2024-11-06 — Slotkoers: 128,60 EUR</title></rect><rect x="465.9" y="12" width="2.7" height="228" fill="transparent"><title>2024-11-12 — Slotkoers: 124 EUR</title></rect><rect x="468.6" y="12" width="2.7" height="228" fill="transparent"><title>2024-11-15 — Slotkoers: 136,20 EUR</title></rect><text x="52.0" y="258" text-anchor="start" class="g-as">2022</text><text x="136.7" y="258" text-anchor="middle" class="g-as">2022</text><text x="221.4" y="258" text-anchor="middle" class="g-as">2023</text><text x="306.1" y="258" text-anchor="middle" class="g-as">2023</text><text x="390.8" y="258" text-anchor="middle" class="g-as">2024</text><text x="470.0" y="258" text-anchor="end" class="g-as">2024</text></svg><details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th><th>Slotkoers</th></tr></thead><tbody><tr><td>2022-12-30</td><td>124 EUR</td></tr><tr><td>2023-12-28</td><td>110 EUR</td></tr><tr><td>2024-11-15</td><td>136,20 EUR</td></tr></tbody></table></details>
+    <div class="bijschrift"></div>
+    </div><p class="blok feit"><span class="lab feit">Feit</span>Wat zie je hier? Eerste koers juni 2022 ±€105, dieptepunt €84 in oktober 2023, top €171,4 op 24-5-2024. Op 15-11-2024: €136,2, onder het <span class="term" tabindex="0" role="button" aria-expanded="false">gemiddelde van 50 dagen</span><span class="uitleg">gemiddelde slotkoers van de laatste 50 beursdagen: de korte trend</span> (142,1) en van 200 dagen (150,0).<a class="ref" href="#bron-4">4</a><a class="ref" href="#bron-1">1</a></p><div class="kerncijfers">
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Rendement 1 jaar</div>
+        <div class="w">+44,7% (6 maanden: −19,1%) <span class="trend op">▲</span><a class="ref" href="#bron-4">4</a></div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Koersverandering over 1 jaar (vanaf het dieptepunt van eind 2023) en over 6 maanden.</p>
+        </div>
+      </details>
+      <details class="tegel meer">
+        <summary>
+        <div class="n">Beweeglijkheid</div>
+        <div class="w">25,8% per jaar <span class="trend gelijk">▬</span><a class="ref" href="#bron-4">4</a></div><div class="beoordeling normaal"><i></i>normaal</div><span class="meer-knop">Uitleg</span></summary>
+        <div class="meer-inhoud"><p><strong>Wat is dit?</strong> Hoe sterk de koers schommelt.</p><p><strong>Goed of slecht?</strong> <span class="lab mening">Mening</span>Gemiddeld voor een industrieel aandeel (mening).</p>
+        </div>
+      </details>
+    </div><p class="blok feit"><span class="lab feit">Feit</span><span class="term" tabindex="0" role="button" aria-expanded="false">Steunniveau</span><span class="uitleg">koers waar de daling eerder stopte</span>: 115 (19-2-2024).<a class="ref" href="#bron-4">4</a></p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="expert">
+    <summary><span><span class="nr">10.</span> Kritische expertblik<span class="kort">Pre-mortem: wind op zee stokt, marges zakken, orderboek krimpt</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Hier kijken we als sceptische belegger: wat kan er misgaan, en wat ziet de markt mogelijk over het hoofd?</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Stel dat DEME over twee jaar 50% lager staat: wat is de meest waarschijnlijke reden?</strong> Wind op zee stokt (VS onder Trump, duurdere projecten in Europa zoals het energie-eiland), de schepen staan minder vaak in opdracht, een paar projecten aan vaste prijs lopen verlies op (zoals in 2023 in de VS en Taiwan), en de winst zakt terug naar het niveau van 2021–2022. Dan is het aandeel rond €60–80 waard.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Wat de markt mogelijk over het hoofd ziet (positief):</strong> een sterke balans, een vloot die moeilijk na te bouwen is, en vraag naar netten en kabels in Europa die los staat van de VS.</p><p class="blok mening"><span class="lab mening">Mening</span><strong>Waar we het minst zeker van zijn:</strong> de marge na 2025, en hoe lang de huidige krapte aan installatieschepen blijft.</p>
+    </div>
+  </details>
+  <details class="sectie pdf-blok" id="profiel">
+    <summary><span><span class="nr">11.</span> Toets aan jouw profiel<span class="kort">Herinvestering ✓, geen hype ✓; R1 ✗, conjunctuurgevoelig</span></span></summary>
+    <div class="inhoud"><p class="leestekst">Hoe past DEME bij wat jij belangrijk vindt?</p><ul class="blokken">
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Herinvestering (gemengd):</strong> tot 2023 ging veel geld naar nieuwe schepen; vanaf 2024 dalen de investeringen en gaat meer naar schuldafbouw en dividend.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Defensief?</strong> Nee: een aannemer met projecten, conjunctuurgevoelig (sterk afhankelijk van de economie en van investeringen van klanten).</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Hype?</strong> Nee: echte winst en een redelijke prijs.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>R1 (negatief):</strong> AvH 62,1% → NO-GO volgens jouw regels.</li>
+      <li class="blok mening"><span class="lab mening">Mening</span><strong>Fiscaliteit:</strong> Belgisch aandeel: 30% roerende voorheffing op het dividend en beurstaks. Niet nagekeken in een officiële bron voor deze terugkijktest.</li>
+    </ul><p class="blok mening"><span class="lab mening">Mening</span>Besluit: past goed, behalve R1. Afwachten.</p>
+    </div>
+  </details>
+
+  <div class="achteraan-kop"><div class="deel">Deel 5 · Achteraan</div></div>
+  <details class="pdf-blok kaart uitklap">
+    <summary><h2>Woordenlijst <small>(16 termen)</small></h2></summary>
+    <dl class="woorden"><dt>EBITDA-marge</dt><dd>bedrijfswinst vóór afschrijvingen, als percentage van de omzet</dd><dt>FSMA</dt><dd>Belgische beurstoezichthouder</dd><dt>funderingen en kabels voor windparken op zee</dt><dd>DEME bouwt de windparken niet zelf maar installeert ze voor anderen</dd><dt>gemiddelde van 50 dagen</dt><dd>gemiddelde slotkoers van de laatste 50 beursdagen: de korte trend</dd><dt>Koersdoel</dt><dd>de koers die we over 2 jaar verwachten in het normale scenario</dd><dt>Koopzone</dt><dd>prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft</dd><dt>Netto schuld</dt><dd>leningen min kas</dd><dt>NO-GO</dt><dd>volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is</dd><dt>ondernemingswaarde</dt><dd>beurswaarde plus schulden</dd><dt>orderboek</dt><dd>getekende opdrachten die nog uitgevoerd moeten worden</dd><dt>Orderboek</dt><dd>getekende opdrachten die nog uitgevoerd moeten worden</dd><dt>Steunniveau</dt><dd>koers waar de daling eerder stopte</dd><dt>stop-loss</dt><dd>verkooporder die afgaat als de koers te ver zakt</dd><dt>trading updates</dt><dd>korte tussentijdse cijfers per kwartaal</dd><dt>Vrije kasstroom</dt><dd>geld dat overblijft na investeringen</dd><dt>werkkapitaal</dt><dd>geld dat vastzit in of vrijkomt uit lopende projecten</dd></dl>
+  </details>
+  <section class="pdf-blok kaart">
+    <h2>Kwaliteitscontrole</h2>
+    <p class="deel-intro">Elk rapport wordt nagelezen door drie controleurs: een financieel analist (kloppen de cijfers met de bronnen?), een actua-specialist (is het nieuws juist en volledig?) en een kritische belegger (is het advies logisch en duidelijk?). Hieronder kort wat ze deden en wat nog openstaat.</p><div class="kader info"><div class="t">Dit is een terugkijktest</div>Dit rapport is geschreven alsof het 2024-11-15 is: enkel bronnen en koersen van vóór die datum. Het dient om onze werkwijze te toetsen aan wat er nadien echt gebeurde — geen advies voor vandaag.</div>
+    <p class="blok" style="font-size:14px">2 reviewronde(s) door financieel analist, actua-specialist en kritische belegger. 69 feiten naast de bron gelegd, 62 meteen correct.
+    59 opmerkingen: 54 verwerkt, 1 gemotiveerd verworpen.</p>
+    <div class="legende-labels"><span><strong>Financieel analist:</strong> goedgekeurd met opmerkingen</span><span><strong>Actua-specialist:</strong> goedgekeurd met opmerkingen</span><span><strong>Kritische belegger:</strong> goedgekeurd met opmerkingen</span></div>
+    <div class="kader waarschuwing"><div class="t">Open punten / meningsverschillen in het team</div><ul><li>R4: de stand van de strafzaak over het Russische contract (Sabetta) na maart 2024 is niet nagekeken.</li><li>De dichtste concurrenten zijn niet beursgenoteerd; de vergelijking met Fugro en Subsea7 is indicatief.</li><li>Terugkijktest: het profiel noemt DEME de beste belegging van de gebruiker; de auteur was niet blind. De kritische belegger zag in ronde 1 een lichte positieve kleuring in scenario&#x27;s en waardering; die is verkleind (kansen 35/50/15, centrale waarde €115).</li></ul></div>
+  </section>
+
+  <details class="pdf-blok kaart uitklap" id="bronnen">
+    <summary><h2>Bronnen <small>(17)</small></h2></summary>
+    <ol class="bronnen">
+      <li id="bron-1"><span class="type">primair</span> DEME Group NV — <a href="https://www.deme-group.com/sites/default/files/2024-03/DEME%20Annual_Report_2023_ENG_0.pdf" target="_blank" rel="noopener">Annual Report 2023</a> (Jaarverslag 2023 (gepubliceerd maart 2024)), 2024-03-28</li>
+      <li id="bron-2"><span class="type">primair</span> DEME Group NV — <a href="https://live.euronext.com/sites/default/files/company_press_releases/attachments/2024/08/29/cpr01_hugin_P2024%20DEME%201H24%20results%20ENG.pdf" target="_blank" rel="noopener">Half Year Results 2024: strong performance in all segments underpins record year outlook</a>, 2024-08-29</li>
+      <li id="bron-3"><span class="type">primair</span> DEME Group NV — <a href="https://live.euronext.com/sites/default/files/company_press_releases/attachments/2024/11/14/cpr01_hugin_P2024%20DEME%20Trading%20update%20Q3%202024%20ENG.pdf" target="_blank" rel="noopener">Trading update Q3 2024: heading toward a record turnover in 2024</a>, 2024-11-14</li>
+      <li id="bron-4"><span class="type">data</span> Yahoo Finance — <a href="https://finance.yahoo.com/quote/DEME.BR" target="_blank" rel="noopener">Koersdata DEME.BR, Fugro, Subsea7, Cadeler, afgekapt op peildatum 15-11-2024</a> (tools/koers.py --tot 2024-11-15 (peildatum)), 2024-11-15</li>
+      <li id="bron-5"><span class="type">data</span> Europese Centrale Bank — <a href="https://data.ecb.europa.eu/data/datasets/YC" target="_blank" rel="noopener">Euro area yield curve AAA 10j (dagwaarde) en depositorente ECB</a> (dagwaarden 14-11-2024), 2024-11-14</li>
+      <li id="bron-6"><span class="type">data</span> Federal Reserve Board via FRED — <a href="https://fred.stlouisfed.org/series/DGS10" target="_blank" rel="noopener">10-Year Treasury Constant Maturity Rate (DGS10)</a> (dagwaarde 14-11-2024), 2024-11-14</li>
+      <li id="bron-7"><span class="type">nieuws</span> Reuters (overgenomen door AJOT) — <a href="https://ajot.com/news/european-clean-energy-stocks-tumble-as-trump-wins-us-presidency" target="_blank" rel="noopener">European clean energy stocks tumble as Trump wins US presidency</a>, 2024-11-06</li>
+      <li id="bron-8"><span class="type">primair</span> Fugro N.V. — <a href="https://www.fugro.com/news/press-releases/2024/full-year-results-2023" target="_blank" rel="noopener">Full-year results 2023</a>, 2024-02-29</li>
+      <li id="bron-9"><span class="type">primair</span> Subsea 7 S.A. (via Inderes) — <a href="https://www.inderes.dk/en/releases/subsea-7-sa-announces-fourth-quarter-and-full-year-2023-results" target="_blank" rel="noopener">Subsea 7 S.A. Announces Fourth Quarter and Full Year 2023 Results</a>, 2024-02-29</li>
+      <li id="bron-10"><span class="type">primair</span> Ørsted A/S — <a href="https://orsted.com/en/company-announcement-list/2023/10/oersted-ceases-development-of-its-us-offshore-wind-73751" target="_blank" rel="noopener">Ørsted ceases development of its US offshore wind projects Ocean Wind 1 and 2 …</a>, 2023-10-31</li>
+      <li id="bron-11"><span class="type">primair</span> FSMA — <a href="https://www.fsma.be/en/manager-transaction/deme-3" target="_blank" rel="noopener">Manager transaction detail: DEME (meldingen deme-1 t/m deme-16)</a> (16 meldingen, transacties 10–21 april 2024), 2024-04-21</li>
+      <li id="bron-12"><span class="type">nieuws</span> VRT NWS — <a href="https://www.vrt.be/vrtnws/nl/2024/10/24/kosten-energie-eiland-swingen-uit-de-pan-creg-moet-ingrijpen/" target="_blank" rel="noopener">Kosten energie-eiland voor Belgische kust swingen de pan uit</a>, 2024-10-24</li>
+      <li id="bron-13"><span class="type">nieuws</span> VRT NWS — <a href="https://www.vrt.be/vrtnws/nl/2024/11/12/energie-eiland-prijs-windmolens-zee/" target="_blank" rel="noopener">Artikel over de prijs van het energie-eiland en windmolens op zee (VRT NWS, 12-11-2024)</a>, 2024-11-12</li>
+      <li id="bron-14"><span class="type">nieuws</span> Offshore Wind (offshorewind.biz) — <a href="https://offshorewind.biz/2024/09/03/5-3-gw-of-uk-offshore-wind-projects-secure-contracts-for-difference" target="_blank" rel="noopener">5.3 GW of UK Offshore Wind Projects Secure Contracts for Difference</a>, 2024-09-03</li>
+      <li id="bron-15"><span class="type">primair</span> Subsea 7 S.A. (via Euronext) — <a href="https://live.euronext.com/en/products/equities/company-news/2024-10-07-subsea-7-sa-treasury-shares" target="_blank" rel="noopener">Subsea 7 S.A. Treasury shares (aantal aandelen 302.188.272)</a>, 2024-10-07</li>
+      <li id="bron-16"><span class="type">data</span> Europese Centrale Bank — <a href="https://data.ecb.europa.eu/data/datasets/EXR" target="_blank" rel="noopener">ECB-referentiewisselkoersen EUR/NOK en EUR/USD</a> (14-11-2024: NOK 11,759; USD 1,0533), 2024-11-14</li>
+      <li id="bron-17"><span class="type">primair</span> Cadeler A/S — <a href="https://d1io3yog0oux5.cloudfront.net/_47e840e02aaf8f20e4c9309cadf25a52/cadeler/news/2024-03-26_Annual_Report_2023_Solid_results_alongside_20.pdf" target="_blank" rel="noopener">Annual Report 2023 – Solid results alongside strategic scale-up</a>, 2024-03-26</li>
+    </ol>
+  </details>
+
+  <p class="voet">Gemaakt op 12-11-2026 08:49. Dit is onderzoek en mening, geen gereglementeerd financieel advies. De beslissing ligt bij jou.</p>
+</main>
+<script>
+document.addEventListener("click", function (e) {
+  var t = e.target.closest(".term");
+  if (t) { e.preventDefault(); var o = t.classList.toggle("open"); t.setAttribute("aria-expanded", o); return; }
+  var a = e.target.closest("a[href^='#']");
+  if (!a) return;
+  var d = document.getElementById(a.getAttribute("href").slice(1));
+  for (var p = d; p; p = p.parentElement) if (p.tagName === "DETAILS") p.open = true;
+});
+document.addEventListener("keydown", function (e) {
+  if ((e.key === "Enter" || e.key === " ") && e.target.classList && e.target.classList.contains("term")) { e.preventDefault(); e.target.click(); }
+});
+</script>
+</body>
+</html>

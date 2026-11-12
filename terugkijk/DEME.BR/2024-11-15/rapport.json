@@ -1,0 +1,2264 @@
+{
+ "meta": {
+  "ticker": "DEME.BR",
+  "naam": "DEME Group",
+  "type": "aandeel",
+  "datum": "2026-11-12",
+  "peildatum": "2024-11-15",
+  "soort": "terugkijk",
+  "beurs": "Euronext Brussel",
+  "isin": "BE0974413453",
+  "valuta": "EUR",
+  "sector": "Maritieme werken: offshore-energie, baggeren en infrastructuur",
+  "defensief": false
+ },
+ "advies": {
+  "oordeel": "Afwachten",
+  "score": 5,
+  "reden": "Goed bedrijf aan een redelijke prijs, maar regel **R1 is geraakt**: Ackermans & van Haaren bezit **62,1%** (met VINCI 74%). De rest is goed, niet uitzonderlijk. **Nu niet kopen.**",
+  "koers_nu": 136.2,
+  "koers_datum": "15-11-2024",
+  "koopzone": {
+   "van": 95,
+   "tot": 110
+  },
+  "koersdoel": 153,
+  "koersdoel_uitleg": "normaal scenario, november 2026: ±5,5× een EBITDA van ±€700 mln plus een kleine nettokas. Dat is de koers die wij verwachten als de goede jaren aanhouden, niet onze berekende waarde (±€115). Alle drie scenario's samen (35/50/15%) geven ±€136 over 2 jaar: ongeveer de koers van nu. Met ±1,5% dividend per jaar is dat ver onder de ±9% per jaar die een belegger voor dit risico mag vragen.",
+  "stop_loss": {
+   "waarde": 109.0,
+   "uitleg": "Enkel voor wie het aandeel al heeft: verkopen bij −20% onder je eigen aankoopprijs (jouw profiel). Voor wie op 15-11-2024 had gekocht: €109. Het laatste sterke steunniveau ligt op €115 (februari 2024). Let op: DEME schommelt sterk (25,8% per jaar), dus −20% wordt sneller geraakt dan bij een rustig aandeel. De stop-loss is een regel om verlies te beperken op je eigen aankoopprijs, geen oordeel over de waarde: zakt de koers tot in de koopzone, bekijk de zaak dan opnieuw (R1 blijft gelden)."
+  },
+  "intrinsieke_waarde": 115,
+  "score_opbouw": {
+   "uitleg": "Gezonde balans en goede uitvoering, redelijke prijs, maar R1 geraakt en de winst staat op een recordniveau. Rekensom: 5,85 − 1 (R1) = 4,85, afgerond 5.",
+   "onderdelen": [
+    {
+     "naam": "Bestuur & aandeelhouders (zonder R1)",
+     "gewicht": 15,
+     "punten": 6,
+     "uitleg": "Ervaren referentieaandeelhouder, gematigde verloning (CEO ±€2,1 mln met pensioen). Wel: de voorzitter (Luc Bertrand, AvH) zit ook het remuneratiecomité voor, een nieuwe CFO sinds mei 2024, en een strafzaak over een Russisch contract uit 2014."
+    },
+    {
+     "naam": "Financiële gezondheid",
+     "gewicht": 20,
+     "punten": 7,
+     "uitleg": "Netto schuld €352 mln (30-6-2024), 0,5× de EBITDA. Maar de vrije kasstroom was in 2021–2023 gemiddeld maar ±€37 mln, en die van het eerste halfjaar 2024 (€278 mln) komt deels van vooruitbetalingen van klanten (werkkapitaal), die kunnen omkeren als het orderboek krimpt."
+    },
+    {
+     "naam": "Groei & herinvestering",
+     "gewicht": 15,
+     "punten": 6,
+     "uitleg": "Omzet 2024 +20% of meer, uitkering 33%. Maar de investeringen in schepen dalen (2024: €300–350 mln, minder dan de afschrijvingen) en DEME verwacht na 2024 geen verdere omzetgroei."
+    },
+    {
+     "naam": "Waardering (prijs nu)",
+     "gewicht": 20,
+     "punten": 5,
+     "uitleg": "±6,6× de EBITDA van 2023 (Fugro ±4,8×, Subsea7 ±7,7×). Onze waarde ligt tussen €58 en €167 (centraal ±€115): de koers van €136 rekent erop dat de recordwinst van 2024 blijft."
+    },
+    {
+     "naam": "Risico's & actualiteit",
+     "gewicht": 15,
+     "punten": 5,
+     "uitleg": "Projecten aan vaste prijs (kostenoverschrijdingen), een onrustige markt voor wind op zee (Ørsted stopte projecten in de VS), en de verkiezing van Trump (VS-aandeel ±11% van de omzet). Orderboek 9% lager dan een jaar eerder."
+    },
+    {
+     "naam": "Past bij jouw profiel",
+     "gewicht": 15,
+     "punten": 6,
+     "uitleg": "Geen hype (echte winst, redelijke prijs) en een deel herinvestering. Wel conjunctuurgevoelig (sterk afhankelijk van de economie en investeringen van klanten) en geen defensieve sector."
+    }
+   ],
+   "correcties": [
+    {
+     "naam": "R1 geraakt: Ackermans & van Haaren 62,1%",
+     "punten": -1,
+     "uitleg": "Volgens jouw harde regel een NO-GO, tenzij de rest uitzonderlijk positief is. Goed, maar niet uitzonderlijk."
+    }
+   ]
+  },
+  "scenarios": [
+   {
+    "naam": "Slecht",
+    "koers": 81,
+    "kans": "35%",
+    "uitleg": "Wind op zee vertraagt (VS onder Trump, duurdere projecten in Europa), het orderboek krimpt en de omzet zakt ±15%, met een marge van ±15% (zoals in het eerste halfjaar 2023, toen projecten in de VS en Taiwan verlies maakten). EBITDA ±€500 mln, beleggers betalen ±4,5× (zoals Fugro) en de nettokas wordt een schuld: (4,5 × 500 − 200) / 25,3 mln aandelen ≈ €81. Eigen inschatting."
+   },
+   {
+    "naam": "Normaal",
+    "koers": 153,
+    "kans": "50%",
+    "uitleg": "DEME doet wat het zegt: omzet rond het niveau van 2024 en een marge van 16–20% → EBITDA ±€700 mln. De markt betaalt ±5,5× en de vrije kasstroom maakt van de schuld een kleine nettokas: (5,5 × 700 + 30) / 25,3 ≈ €153. Eigen inschatting."
+   },
+   {
+    "naam": "Goed",
+    "koers": 211,
+    "kans": "15%",
+    "uitleg": "De vraag naar installatieschepen en kabels blijft groter dan het aanbod (DEME spreekt van 'sterke tenderactiviteit'), de marge stijgt naar 20% en de markt betaalt ±6,5× (tussen Fugro en Subsea7): (6,5 × 800 + 150) / 25,3 ≈ €211. Eigen inschatting."
+   }
+  ]
+ },
+ "aandeelhouders": {
+  "verdeling": [
+   {
+    "naam": "Ackermans & van Haaren NV",
+    "pct": 62.12,
+    "stemrecht_pct": 62.12,
+    "structuur": "rechtstreeks; Antwerpse beursgenoteerde holding, sinds 2022 na de afsplitsing uit CFE"
+   },
+   {
+    "naam": "VINCI Construction SAS",
+    "pct": 12.11,
+    "stemrecht_pct": 12.11,
+    "structuur": "rechtstreeks; Franse bouwgroep"
+   },
+   {
+    "naam": "Vrij verhandelbaar",
+    "pct": 25.77,
+    "vrij_verhandelbaar": true
+   }
+  ],
+  "bronnen": [
+   1
+  ],
+  "uitleg": "Ackermans & van Haaren (AvH) heeft 62,12% en dus alleen de meerderheid; VINCI heeft 12,11%. Samen 74%. Er is één soort aandeel, één stem per aandeel (stand 31-12-2023)."
+ },
+ "keten_schema": {
+  "centrum": "DEME",
+  "takken": [
+   {
+    "naam": "Offshore Energy",
+    "gewicht": "±44% van de segmentomzet 2023",
+    "toelichting": "funderingen, kabels en turbines voor windparken op zee",
+    "onder": [
+     {
+      "naam": "Dominion Energy (VS)",
+      "toelichting": "Coastal Virginia, 2,6 GW"
+     },
+     {
+      "naam": "Taiwan (Hai Long, Greater Changhua)",
+      "toelichting": "via joint venture"
+     },
+     {
+      "naam": "Prysmian / Hellenic Cables",
+      "toelichting": "kabelcontracten 2024"
+     }
+    ]
+   },
+   {
+    "naam": "Dredging & Infra",
+    "gewicht": "±47%",
+    "toelichting": "baggeren, havens, tunnels",
+    "onder": [
+     {
+      "naam": "Fehmarnbelt-tunnel",
+      "toelichting": "Denemarken–Duitsland"
+     },
+     {
+      "naam": "Prinses Elisabetheiland",
+      "toelichting": "België (Elia)"
+     },
+     {
+      "naam": "Midden-Oosten",
+      "toelichting": "Saudi-Arabië, Abu Dhabi, Egypte"
+     }
+    ]
+   },
+   {
+    "naam": "Environmental",
+    "gewicht": "±9%",
+    "toelichting": "bodemsanering, dijken"
+   },
+   {
+    "naam": "Concessions",
+    "gewicht": "klein",
+    "toelichting": "belangen in windparken, ScotWind, waterstof (HYPORT Duqm)"
+   },
+   {
+    "naam": "Ackermans & van Haaren",
+    "gewicht": "62,1%",
+    "toelichting": "hoofdaandeelhouder"
+   }
+  ]
+ },
+ "rode_vlaggen": [
+  {
+   "ernst": "nogo",
+   "regel": "R1",
+   "titel": "Ackermans & van Haaren bezit 62,1%",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** De Antwerpse holding Ackermans & van Haaren (AvH) heeft 62,1% van de aandelen en de stemmen van DEME. Samen met VINCI (12,1%) is dat 74%.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "**Waarom is dat een probleem voor jou?** Wie meer dan de helft heeft, beslist alleen over het bestuur, het dividend en nieuwe aandelen, en kan ooit een bod doen om alle andere aandeelhouders uit te kopen. Als kleine aandeelhouder kan je niets afdwingen. Slechts ±26% wordt vrij verhandeld."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Hoe erg is het?** Jouw regel R1 is geraakt: een NO-GO, tenzij de rest uitzonderlijk positief is. De rest is goed, maar niet uitzonderlijk. Tegenwicht: AvH is een ervaren langetermijnbelegger die DEME al jaren via CFE controleerde."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**De details:** tot juni 2022 was DEME een dochter van CFE, dat zelf door AvH gecontroleerd wordt. Op 29-6-2022 werd DEME afgesplitst en naar de beurs gebracht; AvH en VINCI bleven referentieaandeelhouders. Voorzitter Luc Bertrand en bestuurder John-Eric Bertrand zijn niet-uitvoerende bestuurders.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "ernst": "middel",
+   "regel": "R4",
+   "titel": "Strafzaak over een Russisch baggercontract (2014)",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** In september 2023 werden enkele DEME-vennootschappen gedagvaard voor de strafrechtbank van Gent, over de manier waarop in 2014 een baggercontract in de Russische haven Sabetta werd toegekend aan Mordraga, een voormalige Russische joint venture van DEME.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "**Waarom is dat een probleem voor jou?** Een veroordeling kan een boete en reputatieschade meebrengen, en publieke opdrachtgevers letten op zulke zaken."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Hoe erg is het?** Middelmatig. De concurrent die klacht indiende, zag af van zijn burgerlijke eis; schadevergoeding aan hem is dus niet meer mogelijk. De zaak ten gronde moet nog gepleit worden."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**De details:** het onderzoek startte na een klacht van een concurrent. Op 6-12-2023 legde de rechtbank een kalender vast voor de conclusies. Daarnaast loopt een claim in een consortium waaruit DEME zich vóór de werken terugtrok; DEME verwacht daar geen wezenlijke impact van.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "De stand van de zaak na maart 2024 hebben we niet nagekeken in het halfjaarbericht of in de pers."
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R2",
+   "titel": "Verloning en verbonden partijen: gematigd",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** CEO Luc Vandenbulcke kreeg in 2023 €1,99 mln (vast €0,53 mln, variabel €1,45 mln; met pensioen en voordelen ±€2,1 mln). Hij werkt sinds midden 2023 als zelfstandige, wat het vaste bedrag deels verklaart. De andere leden van het directiecomité kregen samen ±€4,5 mln, de bestuurders €0,79 mln. Er is (nog) geen langetermijnbonus.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "DEME boekte €285 mln omzet met joint ventures en geassocieerde ondernemingen (±9% van de omzet), volgens DEME tegen marktvoorwaarden. Voorzitter Luc Bertrand (AvH) zit ook het remuneratiecomité voor.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Geen aanwijzing van zelfverrijking."
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R5",
+   "titel": "Insidertransacties: enkel opties uit het verloningsplan",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** De FSMA publiceerde 16 meldingen van leidinggevenden van DEME in de 12 maanden vóór de peildatum, allemaal tussen 10 en 21 april 2024. Het gaat om het aanvaarden en uitoefenen van opties uit het verloningsplan (prijs €0), in kleine aantallen (1.039 tot 10.560 stuks; CEO Luc Vandenbulcke 10.560).",
+     "bronnen": [
+      11
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Geen aankopen of verkopen op de beurs die iets zeggen over het vertrouwen van de leiding. Geen alarm."
+    }
+   ]
+  },
+  {
+   "ernst": "info",
+   "regel": "R6",
+   "titel": "Beursgang via afsplitsing (2022), geen nieuwe aandelen",
+   "uitleg": [
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "**Wat is er aan de hand?** DEME kwam op 30-6-2022 op de beurs door een partiële splitsing van CFE; er werden geen nieuwe aandelen verkocht. Eind 2023 waren er 25.314.482 aandelen.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  }
+ ],
+ "samenvatting": [
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "DEME is een Belgische groep die op zee bouwt: [[funderingen en kabels voor windparken op zee|DEME bouwt de windparken niet zelf maar installeert ze voor anderen]], baggerwerk, havens en tunnels. In 2023: omzet €3,3 mld, nettowinst €163 mln.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "mening",
+   "tekst": "**R1 geraakt — [[NO-GO|volgens jouw harde regels: niet kopen, tenzij al de rest uitzonderlijk goed is]]:** Ackermans & van Haaren bezit 62,1%. Daarom: **nu niet kopen**.",
+   "bronnen": [
+    1
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "**Goed nieuws:** 2024 wordt een recordjaar (omzet +20% of meer) en de schuld halveerde tot €352 mln (30-6-2024).",
+   "bronnen": [
+    2,
+    3
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "feit",
+   "tekst": "**Risico's:** de winst staat op een recordniveau, DEME verwacht na 2024 geen groei meer, het [[orderboek|getekende opdrachten die nog uitgevoerd moeten worden]] daalde van €7,6 naar €7,1 mld in één kwartaal, en wind op zee is onrustig (Trump verkozen op 6-11-2024).",
+   "bronnen": [
+    2,
+    3,
+    7
+   ]
+  },
+  {
+   "type": "tekst",
+   "label": "mening",
+   "tekst": "**Prijs:** redelijk als de goede jaren aanhouden; onze waarde ligt tussen €58 en €167 (centraal ±€115). Afwachten: 5/10."
+  }
+ ],
+ "verkoopsignalen": [
+  "Wie het aandeel heeft: **koers 20% onder je aankoopprijs** ([[stop-loss|verkooporder die afgaat als de koers te ver zakt]]; bij aankoop op 15-11-2024: €109) → verkopen volgens je profiel. *Controle: koers.*",
+  "**[[Orderboek|getekende opdrachten die nog uitgevoerd moeten worden]] onder €6 mld** in twee opeenvolgende [[trading updates|korte tussentijdse cijfers per kwartaal]] (nu €7,1 mld; €5,9 mld in 2022) → minder werk voor de komende jaren. *Controle: trading updates (mei, november) en halfjaarcijfers.*",
+  "**[[EBITDA-marge|bedrijfswinst vóór afschrijvingen, als percentage van de omzet]] onder 17%** (DEME verwacht zelf 16–20%) of een groot project met verlies. *Controle: jaar- en halfjaarcijfers (26-2-2025, 26-8-2025).*",
+  "**[[Netto schuld|leningen min kas]] boven 1,5× de EBITDA** (nu 0,5×) → de balans verzwakt. *Controle: halfjaarcijfers.*",
+  "**[[Vrije kasstroom|geld dat overblijft na investeringen]] negatief in een halfjaar** terwijl de winst stabiel blijft → klanten betalen minder vooruit ([[werkkapitaal|geld dat vastzit in of vrijkomt uit lopende projecten]]), vaak een teken dat er minder nieuw werk binnenkomt. *Controle: halfjaarcijfers.*",
+  "**Ackermans & van Haaren wijzigt zijn belang** (melding bij de [[FSMA|Belgische beurstoezichthouder]]) → R1 en de waardering opnieuw bekijken. *Controle: FSMA-meldingen.*",
+  "**Koopsignaal**: koers in de koopzone **€95–110**, de prijs waarbij DEME zonder R1 interessant zou zijn. Een uitzondering op R1 vraagt dat de rest uitzonderlijk positief is (eigen voorstel: alle onderdelen van de score minstens 8/10); dat is nu niet zo. *Controle: koers + halfjaarcijfers.*"
+ ],
+ "onvoldoende_info": [
+  {
+   "onderwerp": "Waardering van de dichtste concurrenten",
+   "wat_wel": "De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord, Boskalis) zijn volgens ons niet beursgenoteerd (niet met een bron nagekeken). Vergeleken met Fugro en Subsea7; Cadeler had in 2023 met een vloot in opbouw te weinig EBITDA (±€50 mln, aangepast) voor een zinvolle vergelijking.",
+   "zoekrondes": [
+    "ronde 1: jaarverslag DEME (concurrenten niet bij naam genoemd)",
+    "ronde 2: Fugro en Subsea7 jaarcijfers 2023",
+    "ronde 3: Cadeler jaarcijfers 2023"
+   ]
+  },
+  {
+   "onderwerp": "Transcript van de analistencall (29-8-2024)",
+   "wat_wel": "Niet gelezen; enkel de persberichten.",
+   "zoekrondes": [
+    "ronde 1: investors.deme-group.com (time-out)",
+    "ronde 2: demedredging.gcs-web.com (verbinding geweigerd)",
+    "ronde 3: niet verder gezocht"
+   ]
+  }
+ ],
+ "secties": [
+  {
+   "id": "bestuur",
+   "titel": "Bestuur & aandeelhouders",
+   "kort": "R1 geraakt (AvH 62,1%); gematigde verloning; strafzaak Sabetta loopt",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel gaat over wie DEME controleert en wie het bedrijf leidt. Dat bepaalt of kleine aandeelhouders eerlijk behandeld worden (jouw regels R1 tot R6)."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** professioneel bestuurd bedrijf met een duidelijke baas: Ackermans & van Haaren. Geen tekenen van zelfverrijking."
+    },
+    {
+     "type": "kop",
+     "tekst": "Aandeelhouders (R1)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Ackermans & van Haaren heeft 15.725.684 aandelen (62,12%), VINCI Construction 3.066.460 (12,11%); 25,77% wordt vrij verhandeld. Volgens een studie van oktober 2023 hebben institutionele beleggers ±14% en particulieren ±11%; België is de grootste regio.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Raad van bestuur en directie"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "DEME heeft een raad van bestuur met één CEO (Luc Vandenbulcke) als uitvoerend bestuurder; voorzitter is Luc Bertrand, niet-uitvoerend bestuurder. De dagelijkse leiding ligt sinds 29-6-2022 bij de CEO, bijgestaan door het directiecomité.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "In 2024 trad onafhankelijk bestuurder Kerstin Konradsson af en werd Els Verbraecken als CFO opgevolgd door Stijn Gaytant (mei 2024).",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Verloning (R2, R3)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "CEO: €1,99 mln in 2023 (vast €0,53 mln, variabel €1,45 mln). Directiecomité zonder CEO: €4,48 mln. Bestuurders samen: €0,79 mln. Geen vertrekvergoedingen gemeld.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Gematigd voor een bedrijf met €3,3 mld omzet. Geen R2- of R3-vlag."
+    }
+   ]
+  },
+  {
+   "id": "cijfers",
+   "titel": "Cijfers",
+   "kort": "Omzet 2023 €3,3 mld (+24%), 2024 >+20%; marge ±18%; vrije kasstroom tot 2023 klein",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel toont hoe DEME financieel draait: omzet, winst, kasstroom en schulden."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** sterke groei in 2023–2024 en een balans die snel verbetert. De marge is terug op het niveau van 2021–2022 na een zwak eerste halfjaar 2023."
+    },
+    {
+     "type": "kop",
+     "tekst": "Omzet en winst"
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Omzet en EBITDA (mln euro)",
+     "eenheid": "mln EUR",
+     "x": [
+      "2021",
+      "2022",
+      "2023"
+     ],
+     "reeksen": [
+      {
+       "naam": "Omzet",
+       "waarden": [
+        2510.6,
+        2654.7,
+        3285.4
+       ]
+      },
+      {
+       "naam": "EBITDA",
+       "waarden": [
+        469.3,
+        473.9,
+        596.5
+       ]
+      }
+     ],
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Wat zie je hier? In 2023 steeg de omzet 24% tot €3.285 mln en de EBITDA 26% tot €597 mln (marge 18,2%). De nettowinst was €163 mln (winst per aandeel €6,43).",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tabel",
+     "titel": "Kerncijfers 2021–2023 en eerste halfjaar 2024 (mln euro)",
+     "kolommen": [
+      "",
+      "2021",
+      "2022",
+      "2023",
+      "1H24"
+     ],
+     "rijen": [
+      [
+       "Omzet",
+       "2.511",
+       "2.655",
+       "3.285",
+       "1.916"
+      ],
+      [
+       "EBITDA",
+       "469",
+       "474",
+       "597",
+       "345"
+      ],
+      [
+       "EBITDA-marge",
+       "18,7%",
+       "17,9%",
+       "18,2%",
+       "18,0%"
+      ],
+      [
+       "Nettowinst",
+       "115",
+       "113",
+       "163",
+       "141"
+      ],
+      [
+       "Vrije kasstroom",
+       "131",
+       "−80",
+       "62",
+       "278"
+      ],
+      [
+       "Netto financiële schuld",
+       "393",
+       "521",
+       "512",
+       "352"
+      ],
+      [
+       "Investeringen",
+       "282",
+       "484",
+       "399",
+       "167"
+      ]
+     ],
+     "bronnen": [
+      1,
+      2
+     ],
+     "noot": "EBITDA-marge: berekening. Vrije kasstroom gemiddeld 2021–2023: ±€37 mln per jaar."
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Wat zie je hier? De marge was in 2021–2023 al ±18%; enkel het eerste halfjaar 2023 was zwak (15,0%), door verliezen op projecten in de VS en Taiwan. De vrije kasstroom was de voorbije jaren klein door grote investeringen in nieuwe schepen; in 2024 springt ze omhoog door minder investeringen en vooruitbetalingen van klanten.",
+     "bronnen": [
+      1,
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Eerste halfjaar 2024: omzet €1.916 mln (+30%), EBITDA €345 mln (18,0%), nettowinst €141 mln (€5,58 per aandeel). Negen maanden: omzet €2.994 mln (+32%).",
+     "bronnen": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "EBITDA-marge 1H24",
+       "waarde": "18,0%",
+       "trend": "op",
+       "label": "feit",
+       "toelichting": "1H23: 15,0%",
+       "bronnen": [
+        2
+       ],
+       "wat": "EBITDA gedeeld door de omzet.",
+       "beoordeling": "goed",
+       "beoordeling_uitleg": "Hoger dan Subsea7 (12% in 2023), vergelijkbaar met Fugro (18,2%)."
+      },
+      {
+       "naam": "Orderboek",
+       "waarde": "€7,1 mld",
+       "trend": "neer",
+       "label": "feit",
+       "toelichting": "1H24: €7,6 mld",
+       "bronnen": [
+        2,
+        3
+       ],
+       "wat": "Getekende opdrachten die nog niet als omzet geboekt zijn.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Hoger dan twee jaar eerder (€5,9 mld), maar €0,5 mld lager dan drie maanden eerder. Een groot vervolgcontract uit het vierde kwartaal zit er nog niet in. Voor 2026 lag eind juni slechts €1,4 mld vast."
+      },
+      {
+       "naam": "Verwachting volgende jaren",
+       "waarde": "omzet ≈ 2024, marge 16–20%",
+       "trend": "gelijk",
+       "label": "feit",
+       "bronnen": [
+        2
+       ],
+       "wat": "Wat DEME zelf verwacht na 2024.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Geen verdere groei verwacht, wel goede marges."
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Kasstroom en schulden"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Vrije kasstroom eerste halfjaar 2024: €278 mln (1H23: −€178 mln), deels door werkkapitaal (vooruitbetalingen van klanten: −€575 mln tegenover −€471 mln eind 2023). Netto financiële schuld €352 mln (30-6-2024), 0,49× de EBITDA (berekend zonder achtergestelde en andere leningen). Kas €509 mln. Investeringen 2024: €300–350 mln.",
+     "bronnen": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Dividend"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Dividend over 2023: €2,10 bruto (+40%), uitkering 33% van de winst.",
+     "bronnen": [
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "berekening",
+     "tekst": "Dividendrendement bij €136,2: 2,10 / 136,2 = 1,5%.",
+     "bronnen": [
+      1,
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "investeringen",
+   "titel": "Waarin investeren ze?",
+   "kort": "Vloot (Orion, Green Jade, Yellowstone); capex ±€300 mln in 2024 na pieken",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "DEME is kapitaalintensief: schepen kosten honderden miljoenen. Dit deel toont waar het geld heen gaat."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** na een paar jaren van grote investeringen in nieuwe installatieschepen daalt de investering in 2024. Dat laat meer kasstroom over."
+    },
+    {
+     "type": "grafiek",
+     "soort": "staaf",
+     "titel": "Investeringen (mln euro)",
+     "eenheid": "mln EUR",
+     "x": [
+      "2021",
+      "2022",
+      "2023",
+      "2024 (verwacht)"
+     ],
+     "reeksen": [
+      {
+       "naam": "Investeringen",
+       "waarden": [
+        282.0,
+        483.9,
+        398.9,
+        300.0
+       ]
+      }
+     ],
+     "bronnen": [
+      1,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "In 2024 investeerde DEME onder meer in de nieuwe fallpipe-boot 'Yellowstone' en de meetboot 'Karina'; eerder kwamen het installatieschip 'Orion' en het drijvende installatieschip 'Green Jade' (Taiwan) in dienst.",
+     "bronnen": [
+      2,
+      3,
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Daarnaast investeert DEME via Concessions in groene waterstof (HYPORT Duqm in Oman: bp nam in juli 2024 49% over, DEME houdt 25,5%) en in windconcessies (ScotWind, 2 GW).",
+     "bronnen": [
+      3
+     ]
+    }
+   ]
+  },
+  {
+   "id": "keten",
+   "titel": "De keten (2 niveaus)",
+   "kort": "Klanten: ontwikkelaars van windparken, netbeheerders (Elia, TenneT), overheden; aandeelhouder AvH",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel kijkt naar de partijen waarvan DEME afhankelijk is: vooral de klanten die windparken en havens laten bouwen."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** DEME hangt sterk af van investeringen in wind op zee en netten. Als ontwikkelaars projecten uitstellen (zoals Ørsted in de VS), komt er minder nieuw werk."
+    },
+    {
+     "type": "kop",
+     "tekst": "1. Offshore Energy (wind op zee en kabels)"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Belangrijke projecten: Coastal Virginia (2,6 GW, voor Dominion Energy, VS), Vineyard Wind 1 (VS), Hai Long en Greater Changhua (Taiwan, via joint venture), Île d'Yeu–Noirmoutier en Dieppe–Le Tréport (Frankrijk), Dogger Bank (VK). In 2024 kwamen er kabelcontracten bij voor TenneT (via Prysmian), het Prinses Elisabetheiland (met Hellenic Cables) en OranjeWind.",
+     "bronnen": [
+      2,
+      3,
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Bij Vineyard Wind (VS) bespreekt DEME met de klant de timing en de planning van de resterende installaties.",
+     "bronnen": [
+      2
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Niveau 2: de markt voor wind op zee had het moeilijk. Ørsted (de grootste ontwikkelaar van windparken op zee) stopte op 31-10-2023 de VS-projecten Ocean Wind 1 en 2 en boekte DKK 28,4 mld waardeverminderingen. DEME's koers zakte eind oktober 2023 tot €84 'door zorgen over de offshoremarkt'. Of Ørsted een klant van DEME is, staat niet in DEME's verslagen: dit is een signaal voor de sector, geen bewezen klantenrisico.",
+     "bronnen": [
+      10,
+      1
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Tegenwicht: in de Britse veiling AR6 (3-9-2024) kregen windparken op zee voor ±5,3 GW een contract met vaste prijs, waaronder Hornsea 4 (2,4 GW). Het VK is een DEME-markt (Dogger Bank, Moray West).",
+     "bronnen": [
+      14,
+      2
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "2. Dredging & Infra"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Grote projecten: Fehmarnbelt-tunnel (Denemarken–Duitsland), Oosterweel en het Prinses Elisabetheiland (België), havens in Italië en Frankrijk, en sterk groeiend werk in het Midden-Oosten (Oxagon in Saudi-Arabië, Abu Dhabi). Het Midden-Oosten ging van 1% naar 6% van de omzet.",
+     "bronnen": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Het Prinses Elisabetheiland (België) staat politiek onder druk: de kostenraming steeg van €2,2 mld naar mogelijk €7 à 8 mld, en de grootverbruikers (Febeliec) vragen de lopende aanbestedingen voor de elektrische installaties uit te stellen (VRT, 24-10-2024). De volgende fase (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia op 28-11-2024; of die uitgesteld wordt, is onduidelijk.",
+     "bronnen": [
+      12,
+      13
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "DEME bouwt mee aan het eiland (de bouw van de eerste caisson startte in 2024, werken tot 2026) en tekende in 2024 een groot contract voor de hoogspanningskabels van het eiland, samen met Hellenic Cables. Het risico zit vooral in vervolgopdrachten en in de politieke steun; wie de gelijkstroomkabels krijgt, staat niet in onze bronnen.",
+     "bronnen": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "3. Ackermans & van Haaren"
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "AvH is de hoofdaandeelhouder (62,1%) en levert de voorzitter.",
+     "bronnen": [
+      1
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sector",
+   "titel": "Sector & concurrenten",
+   "kort": "Dichtste concurrenten niet beursgenoteerd; DEME tussen Fugro (4,8×) en Subsea7 (7,7×)",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel vergelijkt DEME met andere bedrijven die werken op zee uitvoeren."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** DEME heeft betere marges dan Subsea7 en zit qua marge op het niveau van Fugro, maar betaalt een hogere waardering dan Fugro."
+    },
+    {
+     "type": "tekst",
+     "label": "inschatting",
+     "tekst": "De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord en Boskalis) zijn niet beursgenoteerd; daarom vergelijken we met twee beursgenoteerde offshoredienstverleners."
+    },
+    {
+     "type": "tabel",
+     "titel": "Vergelijking (cijfers 2023, koers 15-11-2024)",
+     "kolommen": [
+      "Bedrijf",
+      "Omzet 2023",
+      "EBITDA-marge 2023",
+      "Ondernemingswaarde / EBITDA 2023"
+     ],
+     "rijen": [
+      [
+       "DEME",
+       "€3,3 mld",
+       "18,2%",
+       "±6,6×"
+      ],
+      [
+       "Fugro",
+       "€2,2 mld",
+       "18,2%",
+       "±4,8×"
+      ],
+      [
+       "Subsea7",
+       "$6,0 mld",
+       "12%",
+       "±7,7× (±5,6× op verwachting 2024)"
+      ]
+     ],
+     "bronnen": [
+      1,
+      4,
+      8,
+      9,
+      15,
+      16,
+      17
+     ],
+     "noot": "Berekening op koers 15-11-2024. DEME: (3.448 + schuld eind 2023 512) / 596,5. Fugro: 112,2 mln aandelen (nettowinst €254,8 mln / winst per aandeel €2,27) × €16,13 + netto schuld €110,5 mln (niet nagekeken of leases inbegrepen) / €397,3 mln. Subsea7: 302,2 mln aandelen × NOK 181,5 = ±$4,9 mld (ECB-wisselkoers) + netto schuld $552 mln (met leases) / $714 mln; verwachting 2024 $950–1.000 mln. DEME's netto financiële schuld bevat leasingschulden, net als die van Subsea7; voor Fugro is dat niet nagekeken. De vergelijking is indicatief."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat zie je hier? DEME zit tussen Fugro en Subsea7: niet goedkoop, niet duur. Belangrijk: EBITDA laat de kosten van schepen buiten beschouwing; bij een bedrijf dat veel in schepen investeert, oogt de verhouding daardoor gunstiger dan de echte kasstroom."
+    }
+   ]
+  },
+  {
+   "id": "actualiteit",
+   "titel": "Actualiteit",
+   "kort": "Sterke cijfers, maar onrust in wind op zee en Trump verkozen; orderboek −9%",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel gaat over wat er rond DEME gebeurde en speelt tot 15-11-2024, en wat eraan komt."
+    },
+    {
+     "type": "kader",
+     "stijl": "mening",
+     "titel": "Besluit: wat betekent de actualiteit voor DEME?",
+     "tekst": "De drie belangrijkste drijvers:\n1. **Uitstekende uitvoering**: recordomzet, schuld gehalveerd, verwachting twee keer verhoogd.\n2. **Onzekerheid in wind op zee**: Ørsted stopte in 2023 VS-projecten, Trump werd verkozen (6-11-2024), en het Belgische energie-eiland ligt politiek onder vuur.\n3. **Minder zicht op de toekomst**: het orderboek zakte in één kwartaal van €7,6 naar €7,1 mld en DEME verwacht na 2024 geen groei.\nTegenwicht: de Britse veiling AR6 (5,3 GW), sterke tenderactiviteit en een groot vervolgcontract in het vierde kwartaal.\nNetto: positief op korte termijn, onzeker na 2025. **Gevolg voor het advies: Afwachten, 5/10** — vooral door R1."
+    },
+    {
+     "type": "kop",
+     "tekst": "Impact per onderwerp"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "Schaal: klein (<1% van de waarde), middel (1–3%), groot (>3%). ▲ positief, ▼ negatief."
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "**Recordjaar 2024 — ▲ groot.** Omzet +20% of meer, marge ±18%.",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Trump verkozen — ▼ middel.** De regio Amerika (VS en andere) was 11% van de omzet in het eerste halfjaar 2024 (19% een jaar eerder). Trumps concrete plannen voor wind op zee zijn nog onbekend; de beurs reageerde negatief op groene aandelen.",
+       "bronnen": [
+        2,
+        7
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Orderboek −€0,5 mld in één kwartaal — ▼ middel.** Minder zicht na 2025; een groot vervolgcontract in het vierde kwartaal zit er nog niet in.",
+       "bronnen": [
+        2,
+        3
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Kostenontsporing energie-eiland — ▼ klein.** DEME werkt al aan het eiland; vervolgwerk en politieke steun zijn onzeker.",
+       "bronnen": [
+        12,
+        13
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Britse veiling AR6 (5,3 GW) — ▲ middel.** Meer werk voor installatie en kabels in een DEME-markt.",
+       "bronnen": [
+        14
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "**Lagere rente in Europa — ▲ klein.** ECB-depositorente 3,25%; dat helpt de financiering van windparken.",
+       "bronnen": [
+        5
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat zie je hier? De cijfers zijn sterk; de risico's zitten in de nieuwe orders."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat gebeurde er?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "2023: Ørsted stopt Ocean Wind 1 en 2 (31-10-2023); DEME-koers zakt eind oktober 2023 tot €84 'door zorgen over de offshoremarkt' en eindigt het jaar op €111. In het eerste halfjaar 2023 maakte DEME verlies op projecten in de VS en Taiwan.",
+       "bronnen": [
+        10,
+        1,
+        2
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Eerste halfjaar 2024: nettowinst €141 mln (×4,7), koers bereikt €171 (24-5-2024).",
+       "bronnen": [
+        2,
+        4
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? De koers herstelde sterk na de schrik van 2023."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat speelt er nu?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "24-10-2024: de kostenraming van het Prinses Elisabetheiland stijgt naar mogelijk €7 à 8 mld; grootverbruikers vragen uitstel van de aanbestedingen.",
+       "bronnen": [
+        12
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "6-11-2024: Trump wint de VS-verkiezingen; Europese groene aandelen zakken (Ørsted tot −14%). DEME sluit die dag 5,7% lager (128,6).",
+       "bronnen": [
+        7,
+        4
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "14-11-2024: trading update met hogere verwachting; koers +7,8% (122,8 → 132,4), op 15-11 136,2.",
+       "bronnen": [
+        3,
+        4
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Rente: Europese 10-jaarsrente (AAA) 2,45%, Amerikaanse 4,43%; ECB-depositorente 3,25%.",
+       "bronnen": [
+        5,
+        6
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat betekent dit? De koers staat 21% onder de top van mei (6 maanden: −19%). Mogelijke verklaringen: de stemming rond wind op zee, of beleggers die vooruitlopen op een piek, want DEME verwacht na 2024 geen groei."
+    },
+    {
+     "type": "kop",
+     "tekst": "Wat komt eraan?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "feit",
+       "tekst": "28-11-2024: de volgende fase van het energie-eiland (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "Jaarcijfers 2024 op 26-2-2025; trading update Q1 op 14-5-2025; algemene vergadering 21-5-2025; halfjaarcijfers 26-8-2025.",
+       "bronnen": [
+        3
+       ]
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Waar moet je op letten?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "**28-11-2024 — Elia en het energie-eiland.** De volgende fase (gelijkstroomkabels) staat op de agenda; gevolg voor DEME onduidelijk.",
+       "bronnen": [
+        13
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**26-2-2025 — Jaarcijfers 2024.** Goed: marge ≥18% en verwachting voor 2025 bevestigd. Slecht: lagere marge of zwakker orderboek.",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**14-5-2025 — Trading update Q1.** Orderboek boven €7 mld?",
+       "bronnen": [
+        3
+       ]
+      },
+      {
+       "label": "feit",
+       "tekst": "**26-8-2025 — Halfjaarcijfers 2025.** Impact van het VS-beleid.",
+       "bronnen": [
+        3
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "earnings_call",
+   "titel": "Toon van het management",
+   "kort": "Analistencall niet gelezen; toon in de persberichten zelfzeker",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Het transcript van de call van 29-8-2024 konden we niet lezen; we baseren ons op de persberichten."
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "CEO Luc Vandenbulcke: 'Ik ben verheugd met de opmerkelijke prestaties … We verhogen onze omzetverwachting voor het hele jaar naar ongeveer 20%.' In november werd dat verder verhoogd naar meer dan 20%.",
+     "bronnen": [
+      2,
+      3
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Toon: zelfzeker en gestaafd door cijfers. Wel opvallend: voor de jaren na 2024 verwacht het management geen verdere groei van de omzet."
+    }
+   ]
+  },
+  {
+   "id": "waardering",
+   "titel": "Waardering & advies",
+   "kort": "±6,6× EBITDA 2023; onze waarde €58–167 (centraal ±€115); koers rekent op aanhoudende recordwinst",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Is €136,2 een redelijke prijs voor wat DEME verdient en zal verdienen?"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** de koers is te verantwoorden als de recordwinst van 2024 blijft. Valt DEME terug naar een gewoon jaar, dan is het aandeel duidelijk te duur. De waardering hangt dus vooral af van hoe lang de goede jaren duren."
+    },
+    {
+     "type": "kop",
+     "tekst": "Verhoudingen"
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Beurswaarde",
+       "waarde": "±€3,45 mld",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        4
+       ],
+       "wat": "Alle aandelen samen aan de koers van 15-11-2024.",
+       "hoe": "25.314.482 aandelen × 136,2."
+      },
+      {
+       "naam": "Ondernemingswaarde / EBITDA",
+       "waarde": "±6,6× (2023) · ±5,3× (2024 verwacht)",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        2,
+        3,
+        4
+       ],
+       "wat": "Wat je betaalt voor het hele bedrijf ([[ondernemingswaarde|beurswaarde plus schulden]]) gedeeld door één jaar bedrijfswinst.",
+       "hoe": "(3.448 + 512 schuld eind 2023) / 596,5; voor 2024: (3.448 + 352) / ±717 (omzet 3.285 × 1,20 × marge 18,2%).",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Tussen Fugro (±4,8×) en Subsea7 (±7,7×) op 2023."
+      },
+      {
+       "naam": "Koers / winst",
+       "waarde": "±21× (2023) · ±12× (1H24 × 2)",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        2,
+        4
+       ],
+       "wat": "Hoeveel jaar winst je betaalt.",
+       "hoe": "136,2 / 6,43 en 136,2 / (5,58 × 2).",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Op de winst van 2024 redelijk; op die van 2023 duur."
+      },
+      {
+       "naam": "Dividendrendement",
+       "waarde": "1,5%",
+       "trend": "op",
+       "label": "berekening",
+       "bronnen": [
+        1,
+        4
+       ],
+       "wat": "Dividend gedeeld door de koers.",
+       "hoe": "2,10 / 136,2."
+      }
+     ]
+    },
+    {
+     "type": "kop",
+     "tekst": "Eigen berekening"
+    },
+    {
+     "type": "uitleg",
+     "tekst": "We rekenen hoeveel geld DEME na investeringen overhoudt voor aandeelhouders, bij verschillende niveaus van winst."
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "inschatting",
+       "tekst": "Investeringen ±€350 mln per jaar (bovenkant van de verwachting voor 2024), afschrijvingen ±€380 mln, belasting 25% op de bedrijfswinst, rente ±€20 mln.",
+       "bronnen": [
+        1,
+        2
+       ]
+      },
+      {
+       "label": "inschatting",
+       "tekst": "Vereist rendement voor aandeelhouders 9%: de Europese 10-jaarsrente (2,45%) plus ±6,5% omdat een aannemer conjunctuurgevoelig is. Dat is een eigen keuze. Groei op lange termijn 1,5%.",
+       "bronnen": [
+        5
+       ]
+      },
+      {
+       "label": "berekening",
+       "tekst": "Waarde = vrije kasstroom / (9% − 1,5%) / 25,3 mln aandelen."
+      }
+     ]
+    },
+    {
+     "type": "tabel",
+     "titel": "Waarde per aandeel naargelang de winst",
+     "kolommen": [
+      "EBITDA per jaar",
+      "Vrije kasstroom",
+      "Waarde per aandeel (€)",
+      "t.o.v. koers 136,2"
+     ],
+     "rijen": [
+      [
+       "€513 mln (gemiddelde 2021–2023)",
+       "±€110 mln",
+       "±58",
+       "−57%"
+      ],
+      [
+       "€600 mln (niveau 2023)",
+       "±€175 mln",
+       "±92",
+       "−32%"
+      ],
+      [
+       "€711 mln (2024, marge 18%)",
+       "±€258 mln",
+       "±136",
+       "0%"
+      ],
+      [
+       "€790 mln (marge 20%)",
+       "±€318 mln",
+       "±167",
+       "+23%"
+      ]
+     ],
+     "bronnen": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "noot": "Berekening. Investeringen ±€350 mln per jaar tegenover afschrijvingen ±€380 mln: een gunstige aanname; met investeringen gelijk aan de afschrijvingen ligt elke waarde ±€15 lager. De rente (±€20 mln) is afgetrokken en de schuld blijft gelijk verondersteld, zodat de uitkomst de waarde voor aandeelhouders is (vereenvoudiging). Met 8% vereist rendement ligt elke waarde ±15% hoger, met 10% ±12% lager."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Wat zie je hier? De koers rekent op het niveau van 2024 als blijvend. Wij nemen ±€115 als centrale waarde (het midden van het niveau van 2023 en dat van 2024), omdat een aannemer zelden jaren aan een stuk op zijn piek blijft. Let op: de vrije kasstroom was in 2021–2023 veel kleiner (gemiddeld ±€37 mln) door grote investeringen in schepen."
+    },
+    {
+     "type": "kop",
+     "tekst": "Koopzone, koersdoel en stop-loss"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "[[Koopzone|prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft]] **€95–110**: tussen de waarde bij het winstniveau van 2023 (€92) en net onder onze centrale waarde (€115). Dat is de prijs waarbij DEME zonder R1 interessant zou zijn. [[Koersdoel|de koers die we over 2 jaar verwachten in het normale scenario]] **€153** (normaal scenario, november 2026): de koers die wij verwachten zolang de goede jaren duren, niet onze berekende waarde. De drie scenario's samen geven ±€136 in november 2026 (ongeveer de koers van nu): met dividend ±2,5% per jaar, ver onder de 9% per jaar die we als vereist rendement nemen. Dat ondersteunt Afwachten. Stop-loss: −20% onder je eigen aankoopprijs."
+    }
+   ]
+  },
+  {
+   "id": "techniek",
+   "titel": "Koers & techniek",
+   "kort": "Sinds beursgang +30%; 21% onder de top van mei 2024; korte trend dalend",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Dit deel kijkt naar de koers zelf: trend, schommelingen en steun."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Kern:** sterke stijging sinds eind 2023, maar sinds mei 2024 een dalende trend."
+    },
+    {
+     "type": "grafiek",
+     "soort": "lijn",
+     "titel": "Koers DEME (DEME.BR) – juni 2022 tot 15-11-2024",
+     "eenheid": "EUR",
+     "x": [
+      "2022-06-30",
+      "2022-07-04",
+      "2022-07-06",
+      "2022-07-08",
+      "2022-07-12",
+      "2022-07-14",
+      "2022-07-18",
+      "2022-07-20",
+      "2022-07-22",
+      "2022-07-26",
+      "2022-07-28",
+      "2022-08-01",
+      "2022-08-03",
+      "2022-08-05",
+      "2022-08-09",
+      "2022-08-11",
+      "2022-08-15",
+      "2022-08-17",
+      "2022-08-19",
+      "2022-08-23",
+      "2022-08-25",
+      "2022-08-29",
+      "2022-08-31",
+      "2022-09-02",
+      "2022-09-06",
+      "2022-09-08",
+      "2022-09-12",
+      "2022-09-14",
+      "2022-09-16",
+      "2022-09-20",
+      "2022-09-22",
+      "2022-09-26",
+      "2022-09-28",
+      "2022-09-30",
+      "2022-10-04",
+      "2022-10-06",
+      "2022-10-10",
+      "2022-10-12",
+      "2022-10-14",
+      "2022-10-18",
+      "2022-10-20",
+      "2022-10-24",
+      "2022-10-26",
+      "2022-10-28",
+      "2022-11-01",
+      "2022-11-03",
+      "2022-11-07",
+      "2022-11-09",
+      "2022-11-11",
+      "2022-11-15",
+      "2022-11-17",
+      "2022-11-21",
+      "2022-11-23",
+      "2022-11-25",
+      "2022-11-29",
+      "2022-12-01",
+      "2022-12-05",
+      "2022-12-07",
+      "2022-12-09",
+      "2022-12-13",
+      "2022-12-15",
+      "2022-12-19",
+      "2022-12-21",
+      "2022-12-23",
+      "2022-12-28",
+      "2022-12-30",
+      "2023-01-03",
+      "2023-01-05",
+      "2023-01-09",
+      "2023-01-11",
+      "2023-01-13",
+      "2023-01-17",
+      "2023-01-19",
+      "2023-01-23",
+      "2023-01-25",
+      "2023-01-27",
+      "2023-01-31",
+      "2023-02-02",
+      "2023-02-06",
+      "2023-02-08",
+      "2023-02-10",
+      "2023-02-14",
+      "2023-02-16",
+      "2023-02-20",
+      "2023-02-22",
+      "2023-02-24",
+      "2023-02-28",
+      "2023-03-02",
+      "2023-03-06",
+      "2023-03-08",
+      "2023-03-10",
+      "2023-03-14",
+      "2023-03-16",
+      "2023-03-20",
+      "2023-03-22",
+      "2023-03-24",
+      "2023-03-28",
+      "2023-03-30",
+      "2023-04-03",
+      "2023-04-05",
+      "2023-04-11",
+      "2023-04-13",
+      "2023-04-17",
+      "2023-04-19",
+      "2023-04-21",
+      "2023-04-25",
+      "2023-04-27",
+      "2023-05-02",
+      "2023-05-04",
+      "2023-05-08",
+      "2023-05-10",
+      "2023-05-12",
+      "2023-05-16",
+      "2023-05-18",
+      "2023-05-22",
+      "2023-05-24",
+      "2023-05-26",
+      "2023-05-30",
+      "2023-06-01",
+      "2023-06-05",
+      "2023-06-07",
+      "2023-06-09",
+      "2023-06-13",
+      "2023-06-15",
+      "2023-06-19",
+      "2023-06-21",
+      "2023-06-23",
+      "2023-06-27",
+      "2023-06-29",
+      "2023-07-03",
+      "2023-07-05",
+      "2023-07-07",
+      "2023-07-11",
+      "2023-07-13",
+      "2023-07-17",
+      "2023-07-19",
+      "2023-07-21",
+      "2023-07-25",
+      "2023-07-27",
+      "2023-07-31",
+      "2023-08-02",
+      "2023-08-04",
+      "2023-08-08",
+      "2023-08-10",
+      "2023-08-14",
+      "2023-08-16",
+      "2023-08-18",
+      "2023-08-22",
+      "2023-08-24",
+      "2023-08-28",
+      "2023-08-30",
+      "2023-09-01",
+      "2023-09-05",
+      "2023-09-07",
+      "2023-09-11",
+      "2023-09-13",
+      "2023-09-15",
+      "2023-09-19",
+      "2023-09-21",
+      "2023-09-25",
+      "2023-09-27",
+      "2023-09-29",
+      "2023-10-03",
+      "2023-10-05",
+      "2023-10-09",
+      "2023-10-11",
+      "2023-10-13",
+      "2023-10-17",
+      "2023-10-19",
+      "2023-10-23",
+      "2023-10-25",
+      "2023-10-27",
+      "2023-10-31",
+      "2023-11-02",
+      "2023-11-06",
+      "2023-11-08",
+      "2023-11-10",
+      "2023-11-14",
+      "2023-11-16",
+      "2023-11-20",
+      "2023-11-22",
+      "2023-11-24",
+      "2023-11-28",
+      "2023-11-30",
+      "2023-12-04",
+      "2023-12-06",
+      "2023-12-08",
+      "2023-12-12",
+      "2023-12-14",
+      "2023-12-18",
+      "2023-12-20",
+      "2023-12-22",
+      "2023-12-28",
+      "2024-01-02",
+      "2024-01-04",
+      "2024-01-08",
+      "2024-01-10",
+      "2024-01-12",
+      "2024-01-16",
+      "2024-01-18",
+      "2024-01-22",
+      "2024-01-24",
+      "2024-01-26",
+      "2024-01-30",
+      "2024-02-01",
+      "2024-02-05",
+      "2024-02-07",
+      "2024-02-09",
+      "2024-02-13",
+      "2024-02-15",
+      "2024-02-19",
+      "2024-02-21",
+      "2024-02-23",
+      "2024-02-27",
+      "2024-02-29",
+      "2024-03-04",
+      "2024-03-06",
+      "2024-03-08",
+      "2024-03-12",
+      "2024-03-14",
+      "2024-03-18",
+      "2024-03-20",
+      "2024-03-22",
+      "2024-03-26",
+      "2024-03-28",
+      "2024-04-03",
+      "2024-04-05",
+      "2024-04-09",
+      "2024-04-11",
+      "2024-04-15",
+      "2024-04-17",
+      "2024-04-19",
+      "2024-04-23",
+      "2024-04-25",
+      "2024-04-29",
+      "2024-05-02",
+      "2024-05-06",
+      "2024-05-08",
+      "2024-05-10",
+      "2024-05-14",
+      "2024-05-16",
+      "2024-05-20",
+      "2024-05-22",
+      "2024-05-24",
+      "2024-05-28",
+      "2024-05-30",
+      "2024-06-03",
+      "2024-06-05",
+      "2024-06-07",
+      "2024-06-11",
+      "2024-06-13",
+      "2024-06-17",
+      "2024-06-19",
+      "2024-06-21",
+      "2024-06-25",
+      "2024-06-27",
+      "2024-07-01",
+      "2024-07-03",
+      "2024-07-05",
+      "2024-07-09",
+      "2024-07-11",
+      "2024-07-15",
+      "2024-07-17",
+      "2024-07-19",
+      "2024-07-23",
+      "2024-07-25",
+      "2024-07-29",
+      "2024-07-31",
+      "2024-08-02",
+      "2024-08-06",
+      "2024-08-08",
+      "2024-08-12",
+      "2024-08-14",
+      "2024-08-16",
+      "2024-08-20",
+      "2024-08-22",
+      "2024-08-26",
+      "2024-08-28",
+      "2024-08-30",
+      "2024-09-03",
+      "2024-09-05",
+      "2024-09-09",
+      "2024-09-11",
+      "2024-09-13",
+      "2024-09-17",
+      "2024-09-19",
+      "2024-09-23",
+      "2024-09-25",
+      "2024-09-27",
+      "2024-10-01",
+      "2024-10-03",
+      "2024-10-07",
+      "2024-10-09",
+      "2024-10-11",
+      "2024-10-15",
+      "2024-10-17",
+      "2024-10-21",
+      "2024-10-23",
+      "2024-10-25",
+      "2024-10-29",
+      "2024-10-31",
+      "2024-11-04",
+      "2024-11-06",
+      "2024-11-08",
+      "2024-11-12",
+      "2024-11-14",
+      "2024-11-15"
+     ],
+     "reeksen": [
+      {
+       "naam": "Slotkoers",
+       "waarden": [
+        105.0,
+        106.5,
+        101.5,
+        104.7,
+        103.0,
+        102.3,
+        103.3,
+        104.64,
+        110.58,
+        114.36,
+        114.0,
+        117.32,
+        112.66,
+        111.64,
+        112.34,
+        116.0,
+        117.56,
+        114.38,
+        114.7,
+        114.38,
+        112.7,
+        111.74,
+        113.88,
+        114.6,
+        116.0,
+        115.0,
+        117.66,
+        114.54,
+        111.86,
+        113.64,
+        110.54,
+        106.7,
+        106.54,
+        106.88,
+        109.44,
+        111.3,
+        108.0,
+        115.5,
+        110.52,
+        117.74,
+        116.0,
+        114.7,
+        115.42,
+        113.84,
+        112.1,
+        109.84,
+        114.56,
+        112.42,
+        114.0,
+        114.72,
+        116.24,
+        115.86,
+        115.22,
+        115.78,
+        116.98,
+        119.76,
+        124.52,
+        119.42,
+        122.62,
+        125.9,
+        126.38,
+        125.48,
+        126.48,
+        124.5,
+        127.56,
+        124.0,
+        127.42,
+        129.46,
+        130.48,
+        126.68,
+        125.46,
+        126.86,
+        124.5,
+        119.28,
+        120.5,
+        119.08,
+        118.58,
+        118.0,
+        118.54,
+        117.54,
+        118.0,
+        120.5,
+        121.26,
+        120.44,
+        118.4,
+        116.7,
+        119.04,
+        118.4,
+        119.56,
+        118.98,
+        117.1,
+        116.3,
+        115.3,
+        115.2,
+        115.46,
+        113.24,
+        114.32,
+        117.02,
+        116.8,
+        116.0,
+        117.0,
+        117.6,
+        118.8,
+        119.2,
+        119.4,
+        119.0,
+        119.8,
+        120.6,
+        120.4,
+        126.2,
+        123.6,
+        122.0,
+        122.4,
+        124.4,
+        123.0,
+        120.8,
+        121.4,
+        118.6,
+        120.0,
+        121.2,
+        121.6,
+        119.2,
+        123.2,
+        126.0,
+        127.0,
+        126.8,
+        126.2,
+        124.4,
+        125.4,
+        125.2,
+        126.6,
+        121.0,
+        124.0,
+        122.8,
+        121.6,
+        121.6,
+        121.0,
+        120.6,
+        120.6,
+        120.4,
+        117.0,
+        114.6,
+        115.0,
+        114.4,
+        114.6,
+        114.4,
+        115.0,
+        115.8,
+        114.0,
+        116.6,
+        110.4,
+        107.4,
+        107.4,
+        105.4,
+        105.4,
+        102.6,
+        105.6,
+        104.2,
+        102.6,
+        102.0,
+        103.2,
+        104.0,
+        98.6,
+        95.2,
+        93.0,
+        97.0,
+        92.0,
+        93.0,
+        89.7,
+        88.1,
+        86.9,
+        85.2,
+        87.5,
+        90.4,
+        89.9,
+        88.7,
+        91.7,
+        92.9,
+        95.3,
+        97.0,
+        100.4,
+        103.2,
+        99.2,
+        97.3,
+        97.8,
+        98.6,
+        101.8,
+        107.6,
+        107.0,
+        106.0,
+        109.6,
+        109.8,
+        110.0,
+        110.2,
+        110.6,
+        112.4,
+        111.6,
+        113.8,
+        113.6,
+        113.2,
+        114.2,
+        115.0,
+        116.0,
+        116.8,
+        116.4,
+        116.6,
+        116.8,
+        116.6,
+        116.6,
+        116.6,
+        116.6,
+        116.0,
+        121.2,
+        120.2,
+        128.2,
+        133.0,
+        140.2,
+        144.6,
+        142.2,
+        143.0,
+        144.6,
+        145.0,
+        144.6,
+        142.8,
+        148.2,
+        150.0,
+        147.6,
+        145.2,
+        142.2,
+        143.4,
+        143.0,
+        144.4,
+        147.0,
+        146.4,
+        151.0,
+        149.4,
+        150.0,
+        154.2,
+        155.4,
+        161.8,
+        165.0,
+        166.0,
+        167.0,
+        171.4,
+        165.8,
+        163.6,
+        163.6,
+        161.8,
+        158.2,
+        157.0,
+        159.2,
+        160.2,
+        159.2,
+        161.6,
+        164.4,
+        166.8,
+        163.6,
+        166.8,
+        162.8,
+        164.2,
+        169.8,
+        169.2,
+        167.8,
+        166.8,
+        169.4,
+        168.0,
+        167.6,
+        166.6,
+        163.4,
+        160.0,
+        160.8,
+        163.8,
+        165.0,
+        165.6,
+        164.2,
+        163.8,
+        163.4,
+        164.8,
+        161.6,
+        153.8,
+        150.0,
+        149.0,
+        148.6,
+        151.2,
+        151.0,
+        151.4,
+        149.0,
+        147.0,
+        147.2,
+        145.2,
+        145.0,
+        145.2,
+        145.6,
+        141.4,
+        142.0,
+        141.8,
+        140.0,
+        140.0,
+        141.6,
+        141.6,
+        139.6,
+        137.8,
+        128.6,
+        126.4,
+        124.0,
+        132.4,
+        136.2
+       ]
+      }
+     ],
+     "lijnen": [
+      {
+       "naam": "Stop-loss −20%",
+       "waarde": 108.96
+      },
+      {
+       "naam": "Gemiddelde 200 dagen",
+       "waarde": 149.998
+      }
+     ],
+     "bronnen": [
+      4
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "Wat zie je hier? Eerste koers juni 2022 ±€105, dieptepunt €84 in oktober 2023, top €171,4 op 24-5-2024. Op 15-11-2024: €136,2, onder het [[gemiddelde van 50 dagen|gemiddelde slotkoers van de laatste 50 beursdagen: de korte trend]] (142,1) en van 200 dagen (150,0).",
+     "bronnen": [
+      4,
+      1
+     ]
+    },
+    {
+     "type": "kerncijfers",
+     "items": [
+      {
+       "naam": "Rendement 1 jaar",
+       "waarde": "+44,7% (6 maanden: −19,1%)",
+       "trend": "op",
+       "label": "berekening",
+       "bronnen": [
+        4
+       ],
+       "wat": "Koersverandering over 1 jaar (vanaf het dieptepunt van eind 2023) en over 6 maanden."
+      },
+      {
+       "naam": "Beweeglijkheid",
+       "waarde": "25,8% per jaar",
+       "trend": "gelijk",
+       "label": "berekening",
+       "bronnen": [
+        4
+       ],
+       "wat": "Hoe sterk de koers schommelt.",
+       "beoordeling": "normaal",
+       "beoordeling_uitleg": "Gemiddeld voor een industrieel aandeel (mening)."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "feit",
+     "tekst": "[[Steunniveau|koers waar de daling eerder stopte]]: 115 (19-2-2024).",
+     "bronnen": [
+      4
+     ]
+    }
+   ]
+  },
+  {
+   "id": "expert",
+   "titel": "Kritische expertblik",
+   "kort": "Pre-mortem: wind op zee stokt, marges zakken, orderboek krimpt",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Hier kijken we als sceptische belegger: wat kan er misgaan, en wat ziet de markt mogelijk over het hoofd?"
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Stel dat DEME over twee jaar 50% lager staat: wat is de meest waarschijnlijke reden?** Wind op zee stokt (VS onder Trump, duurdere projecten in Europa zoals het energie-eiland), de schepen staan minder vaak in opdracht, een paar projecten aan vaste prijs lopen verlies op (zoals in 2023 in de VS en Taiwan), en de winst zakt terug naar het niveau van 2021–2022. Dan is het aandeel rond €60–80 waard."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Wat de markt mogelijk over het hoofd ziet (positief):** een sterke balans, een vloot die moeilijk na te bouwen is, en vraag naar netten en kabels in Europa die los staat van de VS."
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "**Waar we het minst zeker van zijn:** de marge na 2025, en hoe lang de huidige krapte aan installatieschepen blijft."
+    }
+   ]
+  },
+  {
+   "id": "profiel",
+   "titel": "Toets aan jouw profiel",
+   "kort": "Herinvestering ✓, geen hype ✓; R1 ✗, conjunctuurgevoelig",
+   "inhoud": [
+    {
+     "type": "uitleg",
+     "tekst": "Hoe past DEME bij wat jij belangrijk vindt?"
+    },
+    {
+     "type": "lijst",
+     "items": [
+      {
+       "label": "mening",
+       "tekst": "**Herinvestering (gemengd):** tot 2023 ging veel geld naar nieuwe schepen; vanaf 2024 dalen de investeringen en gaat meer naar schuldafbouw en dividend."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Defensief?** Nee: een aannemer met projecten, conjunctuurgevoelig (sterk afhankelijk van de economie en van investeringen van klanten)."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Hype?** Nee: echte winst en een redelijke prijs."
+      },
+      {
+       "label": "mening",
+       "tekst": "**R1 (negatief):** AvH 62,1% → NO-GO volgens jouw regels."
+      },
+      {
+       "label": "mening",
+       "tekst": "**Fiscaliteit:** Belgisch aandeel: 30% roerende voorheffing op het dividend en beurstaks. Niet nagekeken in een officiële bron voor deze terugkijktest."
+      }
+     ]
+    },
+    {
+     "type": "tekst",
+     "label": "mening",
+     "tekst": "Besluit: past goed, behalve R1. Afwachten."
+    }
+   ]
+  }
+ ],
+ "bronnen": [
+  {
+   "id": 1,
+   "titel": "Annual Report 2023",
+   "uitgever": "DEME Group NV",
+   "type": "primair",
+   "url": "https://www.deme-group.com/sites/default/files/2024-03/DEME%20Annual_Report_2023_ENG_0.pdf",
+   "document": "Jaarverslag 2023 (gepubliceerd maart 2024)",
+   "datum": "2024-03-28"
+  },
+  {
+   "id": 2,
+   "titel": "Half Year Results 2024: strong performance in all segments underpins record year outlook",
+   "uitgever": "DEME Group NV",
+   "type": "primair",
+   "url": "https://live.euronext.com/sites/default/files/company_press_releases/attachments/2024/08/29/cpr01_hugin_P2024%20DEME%201H24%20results%20ENG.pdf",
+   "datum": "2024-08-29"
+  },
+  {
+   "id": 3,
+   "titel": "Trading update Q3 2024: heading toward a record turnover in 2024",
+   "uitgever": "DEME Group NV",
+   "type": "primair",
+   "url": "https://live.euronext.com/sites/default/files/company_press_releases/attachments/2024/11/14/cpr01_hugin_P2024%20DEME%20Trading%20update%20Q3%202024%20ENG.pdf",
+   "datum": "2024-11-14"
+  },
+  {
+   "id": 4,
+   "titel": "Koersdata DEME.BR, Fugro, Subsea7, Cadeler, afgekapt op peildatum 15-11-2024",
+   "uitgever": "Yahoo Finance",
+   "type": "data",
+   "url": "https://finance.yahoo.com/quote/DEME.BR",
+   "document": "tools/koers.py --tot 2024-11-15 (peildatum)",
+   "datum": "2024-11-15"
+  },
+  {
+   "id": 5,
+   "titel": "Euro area yield curve AAA 10j (dagwaarde) en depositorente ECB",
+   "uitgever": "Europese Centrale Bank",
+   "type": "data",
+   "url": "https://data.ecb.europa.eu/data/datasets/YC",
+   "document": "dagwaarden 14-11-2024",
+   "datum": "2024-11-14"
+  },
+  {
+   "id": 6,
+   "titel": "10-Year Treasury Constant Maturity Rate (DGS10)",
+   "uitgever": "Federal Reserve Board via FRED",
+   "type": "data",
+   "url": "https://fred.stlouisfed.org/series/DGS10",
+   "document": "dagwaarde 14-11-2024",
+   "datum": "2024-11-14"
+  },
+  {
+   "id": 7,
+   "titel": "European clean energy stocks tumble as Trump wins US presidency",
+   "uitgever": "Reuters (overgenomen door AJOT)",
+   "type": "nieuws",
+   "url": "https://ajot.com/news/european-clean-energy-stocks-tumble-as-trump-wins-us-presidency",
+   "datum": "2024-11-06"
+  },
+  {
+   "id": 8,
+   "titel": "Full-year results 2023",
+   "uitgever": "Fugro N.V.",
+   "type": "primair",
+   "url": "https://www.fugro.com/news/press-releases/2024/full-year-results-2023",
+   "datum": "2024-02-29"
+  },
+  {
+   "id": 9,
+   "titel": "Subsea 7 S.A. Announces Fourth Quarter and Full Year 2023 Results",
+   "uitgever": "Subsea 7 S.A. (via Inderes)",
+   "type": "primair",
+   "url": "https://www.inderes.dk/en/releases/subsea-7-sa-announces-fourth-quarter-and-full-year-2023-results",
+   "datum": "2024-02-29"
+  },
+  {
+   "id": 10,
+   "titel": "Ørsted ceases development of its US offshore wind projects Ocean Wind 1 and 2 …",
+   "uitgever": "Ørsted A/S",
+   "type": "primair",
+   "url": "https://orsted.com/en/company-announcement-list/2023/10/oersted-ceases-development-of-its-us-offshore-wind-73751",
+   "datum": "2023-10-31"
+  },
+  {
+   "id": 11,
+   "titel": "Manager transaction detail: DEME (meldingen deme-1 t/m deme-16)",
+   "uitgever": "FSMA",
+   "type": "primair",
+   "url": "https://www.fsma.be/en/manager-transaction/deme-3",
+   "document": "16 meldingen, transacties 10–21 april 2024",
+   "datum": "2024-04-21"
+  },
+  {
+   "id": 12,
+   "titel": "Kosten energie-eiland voor Belgische kust swingen de pan uit",
+   "uitgever": "VRT NWS",
+   "type": "nieuws",
+   "url": "https://www.vrt.be/vrtnws/nl/2024/10/24/kosten-energie-eiland-swingen-uit-de-pan-creg-moet-ingrijpen/",
+   "datum": "2024-10-24"
+  },
+  {
+   "id": 13,
+   "titel": "Artikel over de prijs van het energie-eiland en windmolens op zee (VRT NWS, 12-11-2024)",
+   "uitgever": "VRT NWS",
+   "type": "nieuws",
+   "url": "https://www.vrt.be/vrtnws/nl/2024/11/12/energie-eiland-prijs-windmolens-zee/",
+   "datum": "2024-11-12"
+  },
+  {
+   "id": 14,
+   "titel": "5.3 GW of UK Offshore Wind Projects Secure Contracts for Difference",
+   "uitgever": "Offshore Wind (offshorewind.biz)",
+   "type": "nieuws",
+   "url": "https://offshorewind.biz/2024/09/03/5-3-gw-of-uk-offshore-wind-projects-secure-contracts-for-difference",
+   "datum": "2024-09-03"
+  },
+  {
+   "id": 15,
+   "titel": "Subsea 7 S.A. Treasury shares (aantal aandelen 302.188.272)",
+   "uitgever": "Subsea 7 S.A. (via Euronext)",
+   "type": "primair",
+   "url": "https://live.euronext.com/en/products/equities/company-news/2024-10-07-subsea-7-sa-treasury-shares",
+   "datum": "2024-10-07"
+  },
+  {
+   "id": 16,
+   "titel": "ECB-referentiewisselkoersen EUR/NOK en EUR/USD",
+   "uitgever": "Europese Centrale Bank",
+   "type": "data",
+   "url": "https://data.ecb.europa.eu/data/datasets/EXR",
+   "document": "14-11-2024: NOK 11,759; USD 1,0533",
+   "datum": "2024-11-14"
+  },
+  {
+   "id": 17,
+   "titel": "Annual Report 2023 – Solid results alongside strategic scale-up",
+   "uitgever": "Cadeler A/S",
+   "type": "primair",
+   "url": "https://d1io3yog0oux5.cloudfront.net/_47e840e02aaf8f20e4c9309cadf25a52/cadeler/news/2024-03-26_Annual_Report_2023_Solid_results_alongside_20.pdf",
+   "datum": "2024-03-26"
+  }
+ ],
+ "review": {
+  "status": "afgerond",
+  "feiten_gecontroleerd": 69,
+  "feiten_correct": 62,
+  "rondes": [
+   {
+    "nr": 1,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 39,
+    "verwerkt": 36,
+    "verworpen": 0
+   },
+   {
+    "nr": 2,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 20,
+    "verwerkt": 18,
+    "verworpen": 1
+   }
+  ],
+  "open_punten": [
+   "R4: de stand van de strafzaak over het Russische contract (Sabetta) na maart 2024 is niet nagekeken.",
+   "De dichtste concurrenten zijn niet beursgenoteerd; de vergelijking met Fugro en Subsea7 is indicatief.",
+   "Terugkijktest: het profiel noemt DEME de beste belegging van de gebruiker; de auteur was niet blind. De kritische belegger zag in ronde 1 een lichte positieve kleuring in scenario's en waardering; die is verkleind (kansen 35/50/15, centrale waarde €115)."
+  ]
+ }
+}
