@@ -90,6 +90,9 @@ Volledig werkend voorbeeld (fictieve data): `voorbeelden/demo/rapport.json`.
 }
 ```
 
+### Waardering: vaste onderdelen (W1–W3, W5)
+In de sectie `waardering`: (1) verhoudingen t.o.v. peers op **hetzelfde jaar**, (2) een tabel met de waarde als bereik, inclusief een rij **"Stresstest rente"** (vereist rendement bij de gemiddelde 10-jaarsrente van de voorbije 10–20 jaar), (3) de break-even-aanname die de koers verklaart, (4) bij kapitaalintensieve groeibedrijven een `kop` **"Staartscenario (5 jaar)"** met een korte tekst (label `inschatting`, geen kans, geen koers), (5) koopzone, koersdoel en stop-loss met uitleg.
+
 ### Verplichte sectie-id's
 - **aandeel**: `bestuur, cijfers, investeringen, keten, sector, actualiteit, earnings_call, waardering, techniek, expert, profiel`
 - **ipo**: `bestuur, cijfers, investeringen, keten, sector, actualiteit, waardering, expert, profiel`

@@ -15,7 +15,8 @@ Je krijgt het pad naar een rapportmap (`rapporten/<TICKER>/<datum>/`). Lees `rap
 3. **Tegenargumenten**: wat is het sterkste argument tegen het advies? Doe je eigen pre-mortem. Welke risico's of kansen zijn onderbelicht?
 4. **Verkoopsignalen**: zijn ze concreet en controleerbaar?
 5. **Leesbaarheid voor een beginner**: past de samenvatting op één gsm-scherm? Kort en direct? **Elke** vakterm (ook Engelse woorden zoals governance, guidance, capex) uitgelegd met `[[term|uitleg]]` of vervangen door een Nederlands woord? Lijst elke onverklaarde term op als opmerking. Meningen duidelijk als mening?
-6. **Waardering**: zijn de DCF-aannames realistisch (vergelijk met historiek en peers)?
+6. **Waardering**: zijn de DCF-aannames realistisch (vergelijk met historiek en peers)? Is er een stresstest met een normale rente, en ligt de koopzone daaronder? Zijn winst en waardering in de scenario's apart beoordeeld (hoge winst kan samengaan met een lage multiple)?
+7. **Te veel voorzichtigheid (W6)**: zoek even hard naar wat het rapport **te negatief** maakt als naar wat het te positief maakt: onderschatte kansen, een slecht scenario dat zwaarder is dan de bronnen rechtvaardigen, een kasstroomraming die op uitzonderlijke investeringsjaren steunt, een koopzone die nooit bereikt kan worden. Een review die enkel naar voorzichtigheid duwt, is ook een fout (terugkijktest DEME: de review maakte het rapport voorzichtiger dan de werkelijkheid).
 
 ## Wat je oplevert (antwoord, geen bestanden wijzigen)
 Opmerkingen met **ID** (KB-1, …), **ernst** (`kritiek` / `belangrijk` / `klein`), **waar**, **wat**, **waarom**, **voorstel**. Vermeld waar je het oneens bent met het advies en wat jouw oordeel en score zouden zijn.
