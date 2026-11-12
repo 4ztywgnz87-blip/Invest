@@ -58,10 +58,33 @@ Rapport ronde 1 = commit 6346ef6. Herwerkt rapport na ronde 1 = commit na deze r
 | AS-11 | klein | SpaceX-belang ≥ €115 mln (De Tijd, niet gelezen) | verworpen: bron niet gelezen |
 | AS-12 | klein | labels, OpenAI/Stripe/Databricks-beursgangen | verwerkt: algemeen geformuleerd als inschatting zonder data |
 
-## Ronde 2
-**Oordelen:** FA: … · AS: … · KB: …
+## Ronde 2 (diff 6346ef6..163cb55)
+**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen
+**Nieuw gecontroleerd (FA):** 30 waarvan 28 correct. Alle reviewers akkoord met de verworpen punten van ronde 1 (KB-5, FA-14, AS-11, naam vermogensbeheerder); AS-4 deels heropend (AS2-2).
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
+| FA2-1 | belangrijk | gemiddelde korting hangt af van venster (5 punten 25%, 6 punten ±16%) | verwerkt: beide vensters in waardering en score-uitleg; koopzone als inschatting; open punt |
+| FA2-2 | klein | gewogen verwachting ±1,7%/jaar i.p.v. 1,4% | verwerkt (waardering en besluit) |
+| FA2-3 | klein | "uit verkopen betaald" is afleiding | verwerkt: "waarschijnlijk uit verkopen of kas" |
+| FA2-4 | klein | latente belasting €25–26, benaderend | verwerkt |
+| FA2-5 / KB2-1 | klein/belangrijk | review-status en tabel ronde 2 | verwerkt |
+| FA2-6 | klein | feitenlog "eerste operationele winst" | verwerkt in werkdossier |
+| KB2-2 | belangrijk | "halveerde" vs "−60%" | verwerkt: piek-dal −60%, jaarslot 2021→2022 −52% |
+| KB2-3 | klein | zin vermogensbeheerder zinloos | verwerkt: "verandert niets aan de controle" |
+| KB2-4 | klein | drempel €295 herberekenen | verwerkt |
+| KB2-5 | klein | vaktermen (H1, rating, Nasdaq, beursgang, veto, brutorendement) | verwerkt |
+| KB2-6 / AS2-2 | klein/belangrijk | lockups SpaceX (december 2026) en Anthropic | verwerkt als inschatting in "Wat komt eraan?" (CNBC/Bloomberg/Fortune melden gespreide vrijgave; exacte datum niet primair bevestigd); open punt |
+| KB2-7 | klein | €285 vs €272 verwarrend | verwerkt: verwacht rendement ±1,7%/jaar in besluit |
+| KB2-8 | klein | belangenverklaring apart | verwerkt: eigen blok in samenvatting |
+| AS2-1 | klein | Anthropic-datum "volgens CNBC" | verwerkt; [14] bevat $70–78 (bevestigd door FA) |
+| AS2-3 | klein | SpaceX Q3-winst bron | geen wijziging: FA bevestigde CNBC [15] (nettowinst $4,4 mld vs −$1,05 mld) |
+| AS2-4 | klein | inkoop 9-6 vs 1-6 | geen wijziging: zoekfragment van het persbericht noemt start 9-6-2026 (persbericht zelf vermoedelijk 1-6); bron gemarkeerd als via zoekmachine |
+| AS2-5 | klein | compute-contract Anthropic–SpaceX | niet opgenomen (zwakke bron), zoals voorgesteld |
+| AS2-6 | klein | EU AI Act in blootstellingskaart | verworpen: niet onderzocht, geen materiële aanwijzing voor Sofina; kan bij volgende update |
+
+Geen kritieke opmerkingen of 'niet goedgekeurd' na ronde 2 → geen ronde 3 nodig.
 
 ## Open punten / meningsverschillen
+- Normale korting: 25% (laatste 5 meetpunten, gekozen) vs ±16% (incl. premie 2021) vs 15–20% (management). Advies is daardoor eerder streng.
+- Lockup SpaceX/Anthropic enkel als inschatting.

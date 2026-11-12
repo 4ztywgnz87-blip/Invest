@@ -176,5 +176,5 @@ def svg(blok: dict) -> str:
     rijen = "".join(
         f"<tr><td>{html.escape(x[i])}</td>" + "".join(f"<td>{fmt(r['waarden'][i], eenheid)}</td>" for r in reeksen) + "</tr>"
         for i in rij_idx)
-    tabel = f'<details class="g-tabel"><summary>Toon als tabel</summary><table><thead><tr><th></th>{kop}</tr></thead><tbody>{rijen}</tbody></table></details>'
+    tabel = f'<details class="g-tabel"><summary>Toon als tabel</summary><div class="tabelwrap"><table><thead><tr><th></th>{kop}</tr></thead><tbody>{rijen}</tbody></table></div></details>'
     return "".join(out) + legende + tabel
