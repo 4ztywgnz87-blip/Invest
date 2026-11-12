@@ -19,10 +19,10 @@
 | 8 Waardering & advies | ✅ | Afwachten 5/10; IW ±136 |
 | 9 Kritische expertblik | ✅ |  |
 | 10 Fact-check | ✅ | zie hieronder |
-| 11 Teamreview ronde 1 | ⬜ | |
-| 11 Teamreview ronde 2 (+3) | ⬜ | |
-| 12 Rapport bouwen | ⬜ | |
-| 13 Afronding & feedback | ⬜ | |
+| 11 Teamreview ronde 1 | ✅ | 3× goedgekeurd met opm. |
+| 11 Teamreview ronde 2 (+3) | ✅ | 3× goedgekeurd met opm.; geen ronde 3 |
+| 12 Rapport bouwen | ✅ | HTML + PDF |
+| 13 Afronding & feedback | ✅ | niet in de app (terugkijktest) |
 
 (⬜ te doen · 🔄 bezig · ✅ klaar)
 
@@ -116,6 +116,10 @@
 | Amerika 11% omzet 1H24 (19% 1H23) | "America 11% 19% 4%" | Persbericht 1H24 p.5 | A | | ✅ |
 | Verliezen VS en Taiwan in 1H23 | "recorded losses on projects in the US and in Taiwan" | Persbericht 1H24 (segment Offshore) | A | | ✅ |
 | Q3: omzet 2.994,4 (+32%), orderboek 7.141,1 (−9%), guidance >20%, capex ±300 | tabellen p.2–3 | Trading update Q3 2024 | A | | ✅ |
+| Energie-eiland: raming 2,2 → 3,6 → 7 à 8 mld; Febeliec vraagt uitstel aanbestedingen | "nu zou het dus 7 tot zelfs 8 miljard kunnen worden" | VRT 24-10-2024 | B | | ✅ |
+| AR6: ±5,3 GW, Hornsea 4 2,4 GW | "approximately 5.3 GW … securing 2.4 GW for the Hornsea 4" | offshorewind.biz 3-9-2024 | B | | ✅ |
+| Subsea7: 302.188.272 aandelen; koers NOK 181,5 (15-11-2024); EBITDA 2023 $714 mln; netto schuld $552 mln | Euronext 7-10-2024; koers_2024-11-15.json; Inderes 29-2-2024 | A/data | | ✅ |
+| ECB: EUR/NOK 11,759; EUR/USD 1,0533; AAA 10j 2,448% (14-11-2024) | ECB data-API | A | | ✅ |
 | Insiders: 16 meldingen april 2024, opties, prijs 0 | "Transaction linked to remuneration package: acceptance and exercise of options/warrants" | FSMA deme-1…16 | A | | ✅ |
 
 ## Fact-check (fase 10)

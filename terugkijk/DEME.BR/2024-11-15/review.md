@@ -34,15 +34,33 @@ Reviewers: financieel-analist (FA), actua-specialist (AS), kritische-belegger (K
 | FA-13 | klein | datum netto schuld | verwerkt |
 | FA-14 / KB-15 | klein | marge 15% "onderkant"; 7× gestapeld | verwerkt (6,5×) |
 | FA-15 | klein | titel sectie call | verwerkt |
-| FA-16 | klein | ECB/FRED niet geopend | niet verworpen: waarden zelf opgehaald via ECB-API en FRED (werkdossier) |
+| FA-16 | klein | ECB/FRED niet geopend | niet nodig: waarden zelf opgehaald via ECB-API en FRED (werkdossier) |
 | KB-14 | klein | keten, stray key | verwerkt |
 | AS-8 | klein | weging | geen wijziging |
 
 ## Ronde 2
-**Oordelen:** FA: … · AS: … · KB: …
+**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen. Geen ronde 3 nodig.
+**Gecontroleerd (FA):** 31 feiten, 30 correct; 14 berekeningen correct.
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
+| KB2-1 / FA2-1 / AS (reactie) | belangrijk | Drie waarden (115 / 143 / 153) zonder samenhang | verwerkt: verwacht rendement over 2 jaar expliciet t.o.v. 9%/jaar |
+| KB2-2 | belangrijk | Positieve tilt in kansen | verwerkt: 35/50/15 → gewogen ±€136 |
+| KB2-3 | belangrijk | Vaktermen in verkoopsignalen | verwerkt |
+| KB2-4 | belangrijk | Stop-loss in koopzone | verwerkt: stop-loss = verliesregel, geen waardeoordeel |
+| KB2-5 | klein | Onderbouwing koopzone | verwerkt (92–115) |
+| KB2-6 | klein | Drempel R1-uitzondering; margesignaal | verwerkt: "eigen voorstel"; marge 17% |
+| KB2-7 / KB2-8 | klein | review-sectie; formulering FA-16 | verwerkt |
+| FA2-2 | belangrijk | Netto schuld niet afgetrokken | **verworpen (met uitleg)**: rente is al afgetrokken en de schuld blijft constant verondersteld → kasstroom voor aandeelhouders; als vereenvoudiging vermeld in de noot |
+| FA2-3 | klein | Cadeler als bron | verwerkt (bron 17) |
+| FA2-4 / AS2-1 | belangrijk | Energie-eiland verkeerd samengevat | verwerkt: Febeliec vraagt uitstel aanbestedingen; €7–8 mld; Elia-agenda 28-11 |
+| AS2-2 | belangrijk | DEME-betrokkenheid zonder bron | verwerkt: bron 2 en 3 (caissons, kabelcontract met Hellenic Cables) |
+| AS2-3 | klein | 28-11 als feit | verwerkt: inschatting |
+| FA2-5 | klein | Titel bron 13 | verwerkt (beschrijvende titel; echte titel niet leesbaar) |
+| FA2-6 | klein | AR6/Hornsea 4 en DEME-VK | geen wijziging: Hornsea 4 staat in bron 14, Dogger Bank/Moray West in bron 2 |
+| FA2-7 | klein | Capex-aanname | verwerkt in noot |
+| AS2-4 | klein | Feitenlog bronnen 12–16 | deels: zie werkdossier |
+| AS2-5 | klein | Leases in peers | verwerkt in noot |
 
 ## Open punten / meningsverschillen
 - R4: stand van de strafzaak na maart 2024 en nieuwsronde niet gedaan.

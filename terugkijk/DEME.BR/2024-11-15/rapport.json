@@ -23,10 +23,10 @@
    "tot": 110
   },
   "koersdoel": 153,
-  "koersdoel_uitleg": "normaal scenario, november 2026: ±5,5× een EBITDA van ±€700 mln plus een kleine nettokas. +12%, plus ±1,5% dividend per jaar. Het koersdoel is de koers die wij verwachten als de huidige goede jaren aanhouden, niet onze berekende waarde.",
+  "koersdoel_uitleg": "normaal scenario, november 2026: ±5,5× een EBITDA van ±€700 mln plus een kleine nettokas. Dat is de koers die wij verwachten als de goede jaren aanhouden, niet onze berekende waarde (±€115). Alle drie scenario's samen (35/50/15%) geven ±€136 over 2 jaar: ongeveer de koers van nu. Met ±1,5% dividend per jaar is dat ver onder de ±9% per jaar die een belegger voor dit risico mag vragen.",
   "stop_loss": {
    "waarde": 109.0,
-   "uitleg": "Enkel voor wie het aandeel al heeft: verkopen bij −20% onder je eigen aankoopprijs (jouw profiel). Voor wie op 15-11-2024 had gekocht: €109. Het laatste sterke steunniveau ligt op €115 (februari 2024). Let op: DEME schommelt sterk (25,8% per jaar), dus −20% wordt sneller geraakt dan bij een rustig aandeel."
+   "uitleg": "Enkel voor wie het aandeel al heeft: verkopen bij −20% onder je eigen aankoopprijs (jouw profiel). Voor wie op 15-11-2024 had gekocht: €109. Het laatste sterke steunniveau ligt op €115 (februari 2024). Let op: DEME schommelt sterk (25,8% per jaar), dus −20% wordt sneller geraakt dan bij een rustig aandeel. De stop-loss is een regel om verlies te beperken op je eigen aankoopprijs, geen oordeel over de waarde: zakt de koers tot in de koopzone, bekijk de zaak dan opnieuw (R1 blijft gelden)."
   },
   "intrinsieke_waarde": 115,
   "score_opbouw": {
@@ -81,7 +81,7 @@
    {
     "naam": "Slecht",
     "koers": 81,
-    "kans": "30%",
+    "kans": "35%",
     "uitleg": "Wind op zee vertraagt (VS onder Trump, duurdere projecten in Europa), het orderboek krimpt en de omzet zakt ±15%, met een marge van ±15% (zoals in het eerste halfjaar 2023, toen projecten in de VS en Taiwan verlies maakten). EBITDA ±€500 mln, beleggers betalen ±4,5× (zoals Fugro) en de nettokas wordt een schuld: (4,5 × 500 − 200) / 25,3 mln aandelen ≈ €81. Eigen inschatting."
    },
    {
@@ -93,7 +93,7 @@
    {
     "naam": "Goed",
     "koers": 211,
-    "kans": "20%",
+    "kans": "15%",
     "uitleg": "De vraag naar installatieschepen en kabels blijft groter dan het aanbod (DEME spreekt van 'sterke tenderactiviteit'), de marge stijgt naar 20% en de markt betaalt ±6,5× (tussen Fugro en Subsea7): (6,5 × 800 + 150) / 25,3 ≈ €211. Eigen inschatting."
    }
   ]
@@ -361,17 +361,17 @@
  ],
  "verkoopsignalen": [
   "Wie het aandeel heeft: **koers 20% onder je aankoopprijs** ([[stop-loss|verkooporder die afgaat als de koers te ver zakt]]; bij aankoop op 15-11-2024: €109) → verkopen volgens je profiel. *Controle: koers.*",
-  "**Orderboek onder €6 mld** in twee opeenvolgende updates (nu €7,1 mld; €5,9 mld in 2022) → minder werk voor de komende jaren. *Controle: trading updates (mei, november) en halfjaarcijfers.*",
-  "**EBITDA-marge onder 16%** (de onderkant van DEME's eigen vork) of een verlieslatend groot project. *Controle: jaar- en halfjaarcijfers (26-2-2025, 26-8-2025).*",
-  "**Netto schuld boven 1,5× de EBITDA** (nu 0,5×) → de balans verzwakt. *Controle: halfjaarcijfers.*",
-  "**Werkkapitaal keert om**: vrije kasstroom negatief in een halfjaar terwijl de EBITDA stabiel blijft → klanten betalen minder vooruit, vaak een teken dat er minder nieuw werk binnenkomt. *Controle: halfjaarcijfers.*",
-  "**Ackermans & van Haaren wijzigt zijn belang** (FSMA-melding) → R1 en de waardering opnieuw bekijken. *Controle: FSMA-meldingen.*",
-  "**Koopsignaal**: koers in de koopzone **€95–110**, de prijs waarbij DEME zonder R1 interessant zou zijn. Een uitzondering op R1 vraagt dat de rest uitzonderlijk positief is (bv. alle onderdelen van de score minstens 8/10); dat is nu niet zo. *Controle: koers + halfjaarcijfers.*"
+  "**[[Orderboek|getekende opdrachten die nog uitgevoerd moeten worden]] onder €6 mld** in twee opeenvolgende [[trading updates|korte tussentijdse cijfers per kwartaal]] (nu €7,1 mld; €5,9 mld in 2022) → minder werk voor de komende jaren. *Controle: trading updates (mei, november) en halfjaarcijfers.*",
+  "**[[EBITDA-marge|bedrijfswinst vóór afschrijvingen, als percentage van de omzet]] onder 17%** (DEME verwacht zelf 16–20%) of een groot project met verlies. *Controle: jaar- en halfjaarcijfers (26-2-2025, 26-8-2025).*",
+  "**[[Netto schuld|leningen min kas]] boven 1,5× de EBITDA** (nu 0,5×) → de balans verzwakt. *Controle: halfjaarcijfers.*",
+  "**[[Vrije kasstroom|geld dat overblijft na investeringen]] negatief in een halfjaar** terwijl de winst stabiel blijft → klanten betalen minder vooruit ([[werkkapitaal|geld dat vastzit in of vrijkomt uit lopende projecten]]), vaak een teken dat er minder nieuw werk binnenkomt. *Controle: halfjaarcijfers.*",
+  "**Ackermans & van Haaren wijzigt zijn belang** (melding bij de [[FSMA|Belgische beurstoezichthouder]]) → R1 en de waardering opnieuw bekijken. *Controle: FSMA-meldingen.*",
+  "**Koopsignaal**: koers in de koopzone **€95–110**, de prijs waarbij DEME zonder R1 interessant zou zijn. Een uitzondering op R1 vraagt dat de rest uitzonderlijk positief is (eigen voorstel: alle onderdelen van de score minstens 8/10); dat is nu niet zo. *Controle: koers + halfjaarcijfers.*"
  ],
  "onvoldoende_info": [
   {
    "onderwerp": "Waardering van de dichtste concurrenten",
-   "wat_wel": "De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord, Boskalis) zijn volgens ons niet beursgenoteerd (niet met een bron nagekeken). Vergeleken met Fugro en Subsea7; Cadeler had in 2023 met een vloot in opbouw te weinig EBITDA (±€50 mln) voor een zinvolle vergelijking.",
+   "wat_wel": "De dichtste concurrenten in baggeren en installatie op zee (Jan De Nul, Van Oord, Boskalis) zijn volgens ons niet beursgenoteerd (niet met een bron nagekeken). Vergeleken met Fugro en Subsea7; Cadeler had in 2023 met een vloot in opbouw te weinig EBITDA (±€50 mln, aangepast) voor een zinvolle vergelijking.",
    "zoekrondes": [
     "ronde 1: jaarverslag DEME (concurrenten niet bij naam genoemd)",
     "ronde 2: Fugro en Subsea7 jaarcijfers 2023",
@@ -808,7 +808,7 @@
     {
      "type": "tekst",
      "label": "feit",
-     "tekst": "Het Prinses Elisabetheiland (België) staat politiek onder druk: de kostenraming steeg van ±€2 mld naar tot €7 mld en grootverbruikers vroegen het project stil te leggen (VRT, 24-10-2024). Elia beslist op 28-11-2024 over de volgende fase (gelijkstroomkabels).",
+     "tekst": "Het Prinses Elisabetheiland (België) staat politiek onder druk: de kostenraming steeg van €2,2 mld naar mogelijk €7 à 8 mld, en de grootverbruikers (Febeliec) vragen de lopende aanbestedingen voor de elektrische installaties uit te stellen (VRT, 24-10-2024). De volgende fase (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia op 28-11-2024; of die uitgesteld wordt, is onduidelijk.",
      "bronnen": [
       12,
       13
@@ -816,8 +816,12 @@
     },
     {
      "type": "tekst",
-     "label": "inschatting",
-     "tekst": "DEME's eigen werk aan het eiland is al getekend en loopt (eerste caisson in 2024, werken tot 2026); het risico zit vooral in vervolgopdrachten."
+     "label": "feit",
+     "tekst": "DEME bouwt mee aan het eiland (de bouw van de eerste caisson startte in 2024, werken tot 2026) en tekende in 2024 een groot contract voor de hoogspanningskabels van het eiland, samen met Hellenic Cables. Het risico zit vooral in vervolgopdrachten en in de politieke steun; wie de gelijkstroomkabels krijgt, staat niet in onze bronnen.",
+     "bronnen": [
+      2,
+      3
+     ]
     },
     {
      "type": "kop",
@@ -883,13 +887,14 @@
      ],
      "bronnen": [
       1,
+      4,
       8,
       9,
       15,
       16,
-      4
+      17
      ],
-     "noot": "Berekening op koers 15-11-2024. DEME: (3.448 + schuld eind 2023 512) / 596,5. Fugro: 112,2 mln aandelen (nettowinst €254,8 mln / winst per aandeel €2,27) × €16,13 + netto schuld €110,5 mln (niet nagekeken of leases inbegrepen) / €397,3 mln. Subsea7: 302,2 mln aandelen × NOK 181,5 = ±$4,9 mld (ECB-wisselkoers) + netto schuld $552 mln (met leases) / $714 mln; verwachting 2024 $950–1.000 mln."
+     "noot": "Berekening op koers 15-11-2024. DEME: (3.448 + schuld eind 2023 512) / 596,5. Fugro: 112,2 mln aandelen (nettowinst €254,8 mln / winst per aandeel €2,27) × €16,13 + netto schuld €110,5 mln (niet nagekeken of leases inbegrepen) / €397,3 mln. Subsea7: 302,2 mln aandelen × NOK 181,5 = ±$4,9 mld (ECB-wisselkoers) + netto schuld $552 mln (met leases) / $714 mln; verwachting 2024 $950–1.000 mln. DEME's netto financiële schuld bevat leasingschulden, net als die van Subsea7; voor Fugro is dat niet nagekeken. De vergelijking is indicatief."
     },
     {
      "type": "tekst",
@@ -949,7 +954,7 @@
       },
       {
        "label": "inschatting",
-       "tekst": "**Kostenontsporing energie-eiland — ▼ klein.** DEME's contract loopt; vervolgwerk is onzeker.",
+       "tekst": "**Kostenontsporing energie-eiland — ▼ klein.** DEME werkt al aan het eiland; vervolgwerk en politieke steun zijn onzeker.",
        "bronnen": [
         12,
         13
@@ -1016,7 +1021,7 @@
      "items": [
       {
        "label": "feit",
-       "tekst": "24-10-2024: de kostenraming van het Prinses Elisabetheiland stijgt naar tot €7 mld; grootverbruikers vragen het project stil te leggen.",
+       "tekst": "24-10-2024: de kostenraming van het Prinses Elisabetheiland stijgt naar mogelijk €7 à 8 mld; grootverbruikers vragen uitstel van de aanbestedingen.",
        "bronnen": [
         12
        ]
@@ -1061,7 +1066,7 @@
      "items": [
       {
        "label": "feit",
-       "tekst": "28-11-2024: raad van bestuur van Elia beslist over de volgende fase van het energie-eiland.",
+       "tekst": "28-11-2024: de volgende fase van het energie-eiland (gelijkstroomkabels) staat op de agenda van de raad van bestuur van Elia.",
        "bronnen": [
         13
        ]
@@ -1083,8 +1088,8 @@
      "type": "lijst",
      "items": [
       {
-       "label": "feit",
-       "tekst": "**28-11-2024 — Elia en het energie-eiland.** Uitstel of herziening = negatief signaal voor vervolgwerk in België.",
+       "label": "inschatting",
+       "tekst": "**28-11-2024 — Elia en het energie-eiland.** De volgende fase (gelijkstroomkabels) staat op de agenda; gevolg voor DEME onduidelijk.",
        "bronnen": [
         13
        ]
@@ -1290,7 +1295,7 @@
       3,
       4
      ],
-     "noot": "Berekening. Met 8% vereist rendement ligt elke waarde ±15% hoger, met 10% ±12% lager."
+     "noot": "Berekening. Investeringen ±€350 mln per jaar tegenover afschrijvingen ±€380 mln: een gunstige aanname; met investeringen gelijk aan de afschrijvingen ligt elke waarde ±€15 lager. De rente (±€20 mln) is afgetrokken en de schuld blijft gelijk verondersteld, zodat de uitkomst de waarde voor aandeelhouders is (vereenvoudiging). Met 8% vereist rendement ligt elke waarde ±15% hoger, met 10% ±12% lager."
     },
     {
      "type": "tekst",
@@ -1304,7 +1309,7 @@
     {
      "type": "tekst",
      "label": "mening",
-     "tekst": "[[Koopzone|prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft]] **€95–110**: de prijs waarbij DEME zonder R1 interessant zou zijn (rond de waarde bij een gewoon jaar). [[Koersdoel|de koers die we over 2 jaar verwachten in het normale scenario]] **€153** (normaal scenario, november 2026): hoger dan onze centrale waarde, omdat de markt waarschijnlijk betaalt zolang de goede jaren duren. De drie scenario's samen geven ±€143. Stop-loss: −20% onder je eigen aankoopprijs."
+     "tekst": "[[Koopzone|prijs waarbij kopen een redelijke verhouding tussen risico en rendement geeft]] **€95–110**: tussen de waarde bij het winstniveau van 2023 (€92) en net onder onze centrale waarde (€115). Dat is de prijs waarbij DEME zonder R1 interessant zou zijn. [[Koersdoel|de koers die we over 2 jaar verwachten in het normale scenario]] **€153** (normaal scenario, november 2026): de koers die wij verwachten zolang de goede jaren duren, niet onze berekende waarde. De drie scenario's samen geven ±€136 in november 2026 (ongeveer de koers van nu): met dividend ±2,5% per jaar, ver onder de 9% per jaar die we als vereist rendement nemen. Dat ondersteunt Afwachten. Stop-loss: −20% onder je eigen aankoopprijs."
     }
    ]
   },
@@ -2182,7 +2187,7 @@
   },
   {
    "id": 13,
-   "titel": "Energie-eiland: prijs en volgende fase (Elia-raad 28-11-2024)",
+   "titel": "Artikel over de prijs van het energie-eiland en windmolens op zee (VRT NWS, 12-11-2024)",
    "uitgever": "VRT NWS",
    "type": "nieuws",
    "url": "https://www.vrt.be/vrtnws/nl/2024/11/12/energie-eiland-prijs-windmolens-zee/",
@@ -2212,10 +2217,48 @@
    "url": "https://data.ecb.europa.eu/data/datasets/EXR",
    "document": "14-11-2024: NOK 11,759; USD 1,0533",
    "datum": "2024-11-14"
+  },
+  {
+   "id": 17,
+   "titel": "Annual Report 2023 – Solid results alongside strategic scale-up",
+   "uitgever": "Cadeler A/S",
+   "type": "primair",
+   "url": "https://d1io3yog0oux5.cloudfront.net/_47e840e02aaf8f20e4c9309cadf25a52/cadeler/news/2024-03-26_Annual_Report_2023_Solid_results_alongside_20.pdf",
+   "datum": "2024-03-26"
   }
  ],
  "review": {
-  "status": "bezig",
-  "rondes": []
+  "status": "afgerond",
+  "feiten_gecontroleerd": 69,
+  "feiten_correct": 62,
+  "rondes": [
+   {
+    "nr": 1,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 39,
+    "verwerkt": 36,
+    "verworpen": 0
+   },
+   {
+    "nr": 2,
+    "oordelen": {
+     "financieel-analist": "goedgekeurd met opmerkingen",
+     "actua-specialist": "goedgekeurd met opmerkingen",
+     "kritische-belegger": "goedgekeurd met opmerkingen"
+    },
+    "opmerkingen": 20,
+    "verwerkt": 18,
+    "verworpen": 1
+   }
+  ],
+  "open_punten": [
+   "R4: de stand van de strafzaak over het Russische contract (Sabetta) na maart 2024 is niet nagekeken.",
+   "De dichtste concurrenten zijn niet beursgenoteerd; de vergelijking met Fugro en Subsea7 is indicatief.",
+   "Terugkijktest: het profiel noemt DEME de beste belegging van de gebruiker; de auteur was niet blind. De kritische belegger zag in ronde 1 een lichte positieve kleuring in scenario's en waardering; die is verkleind (kansen 35/50/15, centrale waarde €115)."
+  ]
  }
 }
