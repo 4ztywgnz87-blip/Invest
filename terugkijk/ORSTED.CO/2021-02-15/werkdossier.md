@@ -22,7 +22,7 @@
 | 11 Teamreview ronde 1 | ✅ | 3× niet goedgekeurd, 51 opm. |
 | 11 Teamreview ronde 2 (+3) | ✅ | 3× goedgekeurd met opm.; geen ronde 3 |
 | 12 Rapport bouwen | ✅ | HTML + PDF, 390 px nagekeken |
-| 13 Afronding & feedback | ⬜ | |
+| 13 Afronding & feedback | ✅ | niet in de app (terugkijktest); evaluatie in evaluatie.md |
 
 (⬜ te doen · 🔄 bezig · ✅ klaar)
 
