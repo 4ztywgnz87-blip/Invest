@@ -19,7 +19,7 @@
 | 10 Fact-check | ✅ | feitenlog A–E, controle ok |
 | 11 Teamreview ronde 1 | ✅ | FA niet goedgekeurd, AS ok met opm., KB niet goedgekeurd; 44 opmerkingen verwerkt/verworpen (review.md) |
 
-| 11 Teamreview ronde 2 (+3) | ⬜ | |
+| 11 Teamreview ronde 2 (+3) | ✅ | alle drie goedgekeurd met opmerkingen; 20 opmerkingen; geen ronde 3 |
 | 12 Rapport bouwen | ⬜ | |
 | 13 Afronding & feedback | ⬜ | |
 
@@ -204,7 +204,7 @@
 | Art. 15: 36.696.428 stemrechten (7-10-2025), geen converteerbare instrumenten | citaat | PB 7-10-2025 (A) | ✅ |
 | Inkoopprogramma aangekondigd 3-4-2026 (voorwaarden niet gevonden); programma okt. 2025 max €26,1 mln om opties te dekken | MarketScreener-overnames persberichten | MarketScreener (C) — origineel sofinagroup.com 404 | ⚠️ enkel C |
 | Anthropic: prijsvork $70–78, 825 mln aandelen, prijszetting 18-11, handel 19-11-2026 (Nasdaq: ANT), tot $1,4 bln volledig verwaterd | CNBC 10-11-2026 | CNBC (B), TechCrunch (C) | ✅ |
-| SpaceX (genoteerd sinds juni 2026): Q3 omzet ≈$14,6 mld, nettowinst $4,4 mld, eerste operationele winst | CNBC/Fortune 20-10-2026 | CNBC (B), Fortune (B) | ✅ |
+| SpaceX (genoteerd sinds juni 2026): Q3 omzet ≈$14,6 mld, nettowinst $4,4 mld, winst (vs verlies vorig jaar) | CNBC/Fortune 20-10-2026 | CNBC (B), Fortune (B) | ✅ |
 | Nasdaq −5,5% op 5-11-2026 (slechtste dag in ~19 maanden), correctie; aanleiding: Democratische winst midterms, vrees voor rem op AI-datacenters | CNBC 5-11-2026 | CNBC (B), Axios (B) | ✅ |
 | ByteDance: General Atlantic verkoopt deel aan $550 mld (feb. 2026, Reuters via SCMP); buyback 2025 >$330 mld; TikTok-VS-joint-venture sinds 22-1-2026 (Oracle, Silver Lake, MGX elk 15%, ByteDance 19,9%) | SCMP/CNBC | SCMP (B: Reuters overgenomen), CNBC (B) | ✅ |
 | Vinted 2025: omzet €1,1 mld (+38%), nettowinst €62 mln (−19%), vrije kasstroom €137 mln; secundaire transactie 27-4-2026 aan €8 mld waardering | persberichten Vinted | company.vinted.com (A) | ✅ |
