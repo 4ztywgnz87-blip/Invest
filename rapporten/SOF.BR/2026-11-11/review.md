@@ -1,84 +1,67 @@
-# Teamreview — Sofina (SOF.BR) — 2026-11-11 (update)
+# Teamreview — Sofina (SOF.BR) — 2026-11-11
 
-Reviewers: financieel-analist (FA), actua-specialist (AS), kritische-belegger (KB). Basis: volledig gereviewd rapport van 2026-11-08 (zie die map); deze review richt zich op de wijzigingen.
+Reviewers: financieel-analist (FA), actua-specialist (AS), kritische-belegger (KB).
+Ernst: kritiek · belangrijk · klein. Afhandeling: verwerkt (wat aangepast) · verworpen (reden/bewijs).
+Rapport ronde 1 = commit 6346ef6. Herwerkt rapport na ronde 1 = commit na deze review.md.
 
 ## Ronde 1
-**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen (score 4/10)
-**Gecontroleerde feiten (FA):** ±38 waarvan ±36 correct
+**Oordelen:** FA: niet goedgekeurd · AS: goedgekeurd met opmerkingen · KB: niet goedgekeurd
+**Gecontroleerde feiten (FA):** 80 waarvan 68 correct
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
-| FA-1 | belangrijk | "Geen nieuwe FSMA-meldingen" niet bewijsbaar (nummering niet chronologisch) | verwerkt: geformuleerd als "niets gevonden, gecontroleerd op 11-11" |
-| FA-2 | klein | Koers van 9-11 in rapport van 11-11 | verwerkt: "laatste beschikbare slotkoers" |
-| FA-3 / KB-9 | klein | Dubbele ECB-regel | verwerkt: samengevoegd |
-| FA-4 / AS-4 | klein | 78%-kans: bron en momentopname | verwerkt: "volgens Reuters … (een momentopname)" |
-| FA-5 | klein | Zin "5% lager wordt negatief" onduidelijk | verwerkt: herschreven (±−2% in 2 jaar) |
-| AS-1 | belangrijk | SpaceX-tekst verouderd (herstel, Q3-winst, lock-up-schema) | verwerkt met AP 20-10 en RTTNews 21-10 (zelf gezocht); exacte tranchedata niet overgenomen (enkel secundair) |
-| AS-2 | belangrijk | Anthropic-vork lager dan eerdere verwachtingen | verwerkt via CNBC (bron 37: beleggers hoopten op ±$2 biljoen); aiweekly niet gebruikt (secundair) |
-| AS-3 | klein | Oorzaak uitverkoop te stellig | verwerkt: "volgens Reuters"; Microchip-detail niet opgenomen (niet beslissingsrelevant) |
-| AS-5 | klein | Tankeraanvallen/Brent $98,29 (5-11) | verworpen: enkel zwakke bron, niet bevestigd |
-| AS-6 | klein | ECB: unaniem niet verhogen op 29-10 | verwerkt |
-| AS-7 | klein | Blootstellingskaart | verwerkt in werkdossier |
-| KB-1 | belangrijk | Waarom blijft advies gelijk? | verwerkt: kernzin bovenaan "Wat is er veranderd" |
-| KB-2 | belangrijk | Anthropic-bullet: termen, onderkant vork, gevolg | verwerkt: $1,26–1,405 bn, ±31–45%, gevolg apart |
-| KB-3 | belangrijk | 1,5% vs 1,6% | verwerkt: overal ±1,6%; "van ±2% naar ±1,6%" |
-| KB-4 | belangrijk | Markt-bullet: termen en gevolg | verwerkt |
-| KB-5 | klein | FSMA/transparantie onverklaard | verwerkt |
-| KB-6 | klein | Volgorde wijzigingen | verwerkt: kernboodschap eerst |
-| KB-7 | klein | Termen samenvatting | verwerkt ("geen beurskoers"; Anthropic uit blok 3) |
-| KB-8 | klein | Stop-loss: drie getallen | verwerkt: één heldere zin |
-| KB-10 | klein | Vakwoorden elders | verwerkt (staartrisico, secundaire verkoop, waarderingsmultiples, economisch belang, ECB, EUR/USD) |
-| KB-11 | klein | Staartrisico in gemiddelde | geen wijziging nodig (staat in noot + scenario) |
+| FA-1 / KB-1 | kritiek | 54,60% is berekend op álle aandelen, niet "zonder eigen aandelen"; stemrecht is ±56,4–56,7%; balk gebruikt oude verdeling; vrij verhandelbaar 42,28% vs 42,04% | verwerkt: 54,6% kapitaal / ±56,7% stemmen (met eigen aandelen 30-6-2026), stemrecht_pct ingevuld, verdeling na 5-10-2026 (berekening), eigen aandelen 3,73%, uitleg vermeldt 42,04% van Sofina; werkdossier gecorrigeerd |
+| FA-2 / KB-3 | kritiek | CEO verkocht niet "telkens evenveel": ±30.000 uitgeoefend, 18.000 verkocht | verwerkt in R5 en bestuur; Koopman-verkopen en 182.000 opties toegevoegd |
+| KB-2 / FA-8 | kritiek | "15–20% historisch gemiddelde" is managementbewering; eigen gemiddelde 25%; koersdoel te rooskleurig | verwerkt: eigen gemiddelde 25% leidend, 15–20% als bewering; normaal scenario 6% groei en 22% korting → koersdoel €285; gewogen verwachting €272; Waardering 5→4, kerncijfer korting = zwak |
+| FA-3 | belangrijk | vermogensbeheerder >3% (sept. 2026) vermelden; consortium verouderd; reden overdracht | deels verwerkt: verdeling bijgewerkt, "reden niet gepubliceerd", 75%-drempel toegevoegd. Naam van de vermogensbeheerder **verworpen**: profiel §6 sluit posities van grote fondsen uit; wel één neutrale zin dat er een melding >3% was |
+| FA-4 | belangrijk | bestuurdersvergoeding €2,54 mln vs +11,5% inconsistent | verwerkt: €2,69 mln incl. €150.000 voorzitter, +11,5% |
+| FA-5 | belangrijk | ByteDance $550 mld was een voorgestelde verkoop (anonieme bronnen) | verwerkt: "volgens Reuters (anonieme bronnen) wilde … verkopen" |
+| FA-6 | belangrijk | "correctie" niet gedekt door bron | verwerkt: CNBC-artikel "Nasdaq drops into correction territory" toegevoegd [41] |
+| FA-7 / KB-10 | belangrijk | herinvestering ~99% misleidend; dividend > winst 2025 | verwerkt: dekking dividend (129,5 vs winst 113 vs ontvangen 49) in cijfers; profiel-✅ wordt ⚠️; Groei 6→5 |
+| FA-9 | belangrijk | inkoopprogramma's onvolledig | verwerkt: okt. 2025 (€26,1 mln), 3-4-2026 (voorwaarden niet gevonden), 9-6 tot 31-8-2026 (€23 mln/100.000 aandelen, KBC Securities; persbericht Sofina via zoekmachine, link nu 404) |
+| FA-10 | belangrijk | LTIP-uitbetaling, ANAVPS, eenmalige pensioenbijdrage, CEO-reeks 2021–2025, AV 2026 | verwerkt: LTIP-cash CEO €565.593 en LC €2.353.754, overgangsbonus uitgelegd, pensioen, CEO 2021 €4,09 mln, AV 13-5-2026 (benoemingen, EY herbenoemd). Stemcijfers AV 2026 niet gevonden |
+| FA-11 | belangrijk | FX 2025 −€925 mln niet vermeld | verwerkt (cijfers en actualiteit), incl. verwatering door claimemissie |
+| FA-12 / KB-6 | belangrijk | dubbeltelling ByteDance, tegenstrijdige AI-gevoeligheid | verwerkt: "naar schatting 12–18%", één gevoeligheid (20% daling = 2,5–3,5%) in keten, actualiteit en waardering |
+| FA-13 | belangrijk | 5-jaarscijfers onvolledig (nettoresultaat, dividenden, kosten) | verwerkt: tabel nettoresultaat + ontvangen dividenden; kostenblok (2025 €74,2 mln, ±0,7%) |
+| FA-14 / KB-22 | belangrijk | peers niet vergelijkbaar, datums, Brederode +9,2% niet reproduceerbaar | verwerkt: datumkolom en verklarende zin; Brederode +7,2% (eigen berekening, vóór uitkering) en "eigen vermogen"; keuze peers uitgelegd. Extra peers (Eurazeo, HarbourVest, Pantheon…) **verworpen**: 4 peers volstaan (profiel: 3–5 dichtste), keuze toegelicht |
+| FA-15 | belangrijk | terugkijktest verzint details | verwerkt: enkel feiten uit profiel |
+| FA-16 | klein | TikTok-JV 15%-detail, ECB/Fed sept. zonder bron, SpaceX "eerste winst", Cognita stand 2025, Drylock-oorzaak, Salto "al verwerkt", meerwaardebelasting | verwerkt: 15% geschrapt, ECB-juni-persbericht [44] en CNBC Fed [23], "tegenover verlies vorig jaar", "in 2025 vastgelopen", Drylock-oorzaak geschrapt, Salto-zin geschrapt, "volgens Bolero" |
+| FA-17 / KB-7 | klein/belangrijk | pre-mortem inconsistent; staartrisico | verwerkt: overal −40% (€160), kans 5–10%, verwijzing in scenario Slecht |
+| FA-18 / KB-4 | belangrijk | stop-loss vs koopzone, waarschuwingsgrens binnen koopzone | verwerkt: €216,3 enkel voor kopen nu; koopzone → −20% van eigen prijs (±€188); waarschuwingsgrens geschrapt |
+| FA-19 | klein | ">90 beheerders", nog te storten 1,45/1,46, raad na AV, Exein voorwaarden, "schuldgraad in 3 jaar" | verwerkt |
+| KB-5 | belangrijk | 98,9%-goedkeuring zegt weinig; overgangsbonus onverklaard; Bestuur 5? | verwerkt: 98,9%-argument geschrapt, uitleg familie-meerderheid, overgangsbonus uitgelegd. Bestuur 6→5 **verworpen**: R1 al via correctie, R2 is middel; geen dubbele bestraffing |
+| KB-8 | belangrijk | €331 eenzijdig | verwerkt: €326,48 overal als basis; bandbreedte €315–335 als berekening met beide kanten |
+| KB-9 | belangrijk | koopzone vs R1-no-go | verwerkt: reden, besluit en conclusie zeggen "normaal een no-go"; koopzone enkel bij bewuste uitzondering; herbeoordeling na jaarcijfers maart 2027 |
+| KB-11 | belangrijk | feiten zonder feitenlog (vijf generaties, familie in claimemissie, comités, belangen %) | verwerkt: toegevoegd aan feitenlog F (HJ26 p.7, JV25 p.59/61, HJ26 p.30–32); "familie schreef mee in" geschrapt (geen primaire bron); "belang van Sofina in het bedrijf" verduidelijkt; Cognita 14,1% (HJ26, volledig verwaterd) vs 13,4% (MandA, 2019) → verslag gebruikt |
+| KB-12 | belangrijk | crypto niet behandeld | verwerkt: zoektermen in JV25/HJ26 zonder resultaat, één zin in profiel |
+| KB-13 / AS-9 | belangrijk | dekkingsgaten top-belangen niet gemeld; lege dossierdelen | verwerkt: gaten vermeld in keten en "Waar ben ik het minst zeker van?"; blootstellingskaart en waarderingsaannames ingevuld |
+| KB-14 | belangrijk | latente belasting niet gekwantificeerd | verwerkt: bovengrens ±€0,9 mld (€26/aandeel) als inschatting |
+| KB-15 | belangrijk | verkoopsignalen onduidelijk/onvolledig | verwerkt: vijf herschreven signalen incl. thesis-signalen (rendement vs index, Direct vlak, kapitaalverhoging onder waarde) |
+| KB-16 | belangrijk | vaktermen niet uitgelegd | verwerkt: ±25 termknoppen toegevoegd (o.a. investeringsholding, korting, eigen aandelen, onafhankelijk, auditcomité, PSU's, claimemissie, obligatie, verwatering, niet-gerealiseerd, MSCI ACWI, kredietlijnen, roerende voorheffing, minderheidsbelangen, groeikapitaal, niveau 3, joint venture, volledig verwaterd, permanent kapitaal, depositorente, pre-mortem, berenmarkt, steunniveaus, stop-loss, meerwaardebelasting, beurstaks) |
+| KB-17 | belangrijk | blokken zonder overgang; telegramstijl in 'kort' | verwerkt: overgangszinnen toegevoegd, alle 'kort'-regels als volledige zin |
+| KB-18 | klein | Engelse citaten | verwerkt: vertaald |
+| KB-19 | klein | oordeelkaart en samenvatting te zwaar | verwerkt: reden in 3 korte zinnen, samenvatting 5 blokken |
+| KB-20 | klein | belangenverklaring Anthropic enkel in keten | verwerkt: ook in samenvatting |
+| KB-21 | klein | reden overdracht 5-10-2026 | verwerkt: "niet gepubliceerd" |
+| KB-23 | klein | fiscaliteit enkel rang C | verwerkt: "volgens Bolero", FOD niet gelezen vermeld |
+| KB-24 | klein | kmo-uitsluiting; dubbeltelling AI in score | verwerkt: zin in profiel; vermelding in score-uitleg Profiel |
+| KB-25 | klein | labels/beoordelingen | verwerkt: NAV totaal en nettowinst → normaal; oorzaak 2025 nu met bron (FX-brug) |
+| AS-1 | belangrijk | olieprijs verouderd: Brent daalde tot ±$91–93 | verwerkt met CNBC 10-11-2026 [45]: $91,49; impact ▼▲ |
+| AS-2 | belangrijk | Democraten winnen Huis + Senaat; AI/datacenter/chipregels | verwerkt met CNBC [42][43]; impactregel en "Wat komt eraan?" (inschatting); chip-wetsontwerp zelf niet bevestigd → niet als feit |
+| AS-3 | belangrijk | Anthropic eenzijdig: S-1-verlies, Class N $26 mld, lockups, datum kan schuiven | verwerkt: omzet/verlies (Fortune [40]), $26 mld (CNBC [14]), "gepland, kan verschuiven", fondsvertraging. Lockup-details **verworpen**: enkel secundaire bronnen |
+| AS-4 | belangrijk | SpaceX-lockup 8-12-2026, koers onder IPO-prijs, xAI-fusie, afhankelijkheid Anthropic | **verworpen** als feit: enkel derden/secundaire bronnen (StartupHub, Stocktwits); "eerste winst" geschrapt |
+| AS-5 | belangrijk | Salto-koper bekend; "al verwerkt" onbewezen; Kopi; Cognita UK-btw | verwerkt: Inflexion + Baskische families 33% (Inflexion [39]); zin "al verwerkt" geschrapt; Kopi enkel HJ26. Cognita UK-btw **niet opgenomen**: enkel secundaire bron (in werkdossier) |
+| AS-6 | belangrijk | ECB verhoogde ook in juni; vooruitblik december | verwerkt: ECB 11-6-2026 [44]; december als inschatting zonder exacte data (niet bevestigd) |
+| AS-7 | klein | GBL-koers 10-11 verifiëren | verwerkt: noot met GBL's eigen 28,3% op 30-9; koers Yahoo behouden (rang C, gemarkeerd) |
+| AS-8 | klein | ByteDance-waarde mogelijk achterhaald | verwerkt via voorstel FA-5 ("voorgestelde verkoop"); hogere cijfers enkel lage-kwaliteitsbronnen → niet opgenomen |
+| AS-10 | klein | TOB en details meerwaardebelasting | deels verwerkt: beurstaks vermeld zonder tarief (FOD geblokkeerd), "geïndexeerd" vermeden |
+| AS-11 | klein | SpaceX-belang ≥ €115 mln (De Tijd, niet gelezen) | verworpen: bron niet gelezen |
+| AS-12 | klein | labels, OpenAI/Stripe/Databricks-beursgangen | verwerkt: algemeen geformuleerd als inschatting zonder data |
 
 ## Ronde 2
-**Oordelen:** FA: goedgekeurd met opmerkingen · AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen (score 4/10)
-**Gecontroleerde feiten (FA):** ±14 waarvan 12 correct
+**Oordelen:** FA: … · AS: … · KB: …
 
 | ID | Ernst | Opmerking | Afhandeling |
 |----|-------|-----------|-------------|
-| FA2-1 | klein | +45,6% → ±46% | verwerkt |
-| FA2-2 / AS2-1 / KB (opm.) | belangrijk | SpaceX: "eerste winst", "juli", lock-up "begin december" niet gedekt door 39/40 | verwerkt: per bewering juiste bron (Wikipedia 15 voor IPO/lock-up, AP/RTT voor Q3), "winst na reeks verliezen", lock-up-datum als inschatting (±9-12) |
-| FA2-3 / AS2-2 | klein | Koers boven $135 = momentopname 21-10 (bron 40) | verwerkt: "op 21-10 ±$161 buiten de beursuren"; geen recentere koers gevonden |
-| AS2-3 | klein | $1,26 bn is eigen berekening | verwerkt: "(eigen berekening)" |
-| KB2-1 | klein | R1 en intrinsieke waarde uitleggen in wijzigingen | verwerkt |
-| KB2-2 | klein | "heffen elkaar op" past niet | verwerkt: "gemengd nieuws, weinig dat Sofina wezenlijk verandert" |
-| KB2-3 | klein | Verwacht rendement uitleggen | verwerkt |
-| KB2-4 | klein | Stop-loss €184 verklaren | verwerkt (aankoop €230) |
-| KB2-5 | klein | Zin slecht scenario vs stop-loss | verwerkt |
-| KB2-6 | klein | "waarde van het hele bedrijf" | verwerkt |
-| KB2-7 | klein | Kans slecht scenario 30–35% | verworpen als wijziging (mening, score ongewijzigd) → open punt |
-| FA (b) | klein | Brent als "niet bevestigd" noteren | verwerkt in werkdossier |
-| FA (b) | klein | ±1,6% bevat staartrisico | verwerkt in wijzigingen |
-
-Geen kritieke opmerkingen of "niet goedgekeurd" → geen ronde 3.
-
-## Ronde 3 — herwerkt actualiteitsdeel (feedback gebruiker 11-11)
-**Oordelen:** AS: goedgekeurd met opmerkingen · KB: goedgekeurd met opmerkingen
-
-| ID | Ernst | Opmerking | Afhandeling |
-|----|-------|-----------|-------------|
-| KB3-1 | belangrijk | Besluit noemt het advies niet; te lang | verwerkt: genummerd, eindigt met "Afwachten, 4/10" |
-| KB3-2 | belangrijk | Tabel met 5 kolommen onleesbaar op gsm | verwerkt: lijst met één item per onderwerp (ook als vaste regel) |
-| KB3-3 / AS3-3 | belangrijk | Inconsistenties besluit/tabel (ByteDance, dollar tweezijdig, rente) | verwerkt |
-| KB3-4 | belangrijk | 'Wat betekent dit?' ongelijk | verwerkt; ±21% koersstijging nu met berekening (222,6 → 270,4) in besluit |
-| KB3-5 | belangrijk | Vaktermen | verwerkt (fondsen, intrinsieke waarde, prospectus, prijsvork; 'herfinanciering' in gewone woorden) |
-| KB3-6 | klein | Overbodige details | verwerkt (herschikking consortium en 78% uit dit deel; staan in bestuur/wijzigingen) |
-| KB3-7 | klein | Kleine rijen samenvoegen | verwerkt ("Overige") |
-| KB3-8 | klein | Netto-oordeel onder tabel | verwerkt |
-| AS3-1 | belangrijk | ByteDance ▲ te stellig | verwerkt: ▼▲ middel, "niet bevestigd", gevoeligheid 1,5–3% |
-| AS3-2 | belangrijk | AI-impact onderschat; schaal | verwerkt: 2–5%, schaal 1–3% |
-| AS3-4 | klein | Anthropic: prijsvork, inschatting | verwerkt |
-| AS3-5 | klein | Rente mengt twee effecten | verwerkt (herfinanciering apart als 'klein') |
-| AS3-6 | klein | SpaceX richting | verwerkt (onder Overige, zonder stellige koersrichting) |
-| AS3-7 | klein | "dubbel zo hard" → ±3× | verwerkt |
-| AS3-8 | klein | Ontbrekend: stemming/korting | verwerkt (rij "Stemming rond Sofina"); AI-regels zitten bij AI-rij en tijdlijn |
-
-## Broncontrole 11-11-2026 (na de teamreview) — enkel de wijzigingen, financieel analist
-Oordeel: goedgekeurd met opmerkingen. ±22 feiten/berekeningen gecontroleerd, 20 meteen correct.
-
-| ID | Ernst | Opmerking | Wat gedaan |
-|---|---|---|---|
-| FA4-1 | klein | 'waardering': "vergelijkbare holdings 22–35%" naast "GBL/Brederode (20–35%)" | verwerkt: 20–35% |
-| FA4-2 | klein | Blootstellingskaart: "180 dagen na de beursgang" klinkt als feit | verwerkt: als aanname geformuleerd, zoals in Keten |
 
 ## Open punten / meningsverschillen
